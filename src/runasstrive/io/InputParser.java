@@ -1,0 +1,14 @@
+package runasstrive.io;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class InputParser {
+    private static final String DELIMITER = ",";
+    private static final String SINGLE_ARGUMENT_REGEX = "(\\d+)";
+    private static final String MULTIPLE_ARGUMENTS_REGEX = SINGLE_ARGUMENT_REGEX + "(," + SINGLE_ARGUMENT_REGEX + ")*";
+
+    public List<String> getArgumentList(String inputString) {
+        return inputString.matches(MULTIPLE_ARGUMENTS_REGEX) ? Arrays.asList(inputString.split(DELIMITER)) : null;
+    }
+}
