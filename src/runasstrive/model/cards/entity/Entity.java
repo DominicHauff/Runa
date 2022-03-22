@@ -2,9 +2,10 @@ package runasstrive.model.cards.entity;
 
 import runasstrive.model.Level;
 import runasstrive.model.cards.Card;
+import runasstrive.model.cards.entity.type.CharacterType;
 
 public abstract class Entity <T> extends Card {
-    protected final T type;
+    protected T type;
     protected int hp;
     protected int fp;
     protected int physicalShield;
@@ -14,10 +15,14 @@ public abstract class Entity <T> extends Card {
     protected boolean increaseFp;
 
 
-    protected Entity(Level level, T type, int hp) {
+    protected Entity(Level level, int hp) {
         super(level);
-        this.type = type;
+        this.type = null;
         this.hp = hp;
+    }
+
+    public void setType(T type) {
+        this.type = type;
     }
 
     public T getType() {

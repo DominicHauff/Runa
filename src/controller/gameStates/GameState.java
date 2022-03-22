@@ -1,4 +1,4 @@
-package controller;
+package controller.gameStates;
 
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
@@ -15,10 +15,9 @@ public abstract class GameState {
     }
 
     public String getResponse() {
-        return response;
+        return this.response;
     }
 
     public abstract boolean execute(ParameterBundle parameterBundle);
     public abstract List<Parameter<?>> getParameters();
-    public abstract String getOpening();
 }

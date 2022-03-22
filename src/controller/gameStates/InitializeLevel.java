@@ -1,9 +1,9 @@
-package controller;
+package controller.gameStates;
 
+import controller.gameStates.GameState;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
-import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
@@ -26,10 +26,5 @@ public class InitializeLevel extends GameState {
     @Override
     public List<Parameter<?>> getParameters() {
         return PARAMETER_LIST;
-    }
-
-    @Override
-    public String getOpening() {
-        return Messages.INIT_LEVEL_OPENING;
     }
 }

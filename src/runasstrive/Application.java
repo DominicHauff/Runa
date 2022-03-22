@@ -1,11 +1,17 @@
 package runasstrive;
 
+import controller.Controller;
+import controller.GameStateSupplier;
+import runasstrive.io.InputParser;
+import runasstrive.model.RunasStrive;
+
 public class Application {
     public static void main(String[] args) {
-        if (args.length != 0){
-            //TODO: output error message
-            return;
+        if (args.length == 0) {
+            RunasStrive runasStrive = new GameBuilder().buildGame();
+            Controller controller = new Controller(runasStrive, new GameStateSupplier(runasStrive));
+            InputParser inputParser = new InputParser();
+            new Session(inputParser, controller).runGame();
         }
-
     }
 }

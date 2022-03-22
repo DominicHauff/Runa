@@ -2,6 +2,7 @@ package runasstrive;
 
 import controller.Controller;
 import runasstrive.io.InputParser;
+import runasstrive.io.resources.Messages;
 
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Session {
     }
 
     public void runGame() {
-        //TODO: System.out.println(Messages.OPENING);
+        System.out.println(Messages.OPENING);
         while (this.running) {
             this.processInput();
         }
