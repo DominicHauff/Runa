@@ -9,9 +9,14 @@ import java.util.List;
 public abstract class GameState {
     protected final RunasStrive runasStrive;
     protected String response;
+    protected String prompt;
 
     protected GameState(RunasStrive runasStrive) {
         this.runasStrive = runasStrive;
+    }
+
+    public String getPrompt() {
+        return this.prompt;
     }
 
     public String getResponse() {

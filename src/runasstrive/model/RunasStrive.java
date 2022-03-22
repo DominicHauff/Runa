@@ -10,15 +10,19 @@ import java.util.Stack;
 
 public class RunasStrive {
     private final DieBag dieBag;
-    private final Stack<Ability> deck;
+    private final Stack<Ability> abilities;
     private final Player runa;
     private GameLevel currentLevel;
     private Die die;
 
-    public RunasStrive(DieBag dieBag, Stack<Ability> deck, Player runa) {
+    public RunasStrive(DieBag dieBag, Stack<Ability> abilities, Player runa) {
         this.dieBag = dieBag;
-        this.deck = deck;
+        this.abilities = abilities;
         this.runa = runa;
+    }
+
+    public void shuffleCards(int firstSeed, int secondSeed) {
+
     }
 
     public void playCard(int cardIndex) {
@@ -36,5 +40,9 @@ public class RunasStrive {
     public void getNextDie() {
         //TODO: complete implementation
         this.die = this.dieBag.getNextDie();
+    }
+
+    public Player getRuna() {
+        return runa;
     }
 }

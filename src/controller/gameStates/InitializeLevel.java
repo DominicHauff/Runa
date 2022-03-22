@@ -4,6 +4,7 @@ import controller.gameStates.GameState;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
@@ -15,6 +16,8 @@ public class InitializeLevel extends GameState {
 
     public InitializeLevel(RunasStrive runasStrive) {
         super(runasStrive);
+        this.prompt = Messages.ENTER_SEEDS_PROMPT;
+        this.response = null;
     }
 
     @Override

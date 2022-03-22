@@ -19,7 +19,7 @@ public class Session {
     }
 
     public void runGame() {
-        System.out.println(Messages.OPENING);
+        System.out.print(Messages.OPENING);
         while (this.running) {
             this.processInput();
         }
@@ -30,12 +30,16 @@ public class Session {
     }
 
     private void processInput() {
+        String prompt = this.controller.getPrompt();
+        System.out.print(prompt);
         final String input = new Scanner(System.in).nextLine();
         if (input.equals(QUIT_COMMAND)) {
             this.quit();
             return;
         }
         String response = controller.interact(inputParser.getArgumentList(input));
-        System.out.println(response);
+        if (response != null) {
+            System.out.print(response);
+        }
     }
 }

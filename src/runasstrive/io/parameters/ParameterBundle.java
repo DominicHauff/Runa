@@ -3,10 +3,10 @@ package runasstrive.io.parameters;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ParameterBundle {
+public class ParameterBundle {
     private final Map<Parameter<?>, Object> parameters;
 
-    protected ParameterBundle() {
+    public ParameterBundle() {
         this.parameters = new HashMap<>();
     }
 

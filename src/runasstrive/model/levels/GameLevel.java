@@ -14,5 +14,4 @@ public class GameLevel {
         if (this.stages.peek().cleared()) this.stages.pop();
         return this.stages.peek();
     }
-
 }

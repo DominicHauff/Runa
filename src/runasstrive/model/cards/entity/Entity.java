@@ -14,6 +14,11 @@ public abstract class Entity <T> extends Card {
     protected int reflectMagicalDamage;
     protected boolean increaseFp;
 
+    protected Entity(Level level, T type,  int hp) {
+        super(level);
+        this.type = type;
+        this.hp = hp;
+    }
 
     protected Entity(Level level, int hp) {
         super(level);
