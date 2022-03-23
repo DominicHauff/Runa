@@ -1,14 +1,14 @@
-package runasstrive.controller.gameStates;
+package runasstrive.controller.gamestates.afterfight;
 
+import runasstrive.controller.gamestates.GameState;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
 
-public class GameOver extends GameState{
-
-    protected GameOver(RunasStrive runasStrive) {
+public class Heal extends GameState {
+    protected Heal(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

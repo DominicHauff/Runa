@@ -1,5 +1,6 @@
-package runasstrive.controller.gameStates;
+package runasstrive.controller.gamestates.fight;
 
+import runasstrive.controller.gamestates.GameState;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;

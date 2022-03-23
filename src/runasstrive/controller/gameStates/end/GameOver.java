@@ -1,13 +1,15 @@
-package runasstrive.controller.gameStates;
+package runasstrive.controller.gamestates.end;
 
+import runasstrive.controller.gamestates.GameState;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
 
-public class UpgradeAbilities extends GameState {
-    protected UpgradeAbilities(RunasStrive runasStrive) {
+public class GameOver extends GameState {
+
+    protected GameOver(RunasStrive runasStrive) {
         super(runasStrive);
     }
 
