@@ -7,6 +7,8 @@ import runasstrive.model.cards.entity.Entity;
 
 public abstract class Ability extends Card {
     protected final int cost;
+    protected final boolean requiresTarget;
+    protected final boolean requiresDieRoll;
     protected int physicalDamage;
     protected int magicalDamage;
     protected int reflectPhysicalDamage;
@@ -17,9 +19,12 @@ public abstract class Ability extends Card {
     protected boolean breakFocus;
 
 
-    protected Ability(String name, Level level, int cost) {
+
+    protected Ability(String name, Level level, int cost, boolean requiresTarget, boolean requiresDieRoll) {
         super(name, level);
         this.cost = cost;
+        this.requiresTarget = requiresTarget;
+        this.requiresDieRoll = requiresDieRoll;
     }
 
     public void use(Entity<?> caster, Entity<?> target) {
@@ -32,12 +37,25 @@ public abstract class Ability extends Card {
         target.breakFocus(breakFocus);
     }
 
-    public abstract void initValues();
+    public void use(Entity<?> caster) {
+        initValues();
+        caster.shield(physicalShield, magicalShield);
+        caster.reflect(reflectPhysicalDamage, reflectMagicalDamage);
+        caster.focus(willIncreaseFocusPoints);
+    }
 
-    public abstract int getDamage(Class<?> caller);
+    public abstract void initValues();
 
     @Override
     public String toString() {
         return String.format(Messages.ABILITY_NAME, this.getName(), this.level.getValue());
+    }
+
+    public boolean targetRequired() {
+        return requiresTarget;
+    }
+
+    public boolean dieRollRequired() {
+        return requiresDieRoll;
     }
 }

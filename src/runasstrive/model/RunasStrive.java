@@ -1,6 +1,8 @@
 package runasstrive.model;
 
 import runasstrive.model.cards.ablilities.Ability;
+import runasstrive.model.cards.entity.Entity;
+import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.dice.Die;
 import runasstrive.model.dice.DieBag;
@@ -30,8 +32,25 @@ public class RunasStrive {
         return this.levels.peek();
     }
 
-    public void playCard(int cardIndex) {
-        //TODO: implement
+    public Ability pickCard(int choice) {
+        return this.player.chooseCard(choice);
+    }
+
+    public boolean playCard(Ability card, Entity<?> target, int dieRoll) {
+        return false;
+    }
+
+    public boolean playCard(Ability card, Entity<?> target) {
+        return false;
+    }
+
+    public boolean playCard(Ability card) {
+        return false;
+    }
+
+    public boolean requiresTargetChoice() {
+        final int numberOfAliveTargets = this.getCurrentLevel().getCurrentStage().getAliveMonsters().size();
+        return numberOfAliveTargets > 1;
     }
 
     public void rollDie(int dieRes) {

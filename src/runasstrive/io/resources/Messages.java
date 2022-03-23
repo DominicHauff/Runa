@@ -26,6 +26,8 @@ public final class Messages {
 
     public static final String ABILITY_NAME = "%s(%d)";
 
+    public static final String ABILITY_LIST_ELEMENT = "%d) %s";
+
     public static final String PLAYER_STATS = "%s (%d/50 HP, %d/4 FP)";
 
     public static final String MONSTER_STATS = "%s (%d HP, %d FP): attempts %s next";

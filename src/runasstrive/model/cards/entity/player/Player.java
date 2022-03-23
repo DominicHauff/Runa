@@ -2,6 +2,7 @@ package runasstrive.model.cards.entity.player;
 
 import runasstrive.io.resources.Messages;
 import runasstrive.model.Level;
+import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.type.CharacterType;
 
@@ -16,5 +17,9 @@ public class Player extends Entity<CharacterType> {
     @Override
     public String toString() {
         return String.format(Messages.PLAYER_STATS, this.getName(), this.getHp(), this.getFp());
+    }
+
+    public Ability chooseCard(int index) {
+        return this.getAbilities().size() <= index ? null : this.getAbilities().get(index);
     }
 }

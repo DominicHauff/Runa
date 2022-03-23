@@ -7,11 +7,12 @@ import runasstrive.model.RunasStrive;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class Controller {
     private final RunasStrive runasStrive;
     private final GameStateSupplier gameStateSupplier;
-    private final LinkedList<GameState> gameStates;
+    private final Map<Class<? extends GameState>, GameState> gameStates;
     private GameState currentGameState;
     private boolean lastInputFaulty;
 
@@ -19,7 +20,6 @@ public class Controller {
         this.runasStrive = runasStrive;
         this.gameStateSupplier = gameStateSupplier;
         this.gameStates = gameStateSupplier.getGameStates();
-        this.setNextGameState();
         this.lastInputFaulty = false;
     }
 
@@ -42,23 +42,11 @@ public class Controller {
         }
         if (this.currentGameState.execute(bundle)) {
             String response = currentGameState.getResponse();
-            this.setNextGameState();
+            //TODO: find next state
             this.lastInputFaulty = false;
             return response;
         }
         this.lastInputFaulty = true;
         return null;
-    }
-
-    private void setNextGameState() {
-        //TODO: implement pointer from one gamestate to the next
-        if (this.currentGameState == null) {
-            this.currentGameState = this.gameStates.getFirst();
-            this.gameStates.remove(currentGameState);
-        } else {
-            this.gameStates.remove(currentGameState);
-            this.gameStates.addLast(currentGameState);
-            this.currentGameState = this.gameStates.getFirst();
-        }
     }
 }

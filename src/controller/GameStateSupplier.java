@@ -1,24 +1,19 @@
 package controller;
 
-import controller.gameStates.ChooseCharacterClass;
 import controller.gameStates.GameState;
-import controller.gameStates.InitializeLevel;
 import runasstrive.model.RunasStrive;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GameStateSupplier {
-    private final LinkedList<GameState> gameStates;
+    private final Map<Class<? extends GameState>, GameState> gameStates;
 
     public GameStateSupplier(RunasStrive runasStrive) {
-        this.gameStates = new LinkedList<>(List.of(
-                new ChooseCharacterClass(runasStrive),
-                new InitializeLevel(runasStrive)
-        ));
+        this.gameStates = new HashMap<>();
     }
 
-    public LinkedList<GameState> getGameStates() {
+    public Map<Class<? extends GameState>, GameState> getGameStates() {
         return this.gameStates;
     }
 }

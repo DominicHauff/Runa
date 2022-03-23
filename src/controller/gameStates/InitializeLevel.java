@@ -43,4 +43,9 @@ public class InitializeLevel extends GameState {
     public List<Parameter<?>> getParameters() {
         return PARAMETER_LIST;
     }
+
+    @Override
+    public Class<? extends GameState> getNext() {
+        return null;
+    }
 }
