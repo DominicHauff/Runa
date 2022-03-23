@@ -4,6 +4,7 @@ import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
+import runasstrive.model.cards.ablilities.Ability;
 
 import java.util.List;
 
@@ -31,7 +32,10 @@ public class Fight extends GameState {
 
     @Override
     public String repeatPrompt() {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        List<Ability> abilities = this.runasStrive.getPlayer().getAbilities();
+        abilities.forEach(ability -> stringBuilder.append(abilities.toString()).append(System.lineSeparator()));
+        return stringBuilder.toString();
     }
 
     @Override

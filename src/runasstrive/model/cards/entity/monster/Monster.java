@@ -10,18 +10,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Monster extends Entity<MonsterType> {
-    private final LinkedList<Ability> attacks;
 
-    public Monster(String name, int hp, Level level, MonsterType type, List<Ability> attacks) {
-        super(level, name, hp);
+    public Monster(String name, int hp, Level level, MonsterType type, List<Ability> abilities) {
+        super(level, name, hp, abilities);
         this.hp = hp;
-        this.attacks = new LinkedList<>(attacks);
         this.setType(type);
     }
 
     @Override
     public String toString() {
         return String.format(Messages.MONSTER_STATS,
-                this.getName(), this.getHp(), this.getFp(), this.attacks.getFirst().toString());
+                this.getName(), this.getHp(), this.getFp(), this.abilities.getFirst().toString());
     }
 }

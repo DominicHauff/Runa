@@ -2,21 +2,29 @@ package runasstrive.model.cards.entity;
 
 import runasstrive.model.Level;
 import runasstrive.model.cards.Card;
+import runasstrive.model.cards.ablilities.Ability;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 public abstract class Entity <T> extends Card {
     protected T type;
     protected int hp;
     protected int fp;
+    protected final LinkedList<Ability> abilities;
     protected int physicalShield;
     protected int magicalShield;
     protected int reflectPhysicalDamage;
     protected int reflectMagicalDamage;
     protected boolean increaseFp;
 
-    protected Entity(Level level, String name, int hp) {
+    protected Entity(Level level, String name, int hp, List<Ability> abilities) {
         super(name, level);
         this.type = null;
         this.hp = hp;
+        this.abilities = new LinkedList<>(abilities);
     }
 
     public void setType(T type) {
@@ -63,5 +71,9 @@ public abstract class Entity <T> extends Card {
 
     public void breakFocus(boolean breakFocus) {
         if (breakFocus) this.increaseFp = false;
+    }
+
+    public List<Ability> getAbilities() {
+        return this.abilities;
     }
 }
