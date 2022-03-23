@@ -1,6 +1,8 @@
 package runasstrive.io.resources;
 
-public abstract class Messages {
+public final class Messages {
+    private Messages() {}
+
     public static final String ERROR = "This application can not be executed with any parameters.";
 
     public static final String OPENING = """
@@ -16,9 +18,20 @@ public abstract class Messages {
             Enter seeds [1--2147483647] separated by comma:
             """;
 
-    public static String getEnterNumberPrompt(int[] range) {
-        final int start = range[0];
-        final int end = range[1];
-        return String.format("Enter number [%d--%d]:\n", start, end);
-    }
+    public static final String ENTER_NUMBER_PROMPT = "Enter number [1--%d]:\n";
+
+    public static final String STAGE_ENTER_MESSAGE = "Runa enters Stage %d of Level %d\n";
+
+    public static final String SEPARATOR = "----------------------------------------";
+
+    public static final String ABILITY_NAME = "%s(%d)";
+
+    public static final String PLAYER_STATS = "%s (%d/50 HP, %d/4 FP)";
+
+    public static final String MONSTER_STATS = "%s (%d HP, %d FP): attempts %s next";
+
+    public static final String VS = "vs.";
+
+    public static final String SELECT_CARD_MESSAGE = "Select card to play";
+
 }

@@ -4,7 +4,6 @@ import runasstrive.model.Level;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.player.Player;
-import runasstrive.model.cards.entity.player.Runa;
 import runasstrive.model.dice.Die;
 import runasstrive.model.dice.DieBag;
 
@@ -16,7 +15,7 @@ public class GameBuilder {
     private final Stack<Die> dice;
     private final DieBag dieBag;
     private final Stack<Ability> deck;
-    private final Player runa;
+    //private final Player player;
 
     public GameBuilder() {
         this.deckSupplier = new DeckSupplier();
@@ -24,10 +23,11 @@ public class GameBuilder {
         this.dice = dieSupplier.getDice();
         this.dieBag = new DieBag(this.dice);
         this.deck = deckSupplier.getDeck();
-        this.runa = new Runa(Level.LEVEL_ONE, 50);
+        //this.player = new Player(Level.LEVEL_ONE, 50);
     }
 
     public RunasStrive buildGame() {
-        return new RunasStrive(this.dieBag, this.deck, this.runa);
+        //TODO: game levels, player argument
+        return new RunasStrive(this.dieBag, this.deck, null, null);
     }
 }

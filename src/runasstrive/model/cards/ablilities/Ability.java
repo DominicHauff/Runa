@@ -1,5 +1,6 @@
 package runasstrive.model.cards.ablilities;
 
+import runasstrive.io.resources.Messages;
 import runasstrive.model.Level;
 import runasstrive.model.cards.Card;
 import runasstrive.model.cards.entity.Entity;
@@ -16,8 +17,8 @@ public abstract class Ability extends Card {
     protected boolean breakFocus;
 
 
-    protected Ability(Level level, int cost) {
-        super(level);
+    protected Ability(String name, Level level, int cost) {
+        super(name, level);
         this.cost = cost;
     }
 
@@ -34,4 +35,9 @@ public abstract class Ability extends Card {
     public abstract void initValues();
 
     public abstract int getDamage(Class<?> caller);
+
+    @Override
+    public String toString() {
+        return String.format(Messages.ABILITY_NAME, this.getName(), this.level.getValue());
+    }
 }

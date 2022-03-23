@@ -1,12 +1,17 @@
 package runasstrive.model.cards.entity.player;
 
+import runasstrive.io.resources.Messages;
 import runasstrive.model.Level;
 import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.type.CharacterType;
 
 public class Player extends Entity<CharacterType> {
-    public Player(Level level, int hp) {
-        super(level, hp);
+    public Player(String name, Level level, int hp) {
+        super(level, name, hp);
     }
 
+    @Override
+    public String toString() {
+        return String.format(Messages.PLAYER_STATS, this.getName(), this.getHp(), this.getFp());
+    }
 }

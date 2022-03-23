@@ -6,7 +6,7 @@ import runasstrive.model.RunasStrive;
 
 import java.util.List;
 
-public class OptionalGameState extends GameState {
+public abstract class OptionalGameState extends GameState {
     protected boolean isActive;
 
     protected OptionalGameState(RunasStrive runasStrive) {

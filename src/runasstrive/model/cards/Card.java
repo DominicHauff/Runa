@@ -3,10 +3,17 @@ package runasstrive.model.cards;
 import runasstrive.model.Level;
 
 public abstract class Card {
-    //TODO: add attributes like name and methods like toString
+    protected final String name;
     protected final Level level;
 
-    protected Card(Level level) {
+    protected Card(String name, Level level) {
+        this.name = name;
         this.level = level;
     }
+
+    protected String getName() {
+        return this.name;
+    }
+
+    public abstract String toString();
 }
