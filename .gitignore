@@ -1,3 +1,4 @@
 /Runa.iml
-*.class
+/out/
+*.iml
 .idea
