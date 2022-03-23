@@ -22,11 +22,13 @@ public final class Messages {
 
     public static final String STAGE_ENTER_MESSAGE = "Runa enters Stage %d of Level %d\n";
 
+    public static final String SELECT_TARGET_MESSAGE = "Select Runa's target.";
+
     public static final String SEPARATOR = "----------------------------------------";
 
     public static final String ABILITY_NAME = "%s(%d)";
 
-    public static final String ABILITY_LIST_ELEMENT = "%d) %s";
+    public static final String LIST_ELEMENT = "%d) %s";
 
     public static final String PLAYER_STATS = "%s (%d/50 HP, %d/4 FP)";
 

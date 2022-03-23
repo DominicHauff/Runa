@@ -11,7 +11,7 @@ public abstract class Card {
         this.level = level;
     }
 
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 

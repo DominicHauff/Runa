@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class Player extends Entity<CharacterType> {
+    private Ability cardToPlay;
     public Player(String name, Level level, int hp) {
         super(level, name, hp, Collections.emptyList());
     }
@@ -19,7 +20,11 @@ public class Player extends Entity<CharacterType> {
         return String.format(Messages.PLAYER_STATS, this.getName(), this.getHp(), this.getFp());
     }
 
-    public Ability chooseCard(int index) {
-        return this.getAbilities().size() <= index ? null : this.getAbilities().get(index);
+    public void chooseCard(int index) {
+        this.cardToPlay = this.getAbilities().size() <= index ? null : this.getAbilities().get(index);
+    }
+
+    public Ability getCardToPlay() {
+        return cardToPlay;
     }
 }

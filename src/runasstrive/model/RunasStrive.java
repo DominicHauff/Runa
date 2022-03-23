@@ -8,9 +8,7 @@ import runasstrive.model.dice.Die;
 import runasstrive.model.dice.DieBag;
 import runasstrive.model.levels.GameLevel;
 
-import java.util.Collections;
-import java.util.Random;
-import java.util.Stack;
+import java.util.*;
 
 public class RunasStrive {
     private final DieBag dieBag;
@@ -33,7 +31,8 @@ public class RunasStrive {
     }
 
     public Ability pickCard(int choice) {
-        return this.player.chooseCard(choice);
+        this.player.chooseCard(choice);
+        return this.player.getCardToPlay();
     }
 
     public boolean playCard(Ability card, Entity<?> target, int dieRoll) {
@@ -51,6 +50,10 @@ public class RunasStrive {
     public boolean requiresTargetChoice() {
         final int numberOfAliveTargets = this.getCurrentLevel().getCurrentStage().getAliveMonsters().size();
         return numberOfAliveTargets > 1;
+    }
+
+    public List<Monster> getPossibleTargets() {
+        return new ArrayList<>(this.getCurrentLevel().getCurrentStage().getAliveMonsters());
     }
 
     public void rollDie(int dieRes) {

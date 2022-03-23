@@ -2,9 +2,11 @@ package controller.gameStates;
 
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class ChooseTarget extends GameState {
     protected ChooseTarget(RunasStrive runasStrive) {
@@ -13,12 +15,20 @@ public class ChooseTarget extends GameState {
 
     @Override
     public String getPrompt() {
-        return null;
+        StringBuilder targetStringBuilder = new StringBuilder();
+        targetStringBuilder.append(Messages.SELECT_TARGET_MESSAGE).append(System.lineSeparator());
+        IntStream.range(0, this.runasStrive.getPossibleTargets().size())
+                .forEach(i -> {
+                    targetStringBuilder.append(String.format(Messages.LIST_ELEMENT,
+                            i + 1, this.runasStrive.getPossibleTargets().get(i)));
+                });
+        targetStringBuilder.append(this.repeatPrompt());
+        return targetStringBuilder.toString();
     }
 
     @Override
     public String repeatPrompt() {
-        return null;
+        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPossibleTargets().size());
     }
 
     @Override

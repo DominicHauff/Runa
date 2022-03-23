@@ -20,6 +20,7 @@ public class ChooseAbility extends GameState {
 
     @Override
     public String getPrompt() {
+        //TODO: clean up
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder
                 .append(Messages.SEPARATOR).append(System.lineSeparator())
@@ -30,24 +31,23 @@ public class ChooseAbility extends GameState {
                 monsterStringBuilder.append(monster.toString()).append(System.lineSeparator()));
         stringBuilder
                 .append(monsterStringBuilder.toString()).append(System.lineSeparator())
-                .append(Messages.SEPARATOR).append(System.lineSeparator())
-                .append(this.repeatPrompt());
+                .append(Messages.SEPARATOR).append(System.lineSeparator());
+        List<Ability> abilities = this.runasStrive.getPlayer().getAbilities();
+
+        for (int i = 0; i < abilities.size(); i++) {
+            stringBuilder
+                    //TODO: remove magic number
+                    .append(String.format(Messages.LIST_ELEMENT, i + 1, abilities.get(i).toString()))
+                    .append(System.lineSeparator());
+        }
+        stringBuilder.append(this.repeatPrompt());
         return stringBuilder.toString();
     }
 
     @Override
     public String repeatPrompt() {
-        StringBuilder stringBuilder = new StringBuilder();
-        List<Ability> abilities = this.runasStrive.getPlayer().getAbilities();
-        stringBuilder
-                .append(String.format(Messages.ENTER_NUMBER_PROMPT, abilities.size())).append(System.lineSeparator());
-        for (int i = 0; i < abilities.size(); i++) {
-            stringBuilder
-                    //TODO: remove magic number
-                    .append(String.format(Messages.ABILITY_LIST_ELEMENT, i + 1, abilities.get(i).toString()))
-                    .append(System.lineSeparator());
-        }
-        return stringBuilder.toString();
+        return String.format(Messages.ENTER_NUMBER_PROMPT,
+                this.runasStrive.getPlayer().getAbilities().size()) + System.lineSeparator();
     }
 
     @Override
