@@ -1,6 +1,6 @@
-package controller;
+package runasstrive.controller;
 
-import controller.gameStates.GameState;
+import runasstrive.controller.gameStates.GameState;
 import runasstrive.model.RunasStrive;
 
 import java.util.HashMap;

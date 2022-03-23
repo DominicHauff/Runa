@@ -1,11 +1,10 @@
-package controller;
+package runasstrive.controller;
 
-import controller.gameStates.GameState;
+import runasstrive.controller.gameStates.GameState;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 

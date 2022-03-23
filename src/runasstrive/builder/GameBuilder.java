@@ -1,5 +1,7 @@
-package runasstrive;
+package runasstrive.builder;
 
+import runasstrive.DeckSupplier;
+import runasstrive.DieSupplier;
 import runasstrive.model.Level;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;

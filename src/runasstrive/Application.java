@@ -1,7 +1,8 @@
 package runasstrive;
 
-import controller.Controller;
-import controller.GameStateSupplier;
+import runasstrive.builder.GameBuilder;
+import runasstrive.controller.Controller;
+import runasstrive.controller.GameStateSupplier;
 import runasstrive.io.InputParser;
 import runasstrive.model.RunasStrive;
 

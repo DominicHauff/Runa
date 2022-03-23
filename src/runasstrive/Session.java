@@ -1,6 +1,6 @@
 package runasstrive;
 
-import controller.Controller;
+import runasstrive.controller.Controller;
 import runasstrive.io.InputParser;
 import runasstrive.io.resources.Messages;
 
