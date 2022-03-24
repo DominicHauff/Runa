@@ -69,7 +69,7 @@ public abstract class Entity<T> extends Card {
         return this.reflectPhysicalDamage;
     }
 
-    public int getReflectedMagicalDamage() {
+    public int getReflectMagicDamage() {
         return this.reflectMagicDamage;
     }
 
