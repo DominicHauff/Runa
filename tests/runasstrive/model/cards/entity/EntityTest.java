@@ -4,7 +4,6 @@ import mockingobjects.TestMonsterBuilder;
 import mockingobjects.TestPlayerBuilder;
 import org.junit.jupiter.api.Test;
 import runasstrive.model.cards.entity.monster.Monster;
-import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.cards.entity.type.MonsterType;
 
@@ -37,19 +36,40 @@ class EntityTest {
         assertEquals(0, monster.getFp());
         Entity<CharacterType> player = new TestPlayerBuilder().createTestPlayer();
         assertEquals(1, player.getFp());
+
     }
 
     @Test
     void shield() {
-
+        Entity<CharacterType> player = new TestPlayerBuilder().createTestPlayer();
+        player.shield(15, 42);
+        assertEquals(15, player.physicalShield);
+        assertEquals(42, player.magicShield);
     }
 
     @Test
     void reflect() {
+        Entity<CharacterType> player = new TestPlayerBuilder().createTestPlayer();
+        player.reflect(10, 10);
+        assertEquals(10, player.reflectPhysicalDamage);
+        assertEquals(10, player.reflectMagicDamage);
     }
 
     @Test
     void takeDamage() {
+        Entity<CharacterType> player = new TestPlayerBuilder().setHp(10).createTestPlayer();
+        player.physicalShield = 0;
+        player.magicShield = 0;
+        player.reflectMagicDamage = 0;
+        player.reflectPhysicalDamage = 0;
+        player.takeDamage(0, 4);
+        assertEquals(6, player.hp);
+        player.takeDamage(3, 0);
+        assertEquals(3, player.hp);
+        player.takeDamage(2, 1);
+        assertEquals(0, player.hp);
+        player.takeDamage(12, 100);
+        assertEquals();
     }
 
     @Test
