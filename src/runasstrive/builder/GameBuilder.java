@@ -13,7 +13,7 @@ public class GameBuilder {
     private final DieSupplier dieSupplier;
     private final DeckSupplier deckSupplier;
     private final Stack<Die> dice;
-    private final DieBag dieBag;
+    private final Stack<Die> dieBag;
     private final Stack<Ability> deck;
     //private final Player player;
 
@@ -21,7 +21,7 @@ public class GameBuilder {
         this.deckSupplier = new DeckSupplier();
         this.dieSupplier = new DieSupplier();
         this.dice = dieSupplier.getDice();
-        this.dieBag = new DieBag(this.dice);
+        this.dieBag = new Stack<>();
         this.deck = deckSupplier.getDeck();
         //this.player = new Player(Level.LEVEL_ONE, 50);
     }

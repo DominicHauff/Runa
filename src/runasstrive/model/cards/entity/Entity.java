@@ -63,7 +63,6 @@ public abstract class Entity<T> extends Card {
             this.takenMagicDamage = magicDamage - this.magicShield;
             this.hp -= this.takenMagicDamage;
         }
-
     }
 
     public int getReflectedPhysicalDamage() {
@@ -74,8 +73,12 @@ public abstract class Entity<T> extends Card {
         return this.reflectMagicDamage;
     }
 
-    public void focus(boolean willIncreaseFocusPoints) {
+    public void setFocus(boolean willIncreaseFocusPoints) {
         this.increaseFp = willIncreaseFocusPoints;
+    }
+
+    private void focus(int level) {
+
     }
 
     public void breakFocus(boolean breakFocus) {
