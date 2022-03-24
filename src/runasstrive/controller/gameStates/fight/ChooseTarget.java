@@ -1,15 +1,20 @@
 package runasstrive.controller.gamestates.fight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.io.parameters.CardIndexParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
+import runasstrive.model.cards.ablilities.Ability;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class ChooseTarget extends GameState {
+    private static final CardIndexParameter CHOICE = new CardIndexParameter();
+    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
+
     public ChooseTarget(RunasStrive runasStrive) {
         super(runasStrive);
     }
@@ -19,10 +24,8 @@ public class ChooseTarget extends GameState {
         StringBuilder targetStringBuilder = new StringBuilder();
         targetStringBuilder.append(Messages.SELECT_TARGET_MESSAGE).append(System.lineSeparator());
         IntStream.range(0, this.runasStrive.getPossibleTargets().size())
-                .forEach(i -> {
-                    targetStringBuilder.append(String.format(Messages.LIST_ELEMENT,
-                            i + 1, this.runasStrive.getPossibleTargets().get(i)));
-                });
+                .forEach(i -> targetStringBuilder.append(String.format(
+                        Messages.LIST_ELEMENT, i + 1, this.runasStrive.getPossibleTargets().get(i))));
         targetStringBuilder.append(this.repeatPrompt());
         return targetStringBuilder.toString();
     }
@@ -34,16 +37,22 @@ public class ChooseTarget extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
-        return false;
+        final int choice = parameterBundle.get(CHOICE);
+        if (!this.runasStrive.pickTarget(choice)) {
+            return false;
+        }
+        final Ability cardToPlay = this.runasStrive.getCardToPlay();
+        if (cardToPlay.dieRollRequired()) {
+            this.nextGameState = RollDie.class;
+        } else {
+            this.nextGameState = UseAbility.class;
+        }
+        return true;
     }
 
     @Override
     public List<Parameter<?>> getParameters() {
-        return null;
+        return PARAMETERS;
     }
 
-    @Override
-    public Class<? extends GameState> getNext() {
-        return null;
-    }
 }

@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.init;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.controller.gamestates.fight.ChooseAbility;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.parameters.SeedParameter;
@@ -37,6 +38,7 @@ public class InitializeLevel extends GameState {
         final GameLevel level = this.runasStrive.shuffleCards(firstSeed, secondSeed);
         this.response = String.format(Messages.STAGE_ENTER_MESSAGE,
                 level.getLevel().getValue(), level.getCurrentStage().getStageNumber());
+        this.nextGameState = ChooseAbility.class;
         return true;
     }
 
@@ -45,8 +47,4 @@ public class InitializeLevel extends GameState {
         return PARAMETER_LIST;
     }
 
-    @Override
-    public Class<? extends GameState> getNext() {
-        return null;
-    }
 }
