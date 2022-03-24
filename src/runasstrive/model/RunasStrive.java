@@ -14,17 +14,12 @@ public class RunasStrive {
     private final Stack<Ability> deck;
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
-    private List<Stack<?>> rewards;
 
     public RunasStrive(Stack<Die> dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
         this.deck = abilities;
         this.player = player;
         this.levels = levels;
-        this.rewards = new ArrayList<>(List.of(
-                this.deck,
-                this.dieBag
-        ));
     }
 
     public GameLevel shuffleCards(int firstSeed, int secondSeed) {
