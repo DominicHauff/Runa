@@ -15,9 +15,6 @@ public class RunasStrive {
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
     private boolean gameWon;
-    private Ability cardToPlay;
-    private Monster target;
-    private int dieRes;
 
     public RunasStrive(Stack<Die> dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
@@ -34,24 +31,22 @@ public class RunasStrive {
     }
 
     public Ability pickCard(int choice) {
-        this.cardToPlay = this.player.chooseCard(choice);
-        return this.cardToPlay;
+        return this.player.chooseCard(choice);
     }
 
     public boolean rollDie(int dieRes) {
-        this.dieRes = dieRes;
+        this.player.setDieRes(dieRes);
         return this.getCurrentDie().throwDie(dieRes);
     }
 
     public boolean pickTarget(int choice) {
         if (this.getPossibleTargets().size() <= choice) return false;
-        this.target = this.getPossibleTargets().get(choice);
+        this.player.setTarget(this.getPossibleTargets().get(choice));
         return true;
     }
 
     public void startFight() {
-        //TODO: implement
-
+        this.getCurrentLevel().resume(this.player);
 
         if (!this.getCurrentLevel().cleared()) {
             return;
@@ -101,7 +96,7 @@ public class RunasStrive {
     }
 
     public Ability getCardToPlay() {
-        return this.cardToPlay;
+        return this.player.getCardToPlay();
     }
 
     public Die getCurrentDie() {

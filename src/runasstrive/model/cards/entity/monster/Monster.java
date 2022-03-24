@@ -21,4 +21,10 @@ public abstract class Monster extends Entity<MonsterType> {
         return String.format(Messages.MONSTER_STATS,
                 this.getName(), this.getHp(), this.getFp(), this.abilities.getFirst().toString());
     }
+
+    @Override
+    public Ability nextAbility() {
+        return this.abilities.stream().filter(ability -> ability.getCost() <= this.getFp())
+                .findFirst().orElse(null);
+    }
 }

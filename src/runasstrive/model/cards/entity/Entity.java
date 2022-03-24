@@ -18,6 +18,8 @@ public abstract class Entity<T> extends Card {
     protected int reflectPhysicalDamage;
     protected int reflectMagicalDamage;
     protected boolean increaseFp;
+    private int takenPhysicalDamage;
+    private int takenMagicalDamage;
 
     protected Entity(Level level, String name, int hp, List<Ability> abilities) {
         super(name, level);
@@ -76,7 +78,29 @@ public abstract class Entity<T> extends Card {
         return this.abilities;
     }
 
+    public abstract Ability nextAbility();
+
     public boolean isDead() {
         return this.hp <= MIN_HP;
+    }
+
+    public Ability useAbility(Entity<?> target) {
+        final Ability nextAbility = this.nextAbility();
+        nextAbility.use(target);
+        return nextAbility;
+    }
+
+    public Ability useAbility() {
+        final Ability nextAbility = this.nextAbility();
+        nextAbility.use(this);
+        return nextAbility;
+    }
+
+    public int getTakenMagicDamage() {
+        return this.takenMagicalDamage;
+    }
+
+    public int getTakenPhysicalDamage() {
+        return this.takenPhysicalDamage;
     }
 }

@@ -2,6 +2,8 @@ package runasstrive.io.resources;
 
 public final class Messages {
     public static final String ERROR = "This application can not be executed with any parameters.";
+
+    //TODO: remove hard coded list
     public static final String OPENING = """
             Welcome to Runa's Strive
             Select Runa's character class
@@ -24,8 +26,12 @@ public final class Messages {
     public static final String MONSTER_STATS = "%s (%d HP, %d FP): attempts %s next";
     public static final String VS = "vs.";
     public static final String SELECT_CARD_MESSAGE = "Select card to play";
-    public static final String RUNA_DIES = "Runa dies";
+    public static final String ENTITY_DIES = "%s dies";
     public static final String GAME_WON = "Runa won!";
+    public static final String TAKE_MAGIC_DAMAGE = "%s takes %d mag. damage";
+    public static final String TAKE_PHYSICAL_DAMAGE = "%s takes %d phy. damage";
+    public static final String ENTITY_USES_ABILITY = "%s uses %s";
+
 
     private Messages() {
     }

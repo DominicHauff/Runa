@@ -27,7 +27,7 @@ public abstract class Ability extends Card {
     }
 
     public void use(Entity<?> caster, Entity<?> target) {
-        initValues();
+        initValues(caster);
         caster.shield(physicalShield, magicalShield);
         caster.reflect(reflectPhysicalDamage, reflectMagicalDamage);
         target.takeDamage(physicalDamage, magicalDamage);
@@ -37,13 +37,13 @@ public abstract class Ability extends Card {
     }
 
     public void use(Entity<?> caster) {
-        initValues();
+        initValues(caster);
         caster.shield(physicalShield, magicalShield);
         caster.reflect(reflectPhysicalDamage, reflectMagicalDamage);
         caster.focus(willIncreaseFocusPoints);
     }
 
-    public abstract void initValues();
+    public abstract void initValues(Entity<?> caster);
 
     @Override
     public String toString() {
@@ -56,5 +56,9 @@ public abstract class Ability extends Card {
 
     public boolean dieRollRequired() {
         return requiresDieRoll;
+    }
+
+    public int getCost() {
+        return this.cost;
     }
 }
