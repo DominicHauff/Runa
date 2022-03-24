@@ -8,20 +8,18 @@ import java.util.Scanner;
 
 public class Session {
     private final InputParser inputParser;
-    private final Controller controller;
     private static final String QUIT_COMMAND = "quit";
     private boolean running;
 
-    public Session(InputParser inputParser, Controller controller) {
+    public Session(InputParser inputParser) {
         this.inputParser = inputParser;
-        this.controller = controller;
         this.running = true;
     }
 
-    public void runGame() {
+    public void runGame(Controller controller) {
         System.out.print(Messages.OPENING);
         while (this.running) {
-            this.processInput();
+            this.processInput(controller);
         }
     }
 
@@ -29,8 +27,8 @@ public class Session {
         this.running = false;
     }
 
-    private void processInput() {
-        String prompt = this.controller.getPrompt();
+    private void processInput(Controller controller) {
+        String prompt = controller.getPrompt();
         System.out.print(prompt);
         final String input = new Scanner(System.in).nextLine();
         if (input.equals(QUIT_COMMAND)) {

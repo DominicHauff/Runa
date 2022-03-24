@@ -1,5 +1,6 @@
 package runasstrive.controller;
 
+import runasstrive.Session;
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.GameStateSupplier;
 import runasstrive.io.parameters.Parameter;
@@ -12,14 +13,14 @@ import java.util.Map;
 public class Controller {
     private final RunasStrive runasStrive;
     private final GameStateSupplier gameStateSupplier;
-    private final Map<Class<? extends GameState>, GameState> gameStates;
+    private final Session session;
     private GameState currentGameState;
     private boolean lastInputFaulty;
 
-    public Controller(RunasStrive runasStrive, GameStateSupplier gameStateSupplier) {
+    public Controller(RunasStrive runasStrive,  Session session) {
         this.runasStrive = runasStrive;
-        this.gameStateSupplier = gameStateSupplier;
-        this.gameStates = gameStateSupplier.getGameStates();
+        this.gameStateSupplier = new GameStateSupplier(runasStrive);
+        this.session = session;
         this.lastInputFaulty = false;
     }
 
