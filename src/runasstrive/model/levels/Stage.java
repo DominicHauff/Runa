@@ -32,4 +32,9 @@ public class Stage {
                 .filter(monster -> monster.getHp() > 0)
                 .collect(Collectors.toList());
     }
+
+    public String getFightLog() {
+        //TODO: implement
+        return null;
+    }
 }

@@ -47,19 +47,13 @@ public class RunasStrive {
         return true;
     }
 
-    public boolean playCard(Ability card, Entity<?> target, int dieRoll) {
-        return false;
+    public void startFight() {
+        //TODO: implement
     }
 
-    public boolean playCard(Ability card, Entity<?> target) {
-        return false;
+    public String getFightLog() {
+        return this.getCurrentLevel().getCurrentStage().getFightLog();
     }
-
-    public boolean playCard(Ability card) {
-        return false;
-    }
-
-
 
     public boolean requiresTargetChoice() {
         final int numberOfAliveTargets = this.getPossibleTargets().size();
