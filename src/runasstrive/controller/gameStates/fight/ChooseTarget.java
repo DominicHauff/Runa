@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.fight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.io.parameters.CardIndexParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
@@ -44,8 +45,21 @@ public class ChooseTarget extends GameState {
         final Ability cardToPlay = this.runasStrive.getCardToPlay();
         if (cardToPlay.dieRollRequired()) {
             this.nextGameState = RollDie.class;
+            this.response = null;
         } else {
-            this.nextGameState = UseAbility.class;
+            this.runasStrive.startFight();
+            this.response = this.runasStrive.getFightLog();
+            if (this.runasStrive.gameOver()) {
+                this.response += System.lineSeparator() + Messages.RUNA_DIES + System.lineSeparator();
+                this.nextGameState = null;
+            } else if (this.runasStrive.gameWon()) {
+                this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
+                this.nextGameState = null;
+            } else if (this.runasStrive.isLevelCleared()) {
+                this.nextGameState = ChooseReward.class;
+            } else {
+                this.nextGameState = ChooseAbility.class;
+            }
         }
         return true;
     }

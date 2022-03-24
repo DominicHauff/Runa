@@ -14,6 +14,7 @@ public class RunasStrive {
     private final Stack<Ability> deck;
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
+    private boolean gameWon;
     private Ability cardToPlay;
     private Monster target;
     private int dieRes;
@@ -23,6 +24,7 @@ public class RunasStrive {
         this.deck = abilities;
         this.player = player;
         this.levels = levels;
+        this.gameWon = false;
     }
 
     public GameLevel shuffleCards(int firstSeed, int secondSeed) {
@@ -49,11 +51,20 @@ public class RunasStrive {
 
     public void startFight() {
         //TODO: implement
+
+
+        if (!this.getCurrentLevel().cleared()) {
+            return;
+        }
+        if (this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL) && this.getCurrentLevel().cleared()) {
+            this.gameWon = true;
+            return;
+        }
+        this.levels.pop();
     }
 
     public boolean gameWon() {
-        return this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL)
-                && this.getCurrentLevel().cleared();
+        return this.gameWon;
     }
 
     public boolean gameOver() {
@@ -95,5 +106,9 @@ public class RunasStrive {
 
     public Die getCurrentDie() {
         return this.dieBag.peek();
+    }
+
+    public boolean isLevelCleared() {
+        return this.getCurrentLevel().cleared();
     }
 }

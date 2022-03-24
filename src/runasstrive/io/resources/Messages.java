@@ -24,6 +24,8 @@ public final class Messages {
     public static final String MONSTER_STATS = "%s (%d HP, %d FP): attempts %s next";
     public static final String VS = "vs.";
     public static final String SELECT_CARD_MESSAGE = "Select card to play";
+    public static final String RUNA_DIES = "Runa dies";
+    public static final String GAME_WON = "Runa won!";
 
     private Messages() {
     }

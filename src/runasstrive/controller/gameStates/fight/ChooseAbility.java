@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.fight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
@@ -35,6 +36,7 @@ public class ChooseAbility extends GameState {
                 .append(Messages.SEPARATOR).append(System.lineSeparator());
         List<Ability> abilities = this.runasStrive.getPlayer().getAbilities();
 
+        stringBuilder.append(Messages.SELECT_CARD_MESSAGE).append(System.lineSeparator());
         for (int i = 0; i < abilities.size(); i++) {
             stringBuilder
                     //TODO: remove magic number
@@ -57,18 +59,44 @@ public class ChooseAbility extends GameState {
         final Ability card = this.runasStrive.pickCard(choice);
         if (card == null) return false;
         if (!card.targetRequired()) {
-            this.nextGameState = UseAbility.class;
+            this.runasStrive.startFight();
+            this.response = this.runasStrive.getFightLog();
+            if (this.runasStrive.gameOver()) {
+                this.response += System.lineSeparator() + Messages.RUNA_DIES + System.lineSeparator();
+                this.nextGameState = null;
+            } else if (this.runasStrive.gameWon()) {
+                this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
+                this.nextGameState = null;
+            } else if (this.runasStrive.isLevelCleared()) {
+                this.nextGameState = ChooseReward.class;
+            } else {
+                this.nextGameState = ChooseAbility.class;
+            }
             return true;
         }
         if (this.runasStrive.requiresTargetChoice()) {
             this.nextGameState = ChooseTarget.class;
+            this.response = null;
             return true;
         }
         if (card.dieRollRequired()) {
             this.nextGameState = RollDie.class;
+            this.response = null;
             return true;
         }
-        this.nextGameState = UseAbility.class;
+        this.runasStrive.startFight();
+        this.response = this.runasStrive.getFightLog();
+        if (this.runasStrive.gameOver()) {
+            this.response += System.lineSeparator() + Messages.RUNA_DIES + System.lineSeparator();
+            this.nextGameState = null;
+        } else if (this.runasStrive.gameWon()) {
+            this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
+            this.nextGameState = null;
+        } else if (this.runasStrive.isLevelCleared()) {
+            this.nextGameState = ChooseReward.class;
+        } else {
+            this.nextGameState = ChooseAbility.class;
+        }
         return true;
     }
 
