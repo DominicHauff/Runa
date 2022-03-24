@@ -11,7 +11,7 @@ import runasstrive.model.cards.ablilities.Ability;
 
 import java.util.List;
 
-public class ChooseAbility extends GameState {
+public class ChooseAbility extends FightGameState {
     private static final IntegerParameter CHOICE = new IntegerParameter();
     private static final List<Parameter<?>> PARAMETER_LIST = List.of(CHOICE);
     private Class<? extends GameState> nextGameState;
@@ -58,45 +58,14 @@ public class ChooseAbility extends GameState {
         final int choice = parameterBundle.get(CHOICE);
         final Ability card = this.runasStrive.pickCard(choice);
         if (card == null) return false;
-        if (!card.targetRequired()) {
-            this.runasStrive.startFight();
-            this.response = this.runasStrive.getFightLog();
-            if (this.runasStrive.gameOver()) {
-                this.response += System.lineSeparator() + Messages.ENTITY_DIES + System.lineSeparator();
-                this.nextGameState = null;
-            } else if (this.runasStrive.gameWon()) {
-                this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
-                this.nextGameState = null;
-            } else if (this.runasStrive.isLevelCleared()) {
-                this.nextGameState = ChooseReward.class;
-            } else {
-                this.nextGameState = ChooseAbility.class;
+        if (card.targetRequired()) {
+            if (this.runasStrive.requiresTargetChoice()) {
+                this.nextGameState = ChooseTarget.class;
+            } else if (card.dieRollRequired()) {
+                this.nextGameState = RollDie.class;
             }
-            return true;
         }
-        if (this.runasStrive.requiresTargetChoice()) {
-            this.nextGameState = ChooseTarget.class;
-            this.response = null;
-            return true;
-        }
-        if (card.dieRollRequired()) {
-            this.nextGameState = RollDie.class;
-            this.response = null;
-            return true;
-        }
-        this.runasStrive.startFight();
-        this.response = this.runasStrive.getFightLog();
-        if (this.runasStrive.gameOver()) {
-            this.response += System.lineSeparator() + Messages.ENTITY_DIES + System.lineSeparator();
-            this.nextGameState = null;
-        } else if (this.runasStrive.gameWon()) {
-            this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
-            this.nextGameState = null;
-        } else if (this.runasStrive.isLevelCleared()) {
-            this.nextGameState = ChooseReward.class;
-        } else {
-            this.nextGameState = ChooseAbility.class;
-        }
+        this.startFight();
         return true;
     }
 

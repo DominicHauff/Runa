@@ -10,7 +10,7 @@ import runasstrive.model.RunasStrive;
 
 import java.util.List;
 
-public class RollDie extends GameState {
+public class RollDie extends FightGameState {
     private static final IntegerParameter DIE_RES = new IntegerParameter();
     private static final List<Parameter<?>> PARAMETERS = List.of(DIE_RES);
 
@@ -34,19 +34,7 @@ public class RollDie extends GameState {
         if (!this.runasStrive.rollDie(dieRes)) {
             return false;
         }
-        this.runasStrive.startFight();
-        this.response = this.runasStrive.getFightLog();
-        if (this.runasStrive.gameOver()) {
-            this.response += System.lineSeparator() + Messages.ENTITY_DIES + System.lineSeparator();
-            this.nextGameState = null;
-        } else if (this.runasStrive.gameWon()) {
-            this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
-            this.nextGameState = null;
-        } else if (this.runasStrive.isLevelCleared()) {
-            this.nextGameState = ChooseReward.class;
-        } else {
-            this.nextGameState = ChooseAbility.class;
-        }
+        this.startFight();
         return true;
     }
 

@@ -65,6 +65,7 @@ public class Stage {
     public void enter(Player player) {
         this.log.clear();
         if (player.getCardToPlay().targetRequired()) {
+            //TODO: fix null for .getTarget()
             player.useAbility(player.getTarget());
             this.logTakenDamage(player.getTarget());
             this.logTakenDamage(player);

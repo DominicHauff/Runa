@@ -14,7 +14,6 @@ public class RunasStrive {
     private final Stack<Ability> deck;
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
-    private boolean gameWon;
     private List<Stack<?>> rewards;
 
     public RunasStrive(Stack<Die> dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
@@ -22,7 +21,6 @@ public class RunasStrive {
         this.deck = abilities;
         this.player = player;
         this.levels = levels;
-        this.gameWon = false;
         this.rewards = new ArrayList<>(List.of(
                 this.deck,
                 this.dieBag
@@ -52,19 +50,14 @@ public class RunasStrive {
 
     public void startFight() {
         this.getCurrentLevel().resume(this.player);
+    }
 
-        if (!this.getCurrentLevel().cleared()) {
-            return;
-        }
-        if (this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL) && this.getCurrentLevel().cleared()) {
-            this.gameWon = true;
-            return;
-        }
+    public void advanceToNextLevel() {
         this.levels.pop();
     }
 
     public boolean gameWon() {
-        return this.gameWon;
+        return this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL) && this.getCurrentLevel().cleared();
     }
 
     public boolean gameOver() {
@@ -114,5 +107,17 @@ public class RunasStrive {
 
     public boolean isLevelCleared() {
         return this.getCurrentLevel().cleared();
+    }
+
+    public boolean canPlayerHeal() {
+        return this.player.canHeal();
+    }
+
+    public void upgradeCards() {
+        //TODO: implement
+    }
+
+    public boolean stageCleared() {
+        return this.getCurrentLevel().getCurrentStage().cleared();
     }
 }

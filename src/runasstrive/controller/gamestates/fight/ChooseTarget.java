@@ -12,7 +12,7 @@ import runasstrive.model.cards.ablilities.Ability;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class ChooseTarget extends GameState {
+public class ChooseTarget extends FightGameState {
     private static final CardIndexParameter CHOICE = new CardIndexParameter();
     private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
@@ -39,28 +39,18 @@ public class ChooseTarget extends GameState {
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
         final int choice = parameterBundle.get(CHOICE);
-        if (!this.runasStrive.pickTarget(choice)) {
-            return false;
-        }
+
+        if (!this.runasStrive.pickTarget(choice)) return false;
+
         final Ability cardToPlay = this.runasStrive.getCardToPlay();
-        if (cardToPlay.dieRollRequired()) {
-            this.nextGameState = RollDie.class;
-            this.response = null;
-        } else {
-            this.runasStrive.startFight();
-            this.response = this.runasStrive.getFightLog();
-            if (this.runasStrive.gameOver()) {
-                this.response += System.lineSeparator() + Messages.ENTITY_DIES + System.lineSeparator();
-                this.nextGameState = null;
-            } else if (this.runasStrive.gameWon()) {
-                this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
-                this.nextGameState = null;
-            } else if (this.runasStrive.isLevelCleared()) {
-                this.nextGameState = ChooseReward.class;
-            } else {
-                this.nextGameState = ChooseAbility.class;
-            }
+
+        if (!cardToPlay.dieRollRequired()) {
+            this.startFight();
+            return true;
         }
+
+        this.nextGameState = RollDie.class;
+        this.response = null;
         return true;
     }
 

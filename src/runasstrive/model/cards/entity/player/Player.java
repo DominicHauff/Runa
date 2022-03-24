@@ -11,13 +11,14 @@ import runasstrive.model.dice.Die;
 import java.util.Collections;
 
 public class Player extends Entity<CharacterType> {
+    private static final int MAX_HP = 50;
     private Ability cardToPlay;
     private Monster target;
     private int dieRes;
     private int maxFp;
 
     public Player(String name, Level level, int hp) {
-        super(level, name, hp, Collections.emptyList());
+        super(name, hp, Collections.emptyList());
         this.fp = 1;
         this.maxFp = 4;
     }
@@ -64,5 +65,9 @@ public class Player extends Entity<CharacterType> {
             return;
         }
         this.fp += fp;
+    }
+
+    public boolean canHeal() {
+        return this.hp < MAX_HP;
     }
 }
