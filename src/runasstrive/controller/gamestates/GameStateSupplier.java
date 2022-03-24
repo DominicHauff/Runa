@@ -1,8 +1,8 @@
 package runasstrive.controller.gamestates;
 
+import runasstrive.controller.gamestates.afterfight.ChooseNewCards;
 import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.controller.gamestates.afterfight.Heal;
-import runasstrive.controller.gamestates.afterfight.UpgradeAbilities;
 import runasstrive.controller.gamestates.fight.ChooseAbility;
 import runasstrive.controller.gamestates.fight.ChooseTarget;
 import runasstrive.controller.gamestates.fight.RollDie;
@@ -23,7 +23,7 @@ public class GameStateSupplier {
             ChooseTarget.class, new ChooseTarget(runasStrive),
             RollDie.class, new RollDie(runasStrive),
             ChooseReward.class, new ChooseReward(runasStrive),
-            UpgradeAbilities.class, new UpgradeAbilities(runasStrive),
+            ChooseNewCards.class, new ChooseNewCards(runasStrive),
             Heal.class, new Heal(runasStrive)
         );
     }

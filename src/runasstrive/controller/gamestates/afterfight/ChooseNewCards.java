@@ -12,7 +12,7 @@ public class ChooseNewCards extends GameState {
     private static final IntegerParameter CHOICE = new IntegerParameter();
     private static final List<Parameter<?>> PARAMETER_LIST = List.of(CHOICE);
 
-    protected ChooseNewCards(RunasStrive runasStrive) {
+    public ChooseNewCards(RunasStrive runasStrive) {
         super(runasStrive);
     }
 
