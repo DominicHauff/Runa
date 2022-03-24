@@ -1,9 +1,16 @@
 package runasstrive.controller.gamestates;
 
-import runasstrive.controller.gamestates.afterfight.*;
-import runasstrive.controller.gamestates.end.*;
-import runasstrive.controller.gamestates.fight.*;
-import runasstrive.controller.gamestates.init.*;
+import runasstrive.controller.gamestates.afterfight.ChooseReward;
+import runasstrive.controller.gamestates.afterfight.Heal;
+import runasstrive.controller.gamestates.afterfight.UpgradeAbilities;
+import runasstrive.controller.gamestates.end.GameOver;
+import runasstrive.controller.gamestates.end.GameWon;
+import runasstrive.controller.gamestates.fight.ChooseAbility;
+import runasstrive.controller.gamestates.fight.ChooseTarget;
+import runasstrive.controller.gamestates.fight.RollDie;
+import runasstrive.controller.gamestates.fight.UseAbility;
+import runasstrive.controller.gamestates.init.ChooseCharacterClass;
+import runasstrive.controller.gamestates.init.InitializeLevel;
 import runasstrive.model.RunasStrive;
 
 import java.util.HashMap;
