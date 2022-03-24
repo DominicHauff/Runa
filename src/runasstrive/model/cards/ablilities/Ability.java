@@ -28,18 +28,18 @@ public abstract class Ability extends Card {
 
     public void use(Entity<?> caster, Entity<?> target) {
         initValues(caster);
-        caster.shield(physicalShield, magicShield);
-        caster.reflect(reflectPhysicalDamage, reflectMagicDamage);
-        target.takeDamage(physicalDamage, magicDamage);
-        caster.takeDamage(Math.min(target.getReflectedPhysicalDamage(), physicalDamage), Math.min(target.getReflectedMagicDamage(), magicDamage));
+        caster.shield(physicalShield, magicalShield);
+        caster.reflect(reflectPhysicalDamage, reflectMagicalDamage);
+        target.takeDamage(physicalDamage, magicalDamage);
+        caster.takeDamage(target.getReflectedPhysicalDamage(), target.getReflectedMagicalDamage());
         caster.focus(willIncreaseFocusPoints);
         target.breakFocus(breakFocus);
     }
 
     public void use(Entity<?> caster) {
         initValues(caster);
-        caster.shield(physicalShield, magicShield);
-        caster.reflect(reflectPhysicalDamage, reflectMagicDamage);
+        caster.shield(physicalShield, magicalShield);
+        caster.reflect(reflectPhysicalDamage, reflectMagicalDamage);
         caster.focus(willIncreaseFocusPoints);
     }
 
