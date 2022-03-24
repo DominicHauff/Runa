@@ -1,7 +1,7 @@
-package runasstrive.controller.gamestates.init;
+package runasstrive.controller.gameStates.init;
 
-import runasstrive.controller.gamestates.GameState;
-import runasstrive.controller.gamestates.fight.ChooseAbility;
+import runasstrive.controller.gameStates.GameState;
+import runasstrive.controller.gameStates.fight.ChooseAbility;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.parameters.SeedParameter;

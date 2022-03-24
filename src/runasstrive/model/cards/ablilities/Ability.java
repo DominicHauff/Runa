@@ -33,7 +33,8 @@ public abstract class Ability extends Card {
         caster.shield(physicalShield, magicShield);
         caster.reflect(reflectPhysicalDamage, reflectMagicDamage);
         target.takeDamage(physicalDamage, magicDamage);
-        caster.takeDamage(Math.min(target.getReflectedPhysicalDamage(), physicalDamage), Math.min(target.getReflectMagicDamage(), magicDamage));
+        caster.takeDamage(Math.min(target.getReflectedPhysicalDamage(), physicalDamage),
+                Math.min(target.getReflectMagicDamage(), magicDamage));
         caster.setFocus(willIncreaseFocusPoints);
         target.breakFocus(breakFocus);
     }

@@ -1,4 +1,4 @@
-package runasstrive.controller.gamestates;
+package runasstrive.controller.gameStates;
 
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;

@@ -1,16 +1,15 @@
-package runasstrive.controller.gamestates;
+package runasstrive.controller.gameStates;
 
-import runasstrive.controller.gamestates.afterfight.ChooseReward;
-import runasstrive.controller.gamestates.afterfight.Heal;
-import runasstrive.controller.gamestates.afterfight.UpgradeAbilities;
-import runasstrive.controller.gamestates.fight.ChooseAbility;
-import runasstrive.controller.gamestates.fight.ChooseTarget;
-import runasstrive.controller.gamestates.fight.RollDie;
-import runasstrive.controller.gamestates.init.ChooseCharacterClass;
-import runasstrive.controller.gamestates.init.InitializeLevel;
+import runasstrive.controller.gameStates.afterfight.ChooseReward;
+import runasstrive.controller.gameStates.afterfight.Heal;
+import runasstrive.controller.gameStates.afterfight.UpgradeAbilities;
+import runasstrive.controller.gameStates.fight.ChooseAbility;
+import runasstrive.controller.gameStates.fight.ChooseTarget;
+import runasstrive.controller.gameStates.fight.RollDie;
+import runasstrive.controller.gameStates.init.ChooseCharacterClass;
+import runasstrive.controller.gameStates.init.InitializeLevel;
 import runasstrive.model.RunasStrive;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class GameStateSupplier {

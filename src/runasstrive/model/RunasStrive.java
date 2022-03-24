@@ -15,6 +15,7 @@ public class RunasStrive {
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
     private boolean gameWon;
+    private List<Stack<?>> rewards;
 
     public RunasStrive(Stack<Die> dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
@@ -79,12 +80,16 @@ public class RunasStrive {
         return new ArrayList<>(this.getCurrentLevel().getCurrentStage().getAliveMonsters());
     }
 
-    public void drawCard() {
+    public void drawCard(int choice) {
 
     }
 
     public void getNextDie() {
         //TODO: complete implementation
+    }
+
+    public boolean canChooseDie() {
+        return this.dieBag.isEmpty();
     }
 
     public Player getPlayer() {
