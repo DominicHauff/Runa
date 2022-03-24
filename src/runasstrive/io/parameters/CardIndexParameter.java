@@ -2,6 +2,7 @@ package runasstrive.io.parameters;
 
 public class CardIndexParameter extends Parameter<Integer> {
     private static final int OFFSET = 1;
+
     @Override
     public Integer get(String parsingResult) throws IllegalArgumentException {
         try {

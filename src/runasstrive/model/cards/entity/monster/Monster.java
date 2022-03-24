@@ -6,7 +6,6 @@ import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.type.MonsterType;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Monster extends Entity<MonsterType> {

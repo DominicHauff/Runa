@@ -8,7 +8,6 @@ import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
-import java.util.Map;
 
 public class Controller {
     private final RunasStrive runasStrive;
@@ -17,7 +16,7 @@ public class Controller {
     private GameState currentGameState;
     private boolean lastInputFaulty;
 
-    public Controller(RunasStrive runasStrive,  Session session) {
+    public Controller(RunasStrive runasStrive, Session session) {
         this.runasStrive = runasStrive;
         this.gameStateSupplier = new GameStateSupplier(runasStrive);
         this.session = session;

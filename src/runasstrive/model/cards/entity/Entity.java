@@ -4,16 +4,14 @@ import runasstrive.model.Level;
 import runasstrive.model.cards.Card;
 import runasstrive.model.cards.ablilities.Ability;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class Entity <T> extends Card {
+public abstract class Entity<T> extends Card {
+    protected final LinkedList<Ability> abilities;
     protected T type;
     protected int hp;
     protected int fp;
-    protected final LinkedList<Ability> abilities;
     protected int physicalShield;
     protected int magicalShield;
     protected int reflectPhysicalDamage;
@@ -27,12 +25,12 @@ public abstract class Entity <T> extends Card {
         this.abilities = new LinkedList<>(abilities);
     }
 
-    public void setType(T type) {
-        this.type = type;
-    }
-
     public T getType() {
         return this.type;
+    }
+
+    public void setType(T type) {
+        this.type = type;
     }
 
     public int getHp() {

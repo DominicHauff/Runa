@@ -7,8 +7,8 @@ import runasstrive.io.resources.Messages;
 import java.util.Scanner;
 
 public class Session {
-    private final InputParser inputParser;
     private static final String QUIT_COMMAND = "quit";
+    private final InputParser inputParser;
     private boolean running;
 
     public Session(InputParser inputParser) {

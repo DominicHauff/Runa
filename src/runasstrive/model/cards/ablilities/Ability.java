@@ -19,7 +19,6 @@ public abstract class Ability extends Card {
     protected boolean breakFocus;
 
 
-
     protected Ability(String name, Level level, int cost, boolean requiresTarget, boolean requiresDieRoll) {
         super(name, level);
         this.cost = cost;
