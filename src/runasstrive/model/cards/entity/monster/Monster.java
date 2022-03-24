@@ -11,8 +11,8 @@ import java.util.List;
 public abstract class Monster extends Entity<MonsterType> {
     private Ability currentAbility;
 
-    public Monster(String name, int hp, Level level, MonsterType type, List<Ability> abilities) {
-        super(level, name, hp, abilities);
+    public Monster(String name, int hp, MonsterType type, List<Ability> abilities) {
+        super(name, hp, abilities);
         this.hp = hp;
         this.fp = 0;
         this.setType(type);

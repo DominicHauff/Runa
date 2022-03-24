@@ -21,8 +21,8 @@ public abstract class Entity<T> extends Card {
     private int takenPhysicalDamage;
     private int takenMagicDamage;
 
-    protected Entity(Level level, String name, int hp, List<Ability> abilities) {
-        super(name, level);
+    protected Entity(String name, int hp, List<Ability> abilities) {
+        super(name);
         this.type = null;
         this.hp = hp;
         this.abilities = new LinkedList<>(abilities);
