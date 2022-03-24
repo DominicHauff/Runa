@@ -6,6 +6,7 @@ import runasstrive.model.cards.Card;
 import runasstrive.model.cards.entity.Entity;
 
 public abstract class Ability extends Card {
+    protected final Level level;
     protected final int cost;
     protected final boolean requiresTarget;
     protected final boolean requiresDieRoll;
@@ -20,7 +21,8 @@ public abstract class Ability extends Card {
 
 
     protected Ability(String name, Level level, int cost, boolean requiresTarget, boolean requiresDieRoll) {
-        super(name, level);
+        super(name);
+        this.level = level;
         this.cost = cost;
         this.requiresTarget = requiresTarget;
         this.requiresDieRoll = requiresDieRoll;
