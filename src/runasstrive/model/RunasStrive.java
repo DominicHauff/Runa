@@ -23,6 +23,10 @@ public class RunasStrive {
         this.player = player;
         this.levels = levels;
         this.gameWon = false;
+        this.rewards = new ArrayList<>(List.of(
+                this.deck,
+                this.dieBag
+        ));
     }
 
     public GameLevel shuffleCards(int firstSeed, int secondSeed) {

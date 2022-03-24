@@ -1,6 +1,6 @@
-package runasstrive.controller.gameStates.afterfight;
+package runasstrive.controller.gamestates.afterfight;
 
-import runasstrive.controller.gameStates.GameState;
+import runasstrive.controller.gamestates.GameState;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
