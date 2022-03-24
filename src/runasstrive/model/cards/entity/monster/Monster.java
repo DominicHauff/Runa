@@ -9,6 +9,7 @@ import runasstrive.model.cards.entity.type.MonsterType;
 import java.util.List;
 
 public abstract class Monster extends Entity<MonsterType> {
+    private Ability currentAbility;
 
     public Monster(String name, int hp, Level level, MonsterType type, List<Ability> abilities) {
         super(level, name, hp, abilities);
@@ -24,7 +25,11 @@ public abstract class Monster extends Entity<MonsterType> {
 
     @Override
     public Ability nextAbility() {
-        return this.abilities.stream().filter(ability -> ability.getCost() <= this.getFp())
+        final Ability nextAbility = this.abilities.stream().filter(ability -> ability.getCost() <= this.getFp())
                 .findFirst().orElse(null);
+
+        this.abilities.addLast(this.abilities.removeFirst());
+
+        return nextAbility;
     }
 }

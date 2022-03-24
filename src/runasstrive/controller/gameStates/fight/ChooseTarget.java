@@ -50,7 +50,7 @@ public class ChooseTarget extends GameState {
             this.runasStrive.startFight();
             this.response = this.runasStrive.getFightLog();
             if (this.runasStrive.gameOver()) {
-                this.response += System.lineSeparator() + Messages.RUNA_DIES + System.lineSeparator();
+                this.response += System.lineSeparator() + Messages.ENTITY_DIES + System.lineSeparator();
                 this.nextGameState = null;
             } else if (this.runasStrive.gameWon()) {
                 this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();

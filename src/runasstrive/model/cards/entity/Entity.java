@@ -14,12 +14,12 @@ public abstract class Entity<T> extends Card {
     protected int hp;
     protected int fp;
     protected int physicalShield;
-    protected int magicalShield;
+    protected int magicShield;
     protected int reflectPhysicalDamage;
     protected int reflectMagicalDamage;
     protected boolean increaseFp;
     private int takenPhysicalDamage;
-    private int takenMagicalDamage;
+    private int takenMagicDamage;
 
     protected Entity(Level level, String name, int hp, List<Ability> abilities) {
         super(name, level);
@@ -52,8 +52,16 @@ public abstract class Entity<T> extends Card {
         //TODO: implement
     }
 
-    public void takeDamage(int physicalDamage, int magicalDamage) {
-        //TODO: implement
+    public void takeDamage(int physicalDamage, int magicDamage) {
+        if (physicalDamage > this.physicalShield) {
+            this.takenPhysicalDamage = physicalDamage - this.physicalShield;
+            this.hp -= this.takenPhysicalDamage;
+        }
+        if (magicDamage > this.magicShield) {
+            this.takenMagicDamage = magicDamage - this.magicShield;
+            this.hp -= this.takenMagicDamage;
+        }
+
     }
 
     public int getReflectedPhysicalDamage() {
@@ -97,7 +105,7 @@ public abstract class Entity<T> extends Card {
     }
 
     public int getTakenMagicDamage() {
-        return this.takenMagicalDamage;
+        return this.takenMagicDamage;
     }
 
     public int getTakenPhysicalDamage() {
