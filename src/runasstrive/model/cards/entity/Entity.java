@@ -16,7 +16,7 @@ public abstract class Entity<T> extends Card {
     protected int physicalShield;
     protected int magicShield;
     protected int reflectPhysicalDamage;
-    protected int reflectMagicalDamage;
+    protected int reflectMagicDamage;
     protected boolean increaseFp;
     private int takenPhysicalDamage;
     private int takenMagicDamage;
@@ -44,12 +44,14 @@ public abstract class Entity<T> extends Card {
         return this.fp;
     }
 
-    public void shield(int physicalShield, int magicalShield) {
-        //TODO: implement
+    public void shield(int physicalShield, int magicShield) {
+        this.physicalShield = physicalShield;
+        this.magicShield = magicShield;
     }
 
-    public void reflect(int reflectPhysicalDamage, int reflectMagicalDamage) {
-        //TODO: implement
+    public void reflect(int reflectPhysicalDamage, int reflectMagicDamage) {
+        this.reflectPhysicalDamage = reflectPhysicalDamage;
+        this.reflectMagicDamage = reflectMagicDamage;
     }
 
     public void takeDamage(int physicalDamage, int magicDamage) {
@@ -65,13 +67,11 @@ public abstract class Entity<T> extends Card {
     }
 
     public int getReflectedPhysicalDamage() {
-        //TODO: implement
-        return 0;
+        return this.reflectPhysicalDamage;
     }
 
     public int getReflectedMagicalDamage() {
-        //TODO: implement
-        return 0;
+        return this.reflectMagicDamage;
     }
 
     public void focus(boolean willIncreaseFocusPoints) {

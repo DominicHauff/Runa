@@ -14,6 +14,7 @@ public abstract class Monster extends Entity<MonsterType> {
     public Monster(String name, int hp, Level level, MonsterType type, List<Ability> abilities) {
         super(level, name, hp, abilities);
         this.hp = hp;
+        this.fp = 0;
         this.setType(type);
     }
 

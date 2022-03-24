@@ -16,6 +16,7 @@ public class Player extends Entity<CharacterType> {
 
     public Player(String name, Level level, int hp) {
         super(level, name, hp, Collections.emptyList());
+        this.fp = 1;
     }
 
     @Override
