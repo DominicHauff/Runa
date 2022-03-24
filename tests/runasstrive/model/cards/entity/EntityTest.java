@@ -73,14 +73,6 @@ class EntityTest {
     }
 
     @Test
-    void getReflectedPhysicalDamage() {
-    }
-
-    @Test
-    void getReflectedMagicalDamage() {
-    }
-
-    @Test
     void focus() {
     }
 
@@ -98,6 +90,7 @@ class EntityTest {
 
     @Test
     void isDead() {
+
     }
 
     @Test
