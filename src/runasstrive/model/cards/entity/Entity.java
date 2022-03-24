@@ -97,7 +97,7 @@ public abstract class Entity<T> extends Card {
 
     public Ability useAbility(Entity<?> target) {
         final Ability nextAbility = this.nextAbility();
-        nextAbility.use(target);
+        nextAbility.use(this, target);
         return nextAbility;
     }
 
