@@ -77,8 +77,8 @@ public abstract class Entity<T> extends Card {
         this.increaseFp = willIncreaseFocusPoints;
     }
 
-    private void focus(int level) {
-
+    public void focus(int fp) {
+        this.fp += fp;
     }
 
     public void breakFocus(boolean breakFocus) {
