@@ -8,7 +8,7 @@ import runasstrive.model.RunasStrive;
 import java.util.List;
 
 public class GameWon extends GameState {
-    protected GameWon(RunasStrive runasStrive) {
+    public GameWon(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

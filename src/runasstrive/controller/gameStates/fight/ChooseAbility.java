@@ -15,7 +15,7 @@ public class ChooseAbility extends GameState {
     private static final List<Parameter<?>> PARAMETER_LIST = List.of(CHOICE);
     private Class<? extends GameState> nextGameState;
 
-    protected ChooseAbility(RunasStrive runasStrive) {
+    public ChooseAbility(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GameOver extends GameState {
 
-    protected GameOver(RunasStrive runasStrive) {
+    public GameOver(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

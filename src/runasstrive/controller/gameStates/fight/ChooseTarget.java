@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class ChooseTarget extends GameState {
-    protected ChooseTarget(RunasStrive runasStrive) {
+    public ChooseTarget(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

@@ -8,7 +8,7 @@ import runasstrive.model.RunasStrive;
 import java.util.List;
 
 public class Heal extends GameState {
-    protected Heal(RunasStrive runasStrive) {
+    public Heal(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

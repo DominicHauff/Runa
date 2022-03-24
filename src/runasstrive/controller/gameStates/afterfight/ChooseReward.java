@@ -8,7 +8,7 @@ import runasstrive.model.RunasStrive;
 import java.util.List;
 
 public class ChooseReward extends GameState {
-    protected ChooseReward(RunasStrive runasStrive) {
+    public ChooseReward(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

@@ -8,7 +8,7 @@ import runasstrive.model.RunasStrive;
 import java.util.List;
 
 public class UpgradeAbilities extends GameState {
-    protected UpgradeAbilities(RunasStrive runasStrive) {
+    public UpgradeAbilities(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

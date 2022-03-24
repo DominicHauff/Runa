@@ -8,7 +8,7 @@ import runasstrive.model.RunasStrive;
 import java.util.List;
 
 public class UseAbility extends GameState {
-    protected UseAbility(RunasStrive runasStrive) {
+    public UseAbility(RunasStrive runasStrive) {
         super(runasStrive);
     }
 

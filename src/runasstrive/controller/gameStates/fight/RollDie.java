@@ -8,7 +8,7 @@ import runasstrive.model.RunasStrive;
 import java.util.List;
 
 public class RollDie extends GameState {
-    protected RollDie(RunasStrive runasStrive) {
+    public RollDie(RunasStrive runasStrive) {
         super(runasStrive);
     }
 
