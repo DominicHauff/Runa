@@ -69,7 +69,7 @@ class EntityTest {
         player.takeDamage(2, 1);
         assertEquals(0, player.hp);
         player.takeDamage(12, 100);
-        assertEquals();
+        assertEquals(-112, player.hp);
     }
 
     @Test

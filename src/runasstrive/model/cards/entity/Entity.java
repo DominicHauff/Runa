@@ -55,12 +55,12 @@ public abstract class Entity<T> extends Card {
     }
 
     public void takeDamage(int physicalDamage, int magicDamage) {
-        if (physicalDamage > this.physicalShield) {
-            this.takenPhysicalDamage = physicalDamage - this.physicalShield;
+        if (physicalDamage > this.physicalShield + this.reflectPhysicalDamage) {
+            this.takenPhysicalDamage = physicalDamage - this.physicalShield - this.reflectPhysicalDamage;
             this.hp -= this.takenPhysicalDamage;
         }
-        if (magicDamage > this.magicShield) {
-            this.takenMagicDamage = magicDamage - this.magicShield;
+        if (magicDamage > this.magicShield + this.reflectMagicDamage) {
+            this.takenMagicDamage = magicDamage - this.magicShield - this.reflectMagicDamage;
             this.hp -= this.takenMagicDamage;
         }
     }
