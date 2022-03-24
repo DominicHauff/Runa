@@ -7,6 +7,7 @@ public enum Level {
     LEVEL_ONE(1, 4, new int[]{1, 2, 2}, null),
     LEVEL_TWO(2, 4, new int[]{1, 2, 2}, null);
 
+    public static final Level MAX_LEVEL = LEVEL_TWO;
     private final int value;
     private final int numOfStages;
     private final int[] stagesPerLevel;

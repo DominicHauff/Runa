@@ -1,6 +1,7 @@
 package runasstrive.model.levels;
 
 import runasstrive.model.cards.entity.monster.Monster;
+import runasstrive.model.cards.entity.player.Player;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -29,12 +30,16 @@ public class Stage {
 
     public Collection<Monster> getAliveMonsters() {
         return monsters.stream()
-                .filter(monster -> monster.getHp() > 0)
+                .filter(monster -> !monster.isDead())
                 .collect(Collectors.toList());
     }
 
     public String getFightLog() {
         //TODO: implement
         return null;
+    }
+
+    public void enter(Player player) {
+
     }
 }

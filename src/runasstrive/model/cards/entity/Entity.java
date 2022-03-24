@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Entity<T> extends Card {
+    private static final int MIN_HP = 0;
     protected final LinkedList<Ability> abilities;
     protected T type;
     protected int hp;
@@ -73,5 +74,9 @@ public abstract class Entity<T> extends Card {
 
     public List<Ability> getAbilities() {
         return this.abilities;
+    }
+
+    public boolean isDead() {
+        return this.hp <= MIN_HP;
     }
 }

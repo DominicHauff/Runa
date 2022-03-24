@@ -51,6 +51,15 @@ public class RunasStrive {
         //TODO: implement
     }
 
+    public boolean gameWon() {
+        return this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL)
+                && this.getCurrentLevel().cleared();
+    }
+
+    public boolean gameOver() {
+        return this.player.isDead();
+    }
+
     public String getFightLog() {
         return this.getCurrentLevel().getCurrentStage().getFightLog();
     }

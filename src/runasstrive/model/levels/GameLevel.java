@@ -2,12 +2,14 @@ package runasstrive.model.levels;
 
 import runasstrive.model.Level;
 import runasstrive.model.cards.entity.monster.Monster;
+import runasstrive.model.cards.entity.player.Player;
 
 import java.util.*;
 
 public class GameLevel {
     private final Level level;
     private final Stack<Stage> stages;
+    private Stage currentStage;
     private final List<Monster> monsters;
 
     public GameLevel(Level level, List<Monster> monsters) {
@@ -17,9 +19,7 @@ public class GameLevel {
     }
 
     public Stage getCurrentStage() {
-        //TODO: fix null pointer exception
-        if (this.stages.peek().cleared()) this.stages.pop();
-        return this.stages.peek();
+        return this.currentStage;
     }
 
     public void initialize(int seed) {
@@ -34,9 +34,19 @@ public class GameLevel {
             }
             this.stages.push(new Stage(i + 1, stageMonsters));
         }
+        this.currentStage = this.stages.pop();
+    }
+
+    public void resume(Player player) {
+        if (this.currentStage.cleared()) this.currentStage = this.stages.pop();
+        this.currentStage.enter(player);
     }
 
     public Level getLevel() {
         return level;
+    }
+
+    public boolean cleared() {
+        return this.stages.isEmpty() && this.currentStage.cleared();
     }
 }
