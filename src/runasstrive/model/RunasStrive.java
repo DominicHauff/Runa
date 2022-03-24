@@ -11,13 +11,15 @@ import runasstrive.model.levels.GameLevel;
 import java.util.*;
 
 public class RunasStrive {
-    private final DieBag dieBag;
-    private final Stack<Ability> deck;
     private final Player player;
+    private final Stack<Ability> deck;
+    private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
-    private Die die;
+    private Ability cardToPlay;
+    private Monster target;
+    private int dieRes;
 
-    public RunasStrive(DieBag dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
+    public RunasStrive(Stack<Die> dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
         this.deck = abilities;
         this.player = player;
@@ -31,8 +33,19 @@ public class RunasStrive {
     }
 
     public Ability pickCard(int choice) {
-        this.player.chooseCard(choice);
-        return this.player.getCardToPlay();
+        this.cardToPlay = this.player.chooseCard(choice);
+        return this.cardToPlay;
+    }
+
+    public boolean rollDie(int dieRes) {
+        this.dieRes = dieRes;
+        return this.dieBag.peek().throwDie(dieRes);
+    }
+
+    public boolean pickTarget(int choice) {
+        if (this.getPossibleTargets().size() <= choice) return false;
+        this.target = this.getPossibleTargets().get(choice);
+        return true;
     }
 
     public boolean playCard(Ability card, Entity<?> target, int dieRoll) {
@@ -47,6 +60,8 @@ public class RunasStrive {
         return false;
     }
 
+
+
     public boolean requiresTargetChoice() {
         final int numberOfAliveTargets = this.getCurrentLevel().getCurrentStage().getAliveMonsters().size();
         return numberOfAliveTargets > 1;
@@ -56,17 +71,12 @@ public class RunasStrive {
         return new ArrayList<>(this.getCurrentLevel().getCurrentStage().getAliveMonsters());
     }
 
-    public void rollDie(int dieRes) {
-
-    }
-
     public void drawCard() {
 
     }
 
     public void getNextDie() {
         //TODO: complete implementation
-        this.die = this.dieBag.getNextDie();
     }
 
     public Player getPlayer() {
@@ -75,5 +85,9 @@ public class RunasStrive {
 
     public GameLevel getCurrentLevel() {
         return this.levels.peek();
+    }
+
+    public Ability getCardToPlay() {
+        return this.cardToPlay;
     }
 }

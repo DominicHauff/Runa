@@ -13,11 +13,11 @@ public class DieSupplier {
     }
 
     private void setDice() {
-        this.dice.push(new Die(4));
+        /*this.dice.push(new Die(4));
         this.dice.push(new Die(6));
         this.dice.push(new Die(8));
         this.dice.push(new Die(10));
-        this.dice.push(new Die(12));
+        this.dice.push(new Die(12));*/
     }
 
     public Stack<Die> getDice() {
