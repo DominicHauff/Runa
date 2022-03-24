@@ -10,11 +10,11 @@ public abstract class Ability extends Card {
     protected final boolean requiresTarget;
     protected final boolean requiresDieRoll;
     protected int physicalDamage;
-    protected int magicalDamage;
+    protected int magicDamage;
     protected int reflectPhysicalDamage;
-    protected int reflectMagicalDamage;
+    protected int reflectMagicDamage;
     protected int physicalShield;
-    protected int magicalShield;
+    protected int magicShield;
     protected boolean willIncreaseFocusPoints;
     protected boolean breakFocus;
 
@@ -28,18 +28,18 @@ public abstract class Ability extends Card {
 
     public void use(Entity<?> caster, Entity<?> target) {
         initValues(caster);
-        caster.shield(physicalShield, magicalShield);
-        caster.reflect(reflectPhysicalDamage, reflectMagicalDamage);
-        target.takeDamage(physicalDamage, magicalDamage);
-        caster.takeDamage(target.getReflectedPhysicalDamage(), target.getReflectedMagicalDamage());
+        caster.shield(physicalShield, magicShield);
+        caster.reflect(reflectPhysicalDamage, reflectMagicDamage);
+        target.takeDamage(physicalDamage, magicDamage);
+        caster.takeDamage(Math.min(target.getReflectedPhysicalDamage(), physicalDamage), Math.min(target.getReflectedMagicDamage(), magicDamage));
         caster.focus(willIncreaseFocusPoints);
         target.breakFocus(breakFocus);
     }
 
     public void use(Entity<?> caster) {
         initValues(caster);
-        caster.shield(physicalShield, magicalShield);
-        caster.reflect(reflectPhysicalDamage, reflectMagicalDamage);
+        caster.shield(physicalShield, magicShield);
+        caster.reflect(reflectPhysicalDamage, reflectMagicDamage);
         caster.focus(willIncreaseFocusPoints);
     }
 
