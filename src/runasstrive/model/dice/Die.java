@@ -20,4 +20,8 @@ public enum Die {
     public String toString() {
         return this.id;
     }
+
+    public int getSides() {
+        return this.sides;
+    }
 }

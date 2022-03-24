@@ -5,7 +5,6 @@ import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.dice.Die;
-import runasstrive.model.dice.DieBag;
 import runasstrive.model.levels.GameLevel;
 
 import java.util.*;
@@ -39,7 +38,7 @@ public class RunasStrive {
 
     public boolean rollDie(int dieRes) {
         this.dieRes = dieRes;
-        return this.dieBag.peek().throwDie(dieRes);
+        return this.getCurrentDie().throwDie(dieRes);
     }
 
     public boolean pickTarget(int choice) {
@@ -63,7 +62,7 @@ public class RunasStrive {
 
 
     public boolean requiresTargetChoice() {
-        final int numberOfAliveTargets = this.getCurrentLevel().getCurrentStage().getAliveMonsters().size();
+        final int numberOfAliveTargets = this.getPossibleTargets().size();
         return numberOfAliveTargets > 1;
     }
 
@@ -89,5 +88,9 @@ public class RunasStrive {
 
     public Ability getCardToPlay() {
         return this.cardToPlay;
+    }
+
+    public Die getCurrentDie() {
+        return this.dieBag.peek();
     }
 }

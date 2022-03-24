@@ -14,6 +14,7 @@ public final class Messages {
             Enter seeds [1--2147483647] separated by comma:
             """;
     public static final String ENTER_NUMBER_PROMPT = "Enter number [1--%d]:\n";
+    public static final String ENTER_DICE_ROLL_PROMPT = "Enter dice roll [1--%d]:";
     public static final String STAGE_ENTER_MESSAGE = "Runa enters Stage %d of Level %d\n";
     public static final String SELECT_TARGET_MESSAGE = "Select Runa's target.";
     public static final String SEPARATOR = "----------------------------------------";
