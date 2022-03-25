@@ -12,7 +12,7 @@ public class TestPlayer extends Entity<CharacterType> {
 
 
     protected TestPlayer(Level level, String name, int hp, List<Ability> abilities) {
-        super(level, name, hp, abilities);
+        super(name, hp, abilities);
     }
 
     @Override

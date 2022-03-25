@@ -7,7 +7,8 @@ import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.cards.entity.type.MonsterType;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class EntityTest {
 

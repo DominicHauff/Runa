@@ -1,6 +1,7 @@
 package runasstrive.model.cards.entity.monster.levelonemonsters;
 
 import runasstrive.model.cards.ablilities.Ability;
+import runasstrive.model.cards.ablilities.magic.defensive.Focus;
 import runasstrive.model.cards.ablilities.magic.offensive.Fire;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.type.MonsterType;

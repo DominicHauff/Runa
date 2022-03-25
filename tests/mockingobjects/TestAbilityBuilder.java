@@ -35,6 +35,6 @@ public class TestAbilityBuilder {
     }
 
     public TestAbility createTestAbility() {
-        return new TestAbility(name, level, cost, requiresTarget, requiresDieRoll);
+        return new TestAbility(name, 1, cost, requiresTarget, requiresDieRoll);
     }
 }

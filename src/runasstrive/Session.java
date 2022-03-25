@@ -29,7 +29,9 @@ public class Session {
 
     private void processInput(Controller controller) {
         String prompt = controller.getPrompt();
-        System.out.print(prompt);
+        if (prompt != null) {
+            System.out.print(prompt);
+        }
         final String input = new Scanner(System.in).nextLine();
         if (input.equals(QUIT_COMMAND)) {
             this.quit();

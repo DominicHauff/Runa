@@ -10,7 +10,7 @@ import java.util.List;
 public class TestMonster extends Monster {
 
     public TestMonster(String name, int hp, Level level, MonsterType type, List<Ability> abilities) {
-        super(name, hp, level, type, abilities);
+        super(name, hp, type, abilities);
     }
 
 }

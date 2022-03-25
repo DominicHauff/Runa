@@ -3,6 +3,7 @@ package runasstrive.controller;
 import runasstrive.Session;
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.GameStateSupplier;
+import runasstrive.controller.gamestates.init.ChooseCharacterClass;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
@@ -21,6 +22,7 @@ public class Controller {
         this.gameStateSupplier = new GameStateSupplier(runasStrive);
         this.session = session;
         this.lastInputFaulty = false;
+        this.currentGameState = this.gameStateSupplier.get(ChooseCharacterClass.class);
     }
 
     public String getPrompt() {
@@ -44,6 +46,7 @@ public class Controller {
             String response = currentGameState.getResponse();
             //TODO: find next state
             this.lastInputFaulty = false;
+            this.currentGameState = this.gameStateSupplier.get(this.currentGameState.getNext());
             return response;
         }
         this.lastInputFaulty = true;

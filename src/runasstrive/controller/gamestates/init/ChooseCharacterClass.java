@@ -38,6 +38,7 @@ public class ChooseCharacterClass extends GameState {
         CharacterType type = CharacterType.getCharacterType(choice);
         if (type == null) return false;
         this.runasStrive.getPlayer().setType(type);
+        this.nextGameState = InitializeLevel.class;
         return true;
     }
 

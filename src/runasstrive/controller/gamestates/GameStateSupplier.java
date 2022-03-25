@@ -28,8 +28,7 @@ public class GameStateSupplier {
         );
     }
 
-    public Map<Class<? extends GameState>, GameState> getGameStates() {
-        return this.gameStates;
+    public GameState get(Class<? extends GameState> next) {
+        return this.gameStates.get(next);
     }
-
 }
