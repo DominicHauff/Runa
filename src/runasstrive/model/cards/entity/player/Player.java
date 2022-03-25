@@ -6,6 +6,7 @@ import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.type.CharacterType;
+import runasstrive.model.dice.Die;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -31,7 +32,7 @@ public class Player extends Entity<CharacterType> {
 
     @Override
     public String toString() {
-        return String.format(Messages.PLAYER_STATS, this.getName(), this.getHp(), this.getFp());
+        return String.format(Messages.PLAYER_STATS, this.getName(), this.getHp(), this.getFp(), this.maxFp);
     }
 
     public Ability chooseCard(int index) {
@@ -99,5 +100,9 @@ public class Player extends Entity<CharacterType> {
     public void heal(int choice) {
         this.abilities.remove(choice);
         this.hp = Math.min(maxHp, this.hp + heal);
+    }
+
+    public void increaseFp(Die currentDie) {
+        this.maxFp = currentDie.getSides();
     }
 }

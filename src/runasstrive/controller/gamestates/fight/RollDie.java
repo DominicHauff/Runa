@@ -18,7 +18,8 @@ public class RollDie extends FightGameState {
 
     @Override
     public String getPrompt() {
-        return String.format(Messages.ENTER_DICE_ROLL_PROMPT, this.runasStrive.getCurrentDie().getSides());
+        return String.format(Messages.ENTER_DICE_ROLL_PROMPT, this.runasStrive.getCurrentDie().getSides())
+                + System.lineSeparator();
     }
 
     @Override

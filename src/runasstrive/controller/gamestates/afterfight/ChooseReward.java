@@ -30,7 +30,7 @@ public class ChooseReward extends GameState {
     @Override
     public String repeatPrompt() {
         //TODO: remove magic number
-        return String.format(Messages.ENTER_NUMBER_PROMPT, 2);
+        return String.format(Messages.ENTER_NUMBER_PROMPT, 2) + System.lineSeparator();
     }
 
     @Override

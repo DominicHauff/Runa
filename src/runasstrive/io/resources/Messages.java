@@ -23,7 +23,7 @@ public final class Messages {
     public static final String SEPARATOR = "----------------------------------------";
     public static final String ABILITY_NAME = "%s(%d)";
     public static final String LIST_ELEMENT = "%d) %s";
-    public static final String PLAYER_STATS = "%s (%d/50 HP, %d/4 FP)";
+    public static final String PLAYER_STATS = "%s (%d/50 HP, %d/%d FP)";
     public static final String MONSTER_STATS = "%s (%d HP, %d FP): attempts %s next";
     public static final String VS = "vs.";
     public static final String SELECT_CARD_MESSAGE = "Select card to play";
