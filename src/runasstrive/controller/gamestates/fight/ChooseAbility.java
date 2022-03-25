@@ -28,7 +28,7 @@ public class ChooseAbility extends FightGameState {
                 .append(this.runasStrive.getPlayer().toString()).append(System.lineSeparator())
                 .append(Messages.VS).append(System.lineSeparator());
         StringBuilder monsterStringBuilder = new StringBuilder();
-        this.runasStrive.getCurrentLevel().getCurrentStage().getMonsters().forEach(monster ->
+        this.runasStrive.getCurrentLevel().getCurrentStage().getAliveMonsters().forEach(monster ->
                 monsterStringBuilder.append(monster.toString()).append(System.lineSeparator()));
         stringBuilder
                 .append(monsterStringBuilder)

@@ -10,7 +10,6 @@ public class GameLevel {
     private final Level level;
     private final Stack<Stage> stages;
     private final List<Monster> monsters;
-    private Stage currentStage;
 
     public GameLevel(Level level, Collection<Monster> monsters) {
         this.level = level;
@@ -19,7 +18,7 @@ public class GameLevel {
     }
 
     public Stage getCurrentStage() {
-        return this.currentStage;
+        return this.stages.peek();
     }
 
     public void initialize(int seed) {
@@ -34,12 +33,14 @@ public class GameLevel {
             }
             this.stages.push(new Stage(i + 1, stageMonsters));
         }
-        this.currentStage = this.stages.pop();
     }
 
     public void resume(Player player) {
-        if (this.currentStage.cleared()) this.currentStage = this.stages.pop();
-        this.currentStage.enter(player);
+        this.getCurrentStage().enter(player);
+    }
+
+    public void enterNextStage() {
+        this.stages.pop();
     }
 
     public Level getLevel() {
@@ -47,6 +48,6 @@ public class GameLevel {
     }
 
     public boolean cleared() {
-        return this.stages.isEmpty() && this.currentStage.cleared();
+        return this.stages.isEmpty() && this.getCurrentStage().cleared();
     }
 }

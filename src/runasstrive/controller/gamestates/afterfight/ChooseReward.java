@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.controller.gamestates.fight.ChooseAbility;
 import runasstrive.controller.gamestates.init.InitializeLevel;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
@@ -23,12 +24,7 @@ public class ChooseReward extends GameState {
 
     @Override
     public String getPrompt() {
-        String prompt = Messages.CHOOSE_RUNAS_REWARD + System.lineSeparator() +
-                Messages.CHOOSE_NEW_ABILITIES_OPTION + System.lineSeparator() +
-                Messages.CHOOSE_NEW_DIE + System.lineSeparator() +
-                this.repeatPrompt();
-        this.nextGameState = ChooseNewCards.class;
-        return prompt;
+        return repeatPrompt();
     }
 
     @Override
@@ -49,13 +45,17 @@ public class ChooseReward extends GameState {
             }
             case NEW_DIE -> {
                 final Die die = this.runasStrive.upgradeDie();
-                this.response = String.format(Messages.UPGRADE_DIE, die.toString());
+                this.runasStrive.advanceToNextStage();
+                this.response = String.format(Messages.UPGRADE_DIE, die.toString()) + System.lineSeparator();
+                this.response += String.format(Messages.STAGE_ENTER_MESSAGE,
+                        this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
+                        this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator();
             }
             default -> {
                 return false;
             }
         }
-        this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
+        this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
         return true;
     }
 

@@ -35,6 +35,9 @@ public abstract class FightGameState extends GameState {
 
         if (!this.runasStrive.isLevelCleared()) {
             if (this.runasStrive.canChooseDie()) {
+                this.response += Messages.CHOOSE_RUNAS_REWARD + System.lineSeparator() +
+                        Messages.CHOOSE_NEW_ABILITIES_OPTION + System.lineSeparator() +
+                        Messages.CHOOSE_NEW_DIE + System.lineSeparator();
                 this.nextGameState = ChooseReward.class;
                 return;
             }

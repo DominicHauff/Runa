@@ -23,12 +23,12 @@ public class InitializeLevel extends GameState {
 
     @Override
     public String getPrompt() {
-        return Messages.ENTER_SEEDS_PROMPT;
+        return Messages.ENTER_SEEDS_PROMPT; //TODO: LINE SEPARATOR
     }
 
     @Override
     public String repeatPrompt() {
-        return getPrompt();
+        return getPrompt() + System.lineSeparator();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class InitializeLevel extends GameState {
         final int secondSeed = parameterBundle.get(SECOND_SEED);
         final GameLevel level = this.runasStrive.shuffleCards(firstSeed, secondSeed);
         this.response = String.format(Messages.STAGE_ENTER_MESSAGE,
-                level.getCurrentStage().getStageNumber(), level.getLevel().getValue());
+                level.getCurrentStage().getStageNumber(), level.getLevel().getValue()) + System.lineSeparator();
         this.nextGameState = ChooseAbility.class;
         return true;
     }

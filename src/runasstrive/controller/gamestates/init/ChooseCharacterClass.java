@@ -21,7 +21,7 @@ public class ChooseCharacterClass extends GameState {
 
     @Override
     public String getPrompt() {
-        return String.format(Messages.ENTER_NUMBER_PROMPT, CharacterType.values().length);
+        return String.format(Messages.ENTER_NUMBER_PROMPT, CharacterType.values().length) + System.lineSeparator();
     }
 
     @Override

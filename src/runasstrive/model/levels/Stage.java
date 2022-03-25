@@ -25,7 +25,7 @@ public class Stage {
     }
 
     public boolean cleared() {
-        return this.monsters.isEmpty();
+        return this.getAliveMonsters().isEmpty();
     }
 
     public int getStageNumber() {
@@ -49,17 +49,16 @@ public class Stage {
 
     private void logTakenDamage(Entity<?> entity) {
         //TODO: magic numbers
+        if (entity.getTakenMagicDamage() > 0) {
+            this.log.add(String.format(Messages.TAKE_MAGIC_DAMAGE,
+                    entity.getName(), entity.getTakenPhysicalDamage()));
+        }
+        if (entity.getTakenPhysicalDamage() > 0) {
+            this.log.add(String.format(Messages.TAKE_PHYSICAL_DAMAGE,
+                    entity.getName(), entity.getTakenPhysicalDamage()));
+        }
         if (entity.isDead()) {
             this.log.add(String.format(Messages.ENTITY_DIES, entity.getName()));
-        } else {
-            if (entity.getTakenMagicDamage() > 0) {
-                this.log.add(String.format(Messages.TAKE_MAGIC_DAMAGE,
-                        entity.getName(), entity.getTakenPhysicalDamage()));
-            }
-            if (entity.getTakenPhysicalDamage() > 0) {
-                this.log.add(String.format(Messages.TAKE_PHYSICAL_DAMAGE,
-                        entity.getName(), entity.getTakenPhysicalDamage()));
-            }
         }
     }
 

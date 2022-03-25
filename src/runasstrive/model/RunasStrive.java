@@ -59,6 +59,10 @@ public class RunasStrive {
         this.levels.pop();
     }
 
+    public void advanceToNextStage() {
+        this.getCurrentLevel().enterNextStage();
+    }
+
     public boolean gameWon() {
         return this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL) && this.getCurrentLevel().cleared();
     }
@@ -89,7 +93,7 @@ public class RunasStrive {
     }
 
     public boolean canChooseDie() {
-        return this.dieBag.isEmpty();
+        return !this.dieBag.isEmpty();
     }
 
     public Player getPlayer() {
@@ -125,7 +129,8 @@ public class RunasStrive {
     }
 
     public Die upgradeDie() {
-        return this.dieBag.pop();
+        this.dieBag.pop();
+        return this.getCurrentDie();
     }
 
     public int getNumRewardCards() {
