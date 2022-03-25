@@ -9,8 +9,8 @@ import java.util.*;
 public class GameLevel {
     private final Level level;
     private final Stack<Stage> stages;
-    private Stage currentStage;
     private final List<Monster> monsters;
+    private Stage currentStage;
 
     public GameLevel(Level level, List<Monster> monsters) {
         this.level = level;

@@ -42,7 +42,6 @@ public final class Messages {
     public static final String GAIN_HEALTH = "Runa gains %d health";
 
 
-
     private Messages() {
     }
 }

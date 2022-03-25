@@ -47,7 +47,7 @@ public abstract class FightGameState extends GameState {
         StringBuilder builder = new StringBuilder();
         this.runasStrive.getPlayer().getType().getTypeAbilities().forEach(ability ->
                 builder.append(ability.toString()).append(System.lineSeparator()));
-        this.response += System.lineSeparator() + builder.toString();
+        this.response += System.lineSeparator() + builder;
         this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
     }
 

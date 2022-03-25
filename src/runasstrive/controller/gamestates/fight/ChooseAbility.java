@@ -31,7 +31,7 @@ public class ChooseAbility extends FightGameState {
         this.runasStrive.getCurrentLevel().getCurrentStage().getMonsters().forEach(monster ->
                 monsterStringBuilder.append(monster.toString()).append(System.lineSeparator()));
         stringBuilder
-                .append(monsterStringBuilder.toString()).append(System.lineSeparator())
+                .append(monsterStringBuilder).append(System.lineSeparator())
                 .append(Messages.SEPARATOR).append(System.lineSeparator());
         List<Ability> abilities = this.runasStrive.getPlayer().getAbilities();
 

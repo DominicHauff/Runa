@@ -1,7 +1,6 @@
 package runasstrive.model;
 
 import runasstrive.model.cards.ablilities.Ability;
-import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.dice.Die;

@@ -5,7 +5,6 @@ import runasstrive.DieSupplier;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.dice.Die;
-import runasstrive.model.dice.DieBag;
 
 import java.util.Stack;
 

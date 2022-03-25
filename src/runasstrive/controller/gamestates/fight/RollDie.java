@@ -1,7 +1,5 @@
 package runasstrive.controller.gamestates.fight;
 
-import runasstrive.controller.gamestates.GameState;
-import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;

@@ -1,6 +1,5 @@
 package runasstrive.model.cards.entity;
 
-import runasstrive.model.Level;
 import runasstrive.model.cards.Card;
 import runasstrive.model.cards.ablilities.Ability;
 

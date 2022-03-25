@@ -7,7 +7,7 @@ public class CardIndexParameter extends Parameter<Integer> {
     @Override
     public Integer get(String parsingResult) throws IllegalArgumentException {
         try {
-            final int cardIndex =  Integer.parseInt(parsingResult) - OFFSET;
+            final int cardIndex = Integer.parseInt(parsingResult) - OFFSET;
             if (cardIndex < MIN) {
                 throw new IllegalArgumentException();
             }

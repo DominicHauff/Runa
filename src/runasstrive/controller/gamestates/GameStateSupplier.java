@@ -17,14 +17,14 @@ public class GameStateSupplier {
 
     public GameStateSupplier(RunasStrive runasStrive) {
         this.gameStates = Map.of(
-            ChooseCharacterClass.class, new ChooseCharacterClass(runasStrive),
-            InitializeLevel.class, new InitializeLevel(runasStrive),
-            ChooseAbility.class, new ChooseAbility(runasStrive),
-            ChooseTarget.class, new ChooseTarget(runasStrive),
-            RollDie.class, new RollDie(runasStrive),
-            ChooseReward.class, new ChooseReward(runasStrive),
-            ChooseNewCards.class, new ChooseNewCards(runasStrive),
-            Heal.class, new Heal(runasStrive)
+                ChooseCharacterClass.class, new ChooseCharacterClass(runasStrive),
+                InitializeLevel.class, new InitializeLevel(runasStrive),
+                ChooseAbility.class, new ChooseAbility(runasStrive),
+                ChooseTarget.class, new ChooseTarget(runasStrive),
+                RollDie.class, new RollDie(runasStrive),
+                ChooseReward.class, new ChooseReward(runasStrive),
+                ChooseNewCards.class, new ChooseNewCards(runasStrive),
+                Heal.class, new Heal(runasStrive)
         );
     }
 

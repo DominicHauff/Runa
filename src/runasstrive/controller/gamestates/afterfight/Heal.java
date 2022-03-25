@@ -1,7 +1,6 @@
 package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
-import runasstrive.controller.gamestates.fight.ChooseAbility;
 import runasstrive.controller.gamestates.init.InitializeLevel;
 import runasstrive.io.parameters.CardIndexParameter;
 import runasstrive.io.parameters.Parameter;

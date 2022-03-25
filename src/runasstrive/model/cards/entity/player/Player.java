@@ -6,7 +6,6 @@ import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.type.CharacterType;
-import runasstrive.model.dice.Die;
 
 import java.util.Collections;
 
@@ -17,7 +16,7 @@ public class Player extends Entity<CharacterType> {
     private Ability cardToPlay;
     private Monster target;
     private int dieRes;
-    private int maxFp;
+    private final int maxFp;
 
     public Player(String name, Level level, int hp) {
         super(name, hp, Collections.emptyList());
