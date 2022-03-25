@@ -33,6 +33,9 @@ public class InitializeLevel extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
+        if (!parameterBundle.isPresent(FIRST_SEED) || !parameterBundle.isPresent(SECOND_SEED)) {
+            return false;
+        }
         final int firstSeed = parameterBundle.get(FIRST_SEED);
         final int secondSeed = parameterBundle.get(SECOND_SEED);
         final GameLevel level = this.runasStrive.shuffleCards(firstSeed, secondSeed);

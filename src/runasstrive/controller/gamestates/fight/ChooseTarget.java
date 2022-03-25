@@ -38,6 +38,9 @@ public class ChooseTarget extends FightGameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
+        if (!parameterBundle.isPresent(CHOICE)) {
+            return false;
+        }
         final int choice = parameterBundle.get(CHOICE);
 
         if (!this.runasStrive.pickTarget(choice)) return false;

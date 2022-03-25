@@ -30,6 +30,9 @@ public class RollDie extends FightGameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
+        if (!parameterBundle.isPresent(DIE_RES)) {
+            return false;
+        }
         final int dieRes = parameterBundle.get(DIE_RES);
         if (!this.runasStrive.rollDie(dieRes)) {
             return false;

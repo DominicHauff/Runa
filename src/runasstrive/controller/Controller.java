@@ -29,10 +29,10 @@ public class Controller {
 
     public String interact(List<String> argumentList) {
         ParameterBundle bundle = new ParameterBundle();
-        if (argumentList.size() != this.currentGameState.getParameters().size()) {
+        if (argumentList.size() > this.currentGameState.getParameters().size()) {
             return null;
         }
-        for (int i = 0; i < currentGameState.getParameters().size(); i++) {
+        for (int i = 0; i < argumentList.size(); i++) {
             Parameter<?> parameter = this.currentGameState.getParameters().get(i);
             try {
                 bundle.put(parameter, parameter.get(argumentList.get(i)));

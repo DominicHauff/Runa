@@ -38,6 +38,9 @@ public class ChooseReward extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
+        if (!parameterBundle.isPresent(CHOICE)) {
+            return false;
+        }
         final int choice = parameterBundle.get(CHOICE);
         switch (choice) {
             case NEW_CARDS -> {

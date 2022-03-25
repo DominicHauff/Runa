@@ -31,6 +31,9 @@ public class ChooseCharacterClass extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
+        if (!parameterBundle.isPresent(CHOICE)) {
+            return false;
+        }
         final int choice = parameterBundle.get(CHOICE);
         CharacterType type = CharacterType.getCharacterType(choice);
         if (type == null) return false;

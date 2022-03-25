@@ -54,6 +54,9 @@ public class ChooseAbility extends FightGameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
+        if (!parameterBundle.isPresent(CHOICE)) {
+            return false;
+        }
         final int choice = parameterBundle.get(CHOICE);
         final Ability card = this.runasStrive.pickCard(choice);
         if (card == null) return false;

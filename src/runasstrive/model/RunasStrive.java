@@ -122,4 +122,8 @@ public class RunasStrive {
     public Die upgradeDie() {
         return this.dieBag.pop();
     }
+
+    public int getNumRewardCards() {
+        return this.getCurrentLevel().getCurrentStage().getMonsters().size();
+    }
 }
