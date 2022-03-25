@@ -70,4 +70,8 @@ public class Player extends Entity<CharacterType> {
     public boolean canHeal() {
         return this.hp < MAX_HP;
     }
+
+    public void upgradeCharacterCards() {
+        this.getType().getTypeAbilities().forEach(Ability::upgrade);
+    }
 }

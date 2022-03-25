@@ -45,6 +45,9 @@ public class RunasStrive {
 
     public void startFight() {
         this.getCurrentLevel().resume(this.player);
+        if (!this.isLevelCleared() && this.stageCleared()) {
+
+        }
     }
 
     public void advanceToNextLevel() {
@@ -109,10 +112,14 @@ public class RunasStrive {
     }
 
     public void upgradeCards() {
-        //TODO: implement
+        this.player.upgradeCharacterCards();
     }
 
     public boolean stageCleared() {
         return this.getCurrentLevel().getCurrentStage().cleared();
+    }
+
+    public Die upgradeDie() {
+        return this.dieBag.pop();
     }
 }

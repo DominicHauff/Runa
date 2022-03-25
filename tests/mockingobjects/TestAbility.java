@@ -6,7 +6,7 @@ import runasstrive.model.cards.entity.Entity;
 
 public class TestAbility extends Ability {
 
-    protected TestAbility(String name, Level level, int cost, boolean requiresTarget, boolean requiresDieRoll) {
+    protected TestAbility(String name, int level, int cost, boolean requiresTarget, boolean requiresDieRoll) {
         super(name, level, cost, requiresTarget, requiresDieRoll);
     }
 

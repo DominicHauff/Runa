@@ -1,7 +1,6 @@
 package runasstrive.controller.gamestates.fight;
 
 import runasstrive.controller.gamestates.GameState;
-import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
@@ -13,7 +12,7 @@ import java.util.List;
 
 public class ChooseAbility extends FightGameState {
     private static final IntegerParameter CHOICE = new IntegerParameter();
-    private static final List<Parameter<?>> PARAMETER_LIST = List.of(CHOICE);
+    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
     private Class<? extends GameState> nextGameState;
 
     public ChooseAbility(RunasStrive runasStrive) {
@@ -71,6 +70,6 @@ public class ChooseAbility extends FightGameState {
 
     @Override
     public List<Parameter<?>> getParameters() {
-        return PARAMETER_LIST;
+        return PARAMETERS;
     }
 }

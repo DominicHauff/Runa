@@ -4,9 +4,8 @@ import runasstrive.model.Level;
 
 public abstract class MagicalAbility extends Ability {
 
-    public MagicalAbility(Level level, int cost) {
-        super(level, cost);
+
+    protected MagicalAbility(String name, int level, int cost, boolean requiresTarget, boolean requiresDieRoll) {
+        super(name, level, cost, requiresTarget, requiresDieRoll);
     }
-
-
 }

@@ -33,13 +33,14 @@ public final class Messages {
     public static final String TAKE_PHYSICAL_DAMAGE = "%s takes %d phy. damage";
     public static final String ENTITY_USES_ABILITY = "%s uses %s";
     public static final String CHOOSE_RUNAS_REWARD = "Choose Runa's reward";
-    public static final String CHOOSE_NEW_ABILITIES = "1) new ability cards";
+    public static final String CHOOSE_NEW_ABILITIES_OPTION = "1) new ability cards";
     public static final String CHOOSE_NEW_DIE = "2) next player dice";
     public static final String PICK_CARD_PROMPT = "Pick %d card(s) as loot";
     public static final String UPGRADE_DIE = "Runa upgrades her die to a %s";
     public static final String GET_NEW_CARD = "Runa gets /s";
     public static final String HEALING_OPTION = "Runa (%d/50 HP) can discard ability cards for healing (or none)";
     public static final String GAIN_HEALTH = "Runa gains %d health";
+
 
 
     private Messages() {

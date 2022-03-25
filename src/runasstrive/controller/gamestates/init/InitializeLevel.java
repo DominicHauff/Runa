@@ -14,7 +14,7 @@ import java.util.List;
 public class InitializeLevel extends GameState {
     private static final SeedParameter FIRST_SEED = new SeedParameter();
     private static final SeedParameter SECOND_SEED = new SeedParameter();
-    private static final List<Parameter<?>> PARAMETER_LIST = List.of(FIRST_SEED, SECOND_SEED);
+    private static final List<Parameter<?>> PARAMETERS = List.of(FIRST_SEED, SECOND_SEED);
 
     public InitializeLevel(RunasStrive runasStrive) {
         super(runasStrive);
@@ -44,7 +44,7 @@ public class InitializeLevel extends GameState {
 
     @Override
     public List<Parameter<?>> getParameters() {
-        return PARAMETER_LIST;
+        return PARAMETERS;
     }
 
 }
