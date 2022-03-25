@@ -32,4 +32,9 @@ public abstract class Monster extends Entity<MonsterType> {
 
         return nextAbility;
     }
+
+    @Override
+    public Class<?> getEntityType() {
+        return MonsterType.class;
+    }
 }

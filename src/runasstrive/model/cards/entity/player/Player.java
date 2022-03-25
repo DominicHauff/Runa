@@ -65,6 +65,11 @@ public class Player extends Entity<CharacterType> {
     }
 
     @Override
+    public Class<?> getEntityType() {
+        return CharacterType.class;
+    }
+
+    @Override
     public void focus(int fp) {
         if (this.maxFp < this.fp + fp) {
             this.fp = this.maxFp;
