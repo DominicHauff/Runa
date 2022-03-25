@@ -36,6 +36,8 @@ public abstract class Entity<T> extends Card {
         this.type = type;
     }
 
+    public abstract Class<?> getEntityType();
+
     public int getHp() {
         return this.hp;
     }
