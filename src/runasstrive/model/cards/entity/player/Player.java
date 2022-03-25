@@ -7,21 +7,26 @@ import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.type.CharacterType;
 
+import java.util.Collection;
 import java.util.Collections;
 
 public class Player extends Entity<CharacterType> {
-    private static final int MAX_HP = 50;
-    private static final int MIN_ABILITY_CARDS = 1;
-    private static final int HEAL = 10;
-    private final int maxFp;
+    private final int maxHp;
+    private final int heal;
+    private final int minAbilityCards ;
+    private int hp = 50;
+    private int maxFp;
     private Ability cardToPlay;
     private Monster target;
     private int dieRes;
 
-    public Player(String name, Level level, int hp) {
-        super(name, hp, Collections.emptyList());
-        this.fp = 1;
-        this.maxFp = 4;
+    public Player(String name, int heal, int minAbilityCards, int hp, int fp, int maxFp, Collection<Ability> abilities) {
+        super(name, hp, abilities);
+        this.maxHp = hp;
+        this.fp = fp;
+        this.heal = heal;
+        this.maxFp = maxFp;
+        this.minAbilityCards = minAbilityCards;
     }
 
     @Override
@@ -69,7 +74,7 @@ public class Player extends Entity<CharacterType> {
     }
 
     public boolean canHeal() {
-        return this.hp < MAX_HP && this.abilities.size() > MIN_ABILITY_CARDS;
+        return this.hp < maxHp  && this.abilities.size() > minAbilityCards;
     }
 
     public void upgradeCharacterCards() {
@@ -82,6 +87,6 @@ public class Player extends Entity<CharacterType> {
 
     public void heal(int choice) {
         this.abilities.remove(choice);
-        this.hp = Math.min(MAX_HP, this.hp + HEAL);
+        this.hp = Math.min(maxHp, this.hp + heal);
     }
 }
