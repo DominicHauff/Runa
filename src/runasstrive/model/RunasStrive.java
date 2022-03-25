@@ -14,12 +14,14 @@ public class RunasStrive {
     private final Stack<Ability> deck;
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
+    private final LinkedList<Ability> reward;
 
     public RunasStrive(Stack<Die> dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
         this.deck = abilities;
         this.player = player;
         this.levels = levels;
+        this.reward = new LinkedList<>();
     }
 
     public GameLevel shuffleCards(int firstSeed, int secondSeed) {
@@ -46,7 +48,11 @@ public class RunasStrive {
     public void startFight() {
         this.getCurrentLevel().resume(this.player);
         if (!this.isLevelCleared() && this.stageCleared()) {
-
+            if (this.reward.isEmpty()) {
+                for (int i = 0; i < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2; i++) { //TODO: wtf
+                    this.reward.addLast(this.deck.pop());
+                }
+            }
         }
     }
 
@@ -76,11 +82,10 @@ public class RunasStrive {
     }
 
     public void drawCard(int choice) {
-
-    }
-
-    public void getNextDie() {
-        //TODO: complete implementation
+        //TODO: fix silent fail on error
+        if (choice < this.reward.size()) {
+            this.player.addAbility(this.reward.get(choice));
+        }
     }
 
     public boolean canChooseDie() {
@@ -125,5 +130,13 @@ public class RunasStrive {
 
     public int getNumRewardCards() {
         return this.getCurrentLevel().getCurrentStage().getMonsters().size();
+    }
+
+    public void discardLeftOverReward() {
+        this.reward.clear();
+    }
+
+    public Collection<Ability> getRewards() {
+        return this.reward;
     }
 }

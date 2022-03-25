@@ -74,4 +74,8 @@ public class Player extends Entity<CharacterType> {
     public void upgradeCharacterCards() {
         this.getType().getTypeAbilities().forEach(Ability::upgrade);
     }
+
+    public void addAbility(Ability ability) {
+        this.abilities.addLast(ability);
+    }
 }
