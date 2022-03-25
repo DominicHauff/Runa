@@ -57,8 +57,15 @@ public abstract class Entity<T> extends Card {
     }
 
     public void takeDamage(int physicalDamage, int magicDamage) {
+        takeDamage(physicalDamage, magicDamage, null);
+    }
+
+    public void takeDamage(int physicalDamage, int magicDamage, Ability ability) {
         if (physicalDamage > this.physicalShield + this.reflectPhysicalDamage) {
-            this.takenPhysicalDamage = physicalDamage - this.physicalShield - this.reflectPhysicalDamage;
+            int damage = physicalDamage - this.physicalShield - this.reflectPhysicalDamage;
+            if (ability != null && ability.getAffectedType().equals(this.getType())) {
+                damage += ability.getAdditionalTypeDamage();
+            }
             this.hp -= this.takenPhysicalDamage;
         }
         if (magicDamage > this.magicShield + this.reflectMagicDamage) {

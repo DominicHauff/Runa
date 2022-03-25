@@ -3,6 +3,7 @@ package runasstrive.model.cards.ablilities;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.cards.Card;
 import runasstrive.model.cards.entity.Entity;
+import runasstrive.model.cards.entity.type.MonsterType;
 
 public abstract class Ability extends Card {
     protected final int cost;
@@ -31,7 +32,7 @@ public abstract class Ability extends Card {
         initValues(caster);
         caster.shield(physicalShield, magicShield);
         caster.reflect(reflectPhysicalDamage, reflectMagicDamage);
-        target.takeDamage(physicalDamage, magicDamage);
+        target.takeDamage(physicalDamage, magicDamage, this);
         caster.takeDamage(Math.min(target.getReflectedPhysicalDamage(), physicalDamage),
                 Math.min(target.getReflectMagicDamage(), magicDamage));
         caster.setFocus(willIncreaseFocusPoints);
@@ -67,4 +68,9 @@ public abstract class Ability extends Card {
     public void upgrade() {
         this.level++;
     }
+
+    public abstract int getAdditionalTypeDamage();
+
+    public abstract MonsterType getAffectedType();
+
 }

@@ -1,7 +1,7 @@
 package runasstrive.model.cards.ablilities.magic.offensive;
 
 import runasstrive.model.cards.entity.Entity;
-import runasstrive.model.cards.entity.monster.Monster;
+import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.cards.entity.type.MonsterType;
 
 public class Fire extends OffensiveMagicAbility {
@@ -21,15 +21,9 @@ public class Fire extends OffensiveMagicAbility {
     public void initValues(Entity<?> caster) {
         this.physicalDamage = PHYSICAL_DAMAGE;
 
-        if () {
-            if () {
-                this.magicDamage =
-                        (MAGIC_DAMAGE_FACTOR_PLAYER * this.level + ADDITIONAL_DAMAGE_VALUE_PLAYER) * caster.getFp()
-                        + ADDITIONAL_TYPE_DAMAGE_FACTOR * this.level;
-            } else {
-                this.magicDamage =
-                        (MAGIC_DAMAGE_FACTOR_PLAYER * this.level + ADDITIONAL_DAMAGE_VALUE_PLAYER) * caster.getFp();
-            }
+        if (caster.getEntityType() == CharacterType.class) {
+            this.magicDamage =
+                    (MAGIC_DAMAGE_FACTOR_PLAYER * this.level + ADDITIONAL_DAMAGE_VALUE_PLAYER) * caster.getFp();
         } else {
             this.magicDamage = MAGIC_DAMAGE_FACTOR_MONSTER * this.level + ADDITIONAL_DAMAGE_VALUE_MONSTER;
         }
@@ -40,5 +34,10 @@ public class Fire extends OffensiveMagicAbility {
         this.magicShield = MAGIC_SHIELD;
         this.willIncreaseFocusPoints = WILL_INCREASE_FOCUS_POINTS;
         this.breakFocus = BREAK_FOCUS_POINTS;
+    }
+
+    @Override
+    public MonsterType getAffectedType() {
+        return AFFECTED_TYPE;
     }
 }
