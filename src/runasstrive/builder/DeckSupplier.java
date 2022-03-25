@@ -1,4 +1,4 @@
-package runasstrive;
+package runasstrive.builder;
 
 import runasstrive.model.cards.ablilities.Ability;
 

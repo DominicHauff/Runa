@@ -13,10 +13,10 @@ public class Player extends Entity<CharacterType> {
     private static final int MAX_HP = 50;
     private static final int MIN_ABILITY_CARDS = 1;
     private static final int HEAL = 10;
+    private final int maxFp;
     private Ability cardToPlay;
     private Monster target;
     private int dieRes;
-    private final int maxFp;
 
     public Player(String name, Level level, int hp) {
         super(name, hp, Collections.emptyList());
