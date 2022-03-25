@@ -19,6 +19,6 @@ public class CardIndexParameter extends Parameter<Integer> {
 
     @Override
     public Class<?> getType() {
-        return null;
+        return Integer.class;
     }
 }

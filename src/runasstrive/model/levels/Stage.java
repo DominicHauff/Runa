@@ -72,6 +72,7 @@ public class Stage {
             player.useAbility(target);
             this.logTakenDamage(target);
             this.logTakenDamage(player);
+            target.resetStats();
 
         } else {
             player.useAbility();
@@ -82,5 +83,6 @@ public class Stage {
             this.logTakenDamage(player);
             this.logTakenDamage(monster);
         }
+        player.resetStats();
     }
 }

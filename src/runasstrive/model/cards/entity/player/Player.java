@@ -47,6 +47,12 @@ public class Player extends Entity<CharacterType> {
         return this.target;
     }
 
+    @Override
+    public void setType(CharacterType type) {
+        super.setType(type);
+        this.abilities.addAll(type.getTypeAbilities());
+    }
+
     public void setTarget(Monster target) {
         this.target = target;
     }

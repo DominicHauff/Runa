@@ -14,8 +14,8 @@ public class LevelBuilder {
 
     public static Stack<GameLevel> buildLevels() {
         final Stack<GameLevel> gameLevels = new Stack<>();
-        gameLevels.push(getLevelOne());
         gameLevels.push(getLevelTwo());
+        gameLevels.push(getLevelOne());
         return gameLevels;
     }
 

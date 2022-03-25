@@ -40,7 +40,7 @@ public class InitializeLevel extends GameState {
         final int secondSeed = parameterBundle.get(SECOND_SEED);
         final GameLevel level = this.runasStrive.shuffleCards(firstSeed, secondSeed);
         this.response = String.format(Messages.STAGE_ENTER_MESSAGE,
-                level.getLevel().getValue(), level.getCurrentStage().getStageNumber());
+                level.getCurrentStage().getStageNumber(), level.getLevel().getValue());
         this.nextGameState = ChooseAbility.class;
         return true;
     }

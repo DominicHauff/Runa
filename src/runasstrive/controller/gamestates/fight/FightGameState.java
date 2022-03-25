@@ -16,7 +16,7 @@ public abstract class FightGameState extends GameState {
 
     public void startFight() {
         this.runasStrive.startFight();
-        this.response = this.runasStrive.getFightLog();
+        this.response = this.runasStrive.getFightLog() + System.lineSeparator();
         if (this.runasStrive.gameOver()) {
             this.nextGameState = null;
             return;

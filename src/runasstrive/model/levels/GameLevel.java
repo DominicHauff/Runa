@@ -25,10 +25,10 @@ public class GameLevel {
     public void initialize(int seed) {
         Collections.shuffle(this.monsters, new Random(seed));
         this.stages.push(new Stage(this.level.getNumOfStages(), List.of(level.getLevelBoss())));
-        int index = this.monsters.size() - 1;
-        for (int i = this.level.getStagesPerLevel().length - 1; i >= 0; i--) {
+        int index = Arrays.stream(this.level.getMonstersPerStage()).sum() - 1;
+        for (int i = this.level.getMonstersPerStage().length - 1; i >= 0; i--) {
             List<Monster> stageMonsters = new ArrayList<>();
-            for (int j = 0; j < this.level.getStagesPerLevel()[i]; j++) {
+            for (int j = 0; j < this.level.getMonstersPerStage()[i]; j++) {
                 stageMonsters.add(this.monsters.get(index));
                 index--;
             }

@@ -62,16 +62,16 @@ public abstract class Entity<T> extends Card {
 
     public void takeDamage(int physicalDamage, int magicDamage, Ability ability) {
         if (physicalDamage > this.physicalShield + this.reflectPhysicalDamage) {
-            int damage = physicalDamage - this.physicalShield - this.reflectPhysicalDamage;
-            if (ability != null && ability.getAffectedType().equals(this.getType())) {
-                damage += ability.getAdditionalTypeDamage();
-            }
-            this.hp -= this.takenPhysicalDamage;
+            this.takenPhysicalDamage = physicalDamage - this.physicalShield - this.reflectPhysicalDamage;
         }
         if (magicDamage > this.magicShield + this.reflectMagicDamage) {
             this.takenMagicDamage = magicDamage - this.magicShield - this.reflectMagicDamage;
-            this.hp -= this.takenMagicDamage;
+            if (ability != null && ability.getAffectedType().equals(this.getType())) {
+                this.takenMagicDamage += ability.getAdditionalTypeDamage();
+            }
         }
+        this.hp -= this.takenPhysicalDamage;
+        this.hp -= this.takenMagicDamage;
     }
 
     public int getReflectedPhysicalDamage() {
@@ -122,5 +122,14 @@ public abstract class Entity<T> extends Card {
 
     public int getTakenPhysicalDamage() {
         return this.takenPhysicalDamage;
+    }
+
+    public void resetStats() {
+        this.takenMagicDamage = 0;
+        this.takenPhysicalDamage = 0;
+        this.magicShield = 0;
+        this.physicalShield = 0;
+        this.reflectMagicDamage = 0;
+        this.reflectPhysicalDamage = 0;
     }
 }

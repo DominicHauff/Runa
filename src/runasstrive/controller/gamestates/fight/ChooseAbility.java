@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.fight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.io.parameters.CardIndexParameter;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
@@ -11,9 +12,8 @@ import runasstrive.model.cards.ablilities.Ability;
 import java.util.List;
 
 public class ChooseAbility extends FightGameState {
-    private static final IntegerParameter CHOICE = new IntegerParameter();
+    private static final CardIndexParameter CHOICE = new CardIndexParameter();
     private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
-    private Class<? extends GameState> nextGameState;
 
     public ChooseAbility(RunasStrive runasStrive) {
         super(runasStrive);
@@ -31,7 +31,7 @@ public class ChooseAbility extends FightGameState {
         this.runasStrive.getCurrentLevel().getCurrentStage().getMonsters().forEach(monster ->
                 monsterStringBuilder.append(monster.toString()).append(System.lineSeparator()));
         stringBuilder
-                .append(monsterStringBuilder).append(System.lineSeparator())
+                .append(monsterStringBuilder)
                 .append(Messages.SEPARATOR).append(System.lineSeparator());
         List<Ability> abilities = this.runasStrive.getPlayer().getAbilities();
 
@@ -59,12 +59,16 @@ public class ChooseAbility extends FightGameState {
         }
         final int choice = parameterBundle.get(CHOICE);
         final Ability card = this.runasStrive.pickCard(choice);
+        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(),
+                card.toString()) + System.lineSeparator();
         if (card == null) return false;
         if (card.targetRequired()) {
             if (this.runasStrive.requiresTargetChoice()) {
                 this.nextGameState = ChooseTarget.class;
+                return true;
             } else if (card.dieRollRequired()) {
                 this.nextGameState = RollDie.class;
+                return true;
             }
         }
         this.startFight();

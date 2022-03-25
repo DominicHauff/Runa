@@ -11,13 +11,13 @@ public enum Level {
     public static final Level MAX_LEVEL = LEVEL_TWO;
     private final int value;
     private final int numOfStages;
-    private final int[] stagesPerLevel;
+    private final int[] monstersPerStage;
     private final Monster levelBoss;
 
     Level(int value, int numOfStages, int[] stagesPerLevel, Monster levelBoss) {
         this.value = value;
         this.numOfStages = numOfStages;
-        this.stagesPerLevel = stagesPerLevel;
+        this.monstersPerStage = stagesPerLevel;
         this.levelBoss = levelBoss;
     }
 
@@ -29,8 +29,8 @@ public enum Level {
         return numOfStages;
     }
 
-    public int[] getStagesPerLevel() {
-        return stagesPerLevel;
+    public int[] getMonstersPerStage() {
+        return monstersPerStage;
     }
 
     public Monster getLevelBoss() {

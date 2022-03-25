@@ -4,6 +4,7 @@ import testapi.test.Application;
 import testapi.test.CodeTester;
 import testapi.utils.CurseOfTheHanseaticFileConvert;
 import testapi.utils.FileConverter;
+import testapi.utils.RunaStriveFileConverter;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class Main {
         Application application = new Application(null);
         //the directory which holds the test-files.
         String testFileDirectoryPath = "src/testapi/resources/testfiles";
-        FileConverter fileConverter = new CurseOfTheHanseaticFileConvert(testFileDirectoryPath);
+        FileConverter fileConverter = new RunaStriveFileConverter(testFileDirectoryPath);
         new CodeTester(application, testFileDirectoryPath, fileConverter).runTests();
     }
 }
