@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Deflect extends DefensiveMagicAbility {
     private static final String NAME = "Deflect";
 
-    protected Deflect(int level) {
+    public Deflect(int level) {
         super(NAME, level);
     }
 

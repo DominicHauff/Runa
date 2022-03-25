@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Bite extends OffensivePhysicalMonsterAbility {
     private static final String NAME = "Bite";
 
-    protected Bite(int level) {
+    public Bite(int level) {
         super(NAME, level);
     }
 

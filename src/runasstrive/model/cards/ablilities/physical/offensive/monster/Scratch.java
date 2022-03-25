@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Scratch extends OffensivePhysicalMonsterAbility {
     private static final String NAME = "Scratch";
 
-    protected Scratch(int level) {
+    public Scratch(int level) {
         super(NAME, level);
     }
 

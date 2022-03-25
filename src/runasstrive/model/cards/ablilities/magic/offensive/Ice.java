@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Ice extends OffensiveMagicAbility {
     private static final String NAME = "Ice";
 
-    protected Ice(int level, int cost) {
+    public Ice(int level, int cost) {
         super(NAME, level, cost);
     }
 

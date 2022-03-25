@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Parry extends DefensivePhysicalAbility {
     protected static final String NAME = "Parry";
 
-    protected Parry(int level) {
+    public Parry(int level) {
         super(NAME, level);
     }
 

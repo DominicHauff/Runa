@@ -5,8 +5,8 @@ import runasstrive.model.cards.entity.Entity;
 public class Water extends OffensiveMagicAbility {
     private static final String NAME = "Water";
 
-    protected Water(String name, int level, int cost) {
-        super(name, level, cost);
+    public Water(int level, int cost) {
+        super(NAME, level, cost);
     }
 
     @Override

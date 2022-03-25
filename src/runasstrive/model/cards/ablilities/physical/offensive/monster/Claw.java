@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Claw extends OffensivePhysicalMonsterAbility {
     private static final String NAME = "Claw";
 
-    protected Claw(int level) {
+    public Claw(int level) {
         super(NAME, level);
     }
 
