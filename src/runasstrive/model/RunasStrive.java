@@ -139,4 +139,10 @@ public class RunasStrive {
     public Collection<Ability> getRewards() {
         return this.reward;
     }
+
+    public boolean healPlayer(int choice) {
+        if (this.player.getAbilities().size() <= choice) return false;
+        this.player.heal(choice);
+        return true;
+    }
 }

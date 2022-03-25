@@ -12,6 +12,8 @@ import java.util.Collections;
 
 public class Player extends Entity<CharacterType> {
     private static final int MAX_HP = 50;
+    private static final int MIN_ABILITY_CARDS = 1;
+    private static final int HEAL = 10;
     private Ability cardToPlay;
     private Monster target;
     private int dieRes;
@@ -68,7 +70,7 @@ public class Player extends Entity<CharacterType> {
     }
 
     public boolean canHeal() {
-        return this.hp < MAX_HP;
+        return this.hp < MAX_HP && this.abilities.size() > MIN_ABILITY_CARDS;
     }
 
     public void upgradeCharacterCards() {
@@ -77,5 +79,10 @@ public class Player extends Entity<CharacterType> {
 
     public void addAbility(Ability ability) {
         this.abilities.addLast(ability);
+    }
+
+    public void heal(int choice) {
+        this.abilities.remove(choice);
+        this.hp = Math.min(MAX_HP, this.hp + HEAL);
     }
 }

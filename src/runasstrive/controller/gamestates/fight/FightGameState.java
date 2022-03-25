@@ -4,6 +4,7 @@ import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.afterfight.ChooseNewCards;
 import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.controller.gamestates.afterfight.Heal;
+import runasstrive.controller.gamestates.init.InitializeLevel;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
@@ -41,17 +42,13 @@ public abstract class FightGameState extends GameState {
             return;
         }
         this.runasStrive.advanceToNextLevel();
-        if (this.runasStrive.canPlayerHeal()) {
-            this.nextGameState = Heal.class;
-            return;
-        }
 
         this.runasStrive.upgradeCards();
         StringBuilder builder = new StringBuilder();
         this.runasStrive.getPlayer().getType().getTypeAbilities().forEach(ability ->
                 builder.append(ability.toString()).append(System.lineSeparator()));
         this.response += System.lineSeparator() + builder.toString();
-        this.nextGameState = ChooseAbility.class;
+        this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
     }
 
 }

@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.controller.gamestates.init.InitializeLevel;
 import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
@@ -54,6 +55,7 @@ public class ChooseReward extends GameState {
                 return false;
             }
         }
+        this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
         return true;
     }
 
