@@ -26,9 +26,9 @@ public class GameLevel {
         this.stages.push(new Stage(this.level.getNumOfStages(), List.of(level.getLevelBoss())));
         int index = Arrays.stream(this.level.getMonstersPerStage()).sum() - 1;
         for (int i = this.level.getMonstersPerStage().length - 1; i >= 0; i--) {
-            List<Monster> stageMonsters = new ArrayList<>();
+            LinkedList<Monster> stageMonsters = new LinkedList<>();
             for (int j = 0; j < this.level.getMonstersPerStage()[i]; j++) {
-                stageMonsters.add(this.monsters.get(index));
+                stageMonsters.addFirst(this.monsters.get(index));
                 index--;
             }
             this.stages.push(new Stage(i + 1, stageMonsters));
