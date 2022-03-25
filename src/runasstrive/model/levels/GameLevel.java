@@ -12,7 +12,7 @@ public class GameLevel {
     private final List<Monster> monsters;
     private Stage currentStage;
 
-    public GameLevel(Level level, List<Monster> monsters) {
+    public GameLevel(Level level, Collection<Monster> monsters) {
         this.level = level;
         this.stages = new Stack<>();
         this.monsters = new ArrayList<>(monsters);

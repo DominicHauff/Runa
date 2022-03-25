@@ -5,8 +5,8 @@ import runasstrive.model.cards.entity.Entity;
 public class Thrust extends OffensivePhysicalPlayerAbility {
     private static final String NAME = "Thrust";
 
-    protected Thrust(String name, int level) {
-        super(name, level);
+    public Thrust(int level) {
+        super(NAME, level);
     }
 
     @Override

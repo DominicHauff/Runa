@@ -1,11 +1,12 @@
 package runasstrive.model;
 
 import runasstrive.model.cards.entity.monster.Monster;
+import runasstrive.model.cards.entity.monster.levelonemonsters.SpiderKing;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.MegaSaurus;
 
 public enum Level {
-    //TODO: add boss monsters
-    LEVEL_ONE(1, 4, new int[]{1, 2, 2}, null),
-    LEVEL_TWO(2, 4, new int[]{1, 2, 2}, null);
+    LEVEL_ONE(1, 4, new int[]{1, 2, 2}, new SpiderKing()),
+    LEVEL_TWO(2, 4, new int[]{1, 2, 2}, new MegaSaurus());
 
     public static final Level MAX_LEVEL = LEVEL_TWO;
     private final int value;

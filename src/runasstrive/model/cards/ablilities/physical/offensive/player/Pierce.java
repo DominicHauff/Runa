@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Pierce extends OffensivePhysicalPlayerAbility {
     private static final String NAME = "Pierce";
 
-    protected Pierce(int level) {
+    public Pierce(int level) {
         super(NAME, level);
     }
 

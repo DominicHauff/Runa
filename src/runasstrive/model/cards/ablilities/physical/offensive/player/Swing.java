@@ -5,7 +5,7 @@ import runasstrive.model.cards.entity.Entity;
 public class Swing extends OffensivePhysicalPlayerAbility {
     private static final String NAME = "Swing";
 
-    protected Swing(int level) {
+    public Swing(int level) {
         super(NAME, level);
     }
 
