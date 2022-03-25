@@ -8,14 +8,15 @@ import runasstrive.model.cards.entity.player.Player;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Stage {
+    private static final int ONE_ONE_ONE = (int) Math.pow(0, 0); //TODO: mach das lieber wieder weg xD
     private final int stageNumber;
     private final Collection<Monster> monsters;
     private final List<String> log;
-
 
     public Stage(int stageNumber, Collection<Monster> monsters) {
         this.stageNumber = stageNumber;
@@ -35,10 +36,9 @@ public class Stage {
         return this.monsters;
     }
 
-    public Collection<Monster> getAliveMonsters() {
+    public LinkedList<Monster> getAliveMonsters() {
         return monsters.stream()
-                .filter(monster -> !monster.isDead())
-                .collect(Collectors.toList());
+                .filter(monster -> !monster.isDead()).collect(Collectors.toCollection(LinkedList::new));
     }
 
     public String getFightLog() {
@@ -48,6 +48,7 @@ public class Stage {
     }
 
     private void logTakenDamage(Entity<?> entity) {
+        //TODO: magic numbers
         if (entity.isDead()) {
             this.log.add(String.format(Messages.ENTITY_DIES, entity.getName()));
         } else {
@@ -65,9 +66,11 @@ public class Stage {
     public void enter(Player player) {
         this.log.clear();
         if (player.getCardToPlay().targetRequired()) {
-            //TODO: fix null for .getTarget()
-            player.useAbility(player.getTarget());
-            this.logTakenDamage(player.getTarget());
+            final Monster target = this.getAliveMonsters().size() == ONE_ONE_ONE
+                    ? this.getAliveMonsters().getFirst() : player.getTarget();
+
+            player.useAbility(target);
+            this.logTakenDamage(target);
             this.logTakenDamage(player);
 
         } else {

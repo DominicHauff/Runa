@@ -44,7 +44,6 @@ public class Controller {
         }
         if (this.currentGameState.execute(bundle)) {
             String response = currentGameState.getResponse();
-            //TODO: find next state
             this.lastInputFaulty = false;
             this.currentGameState = this.gameStateSupplier.get(this.currentGameState.getNext());
             return response;
