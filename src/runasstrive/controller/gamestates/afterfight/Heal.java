@@ -5,9 +5,11 @@ import runasstrive.controller.gamestates.init.InitializeLevel;
 import runasstrive.io.parameters.CardIndexParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Heal extends GameState {
     private static final CardIndexParameter CHOICE = new CardIndexParameter();
@@ -19,14 +21,18 @@ public class Heal extends GameState {
 
     @Override
     public String getPrompt() {
-        //TODO: implement
-        return null;
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format(Messages.HEALING_OPTION, this.runasStrive.getPlayer().getHp())).append(System.lineSeparator());
+        IntStream.range(0, this.runasStrive.getPlayer().getAbilities().size()).forEach(i -> {
+            builder.append(String.format(Messages.LIST_ELEMENT, i + 1,
+                    this.runasStrive.getPlayer().getAbilities().get(i).toString())).append(System.lineSeparator());
+        });
+        return builder.toString() + this.repeatPrompt();
     }
 
     @Override
     public String repeatPrompt() {
-        //TODO: implement
-        return null;
+        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
     }
 
     @Override
