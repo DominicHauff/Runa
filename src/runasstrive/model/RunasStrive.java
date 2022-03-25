@@ -80,11 +80,12 @@ public class RunasStrive {
         return new ArrayList<>(this.getCurrentLevel().getCurrentStage().getAliveMonsters());
     }
 
-    public void drawCard(int choice) {
-        //TODO: fix silent fail on error
+    public Ability drawCard(int choice) {
         if (choice < this.reward.size()) {
             this.player.addAbility(this.reward.get(choice));
+            return this.reward.get(choice);
         }
+        return null;
     }
 
     public boolean canChooseDie() {
