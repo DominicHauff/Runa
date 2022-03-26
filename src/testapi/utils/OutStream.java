@@ -57,16 +57,13 @@ public class OutStream extends PrintStream {
                     wait(1);
                 }
             } else {
-                if (newElement) return getNewElement();
                 while (!terminated) {
-                    wait(5);
+                    wait(1);
                     if (newElement) {
                         return getNewElement();
                     }
                 }
-                if (terminated) {
-                    CodeTester.terminal.println(CodeTester.ANSI_PURPLE + "APPLICATION TERMINATED" + CodeTester.ANSI_RESET);
-                }
+                CodeTester.terminal.println(CodeTester.ANSI_PURPLE + "APPLICATION TERMINATED" + CodeTester.ANSI_RESET);
             }
             return null;
         } catch (InterruptedException i) {
@@ -77,10 +74,10 @@ public class OutStream extends PrintStream {
     private String getNewElement() {
         try {
             int temp = this.elementCounter;
-            wait(50);
+            wait(20);
             while (temp != this.elementCounter) {
                 temp = this.elementCounter;
-                wait(10);
+                wait(5);
             }
         } catch (InterruptedException e) {
             e.printStackTrace(CodeTester.terminal);
