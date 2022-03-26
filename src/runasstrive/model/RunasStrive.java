@@ -3,6 +3,7 @@ package runasstrive.model;
 import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.player.Player;
+import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.dice.Die;
 import runasstrive.model.levels.GameLevel;
 
@@ -142,7 +143,7 @@ public class RunasStrive {
         this.reward.clear();
     }
 
-    public Collection<Ability> getRewards() {
+    public List<Ability> getRewards() {
         return this.reward;
     }
 
@@ -150,5 +151,10 @@ public class RunasStrive {
         if (this.player.getAbilities().size() <= choice) return false;
         this.player.heal(choice);
         return true;
+    }
+
+    public void chooseCharacterType(CharacterType type) {
+        this.player.setType(type);
+        this.deck.removeAll(type.getTypeAbilities());
     }
 }

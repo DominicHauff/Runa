@@ -10,6 +10,7 @@ import runasstrive.model.cards.ablilities.Ability;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class ChooseNewCards extends GameState {
     private static final CardIndexParameter FIRST = new CardIndexParameter();
@@ -22,9 +23,18 @@ public class ChooseNewCards extends GameState {
 
     @Override
     public String getPrompt() {
-        return String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards()) + System.lineSeparator()
-                + String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getRewards().size())
-                + System.lineSeparator();
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards()))
+                .append(System.lineSeparator())
+                .append(String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getRewards().size()))
+                .append(System.lineSeparator());
+
+        IntStream.range(0, this.runasStrive.getRewards().size()).forEach(i ->
+                builder.append(String.format(Messages.LIST_ELEMENT, i + 1, this.runasStrive.getRewards().get(i)))
+                        .append(System.lineSeparator())
+        );
+        return builder + this.repeatPrompt();
     }
 
     @Override
@@ -38,8 +48,12 @@ public class ChooseNewCards extends GameState {
         if (!parameterBundle.isPresent(FIRST)) {
             return false;
         }
-        LinkedList<Ability> reward = new LinkedList<>(); //TODO: find better solution if everything else works fine
         final int firstCardIndex = parameterBundle.get(FIRST);
+        if (this.runasStrive.getRewards().size() <= firstCardIndex) {
+            return false;
+        }
+
+        LinkedList<Ability> reward = new LinkedList<>(); //TODO: find better solution if everything else works fine
         if (parameterBundle.isPresent(SECOND)) {
             if (PARAMETERS.size() != this.runasStrive.getNumRewardCards()) {
                 return false;
@@ -53,10 +67,8 @@ public class ChooseNewCards extends GameState {
             }
             reward.addFirst(this.runasStrive.drawCard(secondCardIndex));
         }
+
         reward.addFirst(this.runasStrive.drawCard(firstCardIndex));
-        if (this.runasStrive.getRewards().size() <= firstCardIndex) {
-            return false;
-        }
         this.runasStrive.discardLeftOverReward();
         StringBuilder rewardBuilder = new StringBuilder();
         reward.forEach(ability -> rewardBuilder.append(String.format(Messages.GET_NEW_CARD, ability.toString()))
