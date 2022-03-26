@@ -36,7 +36,7 @@ public class Heal extends GameState {
 
     @Override
     public String repeatPrompt() {
-        return this.runasStrive.getMaxHealNumber() > 1
+        return this.runasStrive.getPlayer().getAbilities().size() > 2
                 ? String.format(Messages.MULTIPLE_CARDS_PROMPT, this.runasStrive.getPlayer().getAbilities().size())
                 : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
     }
@@ -58,7 +58,7 @@ public class Heal extends GameState {
         if (choices.isEmpty()) {
             this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
                     ? InitializeLevel.class : ChooseAbility.class;
-            this.response = null;
+            this.response = enterStage;
             return true;
         }
 

@@ -31,6 +31,7 @@ public class Controller {
 
     public String interact(List<String> argumentList) {
         ParameterBundle bundle = new ParameterBundle();
+
         if (argumentList.size() != this.currentGameState.getParameters().size()) {
             return null;
         }
@@ -45,7 +46,9 @@ public class Controller {
         if (this.currentGameState.execute(bundle)) {
             String response = currentGameState.getResponse();
             this.lastInputFaulty = false;
-            this.currentGameState = this.gameStateSupplier.get(this.currentGameState.getNext());
+            Class<? extends GameState> next = this.currentGameState.getNext();
+            if (next == null) this.session.quit();
+            else this.currentGameState = this.gameStateSupplier.get(next);
             return response;
         }
         this.lastInputFaulty = true;

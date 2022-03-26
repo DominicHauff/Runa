@@ -4,6 +4,7 @@ import runasstrive.controller.Controller;
 import runasstrive.io.InputParser;
 import runasstrive.io.resources.Messages;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Session {
@@ -37,7 +38,9 @@ public class Session {
             this.quit();
             return;
         }
-        String response = controller.interact(inputParser.getArgumentList(input));
+        List<String> argumentList = inputParser.getArgumentList(input);
+        if (argumentList == null) return;
+        String response = controller.interact(argumentList);
         if (response != null) {
             System.out.print(response);
         }

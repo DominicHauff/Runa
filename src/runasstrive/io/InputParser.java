@@ -1,17 +1,18 @@
 package runasstrive.io;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class InputParser {
     private static final String DELIMITER = " ";
-    private static final String SINGLE_ARGUMENT_REGEX = "(\\d+)";
-    /**private static final String MULTIPLE_ARGUMENTS_REGEX = SINGLE_ARGUMENT_REGEX +
+    private static final String ARGUMENT_REGEX = "(\\d+(,\\d+)*)*";
+    private static final String EMPTY_INPUT = "";
+    /*private static final String MULTIPLE_ARGUMENTS_REGEX = SINGLE_ARGUMENT_REGEX +
             "(" + DELIMITER + SINGLE_ARGUMENT_REGEX + ")*";*/
-    private static final String MULTIPLE_ARGUMENTS_REGEX = "\\d+(,\\d+)*";
+    //private static final String MULTIPLE_ARGUMENTS_REGEX = "\\d+(,\\d+)*";
 
     public List<String> getArgumentList(String inputString) {
-        //boolean matches = inputString.matches(MULTIPLE_ARGUMENTS_REGEX);
-        return inputString.matches(MULTIPLE_ARGUMENTS_REGEX) ? Arrays.asList(inputString.split(DELIMITER)) : null;
+        boolean matches = inputString.matches(ARGUMENT_REGEX);
+        return !matches ? null : List.of(inputString);
     }
 }
