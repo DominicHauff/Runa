@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.controller.gamestates.fight.ChooseAbility;
 import runasstrive.io.parameters.CardIndexParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
@@ -45,6 +46,8 @@ public class ChooseNewCards extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
+        this.runasStrive.advanceToNextStage();
+
         if (!parameterBundle.isPresent(FIRST)) {
             return false;
         }
@@ -74,6 +77,7 @@ public class ChooseNewCards extends GameState {
         reward.forEach(ability -> rewardBuilder.append(String.format(Messages.GET_NEW_CARD, ability.toString()))
                 .append(System.lineSeparator()));
         this.response = rewardBuilder.toString();
+        this.nextGameState  = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
         return true;
     }
 

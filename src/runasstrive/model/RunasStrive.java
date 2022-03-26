@@ -60,12 +60,11 @@ public class RunasStrive {
     public void startFight() {
         this.getCurrentLevel().resume(this.player);
         if (!this.isLevelCleared() && this.stageCleared()) {
-            if (this.reward.isEmpty()) {
-                for (int i = 0; i < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2; i++) { //TODO: wtf
+            if (this.reward.size() < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2) {
+                for (int i = this.reward.size(); i < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2; i++) { //TODO: wtf
                     this.reward.addLast(this.deck.get(i));
                 }
             }
-            this.deck.removeAll(reward);
         }
     }
 
@@ -153,6 +152,7 @@ public class RunasStrive {
     }
 
     public void discardLeftOverReward() {
+        this.deck.removeAll(reward);
         this.reward.clear();
     }
 

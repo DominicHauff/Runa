@@ -51,7 +51,7 @@ public class ChooseReward extends GameState {
                 this.response += String.format(Messages.STAGE_ENTER_MESSAGE,
                         this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
                         this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator();
-                this.nextGameState = ChooseAbility.class;
+                this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
             }
             default -> {
                 return false;
