@@ -2,13 +2,14 @@ package runasstrive.controller.gamestates.fight;
 
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.io.parameters.SingleChoiceParameter;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
 
 public class RollDie extends FightGameState {
-    private static final IntegerParameter DIE_RES = new IntegerParameter();
+    private static final SingleChoiceParameter DIE_RES = new SingleChoiceParameter();
     private static final List<Parameter<?>> PARAMETERS = List.of(DIE_RES);
 
     public RollDie(RunasStrive runasStrive) {
@@ -28,9 +29,6 @@ public class RollDie extends FightGameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
-        if (!parameterBundle.isPresent(DIE_RES)) {
-            return false;
-        }
         final int dieRes = parameterBundle.get(DIE_RES);
         if (!this.runasStrive.rollDie(dieRes)) {
             return false;

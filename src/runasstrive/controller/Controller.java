@@ -31,7 +31,7 @@ public class Controller {
 
     public String interact(List<String> argumentList) {
         ParameterBundle bundle = new ParameterBundle();
-        if (argumentList.size() > this.currentGameState.getParameters().size()) {
+        if (argumentList.size() != this.currentGameState.getParameters().size()) {
             return null;
         }
         for (int i = 0; i < argumentList.size(); i++) {

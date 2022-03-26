@@ -3,6 +3,7 @@ package runasstrive.controller.gamestates.init;
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.io.parameters.SingleChoiceParameter;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.entity.type.CharacterType;
@@ -10,7 +11,7 @@ import runasstrive.model.cards.entity.type.CharacterType;
 import java.util.List;
 
 public class ChooseCharacterClass extends GameState {
-    private static final IntegerParameter CHOICE = new IntegerParameter();
+    private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
     public ChooseCharacterClass(RunasStrive runasStrive) {
@@ -30,9 +31,6 @@ public class ChooseCharacterClass extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
-        if (!parameterBundle.isPresent(CHOICE)) {
-            return false;
-        }
         final int choice = parameterBundle.get(CHOICE);
         CharacterType type = CharacterType.getCharacterType(choice);
         if (type == null) return false;

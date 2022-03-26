@@ -23,8 +23,4 @@ public class ParameterBundle {
         return (T) this.parameters.get(key);
     }
 
-    public boolean isPresent(Parameter<?> key) {
-        return this.parameters.containsKey(key);
-    }
-
 }

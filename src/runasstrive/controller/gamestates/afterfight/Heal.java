@@ -1,6 +1,7 @@
 package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
+import runasstrive.controller.gamestates.fight.ChooseAbility;
 import runasstrive.controller.gamestates.init.InitializeLevel;
 import runasstrive.io.parameters.MultipleChoiceParameter;
 import runasstrive.io.parameters.Parameter;
@@ -14,8 +15,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Heal extends GameState {
-    private static final CardIndexParameter CHOICE = new CardIndexParameter();
-    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
+    private static final MultipleChoiceParameter CHOICES = new MultipleChoiceParameter();
+    private static final int CARD_INDEX_OFFSET = 1;
+    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICES);
 
     public Heal(RunasStrive runasStrive) {
         super(runasStrive);
@@ -41,15 +43,33 @@ public class Heal extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
-        if (parameterBundle.isPresent(CHOICE)) {
-            final int choice = parameterBundle.get(CHOICE);
-            if (this.runasStrive.healPlayer(choice)) {
-                this.nextGameState = InitializeLevel.class;
-                return true;
-            }
+        final List<Integer> choices = parameterBundle.get(CHOICES);
+        this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
+                ? InitializeLevel.class : ChooseAbility.class;
+        final String enterStage = this.nextGameState == ChooseAbility.class
+                ? String.format(Messages.STAGE_ENTER_MESSAGE,
+                this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
+                this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator() : null;
+
+        if (choices.stream().anyMatch(choice -> this.runasStrive.getPlayer().getAbilities().size() < choice)) {
             return false;
         }
-        this.response = null;
+
+        if (choices.isEmpty()) {
+            this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
+                    ? InitializeLevel.class : ChooseAbility.class;
+            this.response = null;
+            return true;
+        }
+
+        this.runasStrive
+                .healPlayer(choices.stream().map(choice -> choice - CARD_INDEX_OFFSET).collect(Collectors.toList()));
+
+        this.response = String.format(Messages.GAIN_HEALTH, this.runasStrive.getPlayerGainedHp())
+                + System.lineSeparator();
+        if (enterStage != null) {
+            this.response += enterStage;
+        }
         return true;
     }
 

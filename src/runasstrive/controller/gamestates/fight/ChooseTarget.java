@@ -1,6 +1,6 @@
 package runasstrive.controller.gamestates.fight;
 
-import runasstrive.io.parameters.CardIndexParameter;
+import runasstrive.io.parameters.SingleChoiceParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;
@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class ChooseTarget extends FightGameState {
-    private static final CardIndexParameter CHOICE = new CardIndexParameter();
+    private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
+    private static final int INDEX_OFFSET = 1;
     private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
     public ChooseTarget(RunasStrive runasStrive) {
@@ -41,10 +42,7 @@ public class ChooseTarget extends FightGameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
-        if (!parameterBundle.isPresent(CHOICE)) {
-            return false;
-        }
-        final int choice = parameterBundle.get(CHOICE);
+        final int choice = parameterBundle.get(CHOICE) - INDEX_OFFSET;
 
         if (!this.runasStrive.pickTarget(choice)) return false;
 

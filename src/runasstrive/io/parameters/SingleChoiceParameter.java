@@ -1,6 +1,7 @@
 package runasstrive.io.parameters;
 
-public class IntegerParameter extends Parameter<Integer> {
+public class SingleChoiceParameter extends Parameter<Integer> {
+
     @Override
     public Integer get(String parsingResult) throws IllegalArgumentException {
         try {
