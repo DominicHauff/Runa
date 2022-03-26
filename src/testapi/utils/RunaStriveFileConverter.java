@@ -40,7 +40,7 @@ public class RunaStriveFileConverter extends FileConverter {
                 convertedContent.add(next.substring(2));
                 continue;
             }
-            if (fileContent.get(i + 1).startsWith("> ")) {
+            if (fileContent.get(i + 1).startsWith("> ") | fileContent.get(i + 1).startsWith("# ")) {
                 convertedContent.add(endOutput);
                 continue;
             }

@@ -13,10 +13,8 @@ public final class Messages {
             2) Mage
             3) Paladin
             """;
-    public static final String ENTER_SEEDS_PROMPT = """
-            To shuffle ability cards and monsters, enter two seeds
-            Enter seeds [1--2147483647] separated by comma:
-            """;
+    public static final String ENTER_SEEDS_PROMPT = "Enter seeds [1--2147483647] separated by comma:";
+    public static final String ENTER_SEED_DIALOG = "To shuffle ability cards and monsters, enter two seeds";
     public static final String MULTIPLE_CARDS_PROMPT = "Enter numbers [1--%d] separated by comma:";
     public static final String ENTER_NUMBER_PROMPT = "Enter number [1--%d]:";
     public static final String ENTER_DICE_ROLL_PROMPT = "Enter dice roll [1--%d]:";
