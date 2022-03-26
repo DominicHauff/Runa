@@ -97,7 +97,10 @@ public abstract class Entity<T> extends Card {
     }
 
     public void breakFocus(boolean breakFocus) {
-        if (breakFocus) this.increaseFp = false;
+        if (breakFocus) {
+            this.increaseFp = false;
+            this.gainedFp = MIN_FP;
+        }
     }
 
     public List<Ability> getAbilities() {
