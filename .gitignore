@@ -3,3 +3,4 @@
 *.iml
 .idea
 /src/testapi/resources/currenttests/
+/src/testapi/resources/temp/
