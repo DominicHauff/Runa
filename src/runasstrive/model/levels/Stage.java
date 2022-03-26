@@ -51,7 +51,7 @@ public class Stage {
         //TODO: magic numbers
         if (entity.getTakenMagicDamage() > 0) {
             this.log.add(String.format(Messages.TAKE_MAGIC_DAMAGE,
-                    entity.getName(), entity.getTakenPhysicalDamage()));
+                    entity.getName(), entity.getTakenMagicDamage()));
         }
         if (entity.getTakenPhysicalDamage() > 0) {
             this.log.add(String.format(Messages.TAKE_PHYSICAL_DAMAGE,
