@@ -9,8 +9,10 @@ import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 public class ChooseNewCards extends GameState {
@@ -48,8 +50,18 @@ public class ChooseNewCards extends GameState {
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
         final List<Integer> choices = parameterBundle.get(CHOICES);
+        final Set<Integer> choiceSet = new HashSet<>(choices);
+
+        if (choices.size() != choiceSet.size()) {
+            return false;
+        }
+
         if (choices.size() < EXPECTED_MIN_SIZE) {
             return false;
+        }
+
+        for (Integer choice : choices) {
+            if (choice > this.runasStrive.getNumRewardCards()) return false;
         }
 
 
@@ -63,8 +75,12 @@ public class ChooseNewCards extends GameState {
         StringBuilder rewardBuilder = new StringBuilder();
         reward.forEach(ability -> rewardBuilder.append(String.format(Messages.GET_NEW_CARD, ability.toString()))
                 .append(System.lineSeparator()));
-        this.response = rewardBuilder.toString();
         this.nextGameState  = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
+        this.response = this.nextGameState == Heal.class ? rewardBuilder.toString() : rewardBuilder.toString()
+                + String.format(Messages.STAGE_ENTER_MESSAGE,
+                this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
+                this.runasStrive.getCurrentLevel().getLevel().getValue())
+                + System.lineSeparator();
         return true;
     }
 

@@ -9,8 +9,10 @@ import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -44,6 +46,20 @@ public class Heal extends GameState {
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
         final List<Integer> choices = parameterBundle.get(CHOICES);
+        final Set<Integer> choiceSet = new HashSet<>(choices);
+
+        if (choices.size() != choiceSet.size()) {
+            return false;
+        }
+
+        for (Integer choice : choices) {
+            if (choice > this.runasStrive.getPlayer().getAbilities().size()) return false;
+        }
+
+        if (choices.size() > this.runasStrive.getMaxHealNumber()) {
+            return false;
+        }
+
         this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
                 ? InitializeLevel.class : ChooseAbility.class;
         final String enterStage = this.nextGameState == ChooseAbility.class

@@ -9,6 +9,7 @@ import runasstrive.model.dice.Die;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Player extends Entity<CharacterType> {
@@ -96,6 +97,7 @@ public class Player extends Entity<CharacterType> {
     public void heal(List<Integer> choices) {
         List<Ability> toRemove = new ArrayList<>();
         for (Integer choice : choices) {
+            if (this.hp == maxHp) break;
             this.gainedHealth += Math.min(maxHp - this.hp, heal);
             this.hp += Math.min(maxHp - this.hp, heal);
             toRemove.add(this.abilities.get((choice)));
