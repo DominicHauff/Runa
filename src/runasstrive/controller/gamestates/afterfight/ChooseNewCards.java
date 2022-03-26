@@ -56,14 +56,13 @@ public class ChooseNewCards extends GameState {
             return false;
         }
 
-        if (choices.size() < EXPECTED_MIN_SIZE) {
+        if (choices.size() < EXPECTED_MIN_SIZE || choices.size() > this.runasStrive.getNumRewardCards()) {
             return false;
         }
 
         for (Integer choice : choices) {
-            if (choice > this.runasStrive.getNumRewardCards()) return false;
+            if (choice > this.runasStrive.getRewards().size()) return false;
         }
-
 
         LinkedList<Ability> reward = new LinkedList<>(); //TODO: find better solution if everything else works fine
         for (Integer choice : choices) {
