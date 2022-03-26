@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ChooseAbility extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
-    private static final int MIN_CHOICE = 1;
+    private static final int MIN_INDEX = 0;
     private static final int INDEX_OFFSET = 1;
     private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
@@ -55,7 +55,7 @@ public class ChooseAbility extends FightGameState {
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
         final int choice = parameterBundle.get(CHOICE) - INDEX_OFFSET;
-        if (choice < MIN_CHOICE) {
+        if (choice < MIN_INDEX) {
             return false;
         }
         final Ability card = this.runasStrive.pickCard(choice);
