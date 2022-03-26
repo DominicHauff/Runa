@@ -58,23 +58,12 @@ public class OutStream extends PrintStream {
                 }
             } else {
                 if (newElement) return getNewElement();
-                Thread listener = new Thread(() -> {
-                    try {
-                        while (CodeTester.systemIn.available() == 0) {
-                            Thread.sleep(200);
-                        }
-                    } catch (IOException | InterruptedException ignore) {}
-                });
-                listener.start();
-                wait(300);
-                while (!terminated && listener.isAlive()) {
+                while (!terminated) {
                     wait(5);
                     if (newElement) {
-                        listener.interrupt();
                         return getNewElement();
                     }
                 }
-                listener.interrupt();
                 if (terminated) {
                     CodeTester.terminal.println(CodeTester.ANSI_PURPLE + "APPLICATION TERMINATED" + CodeTester.ANSI_RESET);
                 }
