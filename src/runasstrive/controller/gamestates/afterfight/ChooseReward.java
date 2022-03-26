@@ -46,10 +46,12 @@ public class ChooseReward extends GameState {
             case NEW_DIE -> {
                 final Die die = this.runasStrive.upgradeDie();
                 this.response = String.format(Messages.UPGRADE_DIE, die.toString()) + System.lineSeparator();
-                this.response += String.format(Messages.STAGE_ENTER_MESSAGE,
-                        this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
-                        this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator();
                 this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
+                if (this.nextGameState == ChooseAbility.class) {
+                    this.response += String.format(Messages.STAGE_ENTER_MESSAGE,
+                            this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
+                            this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator();
+                }
             }
             default -> {
                 return false;
