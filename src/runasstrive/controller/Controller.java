@@ -33,6 +33,7 @@ public class Controller {
         ParameterBundle bundle = new ParameterBundle();
 
         if (argumentList.size() != this.currentGameState.getParameters().size()) {
+            this.lastInputFaulty = true;
             return null;
         }
         for (int i = 0; i < argumentList.size(); i++) {
@@ -40,6 +41,7 @@ public class Controller {
             try {
                 bundle.put(parameter, parameter.get(argumentList.get(i)));
             } catch (IllegalArgumentException e) {
+                this.lastInputFaulty = true;
                 return null;
             }
         }
