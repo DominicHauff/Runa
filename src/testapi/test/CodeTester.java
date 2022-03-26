@@ -65,6 +65,14 @@ public class CodeTester {
                 terminal.println(ANSI_RED + "expect application to terminate but found it still running" + ANSI_RESET);
                 applicationThread.kill();
             }
+            try {
+                System.in.close();
+                System.out.close();
+                outStream.close();
+                inStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             final int passedSum = IOResults.size() - (int) IOResults.stream().filter(IOResult::failed).count();
             final int percentage = (int) (((double) passedSum / IOResults.size()) * 100);
             printResults(IOResults, passedSum, IOResults.size(), percentage);
