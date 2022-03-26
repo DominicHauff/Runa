@@ -30,8 +30,11 @@ public class Controller {
     }
 
     public String interact(List<String> argumentList) {
+        if (argumentList == null) {
+            this.lastInputFaulty = true;
+            return null;
+        }
         ParameterBundle bundle = new ParameterBundle();
-
         if (argumentList.size() != this.currentGameState.getParameters().size()) {
             this.lastInputFaulty = true;
             return null;

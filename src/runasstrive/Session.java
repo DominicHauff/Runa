@@ -39,7 +39,6 @@ public class Session {
             return;
         }
         List<String> argumentList = inputParser.getArgumentList(input);
-        if (argumentList == null) return;
         String response = controller.interact(argumentList);
         if (response != null) {
             System.out.print(response);
