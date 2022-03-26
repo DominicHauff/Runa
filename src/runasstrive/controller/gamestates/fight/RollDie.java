@@ -36,6 +36,7 @@ public class RollDie extends FightGameState {
         if (!this.runasStrive.rollDie(dieRes)) {
             return false;
         }
+        this.response = null;
         this.startFight();
         return true;
     }

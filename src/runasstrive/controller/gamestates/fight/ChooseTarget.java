@@ -22,16 +22,21 @@ public class ChooseTarget extends FightGameState {
     public String getPrompt() {
         StringBuilder targetStringBuilder = new StringBuilder();
         targetStringBuilder.append(Messages.SELECT_TARGET_MESSAGE).append(System.lineSeparator());
+
         IntStream.range(0, this.runasStrive.getPossibleTargets().size())
-                .forEach(i -> targetStringBuilder.append(String.format(
-                        Messages.LIST_ELEMENT, i + 1, this.runasStrive.getPossibleTargets().get(i))));
+                .forEach(i -> targetStringBuilder
+                        .append(String.format(
+                                Messages.LIST_ELEMENT, i + 1, this.runasStrive.getPossibleTargets().get(i).getName()))
+                        .append(System.lineSeparator()));
+
         targetStringBuilder.append(this.repeatPrompt());
         return targetStringBuilder.toString();
     }
 
     @Override
     public String repeatPrompt() {
-        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPossibleTargets().size());
+        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPossibleTargets().size())
+                + System.lineSeparator();
     }
 
     @Override
@@ -44,14 +49,14 @@ public class ChooseTarget extends FightGameState {
         if (!this.runasStrive.pickTarget(choice)) return false;
 
         final Ability cardToPlay = this.runasStrive.getCardToPlay();
-
+        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), cardToPlay)
+                + System.lineSeparator();
         if (!cardToPlay.dieRollRequired()) {
             this.startFight();
             return true;
         }
 
         this.nextGameState = RollDie.class;
-        this.response = null;
         return true;
     }
 

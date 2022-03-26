@@ -71,7 +71,9 @@ public class Stage {
             player.useAbility(target);
             this.logTakenDamage(target);
             this.logTakenDamage(player);
-            target.resetStats();
+            target.resetShield();
+            target.resetTakenDamage();
+            player.resetTakenDamage();
 
         } else {
             player.useAbility();
@@ -81,7 +83,8 @@ public class Stage {
             this.log.add(String.format(Messages.ENTITY_USES_ABILITY, monster.getName(), ability.toString()));
             this.logTakenDamage(player);
             this.logTakenDamage(monster);
+            player.resetTakenDamage();
         }
-        player.resetStats();
+        player.resetShield();
     }
 }

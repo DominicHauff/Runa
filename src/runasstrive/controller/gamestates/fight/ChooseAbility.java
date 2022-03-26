@@ -1,8 +1,6 @@
 package runasstrive.controller.gamestates.fight;
 
-import runasstrive.controller.gamestates.GameState;
 import runasstrive.io.parameters.CardIndexParameter;
-import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;
@@ -59,11 +57,14 @@ public class ChooseAbility extends FightGameState {
         }
         final int choice = parameterBundle.get(CHOICE);
         final Ability card = this.runasStrive.pickCard(choice);
-        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(),
-                card.toString()) + System.lineSeparator();
         if (card == null) return false;
+
+        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), card)
+                + System.lineSeparator();
+
         if (card.targetRequired()) {
             if (this.runasStrive.requiresTargetChoice()) {
+                this.response = null;
                 this.nextGameState = ChooseTarget.class;
                 return true;
             } else if (card.dieRollRequired()) {
@@ -71,6 +72,7 @@ public class ChooseAbility extends FightGameState {
                 return true;
             }
         }
+
         this.startFight();
         return true;
     }

@@ -124,12 +124,15 @@ public abstract class Entity<T> extends Card {
         return this.takenPhysicalDamage;
     }
 
-    public void resetStats() {
-        this.takenMagicDamage = 0;
-        this.takenPhysicalDamage = 0;
+    public void resetShield() {
         this.magicShield = 0;
         this.physicalShield = 0;
         this.reflectMagicDamage = 0;
         this.reflectPhysicalDamage = 0;
+    }
+
+    public void resetTakenDamage() {
+        this.takenMagicDamage = 0;
+        this.takenPhysicalDamage = 0;
     }
 }
