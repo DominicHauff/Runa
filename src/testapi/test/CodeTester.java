@@ -3,6 +3,7 @@ package testapi.test;
 import testapi.utils.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
@@ -129,14 +130,15 @@ public class CodeTester {
             }
             terminal.println(result);
             return new IOResult(true);
-        } else if (!this.outputEquals(pair.output(), result)) {
-            if (result != null) terminal.println(result);
+        } else if (result != null && !this.outputEquals(pair.output(), result)) {
             terminal.printf(ANSI_RED + "Expected:%n%s%n" + ANSI_RESET, pair.output());
-            return new IOResult(false, String.format("Expected:%n%s%n", pair.input()), result == null ? "no output" : result);
-        } else {
-            terminal.println(result);
-            return new IOResult(true);
+            return new IOResult(false, String.format("Expected:%n%s%n", pair.input()), result);
+        } else if (result == null) {
+            terminal.printf(ANSI_RED + "Expected:%n%s%n" + ANSI_RESET, pair.output());
+            return new IOResult(false, pair.output(), "");
         }
+        terminal.println(result);
+        return new IOResult(true);
     }
 
     public boolean outputEquals(String expected, String actual) {

@@ -18,7 +18,6 @@ public class ApplicationThread extends Thread {
             inStream.readingThreadTerminated();
             outStream.readingThreadTerminated();
             if (!e.getClass().equals(ThreadDeath.class)) {
-                CodeTester.terminal.println(CodeTester.ANSI_PURPLE + "APPLICATION TERMINATED" + CodeTester.ANSI_RESET);
                 e.printStackTrace(CodeTester.terminal);
             }
         };

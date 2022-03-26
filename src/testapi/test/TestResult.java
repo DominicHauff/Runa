@@ -11,7 +11,9 @@ public record TestResult(String testName, boolean passed, int sumPassed, int tot
     @Override
     public String toString() {
         String fString = "%70s:  %10s %s / %s  - %s\n";
-        String passed = String.format(fString, testName.substring(0, testName.indexOf('.')), "passed", sumPassed, total, percentage + "%");
+        String passed = String.format(fString, testName.contains(".")
+                ? testName.substring(0, testName.indexOf('.'))
+                : testName, "passed", sumPassed, total, percentage + "%");
         return this.passed
                 ? CodeTester.ANSI_GREEN
                 + passed +

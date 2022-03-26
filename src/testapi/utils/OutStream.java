@@ -10,7 +10,6 @@ public class OutStream extends PrintStream {
     private boolean terminated;
     private boolean newElement;
     private int elementCounter;
-    private boolean skip;
 
     /**
      * Creates a new print stream, without automatic line flushing, with the
@@ -18,12 +17,12 @@ public class OutStream extends PrintStream {
      * to bytes using the platform's default character encoding.
      *
      * @see PrintWriter#PrintWriter(OutputStream)
+     * @param
      */
     public OutStream() {
         super(new ByteArrayOutputStream());
         printHistory = new LinkedList<>();
         this.terminated = false;
-        this.skip = false;
         this.elementCounter = 0;
     }
 
@@ -58,42 +57,27 @@ public class OutStream extends PrintStream {
                     wait(1);
                 }
             } else {
-                wait(1000);
                 if (newElement) return getNewElement();
                 Thread listener = new Thread(() -> {
-                    BufferedReader br = new BufferedReader(new InputStreamReader(CodeTester.systemIn));
-                    if (!terminated) {
-                        CodeTester.terminal.println(
-                                CodeTester.ANSI_PURPLE +
-                                        "waiting for output... if you want to continue type something and hit enter!"
-                                        + CodeTester.ANSI_RESET);
-                    }
                     try {
-                        while (!newElement && !terminated && !br.ready()) {
-                            synchronized (this) {
-                                wait(10);
-                            }
+                        while (CodeTester.systemIn.available() == 0) {
+                            Thread.sleep(200);
                         }
-                        if (br.ready()) {
-                            skip = true;
-                            String ignore = br.readLine();
-                        }
-                    } catch (IOException | InterruptedException e) {
-                        e.printStackTrace(CodeTester.terminal);
-                    }
-                }, "input-listener");
+                    } catch (IOException | InterruptedException ignore) {}
+                });
                 listener.start();
-                while (!terminated && !skip) {
+                wait(300);
+                while (!terminated && listener.isAlive()) {
                     wait(5);
                     if (newElement) {
-                        listener.stop();
+                        listener.interrupt();
                         return getNewElement();
                     }
                 }
+                listener.interrupt();
                 if (terminated) {
                     CodeTester.terminal.println(CodeTester.ANSI_PURPLE + "APPLICATION TERMINATED" + CodeTester.ANSI_RESET);
                 }
-                skip = false;
             }
             return null;
         } catch (InterruptedException i) {
@@ -104,10 +88,10 @@ public class OutStream extends PrintStream {
     private String getNewElement() {
         try {
             int temp = this.elementCounter;
-            wait(5);
+            wait(50);
             while (temp != this.elementCounter) {
                 temp = this.elementCounter;
-                wait(2);
+                wait(10);
             }
         } catch (InterruptedException e) {
             e.printStackTrace(CodeTester.terminal);
