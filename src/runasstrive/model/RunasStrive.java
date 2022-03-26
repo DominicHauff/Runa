@@ -158,7 +158,7 @@ public class RunasStrive {
     }
 
     public int getNumRewardCards() {
-        return this.getCurrentLevel().getCurrentStage().getMonsters().size();
+        return (int) Math.ceil(((double) this.reward.size()) / 2);
     }
 
     public void discardLeftOverReward() {
