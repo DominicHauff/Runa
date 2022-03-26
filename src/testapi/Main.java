@@ -11,7 +11,7 @@ public class Main {
         //start your main method like this:
         Application application = new Application(null);
         //the directory which holds the test-files.
-        String testFileDirectoryPath = "src/testapi/resources/quitintests";
+        String testFileDirectoryPath = "src/testapi/resources/currenttests";
         FileConverter fileConverter = new RunaStriveFileConverter(testFileDirectoryPath);
         new CodeTester(application, testFileDirectoryPath, fileConverter).runTests();
     }

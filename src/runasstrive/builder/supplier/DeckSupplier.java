@@ -18,35 +18,21 @@ import java.util.List;
 import java.util.Stack;
 
 public class DeckSupplier {
-    private static final int INITIAL_LEVEL = 1;
     private static final int COST = 1;
-    public static List<Ability> getDeck() {
-        // first one is the og deck made by loren
-        /**final Stack<Ability> deck = new Stack<>();
-        deck.push(new Slash(INITIAL_LEVEL));
-        deck.push(new Swing(INITIAL_LEVEL));
-        deck.push(new Thrust(INITIAL_LEVEL));
-        deck.push(new Pierce(INITIAL_LEVEL));
-        deck.push(new Parry(INITIAL_LEVEL));
-        deck.push(new Focus(INITIAL_LEVEL));
-        deck.push(new Reflect(INITIAL_LEVEL));
-        deck.push(new Water(INITIAL_LEVEL, COST));
-        deck.push(new Ice(INITIAL_LEVEL, COST));
-        deck.push(new Fire(INITIAL_LEVEL, COST));
-        deck.push(new Lightning(INITIAL_LEVEL, COST));*/
 
+    public static List<Ability> getDeck(int level) {
         final List<Ability> deck = new ArrayList<>();
-        deck.add(new Slash(INITIAL_LEVEL));
-        deck.add(new Swing(INITIAL_LEVEL));
-        deck.add(new Thrust(INITIAL_LEVEL));
-        deck.add(new Pierce(INITIAL_LEVEL));
-        deck.add(new Parry(INITIAL_LEVEL));
-        deck.add(new Focus(INITIAL_LEVEL));
-        deck.add(new Reflect(INITIAL_LEVEL));
-        deck.add(new Water(INITIAL_LEVEL, COST));
-        deck.add(new Ice(INITIAL_LEVEL, COST));
-        deck.add(new Fire(INITIAL_LEVEL, COST));
-        deck.add(new Lightning(INITIAL_LEVEL, COST));
+        deck.add(new Slash(level));
+        deck.add(new Swing(level));
+        deck.add(new Thrust(level));
+        deck.add(new Pierce(level));
+        deck.add(new Parry(level));
+        deck.add(new Focus(level));
+        deck.add(new Reflect(level));
+        deck.add(new Water(level, COST));
+        deck.add(new Ice(level, COST));
+        deck.add(new Fire(level, COST));
+        deck.add(new Lightning(level, COST));
 
         return deck;
     }

@@ -1,5 +1,6 @@
 package runasstrive.model;
 
+import runasstrive.builder.supplier.DeckSupplier;
 import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.player.Player;
@@ -11,10 +12,10 @@ import java.util.*;
 
 public class RunasStrive {
     private final Player player;
-    private final List<Ability> deck;
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
     private final LinkedList<Ability> reward;
+    private List<Ability> deck;
 
     public RunasStrive(Stack<Die> dieBag, List<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
@@ -57,7 +58,7 @@ public class RunasStrive {
         return true;
     }
 
-    public void startFight() {
+    /**public void startFight() {
         this.getCurrentLevel().resume(this.player);
         if (!this.isLevelCleared() && this.stageCleared()) {
             if (this.reward.size() < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2) {
@@ -66,10 +67,27 @@ public class RunasStrive {
                 }
             }
         }
+    }*/
+
+     public void startFight() {
+        this.getCurrentLevel().resume(this.player);
+        if (!this.isLevelCleared() && this.stageCleared()) {
+            if (this.reward.size() < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2) {
+                int maxRewardNum = Math.min(
+                        this.deck.size(),
+                        this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2
+                );
+                for (int i = this.reward.size(); i < maxRewardNum; i++) { //TODO: wtf
+                    if (i < this.deck.size()) this.reward.addLast(this.deck.get(i));
+                }
+            }
+        }
     }
 
     public void advanceToNextLevel() {
         this.levels.pop();
+        this.deck = DeckSupplier.getDeck(this.getCurrentLevel().getLevel().getValue());
+        this.reward.clear();
     }
 
     public void advanceToNextStage() {
