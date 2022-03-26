@@ -74,7 +74,7 @@ public class OutStream extends PrintStream {
     private String getNewElement() {
         try {
             int temp = this.elementCounter;
-            wait(20);
+            wait(50);
             while (temp != this.elementCounter) {
                 temp = this.elementCounter;
                 wait(5);
