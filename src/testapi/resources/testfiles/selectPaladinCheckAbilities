@@ -3,17 +3,17 @@ Select Runa's character class
 1) Warrior
 2) Mage
 3) Paladin
-Enter number [1--3]:
+Enter number [1--3]:#
 
-Enter number [1--3]:
+Enter number [1--3]:#
  
-Enter number [1--3]:
+Enter number [1--3]:#
   
-Enter number [1--3]:
+Enter number [1--3]:#
 ,
-Enter number [1--3]:
+Enter number [1--3]:#
 ,,
-Enter number [1--3]:
+Enter number [1--3]:#
 , ,
 Enter number [1--3]:#
  ,
@@ -31,21 +31,21 @@ Enter number [1--3]:#
  2,
 Enter number [1--3]:#
 ,3 
-Enter number [1--3]:
+Enter number [1--3]:#
  1
 Enter number [1--3]:#
   2
 Enter number [1--3]:#
    3
-Enter number [1--3]:
+Enter number [1--3]:#
 1 
 Enter number [1--3]:#
 1  
-Enter number [1--3]:
+Enter number [1--3]:#
 1,
-Enter number [1--3]:
+Enter number [1--3]:#
 ,1
-Enter number [1--3]:
+Enter number [1--3]:#
 1,2
 Enter number [1--3]:#
 1,1
@@ -53,17 +53,17 @@ Enter number [1--3]:#
 1,2,
 Enter number [1--3]:#
 ,1,2
-Enter number [1--3]:
+Enter number [1--3]:#
 0
 Enter number [1--3]:#
 4
 Enter number [1--3]:#
 -1
-Enter number [1--3]:
+Enter number [1--3]:#
 o
 Enter number [1--3]:#
 `
-Enter number [1--3]:
+Enter number [1--3]:#
 q
 Enter number [1--3]:#
 qu
@@ -85,10 +85,10 @@ Enter number [1--3]:#
 t
 Enter number [1--3]:#
 quit!
-Enter number [1--3]:
+Enter number [1--3]:#
 Warrior
 Enter number [1--3]:#
 mage
-Enter number [1--3]:
+Enter number [1--3]:#
 quit
 #
