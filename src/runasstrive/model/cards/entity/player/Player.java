@@ -1,21 +1,21 @@
 package runasstrive.model.cards.entity.player;
 
 import runasstrive.io.resources.Messages;
-import runasstrive.model.Level;
 import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.dice.Die;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 
 public class Player extends Entity<CharacterType> {
     private final int maxHp;
     private final int heal;
     private final int minAbilityCards ;
-    private int hp = 50;
+    protected static int MIN_FP = 1;
     private int maxFp;
     private Ability cardToPlay;
     private Monster target;
@@ -78,11 +78,7 @@ public class Player extends Entity<CharacterType> {
 
     @Override
     public void focus(int fp) {
-        if (this.maxFp < this.fp + fp) {
-            this.fp = this.maxFp;
-            return;
-        }
-        this.fp += fp;
+        super.focus(Math.min(this.maxFp - this.fp, fp));
     }
 
     public boolean canHeal() {
@@ -90,19 +86,56 @@ public class Player extends Entity<CharacterType> {
     }
 
     public void upgradeCharacterCards() {
-        this.getType().getTypeAbilities().forEach(Ability::upgrade);
+        this.abilities.addAll(this.type.getUpgraded());
     }
 
     public void addAbility(Ability ability) {
         this.abilities.addLast(ability);
     }
 
-    public void heal(int choice) {
-        this.abilities.remove(choice);
-        this.hp = Math.min(maxHp, this.hp + heal);
+    public void heal(List<Integer> choices) {
+        List<Ability> toRemove = new ArrayList<>();
+        for (Integer choice : choices) {
+            this.gainedHealth += Math.min(maxHp - this.hp, heal);
+            this.hp += Math.min(maxHp - this.hp, heal);
+            toRemove.add(this.abilities.get((choice)));
+        }
+        this.abilities.removeAll(toRemove);
+    }
+
+    public int getMaxHealNumber() {
+        int maxHealNumber = 0;
+        while (this.getHp() + (maxHealNumber * this.getHeal()) < this.getMaxHp()) {
+            maxHealNumber++;
+        }
+        return maxHealNumber;
     }
 
     public void increaseFp(Die currentDie) {
         this.maxFp = currentDie.getSides();
+    }
+
+    public int getMaxHp() {
+        return this.maxHp;
+    }
+
+    public int getHeal() {
+        return heal;
+    }
+
+    public void clearGainedHealth() {
+        this.gainedHealth = MIN_HP;
+    }
+
+    @Override
+    public void useFp(int cost) {
+        this.fp = Math.max(MIN_FP, this.fp - cost);
+    }
+
+    public int getFocusLevel() {
+        Ability card = this.abilities.stream()
+                .filter(ability -> ability.getName().equals("Focus"))
+                .findFirst().orElse(null);
+        return card == null ? 0 : card.getLevel();
     }
 }

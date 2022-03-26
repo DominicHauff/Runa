@@ -24,4 +24,9 @@ public class DarkElf extends Monster {
     public DarkElf() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

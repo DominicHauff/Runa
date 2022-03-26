@@ -18,4 +18,10 @@ public class Goblin extends Monster {
     public Goblin() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        //TODO: what
+        return 0;
+    }
 }

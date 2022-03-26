@@ -24,4 +24,10 @@ public class Mushroomlon extends Monster {
     public Mushroomlon() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        //TODO: hi
+        return 0;
+    }
 }

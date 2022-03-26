@@ -48,6 +48,6 @@ public class GameLevel {
     }
 
     public boolean cleared() {
-        return this.stages.isEmpty() && this.getCurrentStage().cleared();
+        return this.stages.isEmpty();
     }
 }

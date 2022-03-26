@@ -2,10 +2,9 @@ package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.fight.ChooseAbility;
-import runasstrive.controller.gamestates.init.InitializeLevel;
-import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.io.parameters.SingleChoiceParameter;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.dice.Die;
@@ -13,7 +12,7 @@ import runasstrive.model.dice.Die;
 import java.util.List;
 
 public class ChooseReward extends GameState {
-    private static final IntegerParameter CHOICE = new IntegerParameter();
+    private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int NEW_CARDS = 1;
     private static final int NEW_DIE = 2;
     private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
@@ -35,7 +34,7 @@ public class ChooseReward extends GameState {
 
     @Override
     public boolean execute(ParameterBundle parameterBundle) {
-        if (!parameterBundle.isPresent(CHOICE)) {
+        if (parameterBundle.get(CHOICE) == null) {
             return false;
         }
         final int choice = parameterBundle.get(CHOICE);
@@ -46,7 +45,6 @@ public class ChooseReward extends GameState {
             }
             case NEW_DIE -> {
                 final Die die = this.runasStrive.upgradeDie();
-                this.runasStrive.advanceToNextStage();
                 this.response = String.format(Messages.UPGRADE_DIE, die.toString()) + System.lineSeparator();
                 this.response += String.format(Messages.STAGE_ENTER_MESSAGE,
                         this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),

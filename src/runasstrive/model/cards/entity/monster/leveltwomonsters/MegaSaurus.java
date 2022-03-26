@@ -30,4 +30,9 @@ public class MegaSaurus extends Monster {
     public MegaSaurus() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

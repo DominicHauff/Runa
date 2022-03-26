@@ -2,13 +2,15 @@ package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.init.InitializeLevel;
-import runasstrive.io.parameters.CardIndexParameter;
+import runasstrive.io.parameters.MultipleChoiceParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Heal extends GameState {
@@ -32,7 +34,9 @@ public class Heal extends GameState {
 
     @Override
     public String repeatPrompt() {
-        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
+        return this.runasStrive.getMaxHealNumber() > 1
+                ? String.format(Messages.MULTIPLE_CARDS_PROMPT, this.runasStrive.getPlayer().getAbilities().size())
+                : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
     }
 
     @Override

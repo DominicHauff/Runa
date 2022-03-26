@@ -19,7 +19,6 @@ public abstract class Ability extends Card {
     protected boolean willIncreaseFocusPoints;
     protected boolean breakFocus;
 
-
     protected Ability(String name, int level, int cost, boolean requiresTarget, boolean requiresDieRoll) {
         super(name);
         this.level = level;
@@ -37,6 +36,7 @@ public abstract class Ability extends Card {
                 Math.min(target.getReflectMagicDamage(), magicDamage));
         caster.setFocus(willIncreaseFocusPoints);
         target.breakFocus(breakFocus);
+        caster.useFp(this.cost);
     }
 
     public void use(Entity<?> caster) {
@@ -65,12 +65,12 @@ public abstract class Ability extends Card {
         return this.cost;
     }
 
-    public void upgrade() {
-        this.level++;
-    }
-
     public abstract int getAdditionalTypeDamage();
 
     public abstract MonsterType getAffectedType();
+
+    public int getLevel() {
+        return this.level;
+    }
 
 }

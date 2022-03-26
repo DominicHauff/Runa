@@ -20,4 +20,9 @@ public class Snake extends Monster {
     public Snake() {
         super(NAME, HP, MonsterType.ICE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

@@ -19,7 +19,7 @@ public class Pierce extends OffensivePhysicalPlayerAbility {
         if (caster.getEntityType() == CharacterType.class) {
             final int dieRes = ((Player) caster).getDieRes();
             if (dieRes >= CRITICAL_DIE_RES) {
-                this.physicalDamage = PHYSICAL_DAMAGE_FACTOR * this.level + ADDITIONAL_DAMAGE_FACTOR * this.level;
+                this.physicalDamage = PHYSICAL_DAMAGE_FACTOR * this.level + dieRes + ADDITIONAL_DAMAGE_FACTOR * this.level;
             } else {
                 this.physicalDamage = PHYSICAL_DAMAGE_FACTOR * this.level;
             }

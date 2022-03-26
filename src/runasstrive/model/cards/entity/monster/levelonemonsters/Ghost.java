@@ -20,4 +20,9 @@ public class Ghost extends Monster {
     public Ghost() {
         super(NAME, HP, MonsterType.ICE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

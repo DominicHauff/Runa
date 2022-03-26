@@ -1,6 +1,5 @@
 package runasstrive.controller.gamestates.fight;
 
-import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;

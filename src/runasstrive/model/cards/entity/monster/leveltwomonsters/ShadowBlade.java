@@ -24,4 +24,9 @@ public class ShadowBlade extends Monster {
     public ShadowBlade() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

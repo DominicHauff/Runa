@@ -33,6 +33,8 @@ public abstract class Monster extends Entity<MonsterType> {
         return nextAbility;
     }
 
+    public abstract int getFocusLevel();
+
     @Override
     public Class<?> getEntityType() {
         return MonsterType.class;

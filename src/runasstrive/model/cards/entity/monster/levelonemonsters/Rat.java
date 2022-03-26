@@ -18,4 +18,10 @@ public class Rat extends Monster {
     public Rat() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        //TODO: ODOT
+        return 0;
+    }
 }

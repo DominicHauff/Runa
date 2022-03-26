@@ -24,4 +24,10 @@ public class Bear extends Monster {
     public Bear() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        //TODO: ok
+        return 0;
+    }
 }

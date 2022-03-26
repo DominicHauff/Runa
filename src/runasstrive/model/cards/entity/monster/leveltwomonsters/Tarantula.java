@@ -24,4 +24,10 @@ public class Tarantula extends Monster {
     public Tarantula() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        //TODO: remove
+        return 0;
+    }
 }

@@ -62,7 +62,7 @@ public class RunasStrive {
         if (!this.isLevelCleared() && this.stageCleared()) {
             if (this.reward.size() < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2) {
                 for (int i = this.reward.size(); i < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2; i++) { //TODO: wtf
-                    this.reward.addLast(this.deck.get(i));
+                    if (i < this.deck.size()) this.reward.addLast(this.deck.get(i));
                 }
             }
         }
@@ -133,6 +133,16 @@ public class RunasStrive {
         return this.player.canHeal();
     }
 
+    public int getMaxHealNumber() {
+        return this.player.getMaxHealNumber();
+    }
+
+    public int getPlayerGainedHp() {
+        int gainedHp = this.player.getGainedHp();
+        this.player.clearGainedHealth();
+        return gainedHp;
+    }
+
     public void upgradeCards() {
         this.player.upgradeCharacterCards();
     }
@@ -160,10 +170,8 @@ public class RunasStrive {
         return this.reward;
     }
 
-    public boolean healPlayer(int choice) {
-        if (this.player.getAbilities().size() <= choice) return false;
-        this.player.heal(choice);
-        return true;
+    public void healPlayer(List<Integer> cardsToRemove)  {
+        this.player.heal(cardsToRemove);
     }
 
     public void chooseCharacterType(CharacterType type) {

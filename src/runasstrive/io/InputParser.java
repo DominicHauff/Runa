@@ -9,6 +9,7 @@ public class InputParser {
     private static final String MULTIPLE_ARGUMENTS_REGEX = SINGLE_ARGUMENT_REGEX + "(," + SINGLE_ARGUMENT_REGEX + ")*";
 
     public List<String> getArgumentList(String inputString) {
+        //boolean matches = inputString.matches(MULTIPLE_ARGUMENTS_REGEX);
         return inputString.matches(MULTIPLE_ARGUMENTS_REGEX) ? Arrays.asList(inputString.split(DELIMITER)) : null;
     }
 }

@@ -12,6 +12,7 @@ public class ParameterBundle {
 
     public void put(Parameter<?> key, Object parsingResult) {
         if (key.getType() != parsingResult.getClass()) {
+            System.out.printf("keyType: %s, parsingResultType: %s%n", key.getType().getSimpleName(), parsingResult.getClass().getSimpleName());
             throw new IllegalStateException();
         }
         this.parameters.put(key, parsingResult);

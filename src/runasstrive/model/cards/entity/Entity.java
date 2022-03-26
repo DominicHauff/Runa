@@ -8,7 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Entity<T> extends Card {
-    private static final int MIN_HP = 0;
+    protected static final int MIN_HP = 0;
+    protected static int MIN_FP = 0;
     protected final LinkedList<Ability> abilities;
     protected T type;
     protected int hp;
@@ -18,6 +19,8 @@ public abstract class Entity<T> extends Card {
     protected int reflectPhysicalDamage;
     protected int reflectMagicDamage;
     protected boolean increaseFp;
+    protected int gainedHealth;
+    protected int gainedFp;
     private int takenPhysicalDamage;
     private int takenMagicDamage;
 
@@ -87,7 +90,10 @@ public abstract class Entity<T> extends Card {
     }
 
     public void focus(int fp) {
-        this.fp += fp;
+        if (this.increaseFp) {
+            this.fp += fp;
+            this.gainedFp = fp;
+        }
     }
 
     public void breakFocus(boolean breakFocus) {
@@ -134,5 +140,24 @@ public abstract class Entity<T> extends Card {
     public void resetTakenDamage() {
         this.takenMagicDamage = 0;
         this.takenPhysicalDamage = 0;
+    }
+
+    public int getGainedHp() {
+        return gainedHealth;
+    }
+
+    public int getGainedFp() {
+        int gained = this.gainedFp;
+        this.gainedFp = MIN_FP;
+        return gained;
+    }
+
+    public boolean hasGainedFp() {
+        return this.gainedFp > MIN_FP;
+    }
+
+
+    public void useFp(int cost) {
+        this.fp -= cost;
     }
 }

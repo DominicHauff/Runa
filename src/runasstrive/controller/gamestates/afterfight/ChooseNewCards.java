@@ -27,8 +27,6 @@ public class ChooseNewCards extends GameState {
         StringBuilder builder = new StringBuilder();
 
         builder.append(String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards()))
-                .append(System.lineSeparator())
-                .append(String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getRewards().size()))
                 .append(System.lineSeparator());
 
         IntStream.range(0, this.runasStrive.getRewards().size()).forEach(i ->
@@ -40,8 +38,10 @@ public class ChooseNewCards extends GameState {
 
     @Override
     public String repeatPrompt() {
-        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getRewards().size())
-                + System.lineSeparator();
+        final String prompt = this.runasStrive.getNumRewardCards() > 1
+                ? String.format(Messages.MULTIPLE_CARDS_PROMPT, this.runasStrive.getRewards().size())
+                : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getRewards().size());
+        return prompt + System.lineSeparator();
     }
 
     @Override
@@ -57,21 +57,11 @@ public class ChooseNewCards extends GameState {
         }
 
         LinkedList<Ability> reward = new LinkedList<>(); //TODO: find better solution if everything else works fine
-        if (parameterBundle.isPresent(SECOND)) {
-            if (PARAMETERS.size() != this.runasStrive.getNumRewardCards()) {
-                return false;
-            }
-            final int secondCardIndex = parameterBundle.get(SECOND);
-            if (secondCardIndex == firstCardIndex) {
-                return false;
-            }
-            if (this.runasStrive.getRewards().size() <= secondCardIndex) {
-                return false;
-            }
-            reward.addFirst(this.runasStrive.drawCard(secondCardIndex));
+        for (Integer choice : choices) {
+            final Ability card = this.runasStrive.drawCard(choice - CARD_INDEX_OFFSET); //TODO: fix error;
+            reward.add(card);
         }
 
-        reward.addFirst(this.runasStrive.drawCard(firstCardIndex));
         this.runasStrive.discardLeftOverReward();
         StringBuilder rewardBuilder = new StringBuilder();
         reward.forEach(ability -> rewardBuilder.append(String.format(Messages.GET_NEW_CARD, ability.toString()))

@@ -27,4 +27,9 @@ public class SpiderKing extends Monster {
     public SpiderKing() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

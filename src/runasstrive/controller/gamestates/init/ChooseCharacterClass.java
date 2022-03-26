@@ -1,7 +1,6 @@
 package runasstrive.controller.gamestates.init;
 
 import runasstrive.controller.gamestates.GameState;
-import runasstrive.io.parameters.IntegerParameter;
 import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.io.resources.Messages;

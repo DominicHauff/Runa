@@ -19,4 +19,9 @@ public class Frog extends Monster {
     public Frog() {
         super(NAME, HP, MonsterType.WATER, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

@@ -77,14 +77,22 @@ public class Stage {
 
         } else {
             player.useAbility();
+            player.focus(player.getFocusLevel());
         }
         for (Monster monster : this.getAliveMonsters()) {
+            monster.focus(monster.getFocusLevel());
             Ability ability = monster.useAbility(player);
+            if (monster.hasGainedFp()) {
+                this.log.add(String.format(Messages.GAIN_FOCUS_POINTS, monster.getName(), monster.getGainedFp()));
+            }
             this.log.add(String.format(Messages.ENTITY_USES_ABILITY, monster.getName(), ability.toString()));
             this.logTakenDamage(player);
             this.logTakenDamage(monster);
             player.resetTakenDamage();
         }
         player.resetShield();
+        if (player.hasGainedFp()) {
+            this.log.add(String.format(Messages.GAIN_FOCUS_POINTS, player.getName(), player.getGainedFp()));
+        }
     }
 }

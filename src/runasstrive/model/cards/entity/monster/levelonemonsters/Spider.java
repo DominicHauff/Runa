@@ -18,4 +18,10 @@ public class Spider extends Monster {
     public Spider() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        //TODO: another one
+        return 0;
+    }
 }

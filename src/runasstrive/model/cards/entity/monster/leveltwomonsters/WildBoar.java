@@ -21,4 +21,10 @@ public class WildBoar extends Monster {
     public WildBoar() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        //TODO: TODO
+        return 0;
+    }
 }

@@ -26,4 +26,9 @@ public class Hornet extends Monster {
     public Hornet() {
         super(NAME, HP, MonsterType.FIRE, ABILITIES);
     }
+
+    @Override
+    public int getFocusLevel() {
+        return FOCUS_LEVEL;
+    }
 }

@@ -33,7 +33,7 @@ public abstract class FightGameState extends GameState {
             this.nextGameState = ChooseAbility.class;
             return;
         }
-
+        this.runasStrive.advanceToNextStage();
         if (!this.runasStrive.isLevelCleared()) {
             if (this.runasStrive.canChooseDie()) {
                 this.response += Messages.CHOOSE_RUNAS_REWARD + System.lineSeparator() +
@@ -49,9 +49,9 @@ public abstract class FightGameState extends GameState {
 
         this.runasStrive.upgradeCards();
         StringBuilder builder = new StringBuilder();
-        this.runasStrive.getPlayer().getType().getTypeAbilities().forEach(ability ->
-                builder.append(ability.toString()).append(System.lineSeparator()));
-        this.response += System.lineSeparator() + builder;
+        this.runasStrive.getPlayer().getType().getUpgraded().forEach(ability ->
+                builder.append(String.format(Messages.GET_NEW_CARD, ability)).append(System.lineSeparator()));
+        this.response += builder;
         this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
     }
 

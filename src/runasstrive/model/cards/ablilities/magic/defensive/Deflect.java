@@ -1,5 +1,6 @@
 package runasstrive.model.cards.ablilities.magic.defensive;
 
+import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 
 public class Deflect extends DefensiveMagicAbility {
@@ -24,4 +25,5 @@ public class Deflect extends DefensiveMagicAbility {
         this.willIncreaseFocusPoints = WILL_INCREASE_FOCUS_POINTS;
         this.breakFocus = BREAK_FOCUS_POINTS;
     }
+
 }
