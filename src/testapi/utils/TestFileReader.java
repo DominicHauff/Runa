@@ -37,7 +37,7 @@ public class TestFileReader {
                 return new InOutPair(null, inSb.toString());
             }
             String nextOutputLine = reader.readLine();
-            if (nextOutputLine == null) return null;
+            if (nextOutputLine == null) return new InOutPair(null, inLine);
             while (!nextOutputLine.endsWith("#")) {
                 sb.append(UmlautsConverter.removeUmlauts(nextOutputLine)).append(System.lineSeparator());
                 nextOutputLine = reader.readLine();

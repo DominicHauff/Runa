@@ -22,13 +22,18 @@ public class RunaStriveFileConverter extends FileConverter {
                 convertedContent.add("|" + next);
                 continue;
             }
+            if (next.startsWith("<e")) {
+                convertedContent.add("Error,#");
+                continue;
+            }
+            String endOutput = next.endsWith("#") ? next : next + "#";
             if (i == fileContent.size() - 1) {
                 if (next.startsWith("> ")) {
                     convertedContent.add(next.substring(2));
-                    convertedContent.add("#");
+                    convertedContent.add(next.endsWith("#") ? "" : "#");
                     continue;
                 }
-                convertedContent.add(next + "#");
+                convertedContent.add(endOutput);
                 continue;
             }
             if (next.startsWith("> ")) {
@@ -36,7 +41,7 @@ public class RunaStriveFileConverter extends FileConverter {
                 continue;
             }
             if (fileContent.get(i + 1).startsWith("> ")) {
-                convertedContent.add(next + "#");
+                convertedContent.add(endOutput);
                 continue;
             }
             convertedContent.add(next);
