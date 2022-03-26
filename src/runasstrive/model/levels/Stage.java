@@ -77,7 +77,6 @@ public class Stage {
 
         } else {
             player.useAbility();
-            player.focus(player.getFocusLevel());
         }
 
         this.getAliveMonsters().forEach(monster -> {
@@ -93,6 +92,7 @@ public class Stage {
             this.logTakenDamage(monster);
             player.resetTakenDamage();
         }
+        player.focus(player.getFocusLevel());
         player.resetShield();
         if (player.hasGainedFp() && !player.isDead()) {
             this.log.add(String.format(Messages.GAIN_FOCUS_POINTS, player.getName(), player.getGainedFp()));
