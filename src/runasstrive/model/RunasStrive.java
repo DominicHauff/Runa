@@ -11,12 +11,12 @@ import java.util.*;
 
 public class RunasStrive {
     private final Player player;
-    private final Stack<Ability> deck;
+    private final List<Ability> deck;
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
     private final LinkedList<Ability> reward;
 
-    public RunasStrive(Stack<Die> dieBag, Stack<Ability> abilities, Player player, Stack<GameLevel> levels) {
+    public RunasStrive(Stack<Die> dieBag, List<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
         this.deck = abilities;
         this.player = player;
@@ -25,9 +25,21 @@ public class RunasStrive {
     }
 
     public GameLevel shuffleCards(int firstSeed, int secondSeed) {
+        removeTypeAbilities();
         Collections.shuffle(this.deck, new Random(firstSeed));
         this.levels.peek().initialize(secondSeed);
         return this.levels.peek();
+    }
+
+    private void removeTypeAbilities() {
+        List<Ability> toRemove = new ArrayList<>();
+        this.deck.forEach(ability -> {
+            if (ability.getName().equals(this.player.getType().getTypeAbilities().get(0).getName()) ||
+                    ability.getName().equals(this.player.getType().getTypeAbilities().get(1).getName())) {
+                toRemove.add(ability);
+            }
+        });
+        this.deck.removeAll(toRemove);
     }
 
     public Ability pickCard(int choice) {
@@ -50,9 +62,10 @@ public class RunasStrive {
         if (!this.isLevelCleared() && this.stageCleared()) {
             if (this.reward.isEmpty()) {
                 for (int i = 0; i < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2; i++) { //TODO: wtf
-                    this.reward.addLast(this.deck.pop());
+                    this.reward.addLast(this.deck.get(i));
                 }
             }
+            this.deck.removeAll(reward);
         }
     }
 
@@ -155,6 +168,5 @@ public class RunasStrive {
 
     public void chooseCharacterType(CharacterType type) {
         this.player.setType(type);
-        this.deck.removeAll(type.getTypeAbilities());
     }
 }
