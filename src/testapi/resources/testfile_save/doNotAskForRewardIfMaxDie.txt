@@ -126,7 +126,6 @@ vs.
 Rat (14 HP, 0 FP): attempts Block(1) next
 Skeleton (14 HP, 0 FP): attempts Focus(1) next
 ----------------------------------------
-## Although there is only one card to choose from, we ask for (see: A.4.5.1 3. paragraph)
 Select card to play
 1) Thrust(1)
 Enter number [1--1]:#
@@ -313,7 +312,6 @@ Enter dice roll [1--12]:#
 12
 Snake takes 32 phy. damage
 Snake dies
-## We have reached the maximum dice. So option 1 is selected without a selection menu. (see: A.4.6.1)
 Pick 2 card(s) as loot
 1) Reflect(2)
 2) Swing(2)

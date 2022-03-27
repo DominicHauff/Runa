@@ -69,7 +69,7 @@ public class Heal extends GameState {
         if (choices.isEmpty()) {
             this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
                     ? InitializeLevel.class : ChooseAbility.class;
-            this.response = enterStage;
+            this.response = this.nextGameState == ChooseAbility.class ? enterStage : null;
             return true;
         }
 
