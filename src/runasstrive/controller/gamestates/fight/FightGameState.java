@@ -16,8 +16,8 @@ public abstract class FightGameState extends GameState {
 
     public void startFight() {
         this.runasStrive.startFight();
-        final String fightLog = this.runasStrive.getFightLog() + System.lineSeparator();
-        this.response = this.response == null ? fightLog : this.response + fightLog;
+        final String fightLog = this.runasStrive.getFightLog();
+        this.response = this.response == null ? fightLog : this.response + System.lineSeparator() + fightLog;
         if (this.runasStrive.gameOver()) {
             this.nextGameState = null;
             return;
@@ -30,9 +30,9 @@ public abstract class FightGameState extends GameState {
         this.runasStrive.advanceToNextStage();
         if (!this.runasStrive.isLevelCleared()) {
             if (this.runasStrive.canChooseDie()) {
-                this.response += Messages.CHOOSE_RUNAS_REWARD + System.lineSeparator() +
-                        Messages.CHOOSE_NEW_ABILITIES_OPTION + System.lineSeparator() +
-                        Messages.CHOOSE_NEW_DIE + System.lineSeparator();
+                this.response += System.lineSeparator() + Messages.CHOOSE_RUNAS_REWARD
+                        + System.lineSeparator() + Messages.CHOOSE_NEW_ABILITIES_OPTION
+                        + System.lineSeparator() + Messages.CHOOSE_NEW_DIE;
                 this.nextGameState = ChooseReward.class;
                 return;
             }
@@ -41,7 +41,7 @@ public abstract class FightGameState extends GameState {
         }
 
         if (this.runasStrive.gameWon()) {
-            this.response += Messages.GAME_WON + System.lineSeparator();
+            this.response += System.lineSeparator() + Messages.GAME_WON;
             this.nextGameState = null;
             return;
         }
@@ -52,7 +52,7 @@ public abstract class FightGameState extends GameState {
         StringBuilder builder = new StringBuilder();
         this.runasStrive.getPlayer().getType().getUpgraded().forEach(ability ->
                 builder.append(String.format(Messages.GET_NEW_CARD, ability)).append(System.lineSeparator()));
-        this.response += builder;
+        this.response += System.lineSeparator() + builder.toString().trim();
         this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
     }
 

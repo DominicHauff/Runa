@@ -30,17 +30,17 @@ public class Heal extends GameState {
         StringBuilder builder = new StringBuilder();
         builder.append(String.format(Messages.HEALING_OPTION, this.runasStrive.getPlayer().getHp())).append(System.lineSeparator());
         IntStream.range(0, this.runasStrive.getPlayer().getAbilities().size()).forEach(i -> {
-            builder.append(String.format(Messages.LIST_ELEMENT, i + 1,
+            builder.append(String.format(Messages.LIST_ELEMENT, i + CARD_INDEX_OFFSET,
                     this.runasStrive.getPlayer().getAbilities().get(i).toString())).append(System.lineSeparator());
         });
-        return builder.toString() + this.repeatPrompt();
+        return builder + this.repeatPrompt();
     }
 
     @Override
     public String repeatPrompt() {
         return this.runasStrive.getPlayer().getAbilities().size() > 2
-                ? String.format(Messages.MULTIPLE_CARDS_PROMPT, this.runasStrive.getPlayer().getAbilities().size()) + System.lineSeparator()
-                : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size()) + System.lineSeparator();
+                ? String.format(Messages.MULTIPLE_CARDS_PROMPT, this.runasStrive.getPlayer().getAbilities().size())
+                : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Heal extends GameState {
         final String enterStage = this.nextGameState == ChooseAbility.class
                 ? String.format(Messages.STAGE_ENTER_MESSAGE,
                 this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
-                this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator() : null;
+                this.runasStrive.getCurrentLevel().getLevel().getValue()) : null;
 
         if (choices.isEmpty()) {
             this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
@@ -79,7 +79,7 @@ public class Heal extends GameState {
         this.response = String.format(Messages.GAIN_HEALTH, this.runasStrive.getPlayerGainedHp())
                 + System.lineSeparator();
         if (enterStage != null) {
-            this.response += enterStage;
+            this.response += System.lineSeparator() + enterStage;
         }
         return true;
     }

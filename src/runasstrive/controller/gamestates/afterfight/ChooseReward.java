@@ -15,6 +15,7 @@ public class ChooseReward extends GameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int NEW_CARDS = 1;
     private static final int NEW_DIE = 2;
+    private static final int NUM_CHOICES = 2;
     private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
     public ChooseReward(RunasStrive runasStrive) {
@@ -28,8 +29,7 @@ public class ChooseReward extends GameState {
 
     @Override
     public String repeatPrompt() {
-        //TODO: remove magic number
-        return String.format(Messages.ENTER_NUMBER_PROMPT, 2) + System.lineSeparator();
+        return String.format(Messages.ENTER_NUMBER_PROMPT, NUM_CHOICES);
     }
 
     @Override
@@ -48,9 +48,9 @@ public class ChooseReward extends GameState {
                 this.response = String.format(Messages.UPGRADE_DIE, die.toString()) + System.lineSeparator();
                 this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
                 if (this.nextGameState == ChooseAbility.class) {
-                    this.response += String.format(Messages.STAGE_ENTER_MESSAGE,
+                    this.response += System.lineSeparator() + String.format(Messages.STAGE_ENTER_MESSAGE,
                             this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
-                            this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator();
+                            this.runasStrive.getCurrentLevel().getLevel().getValue());
                 }
                 break;
             default:

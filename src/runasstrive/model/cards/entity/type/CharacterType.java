@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum CharacterType {
-    WARRIOR(1, List.of(new Thrust(1), new Parry(1))) {
+    WARRIOR(1, "Warrior", List.of(new Thrust(1), new Parry(1))) {
         @Override
         public List<Ability> getUpgraded() {
             final Thrust upgradedThrust = new Thrust(this.getTypeAbilities().get(0).getLevel() + 1);
@@ -20,7 +20,7 @@ public enum CharacterType {
             return List.of(upgradedThrust, upgradedParry);
         }
     },
-    MAGE(2, List.of(new Focus(1), new Water(1, 1))) {
+    MAGE(2, "Mage", List.of(new Focus(1), new Water(1, 1))) {
         @Override
         public List<Ability> getUpgraded() {
             final Focus upgradedFocus = new Focus(this.getTypeAbilities().get(0).getLevel() + 1);
@@ -28,7 +28,7 @@ public enum CharacterType {
             return List.of(upgradedFocus, upgradedWater);
         }
     },
-    PALADIN(3, List.of(new Slash(1), new Reflect(1))) {
+    PALADIN(3, "Paladin", List.of(new Slash(1), new Reflect(1))) {
         @Override
         public List<Ability> getUpgraded() {
             final Slash slash = new Slash(this.getTypeAbilities().get(0).getLevel() + 1);
@@ -37,11 +37,13 @@ public enum CharacterType {
         }
     };
 
-    final int value;
-    final List<Ability> typeAbilities;
+    private final int value;
+    private final String name;
+    private final List<Ability> typeAbilities;
 
-    CharacterType(int value, List<Ability> typeAbilities) {
+    CharacterType(int value, String name, List<Ability> typeAbilities) {
         this.value = value;
+        this.name = name;
         this.typeAbilities = typeAbilities;
     }
 
@@ -50,8 +52,16 @@ public enum CharacterType {
     }
 
     public List<Ability> getTypeAbilities() {
-        return typeAbilities;
+        return this.typeAbilities;
     }
 
     public abstract List<Ability> getUpgraded();
+
+    public int getValue() {
+        return this.value;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }

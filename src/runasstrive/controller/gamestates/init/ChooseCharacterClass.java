@@ -8,6 +8,7 @@ import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.entity.type.CharacterType;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ChooseCharacterClass extends GameState {
@@ -21,12 +22,21 @@ public class ChooseCharacterClass extends GameState {
 
     @Override
     public String getPrompt() {
-        return String.format(Messages.ENTER_NUMBER_PROMPT, CharacterType.values().length) + System.lineSeparator();
+        final StringBuilder openingMessage = new StringBuilder();
+        openingMessage
+                .append(Messages.WELCOME_MESSAGE).append(System.lineSeparator())
+                .append(Messages.SELECT_CHARACTER_MESSAGE).append(System.lineSeparator());
+
+        Arrays.stream(CharacterType.values()).forEach(characterType -> openingMessage
+                .append(String.format(Messages.LIST_ELEMENT, characterType.getValue(), characterType.getName()))
+                .append(System.lineSeparator()));
+
+        return openingMessage + repeatPrompt();
     }
 
     @Override
     public String repeatPrompt() {
-        return getPrompt();
+        return String.format(Messages.ENTER_NUMBER_PROMPT, CharacterType.values().length);
     }
 
     @Override

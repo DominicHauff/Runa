@@ -3,12 +3,13 @@ package runasstrive;
 import runasstrive.builder.RunaStriveBuilder;
 import runasstrive.controller.Controller;
 import runasstrive.io.InputParser;
+import runasstrive.io.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 public class Application {
     public static void main(String[] args) {
         if (args.length != 0) {
-            System.err.println("Error, args not 0");//TODO: remove magic string
+            System.err.println(Messages.ERROR);//TODO: remove magic string
             return;
         }
         InputParser inputParser = new InputParser();

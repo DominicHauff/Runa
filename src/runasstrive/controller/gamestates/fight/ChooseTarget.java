@@ -37,8 +37,7 @@ public class ChooseTarget extends FightGameState {
 
     @Override
     public String repeatPrompt() {
-        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPossibleTargets().size())
-                + System.lineSeparator();
+        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPossibleTargets().size());
     }
 
     @Override
@@ -50,8 +49,8 @@ public class ChooseTarget extends FightGameState {
         if (!this.runasStrive.pickTarget(choice)) return false;
 
         final Ability cardToPlay = this.runasStrive.getCardToPlay();
-        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), cardToPlay)
-                + System.lineSeparator();
+        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), cardToPlay);
+
         if (!cardToPlay.dieRollRequired()) {
             this.startFight();
             return true;

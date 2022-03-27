@@ -24,6 +24,7 @@ public class ChooseAbility extends FightGameState {
         //TODO: clean up
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder
+                .append(System.lineSeparator())
                 .append(Messages.SEPARATOR).append(System.lineSeparator())
                 .append(this.runasStrive.getPlayer().toString()).append(System.lineSeparator())
                 .append(Messages.VS).append(System.lineSeparator());
@@ -42,14 +43,13 @@ public class ChooseAbility extends FightGameState {
                     .append(String.format(Messages.LIST_ELEMENT, i + 1, abilities.get(i).toString()))
                     .append(System.lineSeparator());
         }
-        stringBuilder.append(this.repeatPrompt());
-        return stringBuilder.toString();
+
+        return stringBuilder + repeatPrompt();
     }
 
     @Override
     public String repeatPrompt() {
-        return String.format(Messages.ENTER_NUMBER_PROMPT,
-                this.runasStrive.getPlayer().getAbilities().size()) + System.lineSeparator();
+        return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
     }
 
     @Override

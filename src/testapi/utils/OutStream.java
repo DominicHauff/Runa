@@ -35,15 +35,6 @@ public class OutStream extends PrintStream {
         notifyAll();
     }
 
-    @Override
-    synchronized public void print(String x) {
-        super.print(x);
-        this.printHistory.push(x);
-        this.newElement = true;
-        this.elementCounter++;
-        notifyAll();
-    }
-
     synchronized public String getNextString(boolean outputExpected) {
         if (newElement) return getNewElement();
         if (terminated) {

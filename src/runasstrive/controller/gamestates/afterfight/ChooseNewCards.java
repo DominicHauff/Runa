@@ -28,23 +28,22 @@ public class ChooseNewCards extends GameState {
     @Override
     public String getPrompt() {
         StringBuilder builder = new StringBuilder();
-
-        builder.append(String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards()))
+        builder
+                .append(String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards()))
                 .append(System.lineSeparator());
 
-        IntStream.range(0, this.runasStrive.getRewards().size()).forEach(i ->
-                builder.append(String.format(Messages.LIST_ELEMENT, i + 1, this.runasStrive.getRewards().get(i)))
-                        .append(System.lineSeparator())
+        IntStream.range(0, this.runasStrive.getRewards().size()).forEach(i -> builder
+                .append(String.format(Messages.LIST_ELEMENT, i + CARD_INDEX_OFFSET, this.runasStrive.getRewards().get(i)))
+                .append(System.lineSeparator())
         );
         return builder + this.repeatPrompt();
     }
 
     @Override
     public String repeatPrompt() {
-        final String prompt = this.runasStrive.getNumRewardCards() > 1
+        return this.runasStrive.getNumRewardCards() > EXPECTED_MIN_SIZE
                 ? String.format(Messages.MULTIPLE_CARDS_PROMPT, this.runasStrive.getRewards().size())
                 : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getRewards().size());
-        return prompt + System.lineSeparator();
     }
 
     @Override
@@ -75,11 +74,11 @@ public class ChooseNewCards extends GameState {
         reward.forEach(ability -> rewardBuilder.append(String.format(Messages.GET_NEW_CARD, ability.toString()))
                 .append(System.lineSeparator()));
         this.nextGameState  = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
-        this.response = this.nextGameState == Heal.class ? rewardBuilder.toString() : rewardBuilder.toString()
-                + String.format(Messages.STAGE_ENTER_MESSAGE,
+        this.response = this.nextGameState == Heal.class ? rewardBuilder.toString() : rewardBuilder
+                + System.lineSeparator() + String.format(Messages.STAGE_ENTER_MESSAGE,
                 this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
-                this.runasStrive.getCurrentLevel().getLevel().getValue())
-                + System.lineSeparator();
+                this.runasStrive.getCurrentLevel().getLevel().getValue());
+
         return true;
     }
 
