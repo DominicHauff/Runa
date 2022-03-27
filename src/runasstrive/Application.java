@@ -8,7 +8,7 @@ import runasstrive.model.RunasStrive;
 public class Application {
     public static void main(String[] args) {
         if (args.length != 0) {
-            System.out.print("Error, args not 0");//TODO: remove magic string
+            System.err.println("Error, args not 0");//TODO: remove magic string
             return;
         }
         InputParser inputParser = new InputParser();
