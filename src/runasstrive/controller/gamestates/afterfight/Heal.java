@@ -51,10 +51,13 @@ public class Heal extends GameState {
         if (choices.size() != choiceSet.size()) {
             return false;
         }
-
         for (Integer choice : choices) {
             if (choice > this.runasStrive.getPlayer().getAbilities().size()) return false;
         }
+        if (choices.stream().anyMatch(choice -> this.runasStrive.getPlayer().getAbilities().size() < choice)) {
+            return false;
+        }
+        if (choices.size() >= this.runasStrive.getPlayer().getAbilities().size()) return false;
 
         this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
                 ? InitializeLevel.class : ChooseAbility.class;
@@ -62,10 +65,6 @@ public class Heal extends GameState {
                 ? String.format(Messages.STAGE_ENTER_MESSAGE,
                 this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
                 this.runasStrive.getCurrentLevel().getLevel().getValue()) + System.lineSeparator() : null;
-
-        if (choices.stream().anyMatch(choice -> this.runasStrive.getPlayer().getAbilities().size() < choice)) {
-            return false;
-        }
 
         if (choices.isEmpty()) {
             this.nextGameState = this.runasStrive.getCurrentLevel().cleared()

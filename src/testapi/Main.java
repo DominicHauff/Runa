@@ -2,7 +2,6 @@ package testapi;
 
 import testapi.test.Application;
 import testapi.test.CodeTester;
-import testapi.utils.CurseOfTheHanseaticFileConvert;
 import testapi.utils.FileConverter;
 import testapi.utils.RunaStriveFileConverter;
 
