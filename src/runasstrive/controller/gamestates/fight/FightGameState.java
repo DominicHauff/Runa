@@ -41,7 +41,7 @@ public abstract class FightGameState extends GameState {
         }
 
         if (this.runasStrive.gameWon()) {
-            this.response += Messages.GAME_WON;
+            this.response += System.lineSeparator() + Messages.GAME_WON;
             this.nextGameState = null;
             return;
         }

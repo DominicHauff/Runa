@@ -1,0 +1,283 @@
+|Welcome to Runa's Strive
+Select Runa's character class
+1) Warrior
+2) Mage
+3) Paladin
+Enter number [1--3]:#
+1
+To shuffle ability cards and monsters, enter two seeds
+Enter seeds [1--2147483647] separated by comma:#
+
+Enter seeds [1--2147483647] separated by comma:#
+309219794,1454290017,1112753756,1345655790
+Enter seeds [1--2147483647] separated by comma:#
+1452783889,633595786,1721594144
+Enter seeds [1--2147483647] separated by comma:#
+399805543,622987675,1323670398
+Enter seeds [1--2147483647] separated by comma:#
+1104328154,999872101
+Runa enters Stage 1 of Level 1
+----------------------------------------
+Runa (50/50 HP, 1/4 FP)
+vs.
+Mushroomlin (20 HP, 0 FP): attempts Deflect(1) next
+----------------------------------------
+Select card to play
+1) Thrust(1)
+2) Parry(1)
+Enter number [1--2]:#
+1
+Runa uses Thrust(1)
+Enter dice roll [1--4]:#
+1
+Mushroomlin takes 7 phy. damage
+Mushroomlin uses Deflect(1)
+----------------------------------------
+Runa (50/50 HP, 1/4 FP)
+vs.
+Mushroomlin (13 HP, 0 FP): attempts Scratch(1) next
+----------------------------------------
+Select card to play
+1) Thrust(1)
+2) Parry(1)
+Enter number [1--2]:#
+1
+Runa uses Thrust(1)
+Enter dice roll [1--4]:#
+3
+Mushroomlin takes 9 phy. damage
+Mushroomlin uses Scratch(1)
+Runa takes 5 phy. damage
+----------------------------------------
+Runa (45/50 HP, 1/4 FP)
+vs.
+Mushroomlin (4 HP, 0 FP): attempts Deflect(1) next
+----------------------------------------
+Select card to play
+1) Thrust(1)
+2) Parry(1)
+Enter number [1--2]:#
+1
+Runa uses Thrust(1)
+Enter dice roll [1--4]:#
+1
+Mushroomlin takes 7 phy. damage
+Mushroomlin dies
+Choose Runa's reward
+1) new ability cards
+2) next player dice
+Enter number [1--2]:#
+1
+Pick 1 card(s) as loot
+1) Water(1)
+2) Swing(1)
+Enter number [1--2]:#
+1
+Runa gets Water(1)
+Runa (45/50 HP) can discard ability cards for healing (or none)
+1) Thrust(1)
+2) Parry(1)
+3) Water(1)
+Enter numbers [1--3] separated by comma:#
+2,1,2
+Enter numbers [1--3] separated by comma:#
+1,1,2
+Enter numbers [1--3] separated by comma:#
+2,1
+Runa gains 5 health
+Runa enters Stage 2 of Level 1
+----------------------------------------
+Runa (50/50 HP, 1/4 FP)
+vs.
+Goblin (12 HP, 0 FP): attempts Smash(1) next
+Frog (16 HP, 0 FP): attempts Focus(1) next
+----------------------------------------
+Select card to play
+1) Water(1)
+Enter number [1--1]:#
+1
+Select Runa's target.
+1) Goblin
+2) Frog
+Enter number [1--2]:#
+1
+Runa uses Water(1)
+Goblin takes 6 mag. damage
+Goblin uses Smash(1)
+Runa takes 8 phy. damage
+Frog uses Focus(1)
+----------------------------------------
+Runa (42/50 HP, 1/4 FP)
+vs.
+Goblin (6 HP, 0 FP): attempts Deflect(1) next
+Frog (16 HP, 0 FP): attempts Water(1) next
+----------------------------------------
+Select card to play
+1) Water(1)
+Enter number [1--1]:#
+1
+Select Runa's target.
+1) Goblin
+2) Frog
+Enter number [1--2]:#
+1
+Runa uses Water(1)
+Goblin takes 6 mag. damage
+Goblin dies
+Frog gains 1 focus
+Frog uses Water(1)
+Runa takes 10 mag. damage
+----------------------------------------
+Runa (32/50 HP, 1/4 FP)
+vs.
+Frog (16 HP, 0 FP): attempts Focus(1) next
+----------------------------------------
+Select card to play
+1) Water(1)
+Enter number [1--1]:#
+1
+Runa uses Water(1)
+Frog takes 6 mag. damage
+Frog uses Focus(1)
+----------------------------------------
+Runa (32/50 HP, 1/4 FP)
+vs.
+Frog (10 HP, 0 FP): attempts Water(1) next
+----------------------------------------
+Select card to play
+1) Water(1)
+Enter number [1--1]:#
+1
+Runa uses Water(1)
+Frog takes 6 mag. damage
+Frog gains 1 focus
+Frog uses Water(1)
+Runa takes 10 mag. damage
+----------------------------------------
+Runa (22/50 HP, 1/4 FP)
+vs.
+Frog (4 HP, 0 FP): attempts Focus(1) next
+----------------------------------------
+Select card to play
+1) Water(1)
+Enter number [1--1]:#
+1
+Runa uses Water(1)
+Frog takes 6 mag. damage
+Frog dies
+Choose Runa's reward
+1) new ability cards
+2) next player dice
+Enter number [1--2]:#
+1
+Pick 2 card(s) as loot
+1) Lightning(1)
+2) Slash(1)
+3) Reflect(1)
+4) Pierce(1)
+Enter numbers [1--4] separated by comma:#
+2,2,1,3
+Enter numbers [1--4] separated by comma:#
+1
+Enter numbers [1--4] separated by comma:#
+1,1
+Enter numbers [1--4] separated by comma:#
+1
+Enter numbers [1--4] separated by comma:#
+3,2
+Runa gets Reflect(1)
+Runa gets Slash(1)
+Runa (22/50 HP) can discard ability cards for healing (or none)
+1) Water(1)
+2) Reflect(1)
+3) Slash(1)
+Enter numbers [1--3] separated by comma:#
+1,1
+Enter numbers [1--3] separated by comma:#
+1,1,1,1
+Enter numbers [1--3] separated by comma:#
+1
+Runa gains 10 health
+Runa enters Stage 3 of Level 1
+----------------------------------------
+Runa (32/50 HP, 1/4 FP)
+vs.
+Skeleton (14 HP, 0 FP): attempts Focus(1) next
+Gorgon (13 HP, 0 FP): attempts Focus(1) next
+----------------------------------------
+Select card to play
+1) Reflect(1)
+2) Slash(1)
+Enter number [1--2]:#
+1
+Runa uses Reflect(1)
+Skeleton uses Focus(1)
+Gorgon uses Focus(1)
+----------------------------------------
+Runa (32/50 HP, 1/4 FP)
+vs.
+Skeleton (14 HP, 0 FP): attempts Lightning(1) next
+Gorgon (13 HP, 0 FP): attempts Fire(1) next
+----------------------------------------
+Select card to play
+1) Reflect(1)
+2) Slash(1)
+Enter number [1--2]:#
+1
+Runa uses Reflect(1)
+Skeleton gains 1 focus
+Gorgon gains 1 focus
+Skeleton uses Lightning(1)
+Runa takes 6 mag. damage
+Skeleton takes 10 mag. damage
+Gorgon uses Fire(1)
+Runa takes 4 mag. damage
+Gorgon takes 10 mag. damage
+----------------------------------------
+Runa (22/50 HP, 1/4 FP)
+vs.
+Skeleton (4 HP, 0 FP): attempts Focus(1) next
+Gorgon (3 HP, 0 FP): attempts Focus(1) next
+----------------------------------------
+Select card to play
+1) Reflect(1)
+2) Slash(1)
+Enter number [1--2]:#
+1
+Runa uses Reflect(1)
+Skeleton uses Focus(1)
+Gorgon uses Focus(1)
+----------------------------------------
+Runa (22/50 HP, 1/4 FP)
+vs.
+Skeleton (4 HP, 0 FP): attempts Lightning(1) next
+Gorgon (3 HP, 0 FP): attempts Fire(1) next
+----------------------------------------
+Select card to play
+1) Reflect(1)
+2) Slash(1)
+Enter number [1--2]:#
+1
+Runa uses Reflect(1)
+Skeleton gains 1 focus
+Gorgon gains 1 focus
+Skeleton uses Lightning(1)
+Runa takes 6 mag. damage
+Skeleton takes 10 mag. damage
+Skeleton dies
+Gorgon uses Fire(1)
+Runa takes 4 mag. damage
+Gorgon takes 10 mag. damage
+Gorgon dies
+Choose Runa's reward
+1) new ability cards
+2) next player dice
+Enter number [1--2]:#
+1
+Pick 2 card(s) as loot
+1) Focus(1)
+2) Fire(1)
+3) Ice(1)
+Enter numbers [1--3] separated by comma:#
+quit
+#

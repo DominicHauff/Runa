@@ -58,10 +58,10 @@ public class Controller {
      */
     public String interact(String input) {
         if (!input.matches(ARGUMENT_REGEX)) {
+            this.lastInputFaulty = true;
             return null;
         }
         ParameterBundle bundle = new ParameterBundle();
-
         Parameter<?> parameter = this.currentGameState.getParameter();
         try {
             bundle.put(parameter, parameter.get(input));
