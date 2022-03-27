@@ -24,7 +24,6 @@ public class ChooseAbility extends FightGameState {
         //TODO: clean up
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder
-                .append(System.lineSeparator())
                 .append(Messages.SEPARATOR).append(System.lineSeparator())
                 .append(this.runasStrive.getPlayer().toString()).append(System.lineSeparator())
                 .append(Messages.VS).append(System.lineSeparator());
@@ -40,7 +39,7 @@ public class ChooseAbility extends FightGameState {
         for (int i = 0; i < abilities.size(); i++) {
             stringBuilder
                     //TODO: remove magic number
-                    .append(String.format(Messages.LIST_ELEMENT, i + 1, abilities.get(i).toString()))
+                    .append(String.format(Messages.LIST_ELEMENT, i + INDEX_OFFSET, abilities.get(i).toString()))
                     .append(System.lineSeparator());
         }
 
@@ -61,9 +60,7 @@ public class ChooseAbility extends FightGameState {
         final Ability card = this.runasStrive.pickCard(choice);
         if (card == null) return false;
 
-        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), card)
-                + System.lineSeparator();
-
+        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), card);
         if (card.targetRequired()) {
             if (this.runasStrive.requiresTargetChoice()) {
                 this.response = null;
@@ -74,7 +71,7 @@ public class ChooseAbility extends FightGameState {
                 return true;
             }
         }
-
+        this.response += System.lineSeparator();
         this.startFight();
         return true;
     }

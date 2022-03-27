@@ -29,7 +29,7 @@ public class OutStream extends PrintStream {
     @Override
     synchronized public void println(String x) {
         super.println(x);
-        this.printHistory.push(x);
+        this.printHistory.push(x + System.lineSeparator());
         this.newElement = true;
         this.elementCounter++;
         notifyAll();
@@ -65,7 +65,7 @@ public class OutStream extends PrintStream {
     private String getNewElement() {
         try {
             int temp = this.elementCounter;
-            wait(5);
+            wait(10);
             while (temp != this.elementCounter) {
                 temp = this.elementCounter;
                 wait(5);

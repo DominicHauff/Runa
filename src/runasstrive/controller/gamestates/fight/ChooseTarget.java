@@ -31,8 +31,7 @@ public class ChooseTarget extends FightGameState {
                                 Messages.LIST_ELEMENT, i + 1, this.runasStrive.getPossibleTargets().get(i).getName()))
                         .append(System.lineSeparator()));
 
-        targetStringBuilder.append(this.repeatPrompt());
-        return targetStringBuilder.toString();
+        return targetStringBuilder + repeatPrompt();
     }
 
     @Override
@@ -52,6 +51,7 @@ public class ChooseTarget extends FightGameState {
         this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), cardToPlay);
 
         if (!cardToPlay.dieRollRequired()) {
+            this.response += System.lineSeparator();
             this.startFight();
             return true;
         }

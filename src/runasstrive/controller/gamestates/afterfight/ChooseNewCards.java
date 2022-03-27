@@ -73,9 +73,10 @@ public class ChooseNewCards extends GameState {
         StringBuilder rewardBuilder = new StringBuilder();
         reward.forEach(ability -> rewardBuilder.append(String.format(Messages.GET_NEW_CARD, ability.toString()))
                 .append(System.lineSeparator()));
+
         this.nextGameState  = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
-        this.response = this.nextGameState == Heal.class ? rewardBuilder.toString() : rewardBuilder
-                + System.lineSeparator() + String.format(Messages.STAGE_ENTER_MESSAGE,
+        this.response = this.nextGameState == Heal.class ? rewardBuilder.toString().trim() : rewardBuilder
+                + String.format(Messages.STAGE_ENTER_MESSAGE,
                 this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
                 this.runasStrive.getCurrentLevel().getLevel().getValue());
 

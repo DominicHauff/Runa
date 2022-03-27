@@ -61,6 +61,7 @@ public class Heal extends GameState {
 
         this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
                 ? InitializeLevel.class : ChooseAbility.class;
+
         final String enterStage = this.nextGameState == ChooseAbility.class
                 ? String.format(Messages.STAGE_ENTER_MESSAGE,
                 this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
@@ -69,6 +70,7 @@ public class Heal extends GameState {
         if (choices.isEmpty()) {
             this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
                     ? InitializeLevel.class : ChooseAbility.class;
+
             this.response = this.nextGameState == ChooseAbility.class ? enterStage : null;
             return true;
         }
@@ -76,8 +78,8 @@ public class Heal extends GameState {
         this.runasStrive
                 .healPlayer(choices.stream().map(choice -> choice - CARD_INDEX_OFFSET).collect(Collectors.toList()));
 
-        this.response = String.format(Messages.GAIN_HEALTH, this.runasStrive.getPlayerGainedHp())
-                + System.lineSeparator();
+        this.response = String.format(Messages.GAIN_HEALTH, this.runasStrive.getPlayerGainedHp());
+
         if (enterStage != null) {
             this.response += System.lineSeparator() + enterStage;
         }

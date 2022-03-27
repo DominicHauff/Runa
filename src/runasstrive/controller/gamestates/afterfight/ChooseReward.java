@@ -45,7 +45,7 @@ public class ChooseReward extends GameState {
                 break;
             case NEW_DIE:
                 final Die die = this.runasStrive.upgradeDie();
-                this.response = String.format(Messages.UPGRADE_DIE, die.toString()) + System.lineSeparator();
+                this.response = String.format(Messages.UPGRADE_DIE, die.toString());
                 this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
                 if (this.nextGameState == ChooseAbility.class) {
                     this.response += System.lineSeparator() + String.format(Messages.STAGE_ENTER_MESSAGE,
