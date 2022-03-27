@@ -92,6 +92,7 @@ public class Stage {
             this.logTakenDamage(player);
             this.logTakenDamage(monster);
             player.resetTakenDamage();
+            monster.resetTakenDamage();
         }
         player.focus(player.getFocusLevel());
         player.resetShield();

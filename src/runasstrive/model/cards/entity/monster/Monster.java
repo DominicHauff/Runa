@@ -27,8 +27,10 @@ public abstract class Monster extends Entity<MonsterType> {
     public Ability nextAbility() {
         final Ability nextAbility = this.abilities.stream().filter(ability -> ability.getCost() <= this.getFp())
                 .findFirst().orElse(null);
-
-        this.abilities.addLast(this.abilities.removeFirst());
+        int index = this.abilities.indexOf(nextAbility);
+        for (int i = 0; i <= index; i++) {
+            this.abilities.addLast(this.abilities.removeFirst());
+        }
 
         return nextAbility;
     }
