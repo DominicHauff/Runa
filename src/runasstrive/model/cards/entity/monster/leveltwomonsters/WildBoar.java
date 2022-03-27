@@ -15,7 +15,8 @@ public class WildBoar extends Monster {
     private static final int DEFLECT_LEVEL = 2;
     private static final List<Ability> ABILITIES = List.of(
             new Scratch(SCRATCH_LEVEL),
-            new Deflect(DEFLECT_LEVEL)
+            new Deflect(DEFLECT_LEVEL),
+            new Scratch(SCRATCH_LEVEL)
     );
 
     public WildBoar() {
