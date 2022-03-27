@@ -56,7 +56,7 @@ public class ChooseNewCards extends GameState {
             return false;
         }
 
-        if (choices.size() < EXPECTED_MIN_SIZE || choices.size() > this.runasStrive.getNumRewardCards()) {
+        if (choices.size() < EXPECTED_MIN_SIZE || choices.size() != this.runasStrive.getNumRewardCards()) {
             return false;
         }
 
