@@ -6,13 +6,11 @@ public final class Messages {
     public static final String ERROR = "This application can not be executed with any parameters.";
 
     //TODO: remove hard coded list
-    public static final String OPENING = """
-            Welcome to Runa's Strive
-            Select Runa's character class
-            1) Warrior
-            2) Mage
-            3) Paladin
-            """;
+    public static final String OPENING = "Welcome to Runa's Strive" + System.lineSeparator()
+            + "Select Runa's character class" + System.lineSeparator()
+            + "1) Warrior" + System.lineSeparator()
+            + "2) Mage" + System.lineSeparator()
+            + "3) Paladin" + System.lineSeparator();
     public static final String ENTER_SEEDS_PROMPT = "Enter seeds [1--2147483647] separated by comma:";
     public static final String ENTER_SEED_DIALOG = "To shuffle ability cards and monsters, enter two seeds";
     public static final String MULTIPLE_CARDS_PROMPT = "Enter numbers [1--%d] separated by comma:";
