@@ -32,8 +32,8 @@ public enum CharacterType {
         @Override
         public List<Ability> getUpgraded() {
             final Slash slash = new Slash(this.getTypeAbilities().get(0).getLevel() + 1);
-            final Water water = new Water(this.getTypeAbilities().get(1).getLevel() + 1, 0); //TODO: cost
-            return List.of(slash, water);
+            final Reflect reflect = new Reflect(this.getTypeAbilities().get(1).getLevel() + 1);
+            return List.of(slash, reflect);
         }
     };
 

@@ -1,14 +1,13 @@
-# See https://ilias.studium.kit.edu/ilias.php?ref_id=1767836&cmdClass=ilobjforumgui&thr_pk=225433&page=0&cmd=viewThread&cmdNode=wx:nj&baseClass=ilrepositorygui
-Welcome to Runa's Strive
+|Welcome to Runa's Strive
 Select Runa's character class
 1) Warrior
 2) Mage
 3) Paladin
-Enter number [1--3]:
-> 1
+Enter number [1--3]:#
+1
 To shuffle ability cards and monsters, enter two seeds
-Enter seeds [1--2147483647] separated by comma:
-> 335345,23423
+Enter seeds [1--2147483647] separated by comma:#
+335345,23423
 Runa enters Stage 1 of Level 1
 ----------------------------------------
 Runa (50/50 HP, 1/4 FP)
@@ -18,11 +17,11 @@ Frog (16 HP, 0 FP): attempts Focus(1) next
 Select card to play
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--4]:
-> 4
+Enter dice roll [1--4]:#
+4
 Frog takes 10 phy. damage
 Frog uses Focus(1)
 ----------------------------------------
@@ -33,18 +32,18 @@ Frog (6 HP, 0 FP): attempts Water(1) next
 Select card to play
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--4]:
-> 4
+Enter dice roll [1--4]:#
+4
 Frog takes 10 phy. damage
 Frog dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa upgrades her die to a d6
 Runa enters Stage 2 of Level 1
 ----------------------------------------
@@ -56,16 +55,16 @@ Goblin (12 HP, 0 FP): attempts Smash(1) next
 Select card to play
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Select Runa's target.
 1) Skeleton
 2) Goblin
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--6]:
-> 6
+Enter dice roll [1--6]:#
+6
 Skeleton takes 16 phy. damage
 Skeleton dies
 Goblin uses Smash(1)
@@ -78,24 +77,24 @@ Goblin (12 HP, 0 FP): attempts Deflect(1) next
 Select card to play
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--6]:
-> 6
+Enter dice roll [1--6]:#
+6
 Goblin takes 16 phy. damage
 Goblin dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa upgrades her die to a d8
 Runa (42/50 HP) can discard ability cards for healing (or none)
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 
+Enter number [1--2]:#
+
 Runa enters Stage 3 of Level 1
 ----------------------------------------
 Runa (42/50 HP, 1/8 FP)
@@ -106,16 +105,16 @@ Ghost (15 HP, 0 FP): attempts Focus(1) next
 Select card to play
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Select Runa's target.
 1) Spider
 2) Ghost
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa uses Thrust(1)
-Enter dice roll [1--8]:
-> 8
+Enter dice roll [1--8]:#
+8
 Ghost takes 18 phy. damage
 Ghost dies
 Spider uses Bite(1)
@@ -128,24 +127,24 @@ Spider (15 HP, 0 FP): attempts Block(1) next
 Select card to play
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--8]:
-> 8
+Enter dice roll [1--8]:#
+8
 Spider takes 18 phy. damage
 Spider dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa upgrades her die to a d10
 Runa (32/50 HP) can discard ability cards for healing (or none)
 1) Thrust(1)
 2) Parry(1)
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa gains 10 health
 Runa enters Stage 4 of Level 1
 ----------------------------------------
@@ -155,11 +154,11 @@ Spider King (50 HP, 0 FP): attempts Bite(1) next
 ----------------------------------------
 Select card to play
 1) Thrust(1)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--10]:
-> 10
+Enter dice roll [1--10]:#
+10
 Spider King takes 20 phy. damage
 Spider King uses Bite(1)
 Runa takes 10 phy. damage
@@ -170,11 +169,11 @@ Spider King (30 HP, 0 FP): attempts Block(1) next
 ----------------------------------------
 Select card to play
 1) Thrust(1)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--10]:
-> 10
+Enter dice roll [1--10]:#
+10
 Spider King takes 20 phy. damage
 Spider King uses Block(1)
 ----------------------------------------
@@ -184,11 +183,11 @@ Spider King (10 HP, 0 FP): attempts Focus(1) next
 ----------------------------------------
 Select card to play
 1) Thrust(1)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(1)
-Enter dice roll [1--10]:
-> 10
+Enter dice roll [1--10]:#
+10
 Spider King takes 13 phy. damage
 Spider King dies
 Runa gets Thrust(2)
@@ -197,12 +196,12 @@ Runa (32/50 HP) can discard ability cards for healing (or none)
 1) Thrust(1)
 2) Thrust(2)
 3) Parry(2)
-Enter numbers [1--3] separated by comma:
-> 1,3
+Enter numbers [1--3] separated by comma:#
+1,3
 Runa gains 18 health
 To shuffle ability cards and monsters, enter two seeds
-Enter seeds [1--2147483647] separated by comma:
-> 123,123
+Enter seeds [1--2147483647] separated by comma:#
+123,123
 Runa enters Stage 1 of Level 2
 ----------------------------------------
 Runa (50/50 HP, 1/10 FP)
@@ -211,11 +210,11 @@ Snake (31 HP, 0 FP): attempts Bite(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(2)
-Enter dice roll [1--10]:
-> 10
+Enter dice roll [1--10]:#
+10
 Snake takes 30 phy. damage
 Snake uses Bite(2)
 Runa takes 20 phy. damage
@@ -226,18 +225,18 @@ Snake (1 HP, 0 FP): attempts Focus(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(2)
-Enter dice roll [1--10]:
-> 10
+Enter dice roll [1--10]:#
+10
 Snake takes 30 phy. damage
 Snake dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa upgrades her die to a d12
 Runa enters Stage 2 of Level 2
 ----------------------------------------
@@ -248,16 +247,16 @@ Wild Boar (27 HP, 0 FP): attempts Scratch(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Select Runa's target.
 1) Hornet
 2) Wild Boar
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa uses Thrust(2)
-Enter dice roll [1--12]:
-> 12
+Enter dice roll [1--12]:#
+12
 Wild Boar takes 32 phy. damage
 Wild Boar dies
 Hornet uses Scratch(2)
@@ -269,11 +268,11 @@ Hornet (32 HP, 0 FP): attempts Focus(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(2)
-Enter dice roll [1--12]:
-> 12
+Enter dice roll [1--12]:#
+12
 Hornet takes 32 phy. damage
 Hornet dies
 Pick 2 card(s) as loot
@@ -281,16 +280,16 @@ Pick 2 card(s) as loot
 2) Focus(2)
 3) Reflect(2)
 4) Pierce(2)
-Enter numbers [1--4] separated by comma:
-> 1,4
+Enter numbers [1--4] separated by comma:#
+1,4
 Runa gets Fire(2)
 Runa gets Pierce(2)
 Runa (20/50 HP) can discard ability cards for healing (or none)
 1) Thrust(2)
 2) Fire(2)
 3) Pierce(2)
-Enter numbers [1--3] separated by comma:
-> 2,3
+Enter numbers [1--3] separated by comma:#
+2,3
 Runa gains 20 health
 Runa enters Stage 3 of Level 2
 ----------------------------------------
@@ -301,16 +300,16 @@ Tarantula (33 HP, 0 FP): attempts Bite(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Select Runa's target.
 1) Dark Elf
 2) Tarantula
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Thrust(2)
-Enter dice roll [1--12]:
-> 12
+Enter dice roll [1--12]:#
+12
 Dark Elf takes 32 phy. damage
 Dark Elf uses Focus(2)
 Tarantula uses Bite(2)
@@ -323,16 +322,16 @@ Tarantula (33 HP, 0 FP): attempts Block(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Select Runa's target.
 1) Dark Elf
 2) Tarantula
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Thrust(2)
-Enter dice roll [1--12]:
-> 12
+Enter dice roll [1--12]:#
+12
 Dark Elf takes 32 phy. damage
 Dark Elf dies
 Tarantula uses Block(2)
@@ -343,11 +342,11 @@ Tarantula (33 HP, 0 FP): attempts Scratch(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(2)
-Enter dice roll [1--12]:
-> 12
+Enter dice roll [1--12]:#
+12
 Tarantula takes 18 phy. damage
 Tarantula uses Scratch(2)
 Runa takes 10 phy. damage
@@ -358,11 +357,11 @@ Tarantula (15 HP, 0 FP): attempts Bite(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> 1
+Enter number [1--1]:#
+1
 Runa uses Thrust(2)
-Enter dice roll [1--12]:
-> 12
+Enter dice roll [1--12]:#
+12
 Tarantula takes 32 phy. damage
 Tarantula dies
 Pick 2 card(s) as loot
@@ -370,16 +369,16 @@ Pick 2 card(s) as loot
 2) Water(2)
 3) Ice(2)
 4) Swing(2)
-Enter numbers [1--4] separated by comma:
-> 1,2
+Enter numbers [1--4] separated by comma:#
+1,2
 Runa gets Slash(2)
 Runa gets Water(2)
 Runa (10/50 HP) can discard ability cards for healing (or none)
 1) Thrust(2)
 2) Slash(2)
 3) Water(2)
-Enter numbers [1--3] separated by comma:
-> 2,3
+Enter numbers [1--3] separated by comma:#
+2,3
 Runa gains 20 health
 Runa enters Stage 4 of Level 2
 ----------------------------------------
@@ -389,5 +388,6 @@ Mega Saurus (100 HP, 0 FP): attempts Bite(2) next
 ----------------------------------------
 Select card to play
 1) Thrust(2)
-Enter number [1--1]:
-> quit
+Enter number [1--1]:#
+quit
+#
