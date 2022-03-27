@@ -13,7 +13,6 @@ public class ChooseAbility extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int MIN_INDEX = 0;
     private static final int INDEX_OFFSET = 1;
-    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
     public ChooseAbility(RunasStrive runasStrive) {
         super(runasStrive);
@@ -77,7 +76,7 @@ public class ChooseAbility extends FightGameState {
     }
 
     @Override
-    public List<Parameter<?>> getParameters() {
-        return PARAMETERS;
+    public Parameter<?> getParameter() {
+        return CHOICE;
     }
 }

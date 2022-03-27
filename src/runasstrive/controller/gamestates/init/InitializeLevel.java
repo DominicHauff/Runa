@@ -16,7 +16,6 @@ public class InitializeLevel extends GameState {
     private static final int FIRST_SEED_INDEX = 0;
     private static final int SECOND_SEED_INDEX = 1;
     private static final int EXPECTED_NUM_SEEDS = 2;
-    private static final List<Parameter<?>> PARAMETERS = List.of(SEEDS);
 
     public InitializeLevel(RunasStrive runasStrive) {
         super(runasStrive);
@@ -38,7 +37,6 @@ public class InitializeLevel extends GameState {
         List<Integer> seeds = parameterBundle.get(SEEDS);
         if (seeds.size() != EXPECTED_NUM_SEEDS) return false;
 
-
         final GameLevel level = this.runasStrive.shuffleCards(seeds.get(FIRST_SEED_INDEX),
                 seeds.get(SECOND_SEED_INDEX));
 
@@ -49,8 +47,8 @@ public class InitializeLevel extends GameState {
     }
 
     @Override
-    public List<Parameter<?>> getParameters() {
-        return PARAMETERS;
+    public Parameter<?> getParameter() {
+        return SEEDS;
     }
 
 }

@@ -13,7 +13,6 @@ import java.util.List;
 
 public class ChooseCharacterClass extends GameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
-    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
     public ChooseCharacterClass(RunasStrive runasStrive) {
         super(runasStrive);
@@ -53,7 +52,7 @@ public class ChooseCharacterClass extends GameState {
     }
 
     @Override
-    public List<Parameter<?>> getParameters() {
-        return PARAMETERS;
+    public Parameter<?> getParameter() {
+        return CHOICE;
     }
 }

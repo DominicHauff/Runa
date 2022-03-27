@@ -46,8 +46,7 @@ public class Session {
                 this.quit();
                 return;
             }
-            List<String> argumentList = inputParser.getArgumentList(input);
-            String response = controller.interact(argumentList);
+            String response = controller.interact(input);
             if (response != null) {
                 System.out.println(response);
             }

@@ -23,6 +23,7 @@ import java.util.List;
  * @version 1.0
  */
 public class Controller {
+    private static final String ARGUMENT_REGEX = "(\\d+(,\\d+)*)*";
     private final RunasStrive runasStrive;
     private final GameStateSupplier gameStateSupplier;
     private final Session session;
@@ -53,28 +54,23 @@ public class Controller {
     /**
      * Coordinates user input and game logic.
      *
-     * @param argumentList a list of io arguments created by the {@link runasstrive.io.InputParser}
+     * @param input a list of io arguments created by the {@link runasstrive.io.InputParser}
      * @return returns a response message corresponding to the current {@link GameState} and user input
      */
-    public String interact(List<String> argumentList) {
-        if (argumentList == null) {
-            this.lastInputFaulty = true;
+    public String interact(String input) {
+        if (!input.matches(ARGUMENT_REGEX)) {
             return null;
         }
         ParameterBundle bundle = new ParameterBundle();
-        if (argumentList.size() != this.currentGameState.getParameters().size()) {
+
+        Parameter<?> parameter = this.currentGameState.getParameter();
+        try {
+            bundle.put(parameter, parameter.get(input));
+        } catch (IllegalArgumentException e) {
             this.lastInputFaulty = true;
             return null;
         }
-        for (int i = 0; i < argumentList.size(); i++) {
-            Parameter<?> parameter = this.currentGameState.getParameters().get(i);
-            try {
-                bundle.put(parameter, parameter.get(argumentList.get(i)));
-            } catch (IllegalArgumentException e) {
-                this.lastInputFaulty = true;
-                return null;
-            }
-        }
+
         if (this.currentGameState.execute(bundle)) {
             String response = currentGameState.getResponse();
             this.lastInputFaulty = false;

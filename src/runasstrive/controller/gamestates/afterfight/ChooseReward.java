@@ -16,7 +16,6 @@ public class ChooseReward extends GameState {
     private static final int NEW_CARDS = 1;
     private static final int NEW_DIE = 2;
     private static final int NUM_CHOICES = 2;
-    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICE);
 
     public ChooseReward(RunasStrive runasStrive) {
         super(runasStrive);
@@ -60,7 +59,7 @@ public class ChooseReward extends GameState {
     }
 
     @Override
-    public List<Parameter<?>> getParameters() {
-        return PARAMETERS;
+    public Parameter<?> getParameter() {
+        return CHOICE;
     }
 }

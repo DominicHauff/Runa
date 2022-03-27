@@ -10,7 +10,6 @@ import java.util.List;
 
 public class RollDie extends FightGameState {
     private static final SingleChoiceParameter DIE_RES = new SingleChoiceParameter();
-    private static final List<Parameter<?>> PARAMETERS = List.of(DIE_RES);
 
     public RollDie(RunasStrive runasStrive) {
         super(runasStrive);
@@ -38,8 +37,8 @@ public class RollDie extends FightGameState {
     }
 
     @Override
-    public List<Parameter<?>> getParameters() {
-        return PARAMETERS;
+    public Parameter<?> getParameter() {
+        return DIE_RES;
     }
 
 }

@@ -19,7 +19,6 @@ import java.util.stream.IntStream;
 public class Heal extends GameState {
     private static final MultipleChoiceParameter CHOICES = new MultipleChoiceParameter();
     private static final int CARD_INDEX_OFFSET = 1;
-    private static final List<Parameter<?>> PARAMETERS = List.of(CHOICES);
 
     public Heal(RunasStrive runasStrive) {
         super(runasStrive);
@@ -87,7 +86,7 @@ public class Heal extends GameState {
     }
 
     @Override
-    public List<Parameter<?>> getParameters() {
-        return PARAMETERS;
+    public Parameter<?> getParameter() {
+        return CHOICES;
     }
 }

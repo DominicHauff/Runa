@@ -4,8 +4,6 @@ import runasstrive.io.parameters.Parameter;
 import runasstrive.io.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
 
-import java.util.List;
-
 public abstract class GameState {
     protected final RunasStrive runasStrive;
     protected String response;
@@ -29,6 +27,6 @@ public abstract class GameState {
 
     public abstract boolean execute(ParameterBundle parameterBundle);
 
-    public abstract List<Parameter<?>> getParameters();
+    public abstract Parameter<?> getParameter();
 
 }
