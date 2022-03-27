@@ -5,85 +5,79 @@ import runasstrive.controller.gamestates.afterfight.ChooseNewCards;
 import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.controller.gamestates.afterfight.Heal;
 import runasstrive.controller.gamestates.init.InitializeLevel;
+import runasstrive.model.FightResult;
+import runasstrive.model.levels.FightLog;
 import runasstrive.view.parameters.ParameterBundle;
 import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 public abstract class FightGameState extends GameState {
+    private FightLog fightLog;
 
     protected FightGameState(RunasStrive runasStrive) {
         super(runasStrive);
     }
 
-    public void startFight() {
-        this.runasStrive.startFight();
-        final String fightLog = this.runasStrive.getFightLog();
-        this.response = this.response == null ? fightLog : this.response + fightLog;
-        if (this.runasStrive.gameOver()) {
-            this.nextGameState = null;
-            return;
-        }
-
-        if (!this.runasStrive.stageCleared()) {
-            this.nextGameState = ChooseAbility.class;
-            return;
-        }
-        this.runasStrive.advanceToNextStage();
-        if (!this.runasStrive.isLevelCleared()) {
-            if (this.runasStrive.canChooseDie()) {
-                this.response += System.lineSeparator() + Messages.CHOOSE_RUNAS_REWARD
-                        + System.lineSeparator() + Messages.CHOOSE_NEW_ABILITIES_OPTION
-                        + System.lineSeparator() + Messages.CHOOSE_NEW_DIE;
-                this.nextGameState = ChooseReward.class;
-                return;
+    @Override
+    public boolean execute(ParameterBundle parameterBundle) {
+        if (this.interact(parameterBundle)) {
+            this.setNextGameState();
+            this.setResponse();
+            if (this.fight()) {
+                this.setGameStateAfterFight();
+                this.setResponseAfterFight();
             }
-            this.nextGameState = ChooseNewCards.class;
-            return;
+            return true;
         }
+        return false;
+    }
 
-        if (this.runasStrive.gameWon()) {
-            this.response += System.lineSeparator() + Messages.GAME_WON;
-            this.nextGameState = null;
-            return;
+    protected boolean fight() {
+        if (this.nextGameState == null) {
+            this.fightLog = this.runasStrive.startFight();
+            return true;
         }
-
-        this.runasStrive.advanceToNextLevel();
-        this.runasStrive.upgradeCards();
-
-
-        StringBuilder builder = new StringBuilder();
-        this.runasStrive.getPlayer().getType().getUpgraded().forEach(ability ->
-                builder.append(String.format(Messages.GET_NEW_CARD, ability)).append(System.lineSeparator()));
-        this.response += System.lineSeparator() + builder.toString().trim();
-
-        this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
+        return false;
     }
 
     public void setGameStateAfterFight() {
-        if (this.runasStrive.gameOver()) {
-            this.nextGameState = null;
-            return;
-        }
-        if (!this.runasStrive.stageCleared()) {
-            this.nextGameState = ChooseAbility.class;
-            return;
+        switch (this.fightLog.getFightResult()) {
+            case GAME_OVER:
+            case GAME_WON:
+                this.nextGameState = null;
+                break;
+            case STAGE_CLEARED:
+                this.nextGameState = this.runasStrive.canChooseDie() ? ChooseReward.class : ChooseNewCards.class;
+                break;
+            case LEVEL_CLEARED:
+                this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
+                break;
+            case CONTINUE:
+                this.nextGameState = ChooseAbility.class;
+            default: break;
         }
     }
 
-    @Override
-    protected boolean abstractExecute(ParameterBundle parameterBundle) {
-        /*
-         * interaction before fight
-         * set game state if not fight
-         * set response according to game state
-         * if fight
-         * set game state after fight
-         * set response after fight
-         * */
-        boolean lorenz = true;
-        return lorenz;
+    protected void setResponseAfterFight() {
+        final String fightLog = this.fightLog.getFightLog();
+        this.response = this.response == null ? fightLog : this.response + fightLog;
+        if (this.nextGameState == ChooseReward.class) {
+            this.response += System.lineSeparator() + Messages.CHOOSE_RUNAS_REWARD
+                    + System.lineSeparator() + Messages.CHOOSE_NEW_ABILITIES_OPTION
+                    + System.lineSeparator() + Messages.CHOOSE_NEW_DIE;
+            return;
+        }
+        if (this.fightLog.getFightResult().equals(FightResult.GAME_WON)) {
+            this.response += System.lineSeparator() + Messages.GAME_WON;
+            return;
+        }
+        if (this.fightLog.getFightResult().equals(FightResult.LEVEL_CLEARED)) {
+            StringBuilder builder = new StringBuilder();
+            this.runasStrive.getPlayer().getType().getUpgraded().forEach(ability ->
+                    builder.append(String.format(Messages.GET_NEW_CARD, ability)).append(System.lineSeparator()));
+            this.response += System.lineSeparator() + builder.toString().trim();
+        }
     }
 
-    protected abstract void interactAfterFight();
 
 }

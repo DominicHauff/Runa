@@ -10,7 +10,6 @@ import runasstrive.model.cards.ablilities.Ability;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class ChooseTarget extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
@@ -19,11 +18,6 @@ public class ChooseTarget extends FightGameState {
 
     public ChooseTarget(RunasStrive runasStrive) {
         super(runasStrive);
-    }
-
-    @Override
-    protected void interactAfterFight() {
-
     }
 
     @Override
@@ -43,26 +37,6 @@ public class ChooseTarget extends FightGameState {
         return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPossibleTargets().size());
     }
 
-    @Override
-    public boolean execute(ParameterBundle parameterBundle) {
-        final int choice = parameterBundle.get(CHOICE) - INDEX_OFFSET;
-        if (choice < MIN_INDEX) {
-            return false;
-        }
-        if (!this.runasStrive.pickTarget(choice)) return false;
-
-        final Ability cardToPlay = this.runasStrive.getCardToPlay();
-        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), cardToPlay);
-
-        if (!cardToPlay.dieRollRequired()) {
-            this.response += System.lineSeparator();
-            this.startFight();
-            return true;
-        }
-
-        this.nextGameState = RollDie.class;
-        return true;
-    }
 
     @Override
     public Parameter<?> getParameter() {
@@ -79,7 +53,11 @@ public class ChooseTarget extends FightGameState {
      */
     @Override
     protected boolean interact(ParameterBundle parameterBundle) {
-        return false;
+        final int choice = parameterBundle.get(CHOICE) - INDEX_OFFSET;
+        if (choice < MIN_INDEX) {
+            return false;
+        }
+        return this.runasStrive.pickTarget(choice);
     }
 
     /**
@@ -87,7 +65,8 @@ public class ChooseTarget extends FightGameState {
      */
     @Override
     protected void setNextGameState() {
-
+        final Ability cardToPlay = this.runasStrive.getCardToPlay();
+        this.nextGameState = cardToPlay.dieRollRequired() ? RollDie.class : null;
     }
 
     /**
@@ -95,7 +74,11 @@ public class ChooseTarget extends FightGameState {
      */
     @Override
     protected void setResponse() {
-
+        final Ability cardToPlay = this.runasStrive.getCardToPlay();
+        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), cardToPlay);
+        if (this.nextGameState == null) {
+            this.response += System.lineSeparator();
+        }
     }
 
 }

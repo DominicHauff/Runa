@@ -17,11 +17,6 @@ public class ChooseAbility extends FightGameState {
     }
 
     @Override
-    protected void interactAfterFight() {
-
-    }
-
-    @Override
     public String getPrompt() {
         String stringBuilder = Messages.SEPARATOR + System.lineSeparator()
                 + this.runasStrive.getPlayer().toString() + System.lineSeparator()
@@ -38,43 +33,6 @@ public class ChooseAbility extends FightGameState {
         return String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
     }
 
-    @Override
-    public boolean execute(ParameterBundle parameterBundle) {
-        final int choice = parameterBundle.get(CHOICE) - INDEX_OFFSET;
-        if (choice < MIN_INDEX) {
-            return false;
-        }
-        if (!this.runasStrive.pickCard(choice)) return false;
-        final Ability card = this.runasStrive.getPlayer().getCardToPlay();
-
-        this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), card);
-        if (card.targetRequired() && this.runasStrive.requiresTargetChoice()) {
-            this.nextGameState = ChooseTarget.class;
-            this.response = null;
-            return true;
-        } else if (card.dieRollRequired()) {
-            this.nextGameState = RollDie.class;
-            return true;
-        }
-        this.response += System.lineSeparator();
-        this.startFight();
-        return true;
-
-        /*
-        * interaction before fight
-        * set game state if not fight
-        * set response according to game state
-        * if fight
-        * set game state after fight
-        * set response after fight
-        * */
-    }
-
-    @Override
-    public Parameter<?> getParameter() {
-        return CHOICE;
-    }
-
     /**
      * This method performs the interaction with {@link RunasStrive} using the given input
      * parameters.
@@ -89,15 +47,7 @@ public class ChooseAbility extends FightGameState {
         if (choice < MIN_INDEX) {
             return false;
         }
-        if (this.runasStrive.pickCard(choice)) {
-            final Ability card = this.runasStrive.getCardToPlay();
-            if ((!card.targetRequired() || !this.runasStrive.requiresTargetChoice()) && !card.dieRollRequired()) {
-                //this.startFight();
-                this.runasStrive.startFight();
-            }
-            return true;
-        }
-        return false;
+        return this.runasStrive.pickCard(choice);
     }
 
     /**
@@ -128,8 +78,11 @@ public class ChooseAbility extends FightGameState {
         this.response = String.format(Messages.ENTITY_USES_ABILITY, this.runasStrive.getPlayer().getName(), card);
         if (this.nextGameState == null) {
             this.response += System.lineSeparator();
-            //after fight:
-
         }
+    }
+
+    @Override
+    public Parameter<?> getParameter() {
+        return CHOICE;
     }
 }

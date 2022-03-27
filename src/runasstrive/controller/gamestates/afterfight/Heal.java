@@ -18,6 +18,7 @@ import java.util.stream.IntStream;
 public class Heal extends GameState {
     private static final MultipleChoiceParameter CHOICES = new MultipleChoiceParameter();
     private static final int CARD_INDEX_OFFSET = 1;
+    private List<Integer> choices;
 
     public Heal(RunasStrive runasStrive) {
         super(runasStrive);
@@ -37,8 +38,16 @@ public class Heal extends GameState {
                 : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getPlayer().getAbilities().size());
     }
 
+    /**
+     * This method performs the interaction with {@link RunasStrive} using the given input
+     * parameters.
+     *
+     * @param parameterBundle holds all required parameters for the game state
+     * @return a boolean based on whether the interaction with the given input was performed
+     * successfully
+     */
     @Override
-    public boolean execute(ParameterBundle parameterBundle) {
+    protected boolean interact(ParameterBundle parameterBundle) {
         final List<Integer> choices = parameterBundle.get(CHOICES);
         final Set<Integer> choiceSet = new HashSet<>(choices);
 
@@ -52,50 +61,12 @@ public class Heal extends GameState {
             return false;
         }
         if (choices.size() >= this.runasStrive.getPlayer().getAbilities().size()) return false;
-
-        this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
-                ? InitializeLevel.class : ChooseAbility.class;
-
-        final String enterStage = this.nextGameState == ChooseAbility.class
-                ? String.format(Messages.STAGE_ENTER_MESSAGE,
-                this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
-                this.runasStrive.getCurrentLevel().getLevel().getValue()) : null;
-
-        if (choices.isEmpty()) {
-            this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
-                    ? InitializeLevel.class : ChooseAbility.class;
-
-            this.response = this.nextGameState == ChooseAbility.class ? enterStage : null;
-            return true;
-        }
-
-        this.runasStrive
-                .healPlayer(choices.stream().map(choice -> choice - CARD_INDEX_OFFSET).collect(Collectors.toList()));
-
-        this.response = String.format(Messages.GAIN_HEALTH, this.runasStrive.getPlayerGainedHp());
-
-        if (enterStage != null) {
-            this.response += System.lineSeparator() + enterStage;
+        this.choices = choices;
+        if (!choices.isEmpty()) {
+            this.runasStrive
+                    .healPlayer(choices.stream().map(choice -> choice - CARD_INDEX_OFFSET).collect(Collectors.toList()));
         }
         return true;
-    }
-
-    @Override
-    public Parameter<?> getParameter() {
-        return CHOICES;
-    }
-
-    /**
-     * This method performs the interaction with {@link RunasStrive} using the given input
-     * parameters.
-     *
-     * @param parameterBundle holds all required parameters for the game state
-     * @return a boolean based on whether the interaction with the given input was performed
-     * successfully
-     */
-    @Override
-    protected boolean interact(ParameterBundle parameterBundle) {
-        return false;
     }
 
     /**
@@ -103,7 +74,8 @@ public class Heal extends GameState {
      */
     @Override
     protected void setNextGameState() {
-
+        this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
+                ? InitializeLevel.class : ChooseAbility.class;
     }
 
     /**
@@ -111,6 +83,23 @@ public class Heal extends GameState {
      */
     @Override
     protected void setResponse() {
+        final String enterStage = this.nextGameState == ChooseAbility.class
+                ? String.format(Messages.STAGE_ENTER_MESSAGE,
+                this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
+                this.runasStrive.getCurrentLevel().getLevel().getValue()) : null;
+        if (choices.isEmpty()) {
+            this.response = this.nextGameState == ChooseAbility.class ? enterStage : null;
+            return;
+        }
+        this.response = String.format(Messages.GAIN_HEALTH, this.runasStrive.getPlayerGainedHp());
+        if (enterStage != null) {
+            this.response += System.lineSeparator() + enterStage;
+        }
+    }
 
+
+    @Override
+    public Parameter<?> getParameter() {
+        return CHOICES;
     }
 }

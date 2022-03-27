@@ -45,7 +45,7 @@ public class Stage {
         }
     }
 
-    public void enter(Player player) {
+    public FightLog enter(Player player) {
         this.log.clear();
         if (player.getCardToPlay().targetRequired()) {
             final Monster target = this.getAliveMonsters().size() == ONE_ONE_ONE
@@ -79,6 +79,7 @@ public class Stage {
         if (player.hasGainedFp() && !player.isDead()) {
             this.log.add(String.format(Messages.GAIN_FOCUS_POINTS, player.getName(), player.getGainedFp()));
         }
+        return new FightLog(this, this.log);
     }
 
     public boolean cleared() {

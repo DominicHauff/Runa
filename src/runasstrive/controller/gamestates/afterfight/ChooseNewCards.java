@@ -38,8 +38,22 @@ public class ChooseNewCards extends GameState {
                 : String.format(Messages.ENTER_NUMBER_PROMPT, this.runasStrive.getRewards().size());
     }
 
+
     @Override
-    public boolean execute(ParameterBundle parameterBundle) {
+    public Parameter<?> getParameter() {
+        return CHOICES;
+    }
+
+    /**
+     * This method performs the interaction with {@link RunasStrive} using the given input
+     * parameters.
+     *
+     * @param parameterBundle holds all required parameters for the game state
+     * @return a boolean based on whether the interaction with the given input was performed
+     * successfully
+     */
+    @Override
+    protected boolean interact(ParameterBundle parameterBundle) {
         final List<Integer> choices = parameterBundle.get(CHOICES);
         final Set<Integer> choiceSet = new HashSet<>(choices);
 
@@ -65,32 +79,8 @@ public class ChooseNewCards extends GameState {
         StringBuilder rewardBuilder = new StringBuilder();
         reward.forEach(ability -> rewardBuilder.append(String.format(Messages.GET_NEW_CARD, ability.toString()))
                 .append(System.lineSeparator()));
-
-        this.nextGameState  = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
-        this.response = this.nextGameState == Heal.class ? rewardBuilder.toString().trim() : rewardBuilder
-                + String.format(Messages.STAGE_ENTER_MESSAGE,
-                this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
-                this.runasStrive.getCurrentLevel().getLevel().getValue());
-
+        this.response = rewardBuilder.toString().trim();
         return true;
-    }
-
-    @Override
-    public Parameter<?> getParameter() {
-        return CHOICES;
-    }
-
-    /**
-     * This method performs the interaction with {@link RunasStrive} using the given input
-     * parameters.
-     *
-     * @param parameterBundle holds all required parameters for the game state
-     * @return a boolean based on whether the interaction with the given input was performed
-     * successfully
-     */
-    @Override
-    protected boolean interact(ParameterBundle parameterBundle) {
-        return false;
     }
 
     /**
@@ -98,7 +88,7 @@ public class ChooseNewCards extends GameState {
      */
     @Override
     protected void setNextGameState() {
-
+        this.nextGameState  = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
     }
 
     /**
@@ -106,6 +96,10 @@ public class ChooseNewCards extends GameState {
      */
     @Override
     protected void setResponse() {
-
+        if (this.nextGameState == ChooseAbility.class) {
+            this.response += System.lineSeparator() + String.format(Messages.STAGE_ENTER_MESSAGE,
+                    this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
+                    this.runasStrive.getCurrentLevel().getLevel().getValue());
+        }
     }
 }

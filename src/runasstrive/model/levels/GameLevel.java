@@ -35,8 +35,8 @@ public class GameLevel {
         }
     }
 
-    public void resume(Player player) {
-        this.getCurrentStage().enter(player);
+    public FightLog resume(Player player) {
+        return this.getCurrentStage().enter(player);
     }
 
     public void enterNextStage() {

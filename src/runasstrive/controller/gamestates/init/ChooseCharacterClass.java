@@ -38,25 +38,6 @@ public class ChooseCharacterClass extends GameState {
     }
 
     @Override
-    public boolean execute(ParameterBundle parameterBundle) {
-        /*final int choice = parameterBundle.get(CHOICE);
-
-        if (this.runasStrive.chooseCharacterType(choice)) {
-            this.response = null;
-            this.nextGameState = InitializeLevel.class;
-            return true;
-        }
-
-        return false;*/
-        if (this.interact(parameterBundle)) {
-            this.setNextGameState();
-            this.setResponse();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public Parameter<?> getParameter() {
         return CHOICE;
     }

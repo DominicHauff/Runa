@@ -30,33 +30,6 @@ public class ChooseReward extends GameState {
     }
 
     @Override
-    public boolean execute(ParameterBundle parameterBundle) {
-        if (parameterBundle.get(CHOICE) == null) {
-            return false;
-        }
-        final int choice = parameterBundle.get(CHOICE);
-        switch (choice) {
-            case NEW_CARDS:
-                this.nextGameState = ChooseNewCards.class;
-                this.response = null;
-                break;
-            case NEW_DIE:
-                final Die die = this.runasStrive.upgradeDie();
-                this.response = String.format(Messages.UPGRADE_DIE, die.toString());
-                this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
-                if (this.nextGameState == ChooseAbility.class) {
-                    this.response += System.lineSeparator() + String.format(Messages.STAGE_ENTER_MESSAGE,
-                            this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
-                            this.runasStrive.getCurrentLevel().getLevel().getValue());
-                }
-                break;
-            default:
-                return false;
-        }
-        return true;
-    }
-
-    @Override
     public Parameter<?> getParameter() {
         return CHOICE;
     }
@@ -71,7 +44,13 @@ public class ChooseReward extends GameState {
      */
     @Override
     protected boolean interact(ParameterBundle parameterBundle) {
-        return false;
+        final int choice = parameterBundle.get(CHOICE);
+        if (choice == NEW_DIE) {
+            this.runasStrive.upgradeDie();
+            this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
+        }
+        else this.nextGameState = ChooseNewCards.class;
+        return true;
     }
 
     /**
@@ -87,6 +66,16 @@ public class ChooseReward extends GameState {
      */
     @Override
     protected void setResponse() {
-
+        if (this.nextGameState == ChooseNewCards.class) {
+            this.response = null;
+            return;
+        }
+        final Die die = this.runasStrive.getCurrentDie();
+        this.response = String.format(Messages.UPGRADE_DIE, die.toString());
+        if (this.nextGameState == ChooseAbility.class) {
+            this.response += System.lineSeparator() + String.format(Messages.STAGE_ENTER_MESSAGE,
+                    this.runasStrive.getCurrentLevel().getCurrentStage().getStageNumber(),
+                    this.runasStrive.getCurrentLevel().getLevel().getValue());
+        }
     }
 }

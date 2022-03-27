@@ -28,8 +28,6 @@ public abstract class GameState {
 
     public abstract String repeatPrompt();
 
-    public abstract boolean execute(ParameterBundle parameterBundle);
-
     public abstract Parameter<?> getParameter();
 
     protected String list(List<?> toList, int list_index_offset) {
@@ -72,7 +70,7 @@ public abstract class GameState {
      * @return a boolean based on whether the execution was successful or failed
      * at any point
      */
-    protected boolean abstractExecute(ParameterBundle parameterBundle) {
+    public boolean execute(ParameterBundle parameterBundle) {
         if (interact(parameterBundle)) {
             setNextGameState();
             setResponse();

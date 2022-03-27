@@ -6,7 +6,9 @@ import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.dice.Die;
+import runasstrive.model.levels.FightLog;
 import runasstrive.model.levels.GameLevel;
+import runasstrive.model.levels.Stage;
 
 import java.util.*;
 
@@ -47,19 +49,41 @@ public class RunasStrive {
         return true;
     }
 
-     public void startFight() {
-        this.getCurrentLevel().resume(this.player);
-        if (!this.isLevelCleared() && this.stageCleared()) {
-            if (this.reward.size() < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2) {
-                int maxRewardNum = Math.min(
-                        this.deck.size(),
-                        this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2
-                );
-                for (int i = this.reward.size(); i < maxRewardNum; i++) { //TODO: wtf
-                    if (i < this.deck.size()) this.reward.addLast(this.deck.get(i));
+     public FightLog startFight() {
+        final FightLog fightLog = this.getCurrentLevel().resume(this.player);
+        if (fightLog.getStage().cleared()) {
+            this.advanceToNextStage();
+            if (!this.isLevelCleared()) {
+                if (this.reward.size() < fightLog.getStage().getMonsters().size() * 2) {
+                    int maxRewardNum = Math.min(
+                            this.deck.size(),
+                            fightLog.getStage().getMonsters().size() * 2
+                    );
+                    for (int i = this.reward.size(); i < maxRewardNum; i++) { //TODO: wtf
+                        if (i < this.deck.size()) this.reward.addLast(this.deck.get(i));
+                    }
                 }
+                fightLog.setFightResult(FightResult.STAGE_CLEARED);
+                return fightLog;
             }
         }
+
+        if (this.gameOver()) {
+            fightLog.setFightResult(FightResult.GAME_OVER);
+            return fightLog;
+        }
+        if (this.gameWon()) {
+            fightLog.setFightResult(FightResult.GAME_WON);
+            return fightLog;
+        }
+        if (this.isLevelCleared()) {
+            this.advanceToNextLevel();
+            this.upgradeCards();
+            fightLog.setFightResult(FightResult.LEVEL_CLEARED);
+            return fightLog;
+        }
+        fightLog.setFightResult(FightResult.CONTINUE);
+        return fightLog;
     }
 
     public void advanceToNextLevel() {
@@ -127,10 +151,9 @@ public class RunasStrive {
         return this.getCurrentLevel().getCurrentStage().cleared();
     }
 
-    public Die upgradeDie() {
+    public void upgradeDie() {
         this.dieBag.pop();
         this.player.increaseMaxFp(this.getCurrentDie());
-        return this.getCurrentDie();
     }
 
     public int getNumRewardCards() {

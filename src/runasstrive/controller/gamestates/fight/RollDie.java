@@ -14,11 +14,6 @@ public class RollDie extends FightGameState {
     }
 
     @Override
-    protected void interactAfterFight() {
-
-    }
-
-    @Override
     public String getPrompt() {
         return String.format(Messages.ENTER_DICE_ROLL_PROMPT, this.runasStrive.getCurrentDie().getSides());
     }
@@ -26,17 +21,6 @@ public class RollDie extends FightGameState {
     @Override
     public String repeatPrompt() {
         return getPrompt();
-    }
-
-    @Override
-    public boolean execute(ParameterBundle parameterBundle) {
-        final int dieRes = parameterBundle.get(DIE_RES);
-        if (!this.runasStrive.rollDie(dieRes)) {
-            return false;
-        }
-        this.response = null;
-        this.startFight();
-        return true;
     }
 
     @Override
@@ -54,7 +38,8 @@ public class RollDie extends FightGameState {
      */
     @Override
     protected boolean interact(ParameterBundle parameterBundle) {
-        return false;
+        final int dieRes = parameterBundle.get(DIE_RES);
+        return this.runasStrive.rollDie(dieRes);
     }
 
     /**
@@ -62,7 +47,7 @@ public class RollDie extends FightGameState {
      */
     @Override
     protected void setNextGameState() {
-
+        this.nextGameState = null;
     }
 
     /**
@@ -70,7 +55,7 @@ public class RollDie extends FightGameState {
      */
     @Override
     protected void setResponse() {
-
+        this.response = null;
     }
 
 }

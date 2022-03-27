@@ -34,27 +34,6 @@ public class InitializeLevel extends GameState {
     }
 
     @Override
-    public boolean execute(ParameterBundle parameterBundle) {
-        /*List<Integer> seeds = parameterBundle.get(SEEDS);
-        if (seeds.size() != EXPECTED_NUM_SEEDS) {
-            return false;
-        }
-
-        final GameLevel level = this.runasStrive.shuffleCards(seeds.get(FIRST_SEED_INDEX), seeds.get(SECOND_SEED_INDEX));
-        this.response = String.format(Messages.STAGE_ENTER_MESSAGE,
-                level.getCurrentStage().getStageNumber(), level.getLevel().getValue());
-
-        this.nextGameState = ChooseAbility.class;
-        return true;*/
-        if (this.interact(parameterBundle)) {
-            this.setNextGameState();
-            this.setResponse();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public Parameter<?> getParameter() {
         return SEEDS;
     }
