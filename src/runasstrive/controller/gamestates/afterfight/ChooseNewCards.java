@@ -26,16 +26,9 @@ public class ChooseNewCards extends GameState {
 
     @Override
     public String getPrompt() {
-        StringBuilder builder = new StringBuilder();
-        builder
-                .append(String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards()))
-                .append(System.lineSeparator());
-
-        IntStream.range(0, this.runasStrive.getRewards().size()).forEach(i -> builder
-                .append(String.format(Messages.LIST_ELEMENT, i + CARD_INDEX_OFFSET, this.runasStrive.getRewards().get(i)))
-                .append(System.lineSeparator())
-        );
-        return builder + this.repeatPrompt();
+        return  String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards())
+                + System.lineSeparator() + this.list(this.runasStrive.getRewards(), CARD_INDEX_OFFSET)
+                + System.lineSeparator() + this.repeatPrompt();
     }
 
     @Override

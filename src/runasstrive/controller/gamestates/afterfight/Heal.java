@@ -25,13 +25,9 @@ public class Heal extends GameState {
 
     @Override
     public String getPrompt() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(String.format(Messages.HEALING_OPTION, this.runasStrive.getPlayer().getHp())).append(System.lineSeparator());
-        IntStream.range(0, this.runasStrive.getPlayer().getAbilities().size()).forEach(i -> {
-            builder.append(String.format(Messages.LIST_ELEMENT, i + CARD_INDEX_OFFSET,
-                    this.runasStrive.getPlayer().getAbilities().get(i).toString())).append(System.lineSeparator());
-        });
-        return builder + this.repeatPrompt();
+        return String.format(Messages.HEALING_OPTION, this.runasStrive.getPlayer().getHp()) + System.lineSeparator()
+                + this.list(this.runasStrive.getPlayer().getAbilities(), CARD_INDEX_OFFSET) + System.lineSeparator()
+                + this.repeatPrompt();
     }
 
     @Override
