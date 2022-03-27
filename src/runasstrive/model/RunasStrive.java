@@ -124,7 +124,7 @@ public class RunasStrive {
     }
 
     public boolean canChooseDie() {
-        return !this.dieBag.isEmpty();
+        return this.dieBag.size() != 1;
     }
 
     public Player getPlayer() {

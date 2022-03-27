@@ -10,6 +10,13 @@ public class Main {
         //start your main method like this:
         Application application = new Application(null);
         //the directory which holds the test-files.
+
+        //currenttests
+        //exampleinteraction
+        //fuzzyiotests
+        //quitintests
+        //testfiles
+
         String testFileDirectoryPath = "src/testapi/resources/testfiles";
         FileConverter fileConverter = new RunaStriveFileConverter(testFileDirectoryPath);
         new CodeTester(application, testFileDirectoryPath, fileConverter).runTests();
