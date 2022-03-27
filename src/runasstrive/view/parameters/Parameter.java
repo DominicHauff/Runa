@@ -1,4 +1,4 @@
-package runasstrive.io.parameters;
+package runasstrive.view.parameters;
 
 /**
  * This class represents an input parameter used to differentiate input formats,
@@ -12,7 +12,7 @@ package runasstrive.io.parameters;
 public abstract class Parameter<T> {
 
     /**
-     * @param parsingResult a single element of the argument list created in the {@link runasstrive.io.InputParser}
+     * @param parsingResult a single element of the argument list created in the {@link runasstrive.view.InputParser}
      * @return returns a Parameter object of needed type corresponding to the needed input format
      * @throws IllegalArgumentException gets silently thrown in case of faulty input
      */

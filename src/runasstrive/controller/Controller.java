@@ -1,14 +1,12 @@
 package runasstrive.controller;
 
-import runasstrive.Session;
+import runasstrive.view.Session;
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.GameStateSupplier;
 import runasstrive.controller.gamestates.init.ChooseCharacterClass;
-import runasstrive.io.parameters.Parameter;
-import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.view.parameters.Parameter;
+import runasstrive.view.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
-
-import java.util.List;
 
 /**
  * The Controller represents a managing object used to organize
@@ -54,7 +52,7 @@ public class Controller {
     /**
      * Coordinates user input and game logic.
      *
-     * @param input a list of io arguments created by the {@link runasstrive.io.InputParser}
+     * @param input a list of io arguments created by the {@link runasstrive.view.InputParser}
      * @return returns a response message corresponding to the current {@link GameState} and user input
      */
     public String interact(String input) {

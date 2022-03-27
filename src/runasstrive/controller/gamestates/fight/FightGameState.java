@@ -5,7 +5,7 @@ import runasstrive.controller.gamestates.afterfight.ChooseNewCards;
 import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.controller.gamestates.afterfight.Heal;
 import runasstrive.controller.gamestates.init.InitializeLevel;
-import runasstrive.io.resources.Messages;
+import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 public abstract class FightGameState extends GameState {

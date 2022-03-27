@@ -1,8 +1,7 @@
-package runasstrive;
+package runasstrive.view;
 
 import runasstrive.controller.Controller;
-import runasstrive.io.InputParser;
-import java.util.List;
+
 import java.util.Scanner;
 
 /**
@@ -17,16 +16,12 @@ import java.util.Scanner;
  */
 public class Session {
     private static final String QUIT_COMMAND = "quit";
-    private final InputParser inputParser;
     private boolean running;
 
     /**
      * Constructs a new Session.
-     *
-     * @param inputParser a parsing object used to rudimentarily check and parse input
      */
-    public Session(InputParser inputParser) {
-        this.inputParser = inputParser;
+    public Session() {
         this.running = true;
     }
 

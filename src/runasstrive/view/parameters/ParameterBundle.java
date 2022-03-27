@@ -1,4 +1,4 @@
-package runasstrive.io.parameters;
+package runasstrive.view.parameters;
 
 import java.util.HashMap;
 import java.util.Map;

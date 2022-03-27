@@ -1,7 +1,7 @@
 package runasstrive.controller.gamestates;
 
-import runasstrive.io.parameters.Parameter;
-import runasstrive.io.parameters.ParameterBundle;
+import runasstrive.view.parameters.Parameter;
+import runasstrive.view.parameters.ParameterBundle;
 import runasstrive.model.RunasStrive;
 
 public abstract class GameState {

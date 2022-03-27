@@ -1,15 +1,14 @@
 package runasstrive.controller.gamestates.init;
 
 import runasstrive.controller.gamestates.GameState;
-import runasstrive.io.parameters.Parameter;
-import runasstrive.io.parameters.ParameterBundle;
-import runasstrive.io.parameters.SingleChoiceParameter;
-import runasstrive.io.resources.Messages;
+import runasstrive.view.parameters.Parameter;
+import runasstrive.view.parameters.ParameterBundle;
+import runasstrive.view.parameters.SingleChoiceParameter;
+import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.entity.type.CharacterType;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class ChooseCharacterClass extends GameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();

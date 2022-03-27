@@ -1,4 +1,4 @@
-package runasstrive.io.parameters;
+package runasstrive.view.parameters;
 
 public class SingleChoiceParameter extends Parameter<Integer> {
 

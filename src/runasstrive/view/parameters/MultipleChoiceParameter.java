@@ -1,4 +1,4 @@
-package runasstrive.io.parameters;
+package runasstrive.view.parameters;
 
 import java.util.*;
 import java.util.stream.Collectors;

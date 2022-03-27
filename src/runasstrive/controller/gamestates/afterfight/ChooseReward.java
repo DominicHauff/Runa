@@ -2,14 +2,12 @@ package runasstrive.controller.gamestates.afterfight;
 
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.fight.ChooseAbility;
-import runasstrive.io.parameters.Parameter;
-import runasstrive.io.parameters.ParameterBundle;
-import runasstrive.io.parameters.SingleChoiceParameter;
-import runasstrive.io.resources.Messages;
+import runasstrive.view.parameters.Parameter;
+import runasstrive.view.parameters.ParameterBundle;
+import runasstrive.view.parameters.SingleChoiceParameter;
+import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.dice.Die;
-
-import java.util.List;
 
 public class ChooseReward extends GameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();

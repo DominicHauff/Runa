@@ -1,6 +1,6 @@
 package runasstrive.model.cards.entity.player;
 
-import runasstrive.io.resources.Messages;
+import runasstrive.view.resources.Messages;
 import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.monster.Monster;
@@ -9,7 +9,6 @@ import runasstrive.model.dice.Die;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class Player extends Entity<CharacterType> {

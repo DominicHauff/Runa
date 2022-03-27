@@ -1,13 +1,12 @@
 package runasstrive.controller.gamestates.fight;
 
-import runasstrive.io.parameters.SingleChoiceParameter;
-import runasstrive.io.parameters.Parameter;
-import runasstrive.io.parameters.ParameterBundle;
-import runasstrive.io.resources.Messages;
+import runasstrive.view.parameters.SingleChoiceParameter;
+import runasstrive.view.parameters.Parameter;
+import runasstrive.view.parameters.ParameterBundle;
+import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;
 
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class ChooseTarget extends FightGameState {

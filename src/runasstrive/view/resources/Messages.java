@@ -1,4 +1,4 @@
-package runasstrive.io.resources;
+package runasstrive.view.resources;
 
 public final class Messages {
 

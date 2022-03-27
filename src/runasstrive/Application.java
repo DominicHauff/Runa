@@ -2,8 +2,8 @@ package runasstrive;
 
 import runasstrive.builder.RunaStriveBuilder;
 import runasstrive.controller.Controller;
-import runasstrive.io.InputParser;
-import runasstrive.io.resources.Messages;
+import runasstrive.view.Session;
+import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 
 /**
@@ -26,9 +26,8 @@ public class Application {
             System.err.println(Messages.ERROR);
             return;
         }
-        InputParser inputParser = new InputParser();
         final RunasStrive runasStrive = RunaStriveBuilder.buildGame();
-        final Session session = new Session(inputParser);
+        final Session session = new Session();
         final Controller controller = new Controller(runasStrive, session);
         session.runGame(controller);
     }

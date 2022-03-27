@@ -17,7 +17,6 @@ public class OutStream extends PrintStream {
      * to bytes using the platform's default character encoding.
      *
      * @see PrintWriter#PrintWriter(OutputStream)
-     * @param
      */
     public OutStream() {
         super(new ByteArrayOutputStream());

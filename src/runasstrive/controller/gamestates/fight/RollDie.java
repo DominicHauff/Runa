@@ -1,12 +1,10 @@
 package runasstrive.controller.gamestates.fight;
 
-import runasstrive.io.parameters.Parameter;
-import runasstrive.io.parameters.ParameterBundle;
-import runasstrive.io.parameters.SingleChoiceParameter;
-import runasstrive.io.resources.Messages;
+import runasstrive.view.parameters.Parameter;
+import runasstrive.view.parameters.ParameterBundle;
+import runasstrive.view.parameters.SingleChoiceParameter;
+import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
-
-import java.util.List;
 
 public class RollDie extends FightGameState {
     private static final SingleChoiceParameter DIE_RES = new SingleChoiceParameter();
