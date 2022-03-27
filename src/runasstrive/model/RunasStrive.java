@@ -32,17 +32,6 @@ public class RunasStrive {
         return this.levels.peek();
     }
 
-    private void removeTypeAbilities() {
-        List<Ability> toRemove = new ArrayList<>();
-        this.deck.forEach(ability -> {
-            if (ability.getName().equals(this.player.getType().getTypeAbilities().get(0).getName()) ||
-                    ability.getName().equals(this.player.getType().getTypeAbilities().get(1).getName())) {
-                toRemove.add(ability);
-            }
-        });
-        this.deck.removeAll(toRemove);
-    }
-
     public Ability pickCard(int choice) {
         return this.player.chooseCard(choice);
     }
@@ -57,17 +46,6 @@ public class RunasStrive {
         this.player.setTarget(this.getPossibleTargets().get(choice));
         return true;
     }
-
-    /**public void startFight() {
-        this.getCurrentLevel().resume(this.player);
-        if (!this.isLevelCleared() && this.stageCleared()) {
-            if (this.reward.size() < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2) {
-                for (int i = this.reward.size(); i < this.getCurrentLevel().getCurrentStage().getMonsters().size() * 2; i++) { //TODO: wtf
-                    if (i < this.deck.size()) this.reward.addLast(this.deck.get(i));
-                }
-            }
-        }
-    }*/
 
      public void startFight() {
         this.getCurrentLevel().resume(this.player);
@@ -127,32 +105,12 @@ public class RunasStrive {
         return this.dieBag.size() != 1;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public GameLevel getCurrentLevel() {
-        return this.levels.peek();
-    }
-
-    public Ability getCardToPlay() {
-        return this.player.getCardToPlay();
-    }
-
-    public Die getCurrentDie() {
-        return this.dieBag.peek();
-    }
-
     public boolean isLevelCleared() {
         return this.getCurrentLevel().cleared();
     }
 
     public boolean canPlayerHeal() {
         return this.player.canHeal();
-    }
-
-    public int getMaxHealNumber() {
-        return this.player.getMaxHealNumber();
     }
 
     public int getPlayerGainedHp() {
@@ -184,15 +142,47 @@ public class RunasStrive {
         this.reward.clear();
     }
 
-    public List<Ability> getRewards() {
-        return this.reward;
-    }
-
     public void healPlayer(List<Integer> cardsToRemove)  {
         this.player.heal(cardsToRemove);
     }
 
-    public void chooseCharacterType(CharacterType type) {
-        this.player.setType(type);
+    public boolean chooseCharacterType(int choice) {
+        final CharacterType type = CharacterType.getCharacterType(choice);
+        if (type != null) {
+            this.player.setType(type);
+            return true;
+        }
+        return false;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public GameLevel getCurrentLevel() {
+        return this.levels.peek();
+    }
+
+    public Ability getCardToPlay() {
+        return this.player.getCardToPlay();
+    }
+
+    public Die getCurrentDie() {
+        return this.dieBag.peek();
+    }
+
+    public List<Ability> getRewards() {
+        return this.reward;
+    }
+
+    private void removeTypeAbilities() {
+        List<Ability> toRemove = new ArrayList<>();
+        this.deck.forEach(ability -> {
+            if (ability.getName().equals(this.player.getType().getTypeAbilities().get(0).getName()) ||
+                    ability.getName().equals(this.player.getType().getTypeAbilities().get(1).getName())) {
+                toRemove.add(ability);
+            }
+        });
+        this.deck.removeAll(toRemove);
     }
 }
