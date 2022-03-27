@@ -10,6 +10,18 @@ import runasstrive.model.RunasStrive;
 
 import java.util.List;
 
+/**
+ * The Controller represents a managing object used to organize
+ * the game's various states ({@link GameState}) and to process
+ * the given user input. It contains the instance of the game
+ * ({@link RunasStrive}) and a {@link GameStateSupplier} to receive
+ * and call the {@link GameState#execute(ParameterBundle parameterBundle)}
+ * method on each {@link GameState}, thus serving as a connection point
+ * between the io interaction and the game itself.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Controller {
     private final RunasStrive runasStrive;
     private final GameStateSupplier gameStateSupplier;
@@ -17,6 +29,12 @@ public class Controller {
     private GameState currentGameState;
     private boolean lastInputFaulty;
 
+    /**
+     * Constructs a new controller.
+     *
+     * @param runasStrive the instance of the actual game
+     * @param session the instance of the io session
+     */
     public Controller(RunasStrive runasStrive, Session session) {
         this.runasStrive = runasStrive;
         this.gameStateSupplier = new GameStateSupplier(runasStrive);
@@ -25,10 +43,19 @@ public class Controller {
         this.currentGameState = this.gameStateSupplier.get(ChooseCharacterClass.class);
     }
 
+    /**
+     * @return returns an input prompt message corresponding to the current {@link GameState}
+     */
     public String getPrompt() {
         return this.lastInputFaulty ? this.currentGameState.repeatPrompt() : this.currentGameState.getPrompt();
     }
 
+    /**
+     * Coordinates user input and game logic.
+     *
+     * @param argumentList a list of io arguments created by the {@link runasstrive.io.InputParser}
+     * @return returns a response message corresponding to the current {@link GameState} and user input
+     */
     public String interact(List<String> argumentList) {
         if (argumentList == null) {
             this.lastInputFaulty = true;

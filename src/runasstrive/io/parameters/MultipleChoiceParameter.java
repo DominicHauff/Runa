@@ -3,6 +3,12 @@ package runasstrive.io.parameters;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * This class represents a multiple {@code Integer} parameter
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class MultipleChoiceParameter extends Parameter<ArrayList<Integer>> {
     private static final String CHOICE_SEPARATOR = ",";
     private static final String EMPTY_INPUT = "";

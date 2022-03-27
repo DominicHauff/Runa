@@ -2,20 +2,39 @@ package runasstrive;
 
 import runasstrive.controller.Controller;
 import runasstrive.io.InputParser;
-
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class represents a single io session, it both takes input
+ * and has a corresponding parser object and prints the game's output
+ * received from the {@link Controller} to the terminal
+ * via {@link System#out}. Furthermore, it contains the
+ * main game loop which runs as long as the game is not terminated
+ * either by command or a game ending event.
+ * @author ugget
+ * @version 1.0
+ */
 public class Session {
     private static final String QUIT_COMMAND = "quit";
     private final InputParser inputParser;
     private boolean running;
 
+    /**
+     * Constructs a new Session.
+     *
+     * @param inputParser a parsing object used to rudimentarily check and parse input
+     */
     public Session(InputParser inputParser) {
         this.inputParser = inputParser;
         this.running = true;
     }
 
+    /**
+     * Runs the game by parsing input to the {@link Controller} and printing output.
+     *
+     * @param controller the game's controller, used to manage the game flow
+     */
     public void runGame(Controller controller) {
         while (this.running) {
             String prompt = controller.getPrompt();
@@ -35,6 +54,9 @@ public class Session {
         }
     }
 
+    /**
+     * terminates the game loop by setting the running variable to {@code false}
+     */
     public void quit() {
         this.running = false;
     }
