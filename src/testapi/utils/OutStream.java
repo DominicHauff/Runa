@@ -10,6 +10,7 @@ public class OutStream extends PrintStream {
     private boolean terminated;
     private boolean newElement;
     private int elementCounter;
+    private int speed;
 
     /**
      * Creates a new print stream, without automatic line flushing, with the
@@ -23,6 +24,11 @@ public class OutStream extends PrintStream {
         printHistory = new LinkedList<>();
         this.terminated = false;
         this.elementCounter = 0;
+        this.speed = 15;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     @Override
@@ -64,7 +70,7 @@ public class OutStream extends PrintStream {
     private String getNewElement() {
         try {
             int temp = this.elementCounter;
-            wait(15);
+            wait(speed);
             while (temp != this.elementCounter) {
                 temp = this.elementCounter;
                 wait(5);

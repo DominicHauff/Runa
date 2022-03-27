@@ -20,8 +20,10 @@ public class Main {
         //testfiles
         System.out.print("folder: ");
         String folder = new Scanner(System.in).nextLine();
+        System.out.print("set speed: ");
+        int speed = new Scanner(System.in).nextInt();
         String testFileDirectoryPath = "src/testapi/resources/" + folder;
         FileConverter fileConverter = new RunaStriveFileConverter(testFileDirectoryPath);
-        new CodeTester(application, testFileDirectoryPath, fileConverter).runTests();
+        new CodeTester(application, testFileDirectoryPath, fileConverter, speed).runTests();
     }
 }

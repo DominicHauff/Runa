@@ -22,16 +22,19 @@ public class CodeTester {
     private static InStream inStream;
     private static OutStream outStream;
     private final Application runnable;
+    private final int speed;
     private ApplicationThread applicationThread;
 
 
-    public CodeTester(final Application runnable, final String testFileDirectoryPath, final FileConverter curseOfTheHanseaticFileConvert) {
+    public CodeTester(final Application runnable, final String testFileDirectoryPath,
+                      final FileConverter fileConverter, final int speed) {
         this.runnable = runnable;
+        this.speed = speed;
         String[] testFilePaths = new File(testFileDirectoryPath).list();
         if (testFilePaths == null) {
             throw new RuntimeException("could not find testFile directory :( ...try another path");
         }
-        curseOfTheHanseaticFileConvert.convert();
+        fileConverter.convert();
         Arrays.stream(testFilePaths)
                 .forEach(path -> testFiles.add(new File(testFileDirectoryPath + "/" + path)));
     }
@@ -47,6 +50,7 @@ public class CodeTester {
     public void runTests() {
         testFiles.forEach(testFile -> {
             initialize();
+            outStream.setSpeed(speed);
             final TestFileReader reader = new TestFileReader(testFile);
             runnable.setArgs(reader.getArgs());
             this.applicationThread = new ApplicationThread(runnable, inStream, outStream);

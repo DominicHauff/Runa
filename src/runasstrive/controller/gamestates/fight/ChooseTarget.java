@@ -1,5 +1,6 @@
 package runasstrive.controller.gamestates.fight;
 
+import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.view.parameters.SingleChoiceParameter;
 import runasstrive.view.parameters.Parameter;
 import runasstrive.view.parameters.ParameterBundle;
@@ -7,6 +8,8 @@ import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ChooseTarget extends FightGameState {
@@ -20,16 +23,14 @@ public class ChooseTarget extends FightGameState {
 
     @Override
     public String getPrompt() {
-        StringBuilder targetStringBuilder = new StringBuilder();
-        targetStringBuilder.append(Messages.SELECT_TARGET_MESSAGE).append(System.lineSeparator());
+        final List<String> possibleTargets = this.runasStrive.getPossibleTargets().stream()
+                .map(Monster::getName)
+                .collect(Collectors.toList());
 
-        IntStream.range(0, this.runasStrive.getPossibleTargets().size())
-                .forEach(i -> targetStringBuilder
-                        .append(String.format(
-                                Messages.LIST_ELEMENT, i + 1, this.runasStrive.getPossibleTargets().get(i).getName()))
-                        .append(System.lineSeparator()));
+        String targets = Messages.SELECT_TARGET_MESSAGE + System.lineSeparator()
+                + this.list(possibleTargets, INDEX_OFFSET) + System.lineSeparator();
 
-        return targetStringBuilder + repeatPrompt();
+        return targets + repeatPrompt();
     }
 
     @Override

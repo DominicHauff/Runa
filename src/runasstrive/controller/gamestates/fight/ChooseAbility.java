@@ -7,8 +7,6 @@ import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;
 
-import java.util.List;
-
 public class ChooseAbility extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int MIN_INDEX = 0;
