@@ -24,23 +24,6 @@ public class Stage {
         this.log = new ArrayList<>();
     }
 
-    public boolean cleared() {
-        return this.getAliveMonsters().isEmpty();
-    }
-
-    public int getStageNumber() {
-        return stageNumber;
-    }
-
-    public Collection<Monster> getMonsters() {
-        return this.monsters;
-    }
-
-    public LinkedList<Monster> getAliveMonsters() {
-        return monsters.stream()
-                .filter(monster -> !monster.isDead()).collect(Collectors.toCollection(LinkedList::new));
-    }
-
     public String getFightLog() {
         final StringBuilder builder = new StringBuilder();
         this.log.forEach(logEntry -> builder.append(logEntry).append(System.lineSeparator()));
@@ -67,18 +50,15 @@ public class Stage {
         if (player.getCardToPlay().targetRequired()) {
             final Monster target = this.getAliveMonsters().size() == ONE_ONE_ONE
                     ? this.getAliveMonsters().getFirst() : player.getTarget();
-
             player.useAbility(target);
             this.logTakenDamage(target);
             this.logTakenDamage(player);
             target.resetShield();
             target.resetTakenDamage();
             player.resetTakenDamage();
-
         } else {
             player.useAbility();
         }
-
         this.getAliveMonsters().forEach(monster -> {
             monster.focus(monster.getFocusLevel());
             if (monster.hasGainedFp()) {
@@ -99,5 +79,30 @@ public class Stage {
         if (player.hasGainedFp() && !player.isDead()) {
             this.log.add(String.format(Messages.GAIN_FOCUS_POINTS, player.getName(), player.getGainedFp()));
         }
+    }
+
+    public boolean cleared() {
+        return this.getAliveMonsters().isEmpty();
+    }
+
+    public int getStageNumber() {
+        return stageNumber;
+    }
+
+    public Collection<Monster> getMonsters() {
+        return this.monsters;
+    }
+
+    public LinkedList<Monster> getAliveMonsters() {
+        return monsters.stream()
+                .filter(monster -> !monster.isDead()).collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder monsterStringBuilder = new StringBuilder();
+        this.getAliveMonsters().forEach(monster ->
+                monsterStringBuilder.append(monster.toString()).append(System.lineSeparator()));
+        return monsterStringBuilder.toString().trim();
     }
 }

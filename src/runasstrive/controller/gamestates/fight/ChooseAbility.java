@@ -20,28 +20,16 @@ public class ChooseAbility extends FightGameState {
 
     @Override
     public String getPrompt() {
-        //TODO: clean up
-        StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder();
         stringBuilder
                 .append(Messages.SEPARATOR).append(System.lineSeparator())
                 .append(this.runasStrive.getPlayer().toString()).append(System.lineSeparator())
-                .append(Messages.VS).append(System.lineSeparator());
-        StringBuilder monsterStringBuilder = new StringBuilder();
-        this.runasStrive.getCurrentLevel().getCurrentStage().getAliveMonsters().forEach(monster ->
-                monsterStringBuilder.append(monster.toString()).append(System.lineSeparator()));
-        stringBuilder
-                .append(monsterStringBuilder)
-                .append(Messages.SEPARATOR).append(System.lineSeparator());
-        List<Ability> abilities = this.runasStrive.getPlayer().getAbilities();
-
-        stringBuilder.append(Messages.SELECT_CARD_MESSAGE).append(System.lineSeparator());
-        for (int i = 0; i < abilities.size(); i++) {
-            stringBuilder
-                    //TODO: remove magic number
-                    .append(String.format(Messages.LIST_ELEMENT, i + INDEX_OFFSET, abilities.get(i).toString()))
-                    .append(System.lineSeparator());
-        }
-
+                .append(Messages.VS).append(System.lineSeparator())
+                .append(this.runasStrive.getCurrentLevel().getCurrentStage().toString()).append(System.lineSeparator())
+                .append(Messages.SEPARATOR).append(System.lineSeparator())
+                .append(Messages.SELECT_CARD_MESSAGE).append(System.lineSeparator())
+                .append(this.list(this.runasStrive.getPlayer().getAbilities(), INDEX_OFFSET))
+                .append(System.lineSeparator());
         return stringBuilder + repeatPrompt();
     }
 
