@@ -56,10 +56,6 @@ public class Heal extends GameState {
             if (choice > this.runasStrive.getPlayer().getAbilities().size()) return false;
         }
 
-        if (choices.size() > this.runasStrive.getMaxHealNumber()) {
-            return false;
-        }
-
         this.nextGameState = this.runasStrive.getCurrentLevel().cleared()
                 ? InitializeLevel.class : ChooseAbility.class;
         final String enterStage = this.nextGameState == ChooseAbility.class
