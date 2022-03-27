@@ -1,0 +1,109 @@
+Welcome to Runa's Strive
+Select Runa's character class
+1) Warrior
+2) Mage
+3) Paladin
+Enter number [1--3]:
+# reject empty input
+> 
+Enter number [1--3]:
+# reject single space
+>  
+Enter number [1--3]:
+# reject two spaces
+>   
+Enter number [1--3]:
+# reject single comma
+> ,
+Enter number [1--3]:
+# reject two commas
+> ,,
+Enter number [1--3]:
+# reject space and comma combinations
+> , ,
+Enter number [1--3]:
+>  ,
+Enter number [1--3]:
+> , 
+Enter number [1--3]:
+> , ,1
+Enter number [1--3]:
+>  ,2
+Enter number [1--3]:
+> ,3 
+Enter number [1--3]:
+> ,1 ,
+Enter number [1--3]:
+>  2,
+Enter number [1--3]:
+> ,3 
+Enter number [1--3]:
+# reject leading spaces
+>  1
+Enter number [1--3]:
+>   2
+Enter number [1--3]:
+>    3
+Enter number [1--3]:
+# reject trailing space
+> 1 
+Enter number [1--3]:
+> 1  
+Enter number [1--3]:
+# reject trailing comma
+> 1,
+Enter number [1--3]:
+# reject leading comma
+> ,1
+Enter number [1--3]:
+# reject multiple value
+> 1,2
+Enter number [1--3]:
+> 1,1
+Enter number [1--3]:
+> 1,2,
+Enter number [1--3]:
+> ,1,2
+Enter number [1--3]:
+# reject out-of-range values
+> 0
+Enter number [1--3]:
+> 4
+Enter number [1--3]:
+> -1
+Enter number [1--3]:
+# reject letters and symbols
+> o
+Enter number [1--3]:
+> `
+Enter number [1--3]:
+# reject quit command modifications
+> q
+Enter number [1--3]:
+> qu
+Enter number [1--3]:
+> qui
+Enter number [1--3]:
+> quit 
+Enter number [1--3]:
+>  quit
+Enter number [1--3]:
+> ,quit
+Enter number [1--3]:
+> quit,
+Enter number [1--3]:
+> uit
+Enter number [1--3]:
+> it
+Enter number [1--3]:
+> t
+Enter number [1--3]:
+> quit!
+Enter number [1--3]:
+# reject character class names
+> Warrior
+Enter number [1--3]:
+> mage
+Enter number [1--3]:
+# test correct quit
+> quit

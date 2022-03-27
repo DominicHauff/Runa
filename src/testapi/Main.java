@@ -17,7 +17,7 @@ public class Main {
         //quitintests
         //testfiles
 
-        String testFileDirectoryPath = "src/testapi/resources/testfiles";
+        String testFileDirectoryPath = "src/testapi/resources/testfile_save";
         FileConverter fileConverter = new RunaStriveFileConverter(testFileDirectoryPath);
         new CodeTester(application, testFileDirectoryPath, fileConverter).runTests();
     }

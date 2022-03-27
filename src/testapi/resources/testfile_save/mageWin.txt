@@ -1,13 +1,13 @@
-Welcome to Runa's Strive
+|Welcome to Runa's Strive
 Select Runa's character class
 1) Warrior
 2) Mage
 3) Paladin
-Enter number [1--3]:
-> 2
+Enter number [1--3]:#
+2
 To shuffle ability cards and monsters, enter two seeds
-Enter seeds [1--2147483647] separated by comma:
-> 3,3
+Enter seeds [1--2147483647] separated by comma:#
+3,3
 Runa enters Stage 1 of Level 1
 ----------------------------------------
 Runa (50/50 HP, 1/4 FP)
@@ -17,8 +17,8 @@ Gorgon (13 HP, 0 FP): attempts Focus(1) next
 Select card to play
 1) Focus(1)
 2) Water(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Focus(1)
 Gorgon uses Focus(1)
 Runa gains 1 focus
@@ -30,8 +30,8 @@ Gorgon (13 HP, 0 FP): attempts Fire(1) next
 Select card to play
 1) Focus(1)
 2) Water(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Focus(1)
 Gorgon gains 1 focus
 Gorgon uses Fire(1)
@@ -45,8 +45,8 @@ Gorgon (13 HP, 0 FP): attempts Focus(1) next
 Select card to play
 1) Focus(1)
 2) Water(1)
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Focus(1)
 Gorgon uses Focus(1)
 Runa gains 1 focus
@@ -58,28 +58,28 @@ Gorgon (13 HP, 0 FP): attempts Fire(1) next
 Select card to play
 1) Focus(1)
 2) Water(1)
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa uses Water(1)
 Gorgon takes 24 mag. damage
 Gorgon dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Pick 1 card(s) as loot
 1) Fire(1)
 2) Lightning(1)
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa gets Lightning(1)
 Runa (36/50 HP) can discard ability cards for healing (or none)
 1) Focus(1)
 2) Water(1)
 3) Lightning(1)
-Enter numbers [1--3] separated by comma:
-> 2
+Enter numbers [1--3] separated by comma:#
+2
 Runa gains 10 health
 Runa enters Stage 2 of Level 1
 ----------------------------------------
@@ -91,13 +91,13 @@ Skeleton (14 HP, 0 FP): attempts Focus(1) next
 Select card to play
 1) Focus(1)
 2) Lightning(1)
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Select Runa's target.
 1) Spider
 2) Skeleton
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Lightning(1)
 Spider takes 23 mag. damage
 Spider dies
@@ -110,23 +110,23 @@ Skeleton (14 HP, 0 FP): attempts Lightning(1) next
 Select card to play
 1) Focus(1)
 2) Lightning(1)
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa uses Lightning(1)
 Skeleton takes 16 mag. damage
 Skeleton dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Pick 2 card(s) as loot
 1) Slash(1)
 2) Thrust(1)
 3) Pierce(1)
 4) Swing(1)
-Enter numbers [1--4] separated by comma:
-> 3,4
+Enter numbers [1--4] separated by comma:#
+3,4
 Runa gets Pierce(1)
 Runa gets Swing(1)
 Runa (46/50 HP) can discard ability cards for healing (or none)
@@ -134,8 +134,8 @@ Runa (46/50 HP) can discard ability cards for healing (or none)
 2) Lightning(1)
 3) Pierce(1)
 4) Swing(1)
-Enter numbers [1--4] separated by comma:
-> 
+Enter numbers [1--4] separated by comma:#
+
 Runa enters Stage 3 of Level 1
 ----------------------------------------
 Runa (46/50 HP, 1/4 FP)
@@ -148,8 +148,8 @@ Select card to play
 2) Lightning(1)
 3) Pierce(1)
 4) Swing(1)
-Enter number [1--4]:
-> 1
+Enter number [1--4]:#
+1
 Runa uses Focus(1)
 Rat uses Block(1)
 Ghost uses Focus(1)
@@ -165,13 +165,13 @@ Select card to play
 2) Lightning(1)
 3) Pierce(1)
 4) Swing(1)
-Enter number [1--4]:
-> 2
+Enter number [1--4]:#
+2
 Select Runa's target.
 1) Rat
 2) Ghost
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Runa uses Lightning(1)
 Rat takes 16 mag. damage
 Rat dies
@@ -188,8 +188,8 @@ Select card to play
 2) Lightning(1)
 3) Pierce(1)
 4) Swing(1)
-Enter number [1--4]:
-> 1
+Enter number [1--4]:#
+1
 Runa uses Focus(1)
 Ghost uses Focus(1)
 Runa gains 1 focus
@@ -203,11 +203,11 @@ Select card to play
 2) Lightning(1)
 3) Pierce(1)
 4) Swing(1)
-Enter number [1--4]:
-> 4
+Enter number [1--4]:#
+4
 Runa uses Swing(1)
-Enter dice roll [1--4]:
-> 4
+Enter dice roll [1--4]:#
+4
 Ghost takes 9 phy. damage
 Ghost uses Focus(1)
 ----------------------------------------
@@ -220,24 +220,24 @@ Select card to play
 2) Lightning(1)
 3) Pierce(1)
 4) Swing(1)
-Enter number [1--4]:
-> 4
+Enter number [1--4]:#
+4
 Runa uses Swing(1)
-Enter dice roll [1--4]:
-> 4
+Enter dice roll [1--4]:#
+4
 Ghost takes 9 phy. damage
 Ghost dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 1
+Enter number [1--2]:#
+1
 Pick 2 card(s) as loot
 1) Ice(1)
 2) Parry(1)
 3) Reflect(1)
-Enter numbers [1--3] separated by comma:
-> 2,3
+Enter numbers [1--3] separated by comma:#
+2,3
 Runa gets Parry(1)
 Runa gets Reflect(1)
 Runa (34/50 HP) can discard ability cards for healing (or none)
@@ -247,8 +247,8 @@ Runa (34/50 HP) can discard ability cards for healing (or none)
 4) Swing(1)
 5) Parry(1)
 6) Reflect(1)
-Enter numbers [1--6] separated by comma:
-> 3
+Enter numbers [1--6] separated by comma:#
+3
 Runa gains 10 health
 Runa enters Stage 4 of Level 1
 ----------------------------------------
@@ -262,8 +262,8 @@ Select card to play
 3) Swing(1)
 4) Parry(1)
 5) Reflect(1)
-Enter number [1--5]:
-> 4
+Enter number [1--5]:#
+4
 Runa uses Parry(1)
 Spider King uses Bite(1)
 Runa takes 3 phy. damage
@@ -278,8 +278,8 @@ Select card to play
 3) Swing(1)
 4) Parry(1)
 5) Reflect(1)
-Enter number [1--5]:
-> 1
+Enter number [1--5]:#
+1
 Runa uses Focus(1)
 Spider King uses Block(1)
 Runa gains 1 focus
@@ -294,8 +294,8 @@ Select card to play
 3) Swing(1)
 4) Parry(1)
 5) Reflect(1)
-Enter number [1--5]:
-> 1
+Enter number [1--5]:#
+1
 Runa uses Focus(1)
 Spider King uses Focus(1)
 Runa gains 1 focus
@@ -310,11 +310,11 @@ Select card to play
 3) Swing(1)
 4) Parry(1)
 5) Reflect(1)
-Enter number [1--5]:
-> 3
+Enter number [1--5]:#
+3
 Runa uses Swing(1)
-Enter dice roll [1--4]:
-> 4
+Enter dice roll [1--4]:#
+4
 Spider King takes 9 phy. damage
 Spider King uses Bite(1)
 Runa takes 10 phy. damage
@@ -329,8 +329,8 @@ Select card to play
 3) Swing(1)
 4) Parry(1)
 5) Reflect(1)
-Enter number [1--5]:
-> 2
+Enter number [1--5]:#
+2
 Runa uses Lightning(1)
 Spider King takes 30 mag. damage
 Spider King uses Block(1)
@@ -345,8 +345,8 @@ Select card to play
 3) Swing(1)
 4) Parry(1)
 5) Reflect(1)
-Enter number [1--5]:
-> 1
+Enter number [1--5]:#
+1
 Runa uses Focus(1)
 Spider King uses Focus(1)
 Runa gains 1 focus
@@ -361,8 +361,8 @@ Select card to play
 3) Swing(1)
 4) Parry(1)
 5) Reflect(1)
-Enter number [1--5]:
-> 2
+Enter number [1--5]:#
+2
 Runa uses Lightning(1)
 Spider King takes 30 mag. damage
 Spider King dies
@@ -376,12 +376,12 @@ Runa (31/50 HP) can discard ability cards for healing (or none)
 5) Reflect(1)
 6) Focus(2)
 7) Water(2)
-Enter numbers [1--7] separated by comma:
-> 1
+Enter numbers [1--7] separated by comma:#
+1
 Runa gains 10 health
 To shuffle ability cards and monsters, enter two seeds
-Enter seeds [1--2147483647] separated by comma:
-> 42,42
+Enter seeds [1--2147483647] separated by comma:#
+42,42
 Runa enters Stage 1 of Level 2
 ----------------------------------------
 Runa (41/50 HP, 3/4 FP)
@@ -395,8 +395,8 @@ Select card to play
 4) Reflect(1)
 5) Focus(2)
 6) Water(2)
-Enter number [1--6]:
-> 3
+Enter number [1--6]:#
+3
 Runa uses Parry(1)
 Shadow Blade uses Scratch(2)
 Runa takes 3 phy. damage
@@ -412,8 +412,8 @@ Select card to play
 4) Reflect(1)
 5) Focus(2)
 6) Water(2)
-Enter number [1--6]:
-> 5
+Enter number [1--6]:#
+5
 Runa uses Focus(2)
 Shadow Blade uses Focus(2)
 Runa gains 1 focus
@@ -429,16 +429,16 @@ Select card to play
 4) Reflect(1)
 5) Focus(2)
 6) Water(2)
-Enter number [1--6]:
-> 6
+Enter number [1--6]:#
+6
 Runa uses Water(2)
 Shadow Blade takes 36 mag. damage
 Shadow Blade dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa upgrades her die to a d6
 Runa (38/50 HP) can discard ability cards for healing (or none)
 1) Lightning(1)
@@ -447,8 +447,8 @@ Runa (38/50 HP) can discard ability cards for healing (or none)
 4) Reflect(1)
 5) Focus(2)
 6) Water(2)
-Enter numbers [1--6] separated by comma:
-> 2
+Enter numbers [1--6] separated by comma:#
+2
 Runa gains 10 health
 Runa enters Stage 2 of Level 2
 ----------------------------------------
@@ -463,8 +463,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 2
+Enter number [1--5]:#
+2
 Runa uses Parry(1)
 Mushroomlon uses Deflect(2)
 Hornet uses Scratch(2)
@@ -481,8 +481,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 2
+Enter number [1--5]:#
+2
 Runa uses Parry(1)
 Mushroomlon uses Scratch(2)
 Runa takes 3 phy. damage
@@ -499,8 +499,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 3
+Enter number [1--5]:#
+3
 Runa uses Reflect(1)
 Hornet gains 2 focus
 Mushroomlon uses Block(2)
@@ -519,13 +519,13 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 1
+Enter number [1--5]:#
+1
 Select Runa's target.
 1) Mushroomlon
 2) Hornet
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa uses Lightning(1)
 Hornet takes 25 mag. damage
 Hornet dies
@@ -541,8 +541,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 2
+Enter number [1--5]:#
+2
 Runa uses Parry(1)
 Mushroomlon uses Scratch(2)
 Runa takes 3 phy. damage
@@ -557,8 +557,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 4
+Enter number [1--5]:#
+4
 Runa uses Focus(2)
 Mushroomlon uses Block(2)
 Runa gains 2 focus
@@ -573,8 +573,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 4
+Enter number [1--5]:#
+4
 Runa uses Focus(2)
 Mushroomlon uses Deflect(2)
 Runa gains 2 focus
@@ -589,8 +589,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 2
+Enter number [1--5]:#
+2
 Runa uses Parry(1)
 Mushroomlon uses Scratch(2)
 Runa takes 3 phy. damage
@@ -605,8 +605,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 5
+Enter number [1--5]:#
+5
 Runa uses Water(2)
 Mushroomlon takes 48 mag. damage
 Mushroomlon uses Block(2)
@@ -621,8 +621,8 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 4
+Enter number [1--5]:#
+4
 Runa uses Focus(2)
 Mushroomlon uses Deflect(2)
 Runa gains 1 focus
@@ -637,16 +637,16 @@ Select card to play
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter number [1--5]:
-> 1
+Enter number [1--5]:#
+1
 Runa uses Lightning(1)
 Mushroomlon takes 20 mag. damage
 Mushroomlon dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa upgrades her die to a d8
 Runa (32/50 HP) can discard ability cards for healing (or none)
 1) Lightning(1)
@@ -654,8 +654,8 @@ Runa (32/50 HP) can discard ability cards for healing (or none)
 3) Reflect(1)
 4) Focus(2)
 5) Water(2)
-Enter numbers [1--5] separated by comma:
-> 1
+Enter numbers [1--5] separated by comma:#
+1
 Runa gains 10 health
 Runa enters Stage 3 of Level 2
 ----------------------------------------
@@ -669,13 +669,13 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 4
+Enter number [1--4]:#
+4
 Select Runa's target.
 1) Dark Elf
 2) Tarantula
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa uses Water(2)
 Tarantula takes 40 mag. damage
 Tarantula dies
@@ -690,8 +690,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 2
+Enter number [1--4]:#
+2
 Runa uses Reflect(1)
 Dark Elf gains 2 focus
 Dark Elf uses Water(1)
@@ -706,8 +706,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 2
+Enter number [1--4]:#
+2
 Runa uses Reflect(1)
 Dark Elf uses Lightning(1)
 Runa takes 6 mag. damage
@@ -722,8 +722,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 3
+Enter number [1--4]:#
+3
 Runa uses Focus(2)
 Dark Elf uses Focus(2)
 Runa gains 2 focus
@@ -737,8 +737,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 2
+Enter number [1--4]:#
+2
 Runa uses Reflect(1)
 Dark Elf gains 2 focus
 Dark Elf uses Water(1)
@@ -753,8 +753,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 2
+Enter number [1--4]:#
+2
 Runa uses Reflect(1)
 Dark Elf uses Lightning(1)
 Runa takes 6 mag. damage
@@ -763,16 +763,16 @@ Dark Elf dies
 Choose Runa's reward
 1) new ability cards
 2) next player dice
-Enter number [1--2]:
-> 2
+Enter number [1--2]:#
+2
 Runa upgrades her die to a d10
 Runa (30/50 HP) can discard ability cards for healing (or none)
 1) Parry(1)
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter numbers [1--4] separated by comma:
-> 
+Enter numbers [1--4] separated by comma:#
+
 Runa enters Stage 4 of Level 2
 ----------------------------------------
 Runa (30/50 HP, 6/10 FP)
@@ -784,8 +784,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 1
+Enter number [1--4]:#
+1
 Runa uses Parry(1)
 Mega Saurus uses Bite(2)
 Runa takes 13 phy. damage
@@ -799,8 +799,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 3
+Enter number [1--4]:#
+3
 Runa uses Focus(2)
 Mega Saurus uses Block(2)
 Runa gains 2 focus
@@ -814,8 +814,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 3
+Enter number [1--4]:#
+3
 Runa uses Focus(2)
 Mega Saurus uses Focus(2)
 Runa gains 2 focus
@@ -829,8 +829,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 2
+Enter number [1--4]:#
+2
 Runa uses Reflect(1)
 Mega Saurus gains 2 focus
 Mega Saurus uses Fire(1)
@@ -846,8 +846,8 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 2
+Enter number [1--4]:#
+2
 Runa uses Reflect(1)
 Mega Saurus uses Lightning(1)
 Runa takes 6 mag. damage
@@ -862,9 +862,9 @@ Select card to play
 2) Reflect(1)
 3) Focus(2)
 4) Water(2)
-Enter number [1--4]:
-> 4
+Enter number [1--4]:#
+4
 Runa uses Water(2)
 Mega Saurus takes 80 mag. damage
 Mega Saurus dies
-Runa won!
+Runa won!#
