@@ -5,6 +5,7 @@ import runasstrive.controller.gamestates.afterfight.ChooseNewCards;
 import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.controller.gamestates.afterfight.Heal;
 import runasstrive.controller.gamestates.init.InitializeLevel;
+import runasstrive.view.parameters.ParameterBundle;
 import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 
@@ -57,5 +58,32 @@ public abstract class FightGameState extends GameState {
 
         this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : InitializeLevel.class;
     }
+
+    public void setGameStateAfterFight() {
+        if (this.runasStrive.gameOver()) {
+            this.nextGameState = null;
+            return;
+        }
+        if (!this.runasStrive.stageCleared()) {
+            this.nextGameState = ChooseAbility.class;
+            return;
+        }
+    }
+
+    @Override
+    protected boolean abstractExecute(ParameterBundle parameterBundle) {
+        /*
+         * interaction before fight
+         * set game state if not fight
+         * set response according to game state
+         * if fight
+         * set game state after fight
+         * set response after fight
+         * */
+        boolean lorenz = true;
+        return lorenz;
+    }
+
+    protected abstract void interactAfterFight();
 
 }

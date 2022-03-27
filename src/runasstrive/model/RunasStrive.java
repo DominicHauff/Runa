@@ -32,7 +32,7 @@ public class RunasStrive {
         return this.levels.peek();
     }
 
-    public Ability pickCard(int choice) {
+    public boolean pickCard(int choice) {
         return this.player.chooseCard(choice);
     }
 

@@ -6,7 +6,6 @@ import runasstrive.model.RunasStrive;
 import runasstrive.view.resources.Messages;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 public abstract class GameState {
     protected final RunasStrive runasStrive;
@@ -43,6 +42,43 @@ public abstract class GameState {
                     .append(System.lineSeparator());
         });
         return listBuilder.toString().trim();
+    }
+
+    /**
+     * This method performs the interaction with {@link RunasStrive} using the given input
+     * parameters.
+     *
+     * @param parameterBundle holds all required parameters for the game state
+     * @return a boolean based on whether the interaction with the given input was performed
+     * successfully
+     */
+    protected abstract boolean interact(ParameterBundle parameterBundle);
+
+    /**
+     * This method sets the next game state based on the previous interaction with {@link RunasStrive}.
+     */
+    protected abstract void setNextGameState();
+
+    /**
+     * This method sets the response based on the previous interaction with {@link RunasStrive}.
+     */
+    protected abstract void setResponse();
+
+    /**
+     * This method represents an entire game state execution from the interaction with
+     * {@link RunasStrive} to setting the response accordingly.
+     *
+     * @param parameterBundle holds all required {@link Parameter} objects for the game state
+     * @return a boolean based on whether the execution was successful or failed
+     * at any point
+     */
+    protected boolean abstractExecute(ParameterBundle parameterBundle) {
+        if (interact(parameterBundle)) {
+            setNextGameState();
+            setResponse();
+            return true;
+        }
+        return false;
     }
 
 }

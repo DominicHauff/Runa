@@ -57,9 +57,12 @@ public class Player extends Entity<CharacterType> {
         return String.format(Messages.PLAYER_STATS, this.getName(), this.getHp(), this.getFp(), this.maxFp);
     }
 
-    public Ability chooseCard(int index) {
-        this.cardToPlay = this.getAbilities().size() <= index ? null : this.getAbilities().get(index);
-        return this.cardToPlay;
+    public boolean chooseCard(int index) {
+        if (index < this.abilities.size()) {
+            this.cardToPlay = this.getAbilities().get(index);
+            return true;
+        }
+        return false;
     }
 
     /**
