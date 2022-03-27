@@ -7,9 +7,24 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents an abstract monster entity and serves as a super class
+ * for all {@link Monster} objects.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public abstract class Monster extends Entity<MonsterType> {
     private Ability currentAbility;
 
+    /**
+     * super constructor for Monster objects
+     *
+     * @param name the monster's name
+     * @param hp the monster's initial amount of health points
+     * @param type the monster's {@link MonsterType}
+     * @param abilities the monster's abilities
+     */
     public Monster(String name, int hp, MonsterType type, List<Ability> abilities) {
         super(name, hp, abilities);
         this.hp = hp;
@@ -35,6 +50,10 @@ public abstract class Monster extends Entity<MonsterType> {
         return nextAbility;
     }
 
+    /**
+     * @return returns the level of the monster's focus ability,
+     * monsters that don't use focus have a focus level of 0 by default
+     */
     public abstract int getFocusLevel();
 
     @Override

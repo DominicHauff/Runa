@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * This class represents a single io session, it both takes input
- * and has a corresponding parser object and prints the game's output
+ * and prints the game's output
  * received from the {@link Controller} to the terminal
  * via {@link System#out}. Furthermore, it contains the
  * main game loop which runs as long as the game is not terminated
@@ -26,7 +26,7 @@ public class Session {
     }
 
     /**
-     * Runs the game by parsing input to the {@link Controller} and printing output.
+     * Runs the game by feeding input to the {@link Controller} and printing the received output.
      *
      * @param controller the game's controller, used to manage the game flow
      */

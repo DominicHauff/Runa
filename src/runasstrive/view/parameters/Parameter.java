@@ -12,7 +12,8 @@ package runasstrive.view.parameters;
 public abstract class Parameter<T> {
 
     /**
-     * @param parsingResult a single element of the argument list created in the {@link runasstrive.view.InputParser}
+     * @param parsingResult a single element of the argument list held by
+     * {@link runasstrive.controller.gamestates.GameState} objects
      * @return returns a Parameter object of needed type corresponding to the needed input format
      * @throws IllegalArgumentException gets silently thrown in case of faulty input
      */

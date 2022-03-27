@@ -8,6 +8,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Spider.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Spider extends Monster {
     private static final String NAME = "Spider";
     private static final int HP = 15;
@@ -15,6 +21,9 @@ public class Spider extends Monster {
     private static final int BLOCK_LEVEL = 1;
     private static final List<Ability> ABILITIES = List.of(new Bite(BITE_LEVEL), new Block(BLOCK_LEVEL));
 
+    /**
+     * constructs a new Spider object
+     */
     public Spider() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }

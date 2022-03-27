@@ -9,6 +9,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Snake.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Snake extends Monster {
     private static final String NAME = "Snake";
     private static final int HP = 31;
@@ -17,6 +23,9 @@ public class Snake extends Monster {
     private static final int ICE_LEVEL = 2;
     private static final List<Ability> ABILITIES = List.of(new Bite(BITE_LEVEL), new Focus(FOCUS_LEVEL), new Ice(ICE_LEVEL, ICE_LEVEL));
 
+    /**
+     * constructs a new Snake object
+     */
     public Snake() {
         super(NAME, HP, MonsterType.ICE, ABILITIES);
     }

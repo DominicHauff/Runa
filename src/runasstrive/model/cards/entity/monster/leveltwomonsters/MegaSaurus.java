@@ -11,6 +11,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents the second level boss monster Mega Saurus.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class MegaSaurus extends Monster {
     private static final String NAME = "Mega Saurus";
     private static final int HP = 100;
@@ -27,6 +33,9 @@ public class MegaSaurus extends Monster {
             new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL)
     );
 
+    /**
+     * constructs a new MegaSaurus object
+     */
     public MegaSaurus() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }

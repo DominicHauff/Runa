@@ -9,6 +9,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Shadow Blade.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class ShadowBlade extends Monster {
     private static final String NAME = "Shadow Blade";
     private static final int HP = 27;
@@ -21,6 +27,9 @@ public class ShadowBlade extends Monster {
             new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL)
     );
 
+    /**
+     * constructs a new ShadowBlade object
+     */
     public ShadowBlade() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);
     }

@@ -8,6 +8,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Gorgon.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Gorgon extends Monster {
     private static final String NAME = "Gorgon";
     private static final int HP = 13;
@@ -16,6 +22,9 @@ public class Gorgon extends Monster {
 
     private static final List<Ability> ABILITIES = List.of(new Focus(FOCUS_LEVEL), new Fire(FIRE_LEVEL, FIRE_LEVEL));
 
+    /**
+     * constructs a new Gorgon object
+     */
     public Gorgon() {
         super(NAME, HP, MonsterType.FIRE, ABILITIES);
     }

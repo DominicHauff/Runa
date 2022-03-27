@@ -8,6 +8,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Skeleton.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Skeleton extends Monster {
     private static final String NAME = "Skeleton";
     private static final int HP = 14;
@@ -15,6 +21,9 @@ public class Skeleton extends Monster {
     private static final int LIGHTNING_LEVEL = 1;
     private static final List<Ability> ABILITIES = List.of(new Focus(FOCUS_LEVEL), new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL));
 
+    /**
+     * constructs a new Skeleton
+     */
     public Skeleton() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);
     }

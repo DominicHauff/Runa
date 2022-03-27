@@ -50,9 +50,10 @@ public class Controller {
     }
 
     /**
-     * Coordinates user input and game logic.
+     * Coordinates user input and game logic by executing game actions based
+     * on the received user input and creating an appropriate response.
      *
-     * @param input a list of io arguments created by the {@link runasstrive.view.InputParser}
+     * @param input a list of io arguments created by the
      * @return returns a response message corresponding to the current {@link GameState} and user input
      */
     public String interact(String input) {

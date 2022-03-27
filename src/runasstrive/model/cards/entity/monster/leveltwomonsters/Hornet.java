@@ -3,13 +3,18 @@ package runasstrive.model.cards.entity.monster.leveltwomonsters;
 import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.ablilities.magic.defensive.Focus;
 import runasstrive.model.cards.ablilities.magic.offensive.Fire;
-import runasstrive.model.cards.ablilities.magic.offensive.Lightning;
 import runasstrive.model.cards.ablilities.physical.offensive.monster.Scratch;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Hornet.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Hornet extends Monster {
     private static final String NAME = "Hornet";
     private static final int HP = 32;
@@ -24,6 +29,9 @@ public class Hornet extends Monster {
             new Fire(FIRE_TWO_LEVEL, FIRE_TWO_LEVEL)
     );
 
+    /**
+     * constructs a new Hornet object
+     */
     public Hornet() {
         super(NAME, HP, MonsterType.FIRE, ABILITIES);
     }

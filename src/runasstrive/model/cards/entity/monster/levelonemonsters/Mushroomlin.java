@@ -8,6 +8,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Mushroomlin
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Mushroomlin extends Monster {
     private static final String NAME = "Mushroomlin";
     private static final int HP = 20;
@@ -15,6 +21,9 @@ public class Mushroomlin extends Monster {
     private static final int SCRATCH_LEVEL = 1;
     private static final List<Ability> ABILITIES = List.of(new Deflect(DEFLECT_LEVEL), new Scratch(SCRATCH_LEVEL));
 
+    /**
+     * constructs a new Mushroomlin object
+     */
     public Mushroomlin() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }

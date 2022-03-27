@@ -8,6 +8,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Goblin.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Goblin extends Monster {
     private static final String NAME = "Goblin";
     private static final int HP = 12;
@@ -15,6 +21,9 @@ public class Goblin extends Monster {
     private static final int DEFLECT_LEVEL = 1;
     private static final List<Ability> ABILITIES = List.of(new Smash(SMASH_LEVEL), new Deflect(DEFLECT_LEVEL));
 
+    /**
+     * constructs a new Goblin object
+     */
     public Goblin() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }

@@ -9,6 +9,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Tarantula.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Tarantula extends Monster {
     private static final String NAME = "Tarantula";
     private static final int HP = 33;
@@ -21,6 +27,9 @@ public class Tarantula extends Monster {
             new Scratch(SCRATCH_LEVEL)
     );
 
+    /**
+     * constructs a new Tarantula object
+     */
     public Tarantula() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }

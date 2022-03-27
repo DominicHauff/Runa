@@ -9,6 +9,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Bear.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Bear extends Monster {
     private static final String NAME = "Bear";
     private static final int HP = 40;
@@ -21,6 +27,9 @@ public class Bear extends Monster {
             new Block(BLOCK_LEVEL)
     );
 
+    /**
+     * constructs a new Bear object
+     */
     public Bear() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }

@@ -129,7 +129,7 @@ public class RunasStrive {
 
     public Die upgradeDie() {
         this.dieBag.pop();
-        this.player.increaseFp(this.getCurrentDie());
+        this.player.increaseMaxFp(this.getCurrentDie());
         return this.getCurrentDie();
     }
 

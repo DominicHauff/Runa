@@ -10,6 +10,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents the first level boss monster Spider King.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class SpiderKing extends Monster {
     private static final String NAME = "Spider King";
     private static final int HP = 50;
@@ -24,6 +30,9 @@ public class SpiderKing extends Monster {
             new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL)
     );
 
+    /**
+     * constructs a new SpiderKing object
+     */
     public SpiderKing() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);
     }

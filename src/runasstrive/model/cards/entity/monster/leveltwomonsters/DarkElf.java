@@ -9,6 +9,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Dark Elf.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class DarkElf extends Monster {
     private static final String NAME = "Dark Elf";
     private static final int HP = 34;
@@ -21,6 +27,9 @@ public class DarkElf extends Monster {
             new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL)
     );
 
+    /**
+     * constructs a new DarkElf object
+     */
     public DarkElf() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }

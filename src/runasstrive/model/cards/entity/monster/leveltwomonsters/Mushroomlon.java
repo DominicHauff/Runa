@@ -9,6 +9,12 @@ import runasstrive.model.cards.entity.type.MonsterType;
 
 import java.util.List;
 
+/**
+ * This class represents a Mushroomlon.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Mushroomlon extends Monster {
     private static final String NAME = "Mushroomlon";
     private static final int HP = 50;
@@ -21,6 +27,9 @@ public class Mushroomlon extends Monster {
             new Block(BLOCK_LEVEL)
     );
 
+    /**
+     * constructs a new Mushroomlon object
+     */
     public Mushroomlon() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);
     }
