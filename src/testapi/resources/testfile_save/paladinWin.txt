@@ -904,4 +904,5 @@ Mega Saurus gains 2 focus
 Mega Saurus uses Fire(1)
 Mega Saurus takes 14 mag. damage
 Mega Saurus dies
-Runa won!#
+Runa won!
+#

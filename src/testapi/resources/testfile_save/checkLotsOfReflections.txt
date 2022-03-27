@@ -464,7 +464,7 @@ Hornet takes 14 mag. damage
 ----------------------------------------
 Runa (45/50 HP, 1/6 FP)
 vs.
-Dark Elf (8 HP, 0 FP): attempts Focus(2) next#
+Dark Elf (8 HP, 0 FP): attempts Focus(2) next
 Hornet (18 HP, 1 FP): attempts Fire(2) next
 ----------------------------------------
 Select card to play
@@ -474,7 +474,7 @@ Select card to play
 Enter number [1--3]:#
 2
 Runa uses Parry(2)
-Dark Elf uses Focus(2)#
+Dark Elf uses Focus(2)
 Hornet uses Scratch(2)
 ----------------------------------------
 Runa (45/50 HP, 1/6 FP)

@@ -13,7 +13,7 @@ Runa enters Stage 1 of Level 1
 Runa (50/50 HP, 1/4 FP)
 vs.
 Gorgon (13 HP, 0 FP): attempts Focus(1) next
-----------------------------------------#
+----------------------------------------
 Select card to play
 1) Thrust(1)
 2) Parry(1)
@@ -179,7 +179,7 @@ Runa uses Thrust(1)
 Enter dice roll [1--10]:#
 10
 Spider King takes 13 phy. damage
-Spider King dies#
+Spider King dies
 Runa gets Thrust(2)
 Runa gets Parry(2)
 Runa (40/50 HP) can discard ability cards for healing (or none)

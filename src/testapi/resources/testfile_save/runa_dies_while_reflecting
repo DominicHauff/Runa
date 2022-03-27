@@ -323,7 +323,7 @@ Enter number [1--5]:#
 1
 Runa uses Focus(1)
 Spider King uses Bite(1)
-Runa takes 10 phy. damage#
+Runa takes 10 phy. damage
 ----------------------------------------
 Runa (22/50 HP, 4/4 FP)
 vs.
@@ -434,5 +434,5 @@ Enter number [1--5]:#
 Runa uses Reflect(1)
 Spider King gains 1 focus
 Spider King uses Lightning(1)
-Runa takes 6 mag. damage#
+Runa takes 6 mag. damage
 Runa dies#

@@ -867,4 +867,5 @@ Enter number [1--4]:#
 Runa uses Water(2)
 Mega Saurus takes 80 mag. damage
 Mega Saurus dies
-Runa won!#
+Runa won!
+#

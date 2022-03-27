@@ -431,4 +431,4 @@ Enter dice roll [1--12]:#
 12
 Mega Saurus takes 32 phy. damage
 Mega Saurus dies
-Runa won!#
+Runa won!
