@@ -23,12 +23,6 @@ public abstract class FightGameState extends GameState {
             return;
         }
 
-        if (this.runasStrive.gameWon()) {
-            this.response += System.lineSeparator() + Messages.GAME_WON + System.lineSeparator();
-            this.nextGameState = null;
-            return;
-        }
-
         if (!this.runasStrive.stageCleared()) {
             this.nextGameState = ChooseAbility.class;
             return;
@@ -45,6 +39,13 @@ public abstract class FightGameState extends GameState {
             this.nextGameState = ChooseNewCards.class;
             return;
         }
+
+        if (this.runasStrive.gameWon()) {
+            this.response += Messages.GAME_WON + System.lineSeparator();
+            this.nextGameState = null;
+            return;
+        }
+
         this.runasStrive.advanceToNextLevel();
 
         this.runasStrive.upgradeCards();

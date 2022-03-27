@@ -86,10 +86,10 @@ public class Stage {
             }
         });
         for (Monster monster : this.getAliveMonsters()) {
-            if (player.isDead()) break;
             Ability ability = monster.useAbility(player);
             this.log.add(String.format(Messages.ENTITY_USES_ABILITY, monster.getName(), ability.toString()));
             this.logTakenDamage(player);
+            if (player.isDead()) break;
             this.logTakenDamage(monster);
             player.resetTakenDamage();
             monster.resetTakenDamage();

@@ -5,6 +5,8 @@ import testapi.test.CodeTester;
 import testapi.utils.FileConverter;
 import testapi.utils.RunaStriveFileConverter;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         //start your main method like this:
@@ -16,8 +18,9 @@ public class Main {
         //fuzzyiotests
         //quitintests
         //testfiles
-
-        String testFileDirectoryPath = "src/testapi/resources/testfile_save";
+        System.out.print("folder: ");
+        String folder = new Scanner(System.in).nextLine();
+        String testFileDirectoryPath = "src/testapi/resources/" + folder;
         FileConverter fileConverter = new RunaStriveFileConverter(testFileDirectoryPath);
         new CodeTester(application, testFileDirectoryPath, fileConverter).runTests();
     }
