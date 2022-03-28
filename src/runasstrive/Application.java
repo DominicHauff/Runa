@@ -14,8 +14,11 @@ import runasstrive.model.RunasStrive;
  * @author ugget
  * @version 1.0
  */
-public class Application {
+public final class Application {
     private static final int EXPECTED_ARGS_SIZE = 0;
+
+    private Application() {
+    }
 
     /**
      * The program's main method.
@@ -32,4 +35,5 @@ public class Application {
         final Controller controller = new Controller(runasStrive, session);
         session.runGame(controller);
     }
+
 }

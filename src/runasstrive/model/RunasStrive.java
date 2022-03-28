@@ -8,10 +8,17 @@ import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.dice.Die;
 import runasstrive.model.levels.FightLog;
 import runasstrive.model.levels.GameLevel;
-import runasstrive.model.levels.Stage;
 
 import java.util.*;
 
+/**
+ * This class represents the game which
+ * holds all methods used to perform game actions and
+ * manipulate entities.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class RunasStrive {
     private final Player player;
     private final Stack<Die> dieBag;
@@ -19,6 +26,14 @@ public class RunasStrive {
     private final LinkedList<Ability> reward;
     private List<Ability> deck;
 
+    /**
+     * This method constructs a new RunasStrive object.
+     *
+     * @param dieBag the die bag which holds all dice
+     * @param abilities the deck holding all choosable ability cards
+     * @param player the player, in this case Runa
+     * @param levels all game levels
+     */
     public RunasStrive(Stack<Die> dieBag, List<Ability> abilities, Player player, Stack<GameLevel> levels) {
         this.dieBag = dieBag;
         this.deck = abilities;
@@ -27,28 +42,58 @@ public class RunasStrive {
         this.reward = new LinkedList<>();
     }
 
-    public GameLevel shuffleCards(int firstSeed, int secondSeed) {
+    /**
+     * This method shuffles the ability card deck and the monster card deck.
+     *
+     * @param firstSeed the seed used to shuffle the ability cards
+     * @param secondSeed the seed used to shuffle the monster cards
+     */
+    public void shuffleCards(int firstSeed, int secondSeed) {
         removeTypeAbilities();
         Collections.shuffle(this.deck, new Random(firstSeed));
         this.levels.peek().initialize(secondSeed);
-        return this.levels.peek();
     }
 
+    /**
+     * This method returns a card from the player's hand chosen by the user
+     *
+     * @param choice the card index
+     * @return the chosen card
+     */
     public boolean pickCard(int choice) {
         return this.player.chooseCard(choice);
     }
 
+    /**
+     * This method returns a boolean based on whether the given
+     * die result is valid or not.
+     *
+     * @param dieRes the given die roll result
+     * @return whether the given die result is valid
+     */
     public boolean rollDie(int dieRes) {
         this.player.setDieRes(dieRes);
         return this.getCurrentDie().throwDie(dieRes);
     }
 
+    /**
+     * This method returns a boolean based on whether the given
+     * target choice index is valid.
+     *
+     * @param choice the given target choice index
+     * @return whether the index is valid
+     */
     public boolean pickTarget(int choice) {
         if (this.getPossibleTargets().size() <= choice) return false;
         this.player.setTarget(this.getPossibleTargets().get(choice));
         return true;
     }
 
+    /**
+     * This method returns a FightLog object which holds
+     * all information about
+     * @return
+     */
      public FightLog startFight() {
         final FightLog fightLog = this.getCurrentLevel().resume(this.player);
         if (fightLog.getStage().cleared()) {
