@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Stack;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -330,14 +331,11 @@ public class RunasStrive {
     }
 
     private void removeTypeAbilities() {
-        List<Ability> toRemove = new ArrayList<>();
-        this.deck.forEach(ability -> {
-            if (ability.getName().equals(this.player.getType().getTypeAbilities().get(0).getName())
-                    || ability.getName().equals(this.player.getType().getTypeAbilities().get(1).getName())) {
-                toRemove.add(ability);
-            }
-        });
-        this.deck.removeAll(toRemove);
+        List<Ability> toRemove1 = this.deck.stream()
+                .filter(ability -> this.player.getType().getTypeAbilities().stream().anyMatch(tability ->
+                        ability.getName().endsWith(tability.getName())))
+                .collect(Collectors.toList());
+        this.deck.removeAll(toRemove1);
     }
 
     private void advanceToNextStage() {
