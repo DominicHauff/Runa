@@ -45,6 +45,7 @@ public class ChooseReward extends GameState {
     @Override
     protected boolean interact(ParameterBundle parameterBundle) {
         final int choice = parameterBundle.get(CHOICE);
+        if (choice != NEW_DIE && choice != NEW_CARDS) return false;
         if (choice == NEW_DIE) {
             this.runasStrive.upgradeDie();
             this.nextGameState = this.runasStrive.canPlayerHeal() ? Heal.class : ChooseAbility.class;
