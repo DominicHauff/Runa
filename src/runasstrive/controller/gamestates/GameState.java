@@ -21,6 +21,11 @@ import java.util.List;
 public abstract class GameState {
 
     /**
+     * A constant used to translate the io index starting at 1 to an index starting at 0.
+     */
+    protected static final int CARD_INDEX_OFFSET = 1;
+
+    /**
      * the instance of the {@link RunasStrive} object referenced
      * by all game states in order to execute the appropriate methods
      */
@@ -47,6 +52,23 @@ public abstract class GameState {
      */
     protected GameState(RunasStrive runasStrive) {
         this.runasStrive = runasStrive;
+    }
+
+    /**
+     * This method represents an entire game state execution from the interaction with
+     * {@link RunasStrive} to setting the response accordingly.
+     *
+     * @param parameterBundle holds all required {@link Parameter} objects for the game state
+     * @return a boolean based on whether the execution was successful or failed
+     * at any point
+     */
+    public boolean execute(ParameterBundle parameterBundle) {
+        if (interact(parameterBundle)) {
+            setNextGameState();
+            setResponse();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -91,16 +113,15 @@ public abstract class GameState {
      * representing a list of choices.
      *
      * @param toList a list of objects that should be listed
-     * @param listIndexOffset a constant offset needed to avoid null references
      * @return the string representing the list of choices
      */
-    protected String list(List<?> toList, int listIndexOffset) {
+    protected String list(List<?> toList) {
         final StringBuilder listBuilder = new StringBuilder();
         toList.forEach(entry -> {
             final int index = toList.indexOf(entry);
             final String el = toList.get(index).toString();
             listBuilder
-                    .append(String.format(Messages.LIST_ELEMENT, index + listIndexOffset, el))
+                    .append(String.format(Messages.LIST_ELEMENT, index + CARD_INDEX_OFFSET, el))
                     .append(System.lineSeparator());
         });
         return listBuilder.toString().trim();
@@ -125,22 +146,4 @@ public abstract class GameState {
      * This method sets the response based on the previous interaction with {@link RunasStrive}.
      */
     protected abstract void setResponse();
-
-    /**
-     * This method represents an entire game state execution from the interaction with
-     * {@link RunasStrive} to setting the response accordingly.
-     *
-     * @param parameterBundle holds all required {@link Parameter} objects for the game state
-     * @return a boolean based on whether the execution was successful or failed
-     * at any point
-     */
-    public boolean execute(ParameterBundle parameterBundle) {
-        if (interact(parameterBundle)) {
-            setNextGameState();
-            setResponse();
-            return true;
-        }
-        return false;
-    }
-
 }

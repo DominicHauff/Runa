@@ -17,7 +17,6 @@ import runasstrive.model.cards.ablilities.Ability;
 public class ChooseAbility extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int MIN_INDEX = 0;
-    private static final int INDEX_OFFSET = 1;
 
     /**
      * This method constructs a new ChooseAbility object.
@@ -37,7 +36,7 @@ public class ChooseAbility extends FightGameState {
                 + this.runasStrive.getCurrentLevel().getCurrentStage().toString() + System.lineSeparator()
                 + Messages.SEPARATOR + System.lineSeparator()
                 + Messages.SELECT_CARD_MESSAGE + System.lineSeparator()
-                + this.list(this.runasStrive.getPlayer().getAbilities(), INDEX_OFFSET) + System.lineSeparator();
+                + this.list(this.runasStrive.getPlayer().getAbilities()) + System.lineSeparator();
         return stringBuilder + repeatPrompt();
     }
 
@@ -56,7 +55,7 @@ public class ChooseAbility extends FightGameState {
      */
     @Override
     protected boolean interact(ParameterBundle parameterBundle) {
-        final int choice = parameterBundle.get(CHOICE) - INDEX_OFFSET;
+        final int choice = parameterBundle.get(CHOICE) - CARD_INDEX_OFFSET;
         if (choice < MIN_INDEX) {
             return false;
         }
