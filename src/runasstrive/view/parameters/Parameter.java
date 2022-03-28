@@ -5,7 +5,7 @@ package runasstrive.view.parameters;
  * in this application mainly single or multiple {@code Integer} parameters.
  *
  * @param <T> either a {@link SingleChoiceParameter} or a {@link MultipleChoiceParameter},
- *           depending on the current {@link runasstrive.controller.gamestates.GameState}
+ *           depending on the current game state
  * @author ugget
  * @version 1.0
  */
@@ -13,7 +13,7 @@ public abstract class Parameter<T> {
 
     /**
      * @param parsingResult a single element of the argument list held by
-     * {@link runasstrive.controller.gamestates.GameState} objects
+     * game state objects
      * @return returns a Parameter object of needed type corresponding to the needed input format
      * @throws IllegalArgumentException gets silently thrown in case of faulty input
      */

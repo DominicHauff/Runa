@@ -23,7 +23,6 @@ import runasstrive.model.RunasStrive;
  */
 public class Controller {
     private static final String ARGUMENT_REGEX = "(\\d+(,\\d+)*)*";
-    private final RunasStrive runasStrive;
     private final GameStateSupplier gameStateSupplier;
     private final Session session;
     private GameState currentGameState;
@@ -36,7 +35,6 @@ public class Controller {
      * @param session the instance of the io session
      */
     public Controller(RunasStrive runasStrive, Session session) {
-        this.runasStrive = runasStrive;
         this.gameStateSupplier = new GameStateSupplier(runasStrive);
         this.session = session;
         this.lastInputFaulty = false;

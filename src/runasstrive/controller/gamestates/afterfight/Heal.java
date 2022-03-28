@@ -77,7 +77,8 @@ public class Heal extends GameState {
         this.choices = choices;
         if (!choices.isEmpty()) {
             this.runasStrive
-                    .healPlayer(choices.stream().map(choice -> choice - CARD_INDEX_OFFSET).collect(Collectors.toList()));
+                    .healPlayer(choices.stream()
+                            .map(choice -> choice - CARD_INDEX_OFFSET).collect(Collectors.toList()));
         }
         return true;
     }

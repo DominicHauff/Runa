@@ -81,6 +81,9 @@ public abstract class GameState {
      */
     public abstract String repeatPrompt();
 
+    /**
+     * @return the required Parameter
+     */
     public abstract Parameter<?> getParameter();
 
     /**

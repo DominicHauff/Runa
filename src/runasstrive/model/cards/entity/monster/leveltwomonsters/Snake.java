@@ -21,7 +21,8 @@ public class Snake extends Monster {
     private static final int BITE_LEVEL = 2;
     private static final int FOCUS_LEVEL = 2;
     private static final int ICE_LEVEL = 2;
-    private static final List<Ability> ABILITIES = List.of(new Bite(BITE_LEVEL), new Focus(FOCUS_LEVEL), new Ice(ICE_LEVEL, ICE_LEVEL));
+    private static final List<Ability> ABILITIES
+            = List.of(new Bite(BITE_LEVEL), new Focus(FOCUS_LEVEL), new Ice(ICE_LEVEL, ICE_LEVEL));
 
     /**
      * This method constructs a new Snake object

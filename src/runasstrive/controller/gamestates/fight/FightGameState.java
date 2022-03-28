@@ -11,9 +11,22 @@ import runasstrive.view.parameters.ParameterBundle;
 import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 
+/**
+ * This class represents a game state during a fight
+ * between Runa and monsters.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public abstract class FightGameState extends GameState {
     private FightLog fightLog;
 
+    /**
+     * This method serves as a super constructor for all fight game states.
+     *
+     * @param runasStrive the instance of the game used by
+     *                    all game states
+     */
     protected FightGameState(RunasStrive runasStrive) {
         super(runasStrive);
     }
@@ -32,6 +45,12 @@ public abstract class FightGameState extends GameState {
         return false;
     }
 
+    /**
+     * This method is used to commence a fight
+     * when no other next game state is set.
+     *
+     * @return whether the fight could commence
+     */
     protected boolean fight() {
         if (this.nextGameState == null) {
             this.fightLog = this.runasStrive.startFight();
@@ -40,6 +59,10 @@ public abstract class FightGameState extends GameState {
         return false;
     }
 
+    /**
+     * This method sets the next game state after a
+     * fight is over.
+     */
     public void setGameStateAfterFight() {
         switch (this.fightLog.getFightResult()) {
             case GAME_OVER:
@@ -58,6 +81,10 @@ public abstract class FightGameState extends GameState {
         }
     }
 
+    /**
+     * This method creates a response based on the
+     * previous fight's outcome.
+     */
     protected void setResponseAfterFight() {
         final String fightLog = this.fightLog.getFightLog();
         this.response = this.response == null ? fightLog : this.response + fightLog;

@@ -19,7 +19,8 @@ public class Skeleton extends Monster {
     private static final int HP = 14;
     private static final int FOCUS_LEVEL = 1;
     private static final int LIGHTNING_LEVEL = 1;
-    private static final List<Ability> ABILITIES = List.of(new Focus(FOCUS_LEVEL), new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL));
+    private static final List<Ability> ABILITIES
+            = List.of(new Focus(FOCUS_LEVEL), new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL));
 
     /**
      * This method constructs a new Skeleton.

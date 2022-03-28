@@ -23,6 +23,9 @@ public enum Level {
      */
     LEVEL_TWO(2, 4, new int[]{1, 2, 2}, new MegaSaurus());
 
+    /**
+     * The constant for the game's maximum level
+     */
     public static final Level MAX_LEVEL = LEVEL_TWO;
     private final int value;
     private final int numOfStages;
