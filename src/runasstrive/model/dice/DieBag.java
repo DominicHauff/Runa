@@ -2,6 +2,9 @@ package runasstrive.model.dice;
 
 import java.util.Stack;
 
+/**
+ *
+ */
 public class DieBag {
     private final Stack<Die> dice;
 
