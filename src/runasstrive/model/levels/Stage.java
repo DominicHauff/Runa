@@ -12,22 +12,30 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class represents a stage containing a
+ * fixed amount of monsters Runa has to defeat in order
+ * to clear the stage.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Stage {
     private static final int ONE_ONE_ONE = (int) Math.pow(0, 0); //TODO: mach das lieber wieder weg xD
     private final int stageNumber;
     private final Collection<Monster> monsters;
     private final List<String> log;
 
+    /**
+     * This method constructs a new Stage object.
+     *
+     * @param stageNumber the number of the stage
+     * @param monsters the monsters Runa has to defeat
+     */
     public Stage(int stageNumber, Collection<Monster> monsters) {
         this.stageNumber = stageNumber;
         this.monsters = monsters;
         this.log = new ArrayList<>();
-    }
-
-    public String getFightLog() {
-        final StringBuilder builder = new StringBuilder();
-        this.log.forEach(logEntry -> builder.append(logEntry).append(System.lineSeparator()));
-        return builder.toString().trim();
     }
 
     private void logTakenDamage(Entity<?> entity) {
@@ -45,6 +53,13 @@ public class Stage {
         }
     }
 
+    /**
+     * This method creates a new fight log and
+     * logs all relevant information during the fight.
+     *
+     * @param player the player
+     * @return the fight log
+     */
     public FightLog enter(Player player) {
         this.log.clear();
         if (player.getCardToPlay().targetRequired()) {
@@ -82,18 +97,30 @@ public class Stage {
         return new FightLog(this, this.log);
     }
 
+    /**
+     * @return whether the stage is cleared
+     */
     public boolean cleared() {
         return this.getAliveMonsters().isEmpty();
     }
 
+    /**
+     * @return the stage number
+     */
     public int getStageNumber() {
         return stageNumber;
     }
 
+    /**
+     * @return the stages monsters Runa has to defeat
+     */
     public Collection<Monster> getMonsters() {
         return this.monsters;
     }
 
+    /**
+     * @return a list of all monsters that are still alive
+     */
     public LinkedList<Monster> getAliveMonsters() {
         return monsters.stream()
                 .filter(monster -> !monster.isDead()).collect(Collectors.toCollection(LinkedList::new));
