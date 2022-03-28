@@ -1,5 +1,11 @@
 package runasstrive.view.resources;
 
+/**
+ * This utility class serves as a static messages provider for printing information about the game state.
+ *
+ * @author uggut
+ * @version 1.0
+ */
 public final class Messages {
 
     /**
