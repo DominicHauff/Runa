@@ -1,12 +1,21 @@
 package testapi.test;
 
-import testapi.utils.*;
+import testapi.utils.FileConverter;
+import testapi.utils.InOutPair;
+import testapi.utils.InStream;
+import testapi.utils.OutStream;
+import testapi.utils.TestFileReader;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CodeTester {
     public static final PrintStream terminal = System.out;

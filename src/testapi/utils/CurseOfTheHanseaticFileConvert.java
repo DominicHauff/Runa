@@ -1,10 +1,6 @@
 package testapi.utils;
 
-import testapi.test.CodeTester;
-
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CurseOfTheHanseaticFileConvert extends FileConverter {

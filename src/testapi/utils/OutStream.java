@@ -2,7 +2,10 @@ package testapi.utils;
 
 import testapi.test.CodeTester;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 
 public class OutStream extends PrintStream {

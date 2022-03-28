@@ -83,7 +83,7 @@ public class ChooseNewCards extends GameState {
 
         LinkedList<Ability> reward = new LinkedList<>(); //TODO: find better solution if everything else works fine
         for (Integer choice : choices) {
-            final Ability card = this.runasStrive.drawCard(choice);
+            final Ability card = this.runasStrive.drawCard(choice - CARD_INDEX_OFFSET);
             reward.add(card);
         }
 

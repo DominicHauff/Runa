@@ -1,6 +1,7 @@
 package runasstrive.view.parameters;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**

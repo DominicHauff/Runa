@@ -2,8 +2,22 @@ package runasstrive.builder;
 
 import runasstrive.model.Level;
 import runasstrive.model.cards.entity.monster.Monster;
-import runasstrive.model.cards.entity.monster.levelonemonsters.*;
-import runasstrive.model.cards.entity.monster.leveltwomonsters.*;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Frog;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Ghost;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Goblin;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Gorgon;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Mushroomlin;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Rat;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Skeleton;
+import runasstrive.model.cards.entity.monster.levelonemonsters.Spider;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.Bear;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.DarkElf;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.Hornet;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.Mushroomlon;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.ShadowBlade;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.Snake;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.Tarantula;
+import runasstrive.model.cards.entity.monster.leveltwomonsters.WildBoar;
 import runasstrive.model.levels.GameLevel;
 
 import java.util.Collection;

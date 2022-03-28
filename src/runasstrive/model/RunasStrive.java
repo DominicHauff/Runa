@@ -9,7 +9,12 @@ import runasstrive.model.dice.Die;
 import runasstrive.model.levels.FightLog;
 import runasstrive.model.levels.GameLevel;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+import java.util.Stack;
 
 /**
  * This class represents the game which
