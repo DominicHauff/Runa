@@ -4,12 +4,25 @@ import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.cards.entity.type.CharacterType;
 
+/**
+ * This class represents the Thrust ability card.
+ * It inflicts physical and additional damage
+ * depending on the die result.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Thrust extends OffensivePhysicalPlayerAbility {
     private static final String NAME = "Thrust";
     private static final int PHYSICAL_DAMAGE_FACTOR = 6;
     private static final int ADDITIONAL_DAMAGE_FACTOR = 4;
     private static final boolean BREAK_FOCUS_POINTS = false;
 
+    /**
+     * This method constructs a new Thrust object.
+     *
+     * @param level the ability's level
+     */
     public Thrust(int level) {
         super(NAME, level);
     }
@@ -19,8 +32,8 @@ public class Thrust extends OffensivePhysicalPlayerAbility {
         if (caster.getEntityType() == CharacterType.class) {
             final int dieRes = ((Player) caster).getDieRes();
             if (dieRes >= CRITICAL_DIE_RES) {
-                this.physicalDamage =
-                        PHYSICAL_DAMAGE_FACTOR * this.level + dieRes + ADDITIONAL_DAMAGE_FACTOR * this.level;
+                this.physicalDamage
+                        = PHYSICAL_DAMAGE_FACTOR * this.level + dieRes + ADDITIONAL_DAMAGE_FACTOR * this.level;
             } else {
                 this.physicalDamage = PHYSICAL_DAMAGE_FACTOR * this.level + dieRes;
             }

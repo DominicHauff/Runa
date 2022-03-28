@@ -2,11 +2,23 @@ package runasstrive.model.cards.ablilities.physical.offensive.monster;
 
 import runasstrive.model.cards.entity.Entity;
 
+/**
+ * This class represents the Claw ability card.
+ * It inflicts physical damage.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Claw extends OffensivePhysicalMonsterAbility {
     private static final String NAME = "Claw";
     private static final int PHYSICAL_DAMAGE_FACTOR = 6;
     private static final boolean BREAK_FOCUS_POINTS = true;
 
+    /**
+     * This method constructs a new Claw object.
+     *
+     * @param level the ability's level
+     */
     public Claw(int level) {
         super(NAME, level);
     }

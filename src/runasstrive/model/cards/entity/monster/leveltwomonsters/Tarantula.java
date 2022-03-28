@@ -28,7 +28,7 @@ public class Tarantula extends Monster {
     );
 
     /**
-     * constructs a new Tarantula object
+     * This method constructs a new Tarantula object
      */
     public Tarantula() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

@@ -33,7 +33,7 @@ public class Player extends Entity<CharacterType> {
     private int dieRes;
 
     /**
-     * constructs a new Player object
+     * This method constructs a new Player object
      *
      * @param name the player's name
      * @param heal the amount of health points a player gains for discarding one ability
@@ -43,7 +43,8 @@ public class Player extends Entity<CharacterType> {
      * @param maxFp the player's maximum amount of health points
      * @param abilities the player's ability cards
      */
-    public Player(String name, int heal, int minAbilityCards, int hp, int fp, int maxFp, Collection<Ability> abilities) {
+    public Player(String name, int heal, int minAbilityCards, int hp,
+                  int fp, int maxFp, Collection<Ability> abilities) {
         super(name, hp, abilities);
         this.maxHp = hp;
         this.fp = fp;
@@ -57,6 +58,13 @@ public class Player extends Entity<CharacterType> {
         return String.format(Messages.PLAYER_STATS, this.getName(), this.getHp(), this.getFp(), this.maxFp);
     }
 
+    /**
+     * This method returns a boolean based on whether
+     * the given card index is valid.
+     *
+     * @param index the chosen card index
+     * @return whether the index is valid
+     */
     public boolean chooseCard(int index) {
         if (index < this.abilities.size()) {
             this.cardToPlay = this.getAbilities().get(index);
@@ -169,14 +177,9 @@ public class Player extends Entity<CharacterType> {
         this.maxFp = currentDie.getSides();
     }
 
-    public int getMaxHp() {
-        return this.maxHp;
-    }
-
-    public int getHeal() {
-        return heal;
-    }
-
+    /**
+     * This method resets the gained hp value.
+     */
     public void clearGainedHealth() {
         this.gainedHealth = MIN_HP;
     }
@@ -186,6 +189,12 @@ public class Player extends Entity<CharacterType> {
         this.fp = Math.max(MIN_FP, this.fp - cost);
     }
 
+    /**
+     * This method returns the level of the Focus
+     * ability card if present.
+     *
+     * @return the cards level
+     */
     public int getFocusLevel() {
         Ability card = this.abilities.stream()
                 .filter(ability -> ability.getName().equals("Focus"))

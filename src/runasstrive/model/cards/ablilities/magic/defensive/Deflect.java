@@ -1,8 +1,15 @@
 package runasstrive.model.cards.ablilities.magic.defensive;
 
-import runasstrive.model.cards.ablilities.Ability;
 import runasstrive.model.cards.entity.Entity;
 
+/**
+ * This class represents the Deflect ability card.
+ * Its effect is that it reduces the magic damage
+ * inflicted on the caster.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Deflect extends DefensiveMagicAbility {
     private static final String NAME = "Deflect";
     private static final int REFLECT_MAGIC_DAMAGE = 0;
@@ -10,6 +17,11 @@ public class Deflect extends DefensiveMagicAbility {
     private static final int MAGIC_SHIELD_ADDITIONAL_VALUE = 2;
     private static final boolean WILL_INCREASE_FOCUS_POINTS = false;
 
+    /**
+     * This method constructs a new Deflect object
+     *
+     * @param level the ability's level
+     */
     public Deflect(int level) {
         super(NAME, level);
     }

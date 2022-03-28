@@ -22,7 +22,7 @@ public class Spider extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Bite(BITE_LEVEL), new Block(BLOCK_LEVEL));
 
     /**
-     * constructs a new Spider object
+     * This method constructs a new Spider object.
      */
     public Spider() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

@@ -11,7 +11,8 @@ import runasstrive.model.RunasStrive;
 /**
  * The Controller represents a managing object used to organize
  * the game's various states ({@link GameState}) and to process
- * the given user input. It contains the instance of the game
+ * the given user input, essentially resembling a finite state machine.
+ * It contains the instance of the game
  * ({@link RunasStrive}) and a {@link GameStateSupplier} to receive
  * and call the {@link GameState#execute(ParameterBundle parameterBundle)}
  * method on each {@link GameState}, thus serving as a connection point
@@ -29,7 +30,7 @@ public class Controller {
     private boolean lastInputFaulty;
 
     /**
-     * Constructs a new controller.
+     * This method constructs a new Controller object.
      *
      * @param runasStrive the instance of the actual game
      * @param session the instance of the io session

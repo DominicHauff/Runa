@@ -28,7 +28,7 @@ public class Mushroomlon extends Monster {
     );
 
     /**
-     * constructs a new Mushroomlon object
+     * This method constructs a new Mushroomlon object
      */
     public Mushroomlon() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

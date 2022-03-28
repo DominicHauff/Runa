@@ -7,11 +7,24 @@ import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.ablilities.Ability;
 
+/**
+ * This class represents the {@link FightGameState} in which
+ * the player can choose their next ability to use in the fight.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class ChooseAbility extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int MIN_INDEX = 0;
     private static final int INDEX_OFFSET = 1;
 
+    /**
+     * This method constructs a new ChooseAbility object.
+     *
+     * @param runasStrive the instance of the {@link RunasStrive} object used by all
+     *                    game states
+     */
     public ChooseAbility(RunasStrive runasStrive) {
         super(runasStrive);
     }

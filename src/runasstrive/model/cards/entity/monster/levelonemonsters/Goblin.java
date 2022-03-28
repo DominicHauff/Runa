@@ -22,7 +22,7 @@ public class Goblin extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Smash(SMASH_LEVEL), new Deflect(DEFLECT_LEVEL));
 
     /**
-     * constructs a new Goblin object
+     * This method constructs a new Goblin object.
      */
     public Goblin() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

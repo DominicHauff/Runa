@@ -23,7 +23,7 @@ public class Ghost extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Focus(FOCUS_LEVEL), new Ice(ICE_LEVEL, ICE_LEVEL));
 
     /**
-     * constructs a new Ghost object
+     * This method constructs a new Ghost object.
      */
     public Ghost() {
         super(NAME, HP, MonsterType.ICE, ABILITIES);

@@ -28,7 +28,7 @@ public class DarkElf extends Monster {
     );
 
     /**
-     * constructs a new DarkElf object
+     * This method constructs a new DarkElf object
      */
     public DarkElf() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

@@ -10,8 +10,25 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Stack;
 
-public class LevelBuilder {
+/**
+ * This class is a utility class used to instantiate all
+ * needed objects and eventually build and provide new
+ * {@link GameLevel} objects to the application.
+ *
+ * @author ugget
+ * @version 1.0
+ */
+public final class LevelBuilder {
+    private LevelBuilder() {
 
+    }
+
+    /**
+     * This method creates a new stack that holds
+     * all {@link GameLevel} objects.
+     *
+     * @return the stack that holds the levels
+     */
     public static Stack<GameLevel> buildLevels() {
         final Stack<GameLevel> gameLevels = new Stack<>();
         gameLevels.push(getLevelTwo());

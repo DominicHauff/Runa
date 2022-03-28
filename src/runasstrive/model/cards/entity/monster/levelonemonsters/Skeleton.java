@@ -22,7 +22,7 @@ public class Skeleton extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Focus(FOCUS_LEVEL), new Lightning(LIGHTNING_LEVEL, LIGHTNING_LEVEL));
 
     /**
-     * constructs a new Skeleton
+     * This method constructs a new Skeleton.
      */
     public Skeleton() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);

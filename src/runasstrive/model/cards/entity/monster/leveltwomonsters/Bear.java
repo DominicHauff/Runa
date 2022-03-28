@@ -28,7 +28,7 @@ public class Bear extends Monster {
     );
 
     /**
-     * constructs a new Bear object
+     * This method constructs a new Bear object
      */
     public Bear() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

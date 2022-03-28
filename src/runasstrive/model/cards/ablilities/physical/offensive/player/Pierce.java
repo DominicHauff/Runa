@@ -4,12 +4,25 @@ import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.cards.entity.type.CharacterType;
 
+/**
+ * This class represents the Pierce ability card.
+ * It inflicts physical and additional damage
+ * depending on the die result.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Pierce extends OffensivePhysicalPlayerAbility {
     private static final String NAME = "Pierce";
     private static final int PHYSICAL_DAMAGE_FACTOR = 7;
     private static final int ADDITIONAL_DAMAGE_FACTOR = 5;
     private static final boolean BREAK_FOCUS_POINTS = false;
 
+    /**
+     * This method constructs a new Pierce object.
+     *
+     * @param level the ability's level
+     */
     public Pierce(int level) {
         super(NAME, level);
     }

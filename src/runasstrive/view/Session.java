@@ -19,7 +19,7 @@ public class Session {
     private boolean running;
 
     /**
-     * Constructs a new Session.
+     * This method constructs a new Session object.
      */
     public Session() {
         this.running = true;

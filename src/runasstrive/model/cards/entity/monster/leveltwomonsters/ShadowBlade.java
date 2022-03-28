@@ -28,7 +28,7 @@ public class ShadowBlade extends Monster {
     );
 
     /**
-     * constructs a new ShadowBlade object
+     * This method constructs a new ShadowBlade object
      */
     public ShadowBlade() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);

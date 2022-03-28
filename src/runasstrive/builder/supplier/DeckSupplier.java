@@ -15,11 +15,26 @@ import runasstrive.model.cards.ablilities.physical.offensive.player.Thrust;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
+/**
+ * This class is a pure utility class used to provide a complete
+ * deck of all {@link Ability} cards which can be used by the
+ * player
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class DeckSupplier {
     private static final int COST = 1;
 
+    /**
+     * This method returns the ability deck from
+     * which the player can choose new abilities
+     * as rewards after won battles.
+     *
+     * @param level the level with which each card in the deck is initialized
+     * @return the deck
+     */
     public static List<Ability> getDeck(int level) {
         final List<Ability> deck = new ArrayList<>();
         deck.add(new Slash(level));

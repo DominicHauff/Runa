@@ -11,11 +11,25 @@ import runasstrive.model.cards.ablilities.Ability;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class represents the {@link FightGameState} in which
+ * the player wants to play an ability that requires a target
+ * and now has to choose which enemy to attack.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class ChooseTarget extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int INDEX_OFFSET = 1;
     private static final int MIN_INDEX = 0;
 
+    /**
+     * This method constructs a new ChooseTarget object.
+     *
+     * @param runasStrive the instance of the {@link RunasStrive} object used by all
+     *                    game states
+     */
     public ChooseTarget(RunasStrive runasStrive) {
         super(runasStrive);
     }

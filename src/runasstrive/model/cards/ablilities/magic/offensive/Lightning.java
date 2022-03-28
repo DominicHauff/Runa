@@ -4,6 +4,14 @@ import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.cards.entity.type.MonsterType;
 
+/**
+ * This class represents the Lightning ability card.
+ * It inflicts magic damage on a chosen target and
+ * deals additional damage to Fire type monsters.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Lightning extends OffensiveMagicAbility {
     private static final String NAME = "Lightning";
     private static final int MAGIC_DAMAGE_FACTOR_PLAYER = 2;
@@ -13,6 +21,12 @@ public class Lightning extends OffensiveMagicAbility {
     private static final int ADDITIONAL_DAMAGE_VALUE_MONSTER = 2;
     private static final MonsterType AFFECTED_MONSTER_TYPE = MonsterType.FIRE;
 
+    /**
+     * This method constructs a new Lightning object
+     *
+     * @param level the ability's level
+     * @param cost the ability's cost
+     */
     public Lightning(int level, int cost) {
         super(NAME, level, cost);
     }
@@ -22,8 +36,8 @@ public class Lightning extends OffensiveMagicAbility {
         this.physicalDamage = PHYSICAL_DAMAGE;
 
         if (caster.getEntityType() == CharacterType.class) {
-            this.magicDamage =
-                    (MAGIC_DAMAGE_FACTOR_PLAYER * this.level + ADDITIONAL_DAMAGE_VALUE_PLAYER) * caster.getFp()
+            this.magicDamage
+                    = (MAGIC_DAMAGE_FACTOR_PLAYER * this.level + ADDITIONAL_DAMAGE_VALUE_PLAYER) * caster.getFp()
                             + ADDITIONAL_DAMAGE_VALUE_CONSTANT_PLAYER;
         } else {
             this.magicDamage = MAGIC_DAMAGE_FACTOR_MONSTER * this.level + ADDITIONAL_DAMAGE_VALUE_MONSTER;

@@ -26,7 +26,7 @@ public class WildBoar extends Monster {
     );
 
     /**
-     * constructs a new WildBoar object
+     * This method constructs a new WildBoar object
      */
     public WildBoar() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

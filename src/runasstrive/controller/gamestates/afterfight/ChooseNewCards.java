@@ -13,13 +13,26 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.IntStream;
 
+/**
+ * This class represents the {@link GameState} in which
+ * the player has won a fight and can choose new ability
+ * cards to add to his deck of abilities.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class ChooseNewCards extends GameState {
     private static final MultipleChoiceParameter CHOICES = new MultipleChoiceParameter();
     private static final int EXPECTED_MIN_SIZE = 1;
     private static final int CARD_INDEX_OFFSET = 1;
 
+    /**
+     * This method constructs a new ChooseNewCards object
+     *
+     * @param runasStrive the instance of the {@link RunasStrive} object used by all
+     *                    game states
+     */
     public ChooseNewCards(RunasStrive runasStrive) {
         super(runasStrive);
     }

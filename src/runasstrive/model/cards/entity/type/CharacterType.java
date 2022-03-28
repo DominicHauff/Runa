@@ -62,7 +62,7 @@ public enum CharacterType {
     private final List<Ability> typeAbilities;
 
     /**
-     * constructs a new CharacterType
+     * This method constructs a new CharacterType
      *
      * @param value represents type's the list index
      * @param name the type's name

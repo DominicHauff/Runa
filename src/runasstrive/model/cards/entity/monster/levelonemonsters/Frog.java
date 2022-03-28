@@ -23,7 +23,7 @@ public class Frog extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Focus(FOCUS_LEVEL), new Water(WATER_LEVEL, WATER_LEVEL));
 
     /**
-     * constructs a new Frog object
+     * This method constructs a new Frog object.
      */
     public Frog() {
         super(NAME, HP, MonsterType.WATER, ABILITIES);

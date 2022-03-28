@@ -10,9 +10,23 @@ import runasstrive.model.cards.entity.type.CharacterType;
 
 import java.util.Arrays;
 
+/**
+ * This class represents the {@link GameState} in which
+ * the player has to choose which character class he wants to
+ * play the game as.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class ChooseCharacterClass extends GameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
 
+    /**
+     * This method constructs a new ChooseCharacterClass object.
+     *
+     * @param runasStrive the instance of the {@link RunasStrive} object used by all
+     *                    game states
+     */
     public ChooseCharacterClass(RunasStrive runasStrive) {
         super(runasStrive);
         this.response = null;

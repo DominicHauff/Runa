@@ -4,11 +4,24 @@ import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.cards.entity.type.CharacterType;
 
+/**
+ * This class represents the Swing ability card.
+ * It inflicts physical and breaks its target's
+ * focus state.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Swing extends OffensivePhysicalPlayerAbility {
     private static final String NAME = "Swing";
     private static final int PHYSICAL_DAMAGE_FACTOR = 5;
     private static final boolean BREAK_FOCUS_POINTS = true;
 
+    /**
+     * This method constructs a new Swing object.
+     *
+     * @param level the ability's level
+     */
     public Swing(int level) {
         super(NAME, level);
     }

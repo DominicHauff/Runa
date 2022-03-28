@@ -9,12 +9,26 @@ import runasstrive.view.resources.Messages;
 import runasstrive.model.RunasStrive;
 import runasstrive.model.dice.Die;
 
+/**
+ * This class represents the {@link GameState} in which
+ * the player has won a fight and can choose to either
+ * upgrade their die or receive new ability cards.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class ChooseReward extends GameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
     private static final int NEW_CARDS = 1;
     private static final int NEW_DIE = 2;
     private static final int NUM_CHOICES = 2;
 
+    /**
+     * This method constructs a new ChooseReward object.
+     *
+     * @param runasStrive the instance of the {@link RunasStrive} object used by all
+     *                    game states
+     */
     public ChooseReward(RunasStrive runasStrive) {
         super(runasStrive);
     }

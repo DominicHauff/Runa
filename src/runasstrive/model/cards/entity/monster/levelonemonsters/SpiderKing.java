@@ -31,7 +31,7 @@ public class SpiderKing extends Monster {
     );
 
     /**
-     * constructs a new SpiderKing object
+     * This method constructs a new SpiderKing object
      */
     public SpiderKing() {
         super(NAME, HP, MonsterType.LIGHTNING, ABILITIES);

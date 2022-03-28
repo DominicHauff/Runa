@@ -22,7 +22,7 @@ public class Mushroomlin extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Deflect(DEFLECT_LEVEL), new Scratch(SCRATCH_LEVEL));
 
     /**
-     * constructs a new Mushroomlin object
+     * This method constructs a new Mushroomlin object.
      */
     public Mushroomlin() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

@@ -2,7 +2,6 @@ package runasstrive.controller.gamestates.init;
 
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.fight.ChooseAbility;
-import runasstrive.model.Level;
 import runasstrive.view.parameters.MultipleChoiceParameter;
 import runasstrive.view.parameters.Parameter;
 import runasstrive.view.parameters.ParameterBundle;
@@ -12,12 +11,26 @@ import runasstrive.model.levels.GameLevel;
 
 import java.util.List;
 
+/**
+ * This class represents the {@link GameState} in which
+ * the player has to enter two seeds used to shuffle both
+ * the ability card deck and the monster card deck.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class InitializeLevel extends GameState {
     private static final MultipleChoiceParameter SEEDS = new MultipleChoiceParameter();
     private static final int FIRST_SEED_INDEX = 0;
     private static final int SECOND_SEED_INDEX = 1;
     private static final int EXPECTED_NUM_SEEDS = 2;
 
+    /**
+     * This method constructs a new InitializeLevel object.
+     *
+     * @param runasStrive the instance of the {@link RunasStrive} object used by all
+     *                    game states
+     */
     public InitializeLevel(RunasStrive runasStrive) {
         super(runasStrive);
         this.response = null;

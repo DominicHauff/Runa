@@ -24,7 +24,7 @@ public class Snake extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Bite(BITE_LEVEL), new Focus(FOCUS_LEVEL), new Ice(ICE_LEVEL, ICE_LEVEL));
 
     /**
-     * constructs a new Snake object
+     * This method constructs a new Snake object
      */
     public Snake() {
         super(NAME, HP, MonsterType.ICE, ABILITIES);

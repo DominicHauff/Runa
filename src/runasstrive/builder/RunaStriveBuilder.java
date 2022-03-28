@@ -11,8 +11,22 @@ import runasstrive.model.levels.GameLevel;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * This class is a utility class used to instantiate
+ * a new {@link RunasStrive} game object with all
+ * required objects.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class RunaStriveBuilder {
     private static final int INITIAL_ABILITY_LEVEL = 1;
+
+    /**
+     * This method builds the game object
+     *
+     * @return the Runas Strive game
+     */
     public static RunasStrive buildGame() {
         final Player player = PlayerBuilder.buildPlayer();
         final Stack<GameLevel> levels = LevelBuilder.buildLevels();

@@ -2,10 +2,23 @@ package runasstrive.model.cards.ablilities.physical.defensive;
 
 import runasstrive.model.cards.entity.Entity;
 
+/**
+ * This class represents the Parry ability.
+ * Like Block, it reduces the physical damage inflicted upon
+ * the caster.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Parry extends DefensivePhysicalAbility {
-    protected static final String NAME = "Parry";
-    protected static final int PHYSICAL_SHIELD_FACTOR = 7;
+    private static final String NAME = "Parry";
+    private static final int PHYSICAL_SHIELD_FACTOR = 7;
 
+    /**
+     * This method constructs a new Parry object.
+     *
+     * @param level the ability's level
+     */
     public Parry(int level) {
         super(NAME, level);
     }

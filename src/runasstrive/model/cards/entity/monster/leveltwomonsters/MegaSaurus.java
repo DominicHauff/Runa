@@ -34,7 +34,7 @@ public class MegaSaurus extends Monster {
     );
 
     /**
-     * constructs a new MegaSaurus object
+     * This method constructs a new MegaSaurus object
      */
     public MegaSaurus() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

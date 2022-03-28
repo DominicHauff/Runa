@@ -271,16 +271,24 @@ public abstract class Entity<T> extends Card {
     }
 
     /**
-     * @return returns the amount of magic damage taken during the last attack against the entity
+     * @return returns the amount of magic damage taken
+     * during the last attack against the entity
      */
     public int getTakenMagicDamage() {
         return this.takenMagicDamage;
     }
 
+    /**
+     * @return This method returns the amount of physical damage
+     * taken during the last attack against the entity
+     */
     public int getTakenPhysicalDamage() {
         return this.takenPhysicalDamage;
     }
 
+    /**
+     * This method resets all shield values.
+     */
     public void resetShield() {
         this.magicShield = 0;
         this.physicalShield = 0;
@@ -288,26 +296,46 @@ public abstract class Entity<T> extends Card {
         this.reflectPhysicalDamage = 0;
     }
 
+    /**
+     * This method resets the taken damage values.
+     */
     public void resetTakenDamage() {
         this.takenMagicDamage = 0;
         this.takenPhysicalDamage = 0;
     }
 
+    /**
+     * @return the amount of gained health points
+     */
     public int getGainedHp() {
         return gainedHealth;
     }
 
+    /**
+     * @return the amount of gained focus points
+     */
     public int getGainedFp() {
         int gained = this.gainedFp;
         this.gainedFp = minFp;
         return gained;
     }
 
+    /**
+     * This method returns a boolean based on whether
+     * the entity gained health points.
+     *
+     * @return if entity gained hp
+     */
     public boolean hasGainedFp() {
         return this.gainedFp > minFp;
     }
 
-
+    /**
+     * This method reduces the entity's fp
+     * according to the given cost factor.
+     *
+     * @param cost the ability cost factor
+     */
     public void useFp(int cost) {
         this.fp -= cost;
     }

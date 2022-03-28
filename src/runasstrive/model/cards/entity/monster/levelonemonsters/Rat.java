@@ -22,7 +22,7 @@ public class Rat extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Block(BLOCK_LEVEL), new Claw(CLAW_LEVEL));
 
     /**
-     * constructs a new Rat object
+     * This method constructs a new Rat object.
      */
     public Rat() {
         super(NAME, HP, MonsterType.NONE, ABILITIES);

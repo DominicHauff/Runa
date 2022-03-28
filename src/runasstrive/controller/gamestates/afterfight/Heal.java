@@ -13,13 +13,26 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
+/**
+ * This class represents the {@link GameState} in which
+ * the player has won a fight and can discard ability
+ * cards to gain hp.
+ *
+ * @author ugget
+ * @version 1.0
+ */
 public class Heal extends GameState {
     private static final MultipleChoiceParameter CHOICES = new MultipleChoiceParameter();
     private static final int CARD_INDEX_OFFSET = 1;
     private List<Integer> choices;
 
+    /**
+     * This method constructs a new Heal object.
+     *
+     * @param runasStrive the instance of the {@link RunasStrive} object used by all
+     *                    game states
+     */
     public Heal(RunasStrive runasStrive) {
         super(runasStrive);
     }

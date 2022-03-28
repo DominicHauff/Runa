@@ -14,7 +14,10 @@ import runasstrive.model.RunasStrive;
  * @author ugget
  * @version 1.0
  */
-public class Application {
+public final class Application {
+    private Application() {
+
+    }
 
     /**
      * The program's main method.

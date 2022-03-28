@@ -30,7 +30,7 @@ public class Hornet extends Monster {
     );
 
     /**
-     * constructs a new Hornet object
+     * This method constructs a new Hornet object
      */
     public Hornet() {
         super(NAME, HP, MonsterType.FIRE, ABILITIES);

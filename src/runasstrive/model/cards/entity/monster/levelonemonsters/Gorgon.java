@@ -23,7 +23,7 @@ public class Gorgon extends Monster {
     private static final List<Ability> ABILITIES = List.of(new Focus(FOCUS_LEVEL), new Fire(FIRE_LEVEL, FIRE_LEVEL));
 
     /**
-     * constructs a new Gorgon object
+     * This method constructs a new Gorgon object.
      */
     public Gorgon() {
         super(NAME, HP, MonsterType.FIRE, ABILITIES);
