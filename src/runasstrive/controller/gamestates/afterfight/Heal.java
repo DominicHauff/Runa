@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
  */
 public class Heal extends GameState {
     private static final MultipleChoiceParameter CHOICES = new MultipleChoiceParameter();
-    private static final int CARD_INDEX_OFFSET = 1;
     private List<Integer> choices;
 
     /**
@@ -40,7 +39,7 @@ public class Heal extends GameState {
     @Override
     public String getPrompt() {
         return String.format(Messages.HEALING_OPTION, this.runasStrive.getPlayer().getHp()) + System.lineSeparator()
-                + this.list(this.runasStrive.getPlayer().getAbilities(), CARD_INDEX_OFFSET) + System.lineSeparator()
+                + this.list(this.runasStrive.getPlayer().getAbilities()) + System.lineSeparator()
                 + this.repeatPrompt();
     }
 

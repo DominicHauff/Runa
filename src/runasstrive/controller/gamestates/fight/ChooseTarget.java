@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
  */
 public class ChooseTarget extends FightGameState {
     private static final SingleChoiceParameter CHOICE = new SingleChoiceParameter();
-    private static final int INDEX_OFFSET = 1;
     private static final int MIN_INDEX = 0;
 
     /**
@@ -41,7 +40,7 @@ public class ChooseTarget extends FightGameState {
                 .collect(Collectors.toList());
 
         String targets = Messages.SELECT_TARGET_MESSAGE + System.lineSeparator()
-                + this.list(possibleTargets, INDEX_OFFSET) + System.lineSeparator();
+                + this.list(possibleTargets) + System.lineSeparator();
 
         return targets + repeatPrompt();
     }
@@ -67,7 +66,7 @@ public class ChooseTarget extends FightGameState {
      */
     @Override
     protected boolean interact(ParameterBundle parameterBundle) {
-        final int choice = parameterBundle.get(CHOICE) - INDEX_OFFSET;
+        final int choice = parameterBundle.get(CHOICE) - CARD_INDEX_OFFSET;
         if (choice < MIN_INDEX) {
             return false;
         }

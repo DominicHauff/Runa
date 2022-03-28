@@ -25,7 +25,6 @@ import java.util.Set;
 public class ChooseNewCards extends GameState {
     private static final MultipleChoiceParameter CHOICES = new MultipleChoiceParameter();
     private static final int EXPECTED_MIN_SIZE = 1;
-    private static final int CARD_INDEX_OFFSET = 1;
 
     /**
      * This method constructs a new ChooseNewCards object
@@ -40,7 +39,7 @@ public class ChooseNewCards extends GameState {
     @Override
     public String getPrompt() {
         return  String.format(Messages.PICK_CARD_PROMPT, this.runasStrive.getNumRewardCards())
-                + System.lineSeparator() + this.list(this.runasStrive.getRewards(), CARD_INDEX_OFFSET)
+                + System.lineSeparator() + this.list(this.runasStrive.getRewards())
                 + System.lineSeparator() + this.repeatPrompt();
     }
 
@@ -84,7 +83,7 @@ public class ChooseNewCards extends GameState {
 
         LinkedList<Ability> reward = new LinkedList<>(); //TODO: find better solution if everything else works fine
         for (Integer choice : choices) {
-            final Ability card = this.runasStrive.drawCard(choice - CARD_INDEX_OFFSET); //TODO: fix error;
+            final Ability card = this.runasStrive.drawCard(choice);
             reward.add(card);
         }
 
