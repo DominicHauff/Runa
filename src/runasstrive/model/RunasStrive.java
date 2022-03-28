@@ -7,7 +7,9 @@ import runasstrive.model.cards.entity.player.Player;
 import runasstrive.model.cards.entity.type.CharacterType;
 import runasstrive.model.dice.Die;
 import runasstrive.model.levels.FightLog;
+import runasstrive.model.levels.FightResult;
 import runasstrive.model.levels.GameLevel;
+import runasstrive.model.levels.Level;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Stack;
+import java.util.stream.IntStream;
 
 /**
  * This class represents the game which
@@ -25,6 +28,7 @@ import java.util.Stack;
  * @version 1.0
  */
 public class RunasStrive {
+    private static final int MIN_DIE_BAG_SIZE = 1;
     private final Player player;
     private final Stack<Die> dieBag;
     private final Stack<GameLevel> levels;
@@ -102,23 +106,6 @@ public class RunasStrive {
      */
     public FightLog startFight() {
         final FightLog fightLog = this.getCurrentLevel().resume(this.player);
-        if (fightLog.getStage().cleared()) {
-            this.advanceToNextStage();
-            if (!this.isLevelCleared()) {
-                if (this.reward.size() < fightLog.getStage().getMonsters().size() * 2) {
-                    int maxRewardNum = Math.min(
-                            this.deck.size(),
-                            fightLog.getStage().getMonsters().size() * 2
-                    );
-                    for (int i = this.reward.size(); i < maxRewardNum; i++) { //TODO: wtf
-                        if (i < this.deck.size()) this.reward.addLast(this.deck.get(i));
-                    }
-                }
-                fightLog.setFightResult(FightResult.STAGE_CLEARED);
-                return fightLog;
-            }
-        }
-
         if (this.gameOver()) {
             fightLog.setFightResult(FightResult.GAME_OVER);
             return fightLog;
@@ -127,52 +114,32 @@ public class RunasStrive {
             fightLog.setFightResult(FightResult.GAME_WON);
             return fightLog;
         }
+        if (!fightLog.getStage().cleared()) {
+            fightLog.setFightResult(FightResult.CONTINUE);
+            return fightLog;
+        }
+        this.advanceToNextStage();
         if (this.isLevelCleared()) {
             this.advanceToNextLevel();
             this.upgradeCards();
             fightLog.setFightResult(FightResult.LEVEL_CLEARED);
             return fightLog;
         }
-        fightLog.setFightResult(FightResult.CONTINUE);
+        if (this.reward.size() < fightLog.getStage().getMonsters().size() * 2) {
+            int maxRewardNum = Math.min(this.deck.size(), fightLog.getStage().getMonsters().size() * 2);
+            IntStream.range(this.reward.size(), maxRewardNum)
+                    .filter(i -> i < this.deck.size())
+                    .forEach(i -> this.reward.addLast(this.deck.get(i)));
+        }
+
+        fightLog.setFightResult(FightResult.STAGE_CLEARED);
         return fightLog;
     }
 
-    /**
-     * This method updates the current level when the last stage
-     * of the previous level has been cleared
-     */
-    public void advanceToNextLevel() {
+    private void advanceToNextLevel() {
         this.levels.pop();
         this.deck = DeckSupplier.getDeck(this.getCurrentLevel().getLevel().getValue());
         this.reward.clear();
-    }
-
-    /**
-     * This method updated the current stage when the previous stage
-     * has been cleared
-     */
-    public void advanceToNextStage() {
-        this.getCurrentLevel().enterNextStage();
-    }
-
-    /**
-     * This method returns a boolean based on whether
-     * Runa has won the game.
-     *
-     * @return whether Runa has won the game
-     */
-    public boolean gameWon() {
-        return this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL) && this.getCurrentLevel().cleared();
-    }
-
-    /**
-     * This method returns a boolean based on whether
-     * Runa has died.
-     *
-     * @return whether Runa has died
-     */
-    public boolean gameOver() {
-        return this.player.isDead();
     }
 
     /**
@@ -219,7 +186,7 @@ public class RunasStrive {
      * @return whether die can be upgraded
      */
     public boolean canChooseDie() {
-        return this.dieBag.size() != 1;
+        return this.dieBag.size() != MIN_DIE_BAG_SIZE;
     }
 
     /**
@@ -371,5 +338,17 @@ public class RunasStrive {
             }
         });
         this.deck.removeAll(toRemove);
+    }
+
+    private void advanceToNextStage() {
+        this.getCurrentLevel().enterNextStage();
+    }
+
+    private boolean gameWon() {
+        return this.getCurrentLevel().getLevel().equals(Level.MAX_LEVEL) && this.getCurrentLevel().cleared();
+    }
+
+    private boolean gameOver() {
+        return this.player.isDead();
     }
 }

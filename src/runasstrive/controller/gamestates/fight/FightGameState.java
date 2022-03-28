@@ -5,7 +5,7 @@ import runasstrive.controller.gamestates.afterfight.ChooseNewCards;
 import runasstrive.controller.gamestates.afterfight.ChooseReward;
 import runasstrive.controller.gamestates.afterfight.Heal;
 import runasstrive.controller.gamestates.init.InitializeLevel;
-import runasstrive.model.FightResult;
+import runasstrive.model.levels.FightResult;
 import runasstrive.model.levels.FightLog;
 import runasstrive.view.parameters.ParameterBundle;
 import runasstrive.view.resources.Messages;

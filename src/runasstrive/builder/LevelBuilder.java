@@ -1,6 +1,6 @@
 package runasstrive.builder;
 
-import runasstrive.model.Level;
+import runasstrive.model.levels.Level;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.monster.levelonemonsters.Frog;
 import runasstrive.model.cards.entity.monster.levelonemonsters.Ghost;

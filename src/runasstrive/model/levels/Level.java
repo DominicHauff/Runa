@@ -1,5 +1,6 @@
-package runasstrive.model;
+package runasstrive.model.levels;
 
+import runasstrive.model.RunasStrive;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.monster.levelonemonsters.SpiderKing;
 import runasstrive.model.cards.entity.monster.leveltwomonsters.MegaSaurus;

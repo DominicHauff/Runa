@@ -1,6 +1,5 @@
 package runasstrive.model.levels;
 
-import runasstrive.model.Level;
 import runasstrive.model.cards.entity.monster.Monster;
 import runasstrive.model.cards.entity.player.Player;
 

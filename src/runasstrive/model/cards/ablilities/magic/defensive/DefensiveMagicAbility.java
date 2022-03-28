@@ -1,6 +1,7 @@
 package runasstrive.model.cards.ablilities.magic.defensive;
 
 import runasstrive.model.cards.ablilities.magic.MagicAbility;
+import runasstrive.model.cards.entity.Entity;
 import runasstrive.model.cards.entity.type.MonsterType;
 
 /**

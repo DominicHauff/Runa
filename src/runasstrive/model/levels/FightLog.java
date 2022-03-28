@@ -1,7 +1,5 @@
 package runasstrive.model.levels;
 
-import runasstrive.model.FightResult;
-
 import java.util.List;
 
 /**

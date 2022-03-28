@@ -118,8 +118,8 @@ public abstract class Entity<T> extends Card {
 
     /**
      * @return returns the entity's type class,
-     * representing either a {@link runasstrive.model.cards.entity.player.Player}
-     * or {@link runasstrive.model.cards.entity.monster.Monster}
+     * representing either a {@link runasstrive.model.cards.entity.type.CharacterType}
+     * or {@link runasstrive.model.cards.entity.type.MonsterType}
      */
     public abstract Class<?> getEntityType();
 

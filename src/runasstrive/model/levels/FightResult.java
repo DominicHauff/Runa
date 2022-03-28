@@ -1,4 +1,4 @@
-package runasstrive.model;
+package runasstrive.model.levels;
 
 /**
  * An enum defining all possible results of a fight interaction between runa and monsters.
