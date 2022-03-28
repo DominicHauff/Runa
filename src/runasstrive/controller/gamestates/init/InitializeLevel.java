@@ -2,7 +2,6 @@ package runasstrive.controller.gamestates.init;
 
 import runasstrive.controller.gamestates.GameState;
 import runasstrive.controller.gamestates.fight.ChooseAbility;
-import runasstrive.model.Level;
 import runasstrive.view.parameters.MultipleChoiceParameter;
 import runasstrive.view.parameters.Parameter;
 import runasstrive.view.parameters.ParameterBundle;
@@ -25,7 +24,7 @@ public class InitializeLevel extends GameState {
 
     @Override
     public String getPrompt() {
-        return Messages.ENTER_SEED_DIALOG + System.lineSeparator() + repeatPrompt();
+        return Messages.ENTER_SEED_DIALOGUE + System.lineSeparator() + repeatPrompt();
     }
 
     @Override
