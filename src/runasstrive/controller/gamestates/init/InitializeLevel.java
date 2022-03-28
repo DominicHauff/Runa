@@ -38,7 +38,7 @@ public class InitializeLevel extends GameState {
 
     @Override
     public String getPrompt() {
-        return Messages.ENTER_SEED_DIALOG + System.lineSeparator() + repeatPrompt();
+        return Messages.ENTER_SEED_DIALOGUE + System.lineSeparator() + repeatPrompt();
     }
 
     @Override

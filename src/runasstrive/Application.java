@@ -14,18 +14,16 @@ import runasstrive.model.RunasStrive;
  * @author ugget
  * @version 1.0
  */
-public final class Application {
-    private Application() {
-
-    }
+public class Application {
+    private static final int EXPECTED_ARGS_SIZE = 0;
 
     /**
      * The program's main method.
      *
-     * @param args parameters of which there should not be any, hence the error message print
+     * @param args parameters of which there should not be any
      */
     public static void main(String[] args) {
-        if (args.length != 0) {
+        if (args.length != EXPECTED_ARGS_SIZE) {
             System.err.println(Messages.ERROR);
             return;
         }
